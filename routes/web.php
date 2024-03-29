@@ -11,6 +11,7 @@ use App\Http\Controllers\PriceController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\YouthController;
 use App\Http\Controllers\PostLikesController;
 use App\Http\Controllers\MyProfileController;
 use App\Http\Controllers\AdminPostController;
@@ -24,7 +25,12 @@ Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 
 Auth::routes();
 
+
 Route::middleware('auth')->group(function () {
+
+
+    Route::get('youth',[YouthController::class, 'index'])->name('youth.index');
+
     // Likes and Comments
     Route::post('post/{post:id}/likes', [PostLikesController::class, 'store'])->name('posts.like');
     Route::delete('post/{post}/likes', [PostLikesController::class, 'destroy'])->name('posts.like');
@@ -76,7 +82,7 @@ Route::middleware('can:super-admin')->group(function () {
         // Admin Posts
         Route::get('admin-posts', [AdminPostController::class, 'index'])->name('posts.index');
         Route::get('admin-post-create', [AdminPostController::class, 'create'])->name('posts.create.index');
-        Route::delete('AdminPostDelete/{id}', [AdminPostController::class, 'destroy'])->name('post.delete');
+        Route::delete('adminPostDelete/{id}', [AdminPostController::class, 'destroy'])->name('post.delete');
         Route::post('admin-posts', [AdminPostController::class, 'store'])->name('posts.create');
         Route::get('admin-post-edit/{id}/edit', [AdminPostController::class, 'edit'])->name('posts.edit');
         Route::put('admin-post-update/{id}', [AdminPostController::class, 'update'])->name('posts.update');
@@ -90,6 +96,7 @@ Route::middleware('can:super-admin')->group(function () {
         // Admin Users
         Route::get('admin-users', [AdminUsersController::class, 'index'])->name('admin.user.index');
         Route::get('admin-users/{id}', [AdminUsersController::class, 'show'])->name('admin.user.show');
+        Route::put('admin-users/update/{id}', [AdminUsersController::class, 'changeStatus'])->name('admin.user.update');
     
         // Admin Contact
         Route::get('admin-contact', [AdminContactController::class, 'index'])->name('admin.contact.index');

@@ -10,16 +10,16 @@ class ProfileService
     public function updateProfile(User $user, $request)
     {
         $data = $request->validated();
-    
+
         if ($request->hasfile('image')) {
             $this->deleteOldImage($user->image);
             $user->image = $this->uploadNewImage($request);
         }
-    
+
         $user->update($data);
     }
-    
-    
+
+
 
     protected function deleteOldImage($imagePath)
     {
@@ -29,6 +29,13 @@ class ProfileService
         }
     }
 
+
+    public function getUserProfile($userId)
+    {
+        return User::findOrFail($userId);
+    }
+
+//  inner function
     protected function uploadNewImage($data)
     {
         $file = $data->file('image');
@@ -38,9 +45,5 @@ class ProfileService
         return $filename;
     }
 
-    public function getUserProfile($userId)
-    {
-        return User::findOrFail($userId);
-    }
 
 }

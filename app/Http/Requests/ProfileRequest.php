@@ -26,14 +26,12 @@ class ProfileRequest extends FormRequest
         return [
             'name' => 'required|max:20',
             'image' => 'max:10240|mimes:jpg,bmp,png',
-            'linkedin' => 'nullable|url',
-            'github' => 'nullable|url',
-            'instagram' => 'nullable|url',
-            'telegram' => 'nullable|url',
+            'instagram' => 'nullable',
+            'telegram' => 'nullable',
             'job' => 'nullable|string',
             'location' => 'nullable|string',
             'phone' => 'nullable|string',
-            'about_uz' => 'nullable|string',
+            'about' => 'nullable|string',
         ];
     }
 }

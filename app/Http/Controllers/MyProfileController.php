@@ -18,7 +18,7 @@ class MyProfileController extends Controller
         $this->middleware('auth');
         $this->profileService = $profileService;
     }
-    
+
 
     public function index(Request $request )
     {
@@ -39,7 +39,7 @@ class MyProfileController extends Controller
         ]);
     }
 
-   
+
     public function edit(Request $request , User $id)
     {
         $id = $request->user()->id;
@@ -53,11 +53,12 @@ class MyProfileController extends Controller
 
     public function update(ProfileRequest $request, User $user)
     {
+        // dd($request->all());
         $this->profileService->updateProfile($user, $request);
-    
+
         return redirect()->route('profile.index');
     }
-    
+
 
 
 }

@@ -17,10 +17,8 @@ class AddToUsers extends Migration
             $table->string('birthday');
             $table->string('telegram')->nullable();
             $table->string('instagram')->nullable();
-            $table->string('linkedin')->nullable();
-            $table->string('github')->nullable();
             $table->string('job')->nullable();
-            $table->text('about_uz')->nullable();
+            $table->text('about')->nullable();
 
         });
     }

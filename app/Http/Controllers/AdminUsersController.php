@@ -81,7 +81,6 @@ class AdminUsersController extends Controller
    
         public function update(User $id , Request $request)
         {
-    
             $request->validate([
                 'name'=>['required','max:20'],
                 'image'=>['max:10240','mimes:jpg,bmp,png'],
@@ -119,6 +118,17 @@ class AdminUsersController extends Controller
     
              return redirect()->route('admin.user.index');
     
+        }
+
+        public function changeStatus($user, Request $request){
+            $user = User::findOrFail($user);
+            // dd($user);
+            if($user){
+                $user->active_status = $request->input('active_status');
+                $user->save();
+                return redirect()->route('admin.user.index')->with('success', 'Ma`lumotlar yangilandi !');;
+            }
+            return redirect()->route('admin.user.index')->with('error', 'ma`lumot topilmadi ');;
         }
 
     /**

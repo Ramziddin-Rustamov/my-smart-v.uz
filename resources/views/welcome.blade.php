@@ -292,7 +292,7 @@
                         Rahmat! Sizga kerakli ma'lumotlarni taqdim etishim mumkin. "TemplateMo" veb-sayti, bepul CSS shriftlarini taklif etadi va ommaviy veb-saytlarida qidiruv motorlarida "TemplateMo" nomini qidirishingiz yoki "TemplateMo Portfolio", "TemplateMo One Page Layouts"
                         kabi so'rovlarni kiriting. Bu usullar orqali siz uyingiz uchun mos veb-dizaynlarni topishingiz mumkin..</p>
                       <div class="icon-button">
-                        <a href="property-details.html"><i class="fa fa-users"></i> Yoshlarimiz ...</a>
+                        <a href="{{route('youth.index')}}"><i class="fa fa-users"></i> Yoshlarimiz ...</a>
                       </div>
                     </div>
                   </div>

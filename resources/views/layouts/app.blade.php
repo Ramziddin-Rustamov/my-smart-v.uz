@@ -13,14 +13,7 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
   <!-- Vendor CSS Files -->
-  {{-- <link href="{{asset('/assets/vendor/animate.css/animate.min.css')}}" rel="stylesheet">
-  <link href="{{ asset('assets/vendor/aos/aos.css') }}" rel="stylesheet">
-  <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
-  <link href="{{ asset('assets/vendor/boxicons/css/boxicons.min.css') }} " rel="stylesheet">
-  <link href="{{ asset('assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('assets/vendor/remixicon/remixicon.css') }} " rel="stylesheet">
-  <link href="{{ asset('assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet"> --}}
+
 
   {{-- start --}}
 <link href="{{ asset('assets/css/google-fonts.css') }}" rel="stylesheet">
@@ -88,7 +81,6 @@
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                        <li><a href="index.html" class="active">Asosiy</a></li>
                         <li><a href="properties.html">Biz haqimizda ko'proq</a></li>
                         <li><a href="contact.html">Biz bilan bog'laning </a></li>
                         <li class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -104,6 +96,10 @@
                         </div>
                         <li class="nav-item dropdown">
                             @guest
+                            <a style="background-color: #f35525;border-radius: 20px; " class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                               Tizimga kirish
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 @if (Route::has('login'))
                                     <a style="{{ (Request::is('login') ? 'color: green; text-decoration: underline;' : '') }}" class="nav-link" href="{{ route('login') }}"><span>{{ __('Login') }}</span></a>
                                 @endif
@@ -111,6 +107,7 @@
                                 @if (Route::has('register'))
                                     <a style="{{ (Request::is('register') ? 'color: green; text-decoration: underline;' : '') }}"  class="nav-link" href="{{ route('register') }}"><span>{{ __('Register') }}</span></a>
                                 @endif
+                            </div>
                             @else
                             <a style="background-color: #f35525;border-radius: 20px; " class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 <img src="{{ asset(Auth::user()->image) }}" alt="{{ Auth::user()->name }}'s image"class="rounded-circle position-relative" style="width: 30px; height: 30px; margin-right: 8px; border-radius: 20px; right: -4px; bottom: 8px;">
