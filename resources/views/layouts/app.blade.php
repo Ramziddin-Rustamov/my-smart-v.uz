@@ -75,7 +75,7 @@
             <div class="col-12">
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
-                    <a href="index.html" class="logo">
+                    <a href="/" class="logo">
                         <h1 style="color:#f35525">MANGITOBOD</h1>
                     </a>
                     <!-- ***** Logo End ***** -->
@@ -327,7 +327,7 @@
   <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
   <script src="{{ asset('assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
   <script src="{{ asset('assets/vendor/waypoints/noframework.waypoints.js') }}"></script> --}}
-<footer class="bg-dark py-3 mt-3 ">
+<footer class="bg-dark  py-3 mt-5 mt-3 mt-sm-3 ">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">

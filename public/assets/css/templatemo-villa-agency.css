@@ -1338,6 +1338,33 @@ Footer Style
 --------------------------------------------- 
 */
 
+footer.footer-no-gap {
+  margin-top: 0px;
+}
+
+footer {
+  margin-top: 150px;
+  background-color: #1e1e1e;
+  min-height: 100px;
+}
+
+footer p {
+  text-align: center;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+footer p a {
+  color: #fff;
+  transition: all .3s;
+  position: relative;
+  z-index: 3;
+}
+
+footer p a:hover {
+  opacity: 0.75;
+}
 
 
 /* 

@@ -2,7 +2,7 @@
 @section('title','Register now')
 
 @section('content')
-<div class="container pb-5"style="padding-top:125px">
+<div class="container pb-5"style="padding-top:80px">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
