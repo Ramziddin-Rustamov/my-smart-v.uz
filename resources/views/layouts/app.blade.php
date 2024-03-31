@@ -324,11 +324,11 @@
 
   <footer>
     <div class="container">
-      <div class="col-lg-8">
-        <p>Copyright © 2048 Villa Agency Co., Ltd. All rights reserved.
-
-        Design: <a rel="nofollow" href="https://templatemo.com" target="_blank">TemplateMo</a> Distribution: <a href="https://themewagon.com">ThemeWagon</a></p>
-      </div>
+      <div class="col-lg-12">
+        <p> Sayt 2024 yil boshida ishlab chiqildi . 
+            Agarda sayt ishlash jarayomida xato va kamchiliklar bo'lsa xabar bering, bog'lanish uchun  <a rel="nofollow" class="text-primary" href="https://t.me/ramziddinrustamm">Shu yerga bosing </a>
+        </p>
+        </div>
     </div>
   </footer>
 

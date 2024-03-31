@@ -9,8 +9,8 @@
     <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
 
       <div class="carousel-inner" role="listbox">
-        @foreach ($slides as $slide )
-        <div class="carousel-item {{ ($loop->index == 0) ? 'active':'' }}" style="background-image: url('{{ $slide->image }}');background-repeat: no-repeat; background-size: cover; background-position: center; @media (max-width: 767px) { background-size: contain; }">
+        {{-- @foreach ($slides as $slide ) --}}
+        {{-- <div class="carousel-item {{ ($loop->index == 0) ? 'active':'' }}" > 
           <div class="carousel-container">
             <div style="background-color: rgb(0 0 , 44);
             border-radius: 10px;
@@ -18,14 +18,14 @@
               <h2>{{ $slide->title_en }}</h2>
               <p class="">{{ $slide->body_en }}</p>
               @guest
-              <div class="text-center"><a href="{{ route('register') }}" class="btn-get-started">{{ __('Follow Us') }}</a></div>
+              {{-- <div class="text-center"><a href="{{ route('register') }}" class="btn-get-started">{{ __('Follow Us') }}</a></div> 
               @endguest
             </div>
           </div>
         </div>
-        @endforeach
-      </div>
-
+        {{-- @endforeach --}}
+      {{-- </div> --}}
+{{-- 
       <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
         <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
       </a>
@@ -37,39 +37,40 @@
       <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
 
     </div>
-  </section> --}}
+  </section>  --}}
   <!-- End Hero -->
   {{--N  starts --}}
-   @if($slides)
+   {{-- @if($slides) --}}
    <div class="main-banner">
     <div class="owl-carousel owl-banner">
-      @foreach ($slides as $slide )
+      {{-- @foreach ($slides as $slide ) --}}
 
       <div class="item item-3">
         <div class="header-text">
-          <span class="category">{{ $slide->title_en }}</em></span>
+          {{-- <span class="category">{{ $slide->title_en }}</em></span> --}}
           <h2>Act Now!<br>Get the highest level penthouse </h2>
         </div>
       </div>
 
-      @endforeach
+      {{-- @endforeach --}}
     </div>
   </div>
-   @else
-
-   @endif
+   {{-- @else --}}
+     {{-- <h1>No slide </h1> --}}
+   {{-- @endif --}}
   <div class="featured section">
     <div class="container">
       <div class="row">
         <div class="col-lg-4">
           <div class="left-image">
-            <img src="{{asset('assets/images/featured.jpg') }}" alt="">
+            <img src="https://images.ctfassets.net/lh3zuq09vnm2/3JFYi0nAqOxgVXHTYzQsL9/8b5d3b077342437c38678cb7b94d5800/what-is-usability-testing-1_FJaO9XF.svg" alt="">
+            {{-- <img src="{{asset('assets/images/featured.jpg') }}" alt=""> --}}
           </div>
         </div>
         <div class="col-lg-5">
           <div class="section-heading">
             <h6>| Mahallamiz RAISi</h6>
-            <h2>Ramziddin Rustamov </h2>
+            <h2>Faxriddin  </h2>
           </div>
           <div class="accordion" id="accordionExample">
             <div class="accordion-item">
