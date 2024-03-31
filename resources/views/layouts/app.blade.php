@@ -81,20 +81,23 @@
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                        <li><a href="properties.html">Biz haqimizda ko'proq</a></li>
-                        <li><a href="contact.html">Biz bilan bog'laning </a></li>
-                        <li class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/">
-                                <i class="bx bx-home text-success"></i> Main Page
-                            </a>
-                        </li>
-                        <li><a href="contact.html">Yangiliklar </a></li>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/">
-                                <i class="bx bx-home text-success"></i> Main Page
-                            </a>
-                        </div>
                         <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre id="dropdownMenu">
+                            Qo'shimcha ma'lumotlar 
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end position-absolute z-index-1000" aria-labelledby="dropdownMenu">                            <a style="{{ (Request::is('login') ? 'color: green; text-decoration: underline;' : '') }}" class="nav-link" href="{{ route('login') }}"><span>{{ __('Login') }}</span></a>
+                            <a style="{{ (Request::is('login') ? 'color: green; text-decoration: underline;' : '') }}" class="nav-link" href="{{ route('login') }}"><span>{{ __('Login') }}</span></a>
+                            <a style="{{ (Request::is('login') ? 'color: green; text-decoration: underline;' : '') }}" class="nav-link" href="{{ route('login') }}"><span>{{ __('Login') }}</span></a>
+                            <a style="{{ (Request::is('login') ? 'color: green; text-decoration: underline;' : '') }}" class="nav-link" href="{{ route('login') }}"><span>{{ __('Login') }}</span></a>
+                            <a style="{{ (Request::is('login') ? 'color: green; text-decoration: underline;' : '') }}" class="nav-link" href="{{ route('login') }}"><span>{{ __('Login') }}</span></a>
+                            <a style="{{ (Request::is('login') ? 'color: green; text-decoration: underline;' : '') }}" class="nav-link" href="{{ route('login') }}"><span>{{ __('Login') }}</span></a>
+                            <a style="{{ (Request::is('login') ? 'color: green; text-decoration: underline;' : '') }}" class="nav-link" href="{{ route('login') }}"><span>{{ __('Login') }}</span></a>
+                            <a style="{{ (Request::is('login') ? 'color: green; text-decoration: underline;' : '') }}" class="nav-link" href="{{ route('login') }}"><span>{{ __('Login') }}</span></a>
+                        </div>
+                    </li>
+
+                        
+                        <li class="nav-item dropdown mb-3">
                             @guest
                             <a style="background-color: #f35525;border-radius: 20px; " class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                Tizimga kirish
@@ -140,7 +143,10 @@
                                 </div>
                             @endguest
                         </li>
-                        <li><a href="#"><i class="fa fa-calendar"></i> 21.03.2024</a></li>
+                        @php
+                            $currentTime = now()->format('d-m-y , H:i');
+                        @endphp
+                        <li><a href="#"><i class="fa fa-calendar"></i>{{$currentTime}}</a></li>
                     </ul>
                     <a class='menu-trigger'>
                         <span>Menu</span>
@@ -321,16 +327,18 @@
   <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
   <script src="{{ asset('assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
   <script src="{{ asset('assets/vendor/waypoints/noframework.waypoints.js') }}"></script> --}}
-
-  <footer>
+<footer class="bg-dark py-3 mt-3 ">
     <div class="container">
-      <div class="col-lg-12">
-        <p> Sayt 2024 yil boshida ishlab chiqildi . 
-            Agarda sayt ishlash jarayomida xato va kamchiliklar bo'lsa xabar bering, bog'lanish uchun  <a rel="nofollow" class="text-primary" href="https://t.me/ramziddinrustamm">Shu yerga bosing </a>
-        </p>
+        <div class="row">
+            <div class="col-lg-12">
+                <p class="text-center mb-0  text-white">
+                    Sayt 2024 yil boshida ishlab chiqildi. Agarda sayt ishlash jarayomida xato va kamchiliklar bo'lsa xabar bering, bog'lanish uchun <a rel="nofollow" class="text-primary" href="https://t.me/ramziddinrustamm">Shu yerga bosing</a>
+                </p>
+            </div>
         </div>
     </div>
-  </footer>
+</footer>
+
 
 
   {{-- starts --}}
