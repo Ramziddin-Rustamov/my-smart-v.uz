@@ -560,8 +560,15 @@
           </div>
         </div>
         <div class="col-lg-5">
-          <form id="contact-form" action="" method="post">
-            <div class="row">
+            <div class="text-center col-lg-10 ">
+                @if (session('success'))
+                    <div class="alert alert-success mb-1 py-2">
+                        {{ session('success') }}
+                    </div>
+                @endif
+            </div> 
+            <form id="contact-form" action="{{ route('contact.store') }}" method="post" role="form" class="php-email-form ">    
+              @guest
               <div class="col-lg-12">
                 <fieldset>
                   <label for="name">F.I.SH</label>
@@ -574,6 +581,21 @@
                   <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Email pochtangizni kiriting " required="">
                 </fieldset>
               </div>
+              @else
+              <div class="col-lg-12">
+                <fieldset>
+                  <label for="name">F.I.SH</label>
+                  <input type="name" name="name" id="name" value="{{Auth::user()->name}}" autocomplete="on" disabled>
+                </fieldset>
+              </div>
+              <div class="col-lg-12">
+                <fieldset>
+                  <label for="email">Email pochtangiz <span class="text-danger"> [ majburiy emas ]</span></label>
+                  <input type="text" name="email" id="email" value="{{Auth::user()->email}}" required="" disabled>
+                </fieldset>
+              </div>
+              @endguest
+              
               <div class="col-lg-12">
                 <fieldset>
                   <label for="subject">Nima buyicha  ? </label>
