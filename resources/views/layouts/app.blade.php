@@ -23,6 +23,7 @@
 <link href="{{ asset('assets/css/owl.css') }}" rel="stylesheet">
 <link href="{{ asset('assets/css/animate.css') }}" rel="stylesheet">
 <link href="{{ asset('assets/css/bundle.min.css') }}" rel="stylesheet">
+<link href="{{ asset('assets/css/addational.css') }}" rel="stylesheet">
 {{-- End --}}
 
 
@@ -47,7 +48,7 @@
   </div> --}}
   <!-- ***** Preloader End ***** -->
 
-  <div class="sub-header">
+  {{-- <div class="sub-header">
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-8">
@@ -66,10 +67,10 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> --}}
 
   <!-- ***** Header Area Start ***** -->
-  <header class="header-area header-sticky">
+ {{-- <header class="header-area header-sticky">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -82,71 +83,57 @@
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                         <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre id="dropdownMenu">
-                            Qo'shimcha ma'lumotlar 
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-end position-absolute z-index-1000" aria-labelledby="dropdownMenu">                            <a style="{{ (Request::is('login') ? 'color: green; text-decoration: underline;' : '') }}" class="nav-link" href="{{ route('login') }}"><span>{{ __('Login') }}</span></a>
-                            <a style="{{ (Request::is('login') ? 'color: green; text-decoration: underline;' : '') }}" class="nav-link" href="{{ route('login') }}"><span>{{ __('Login') }}</span></a>
-                            <a style="{{ (Request::is('login') ? 'color: green; text-decoration: underline;' : '') }}" class="nav-link" href="{{ route('login') }}"><span>{{ __('Login') }}</span></a>
-                            <a style="{{ (Request::is('login') ? 'color: green; text-decoration: underline;' : '') }}" class="nav-link" href="{{ route('login') }}"><span>{{ __('Login') }}</span></a>
-                            <a style="{{ (Request::is('login') ? 'color: green; text-decoration: underline;' : '') }}" class="nav-link" href="{{ route('login') }}"><span>{{ __('Login') }}</span></a>
-                            <a style="{{ (Request::is('login') ? 'color: green; text-decoration: underline;' : '') }}" class="nav-link" href="{{ route('login') }}"><span>{{ __('Login') }}</span></a>
-                            <a style="{{ (Request::is('login') ? 'color: green; text-decoration: underline;' : '') }}" class="nav-link" href="{{ route('login') }}"><span>{{ __('Login') }}</span></a>
-                            <a style="{{ (Request::is('login') ? 'color: green; text-decoration: underline;' : '') }}" class="nav-link" href="{{ route('login') }}"><span>{{ __('Login') }}</span></a>
-                        </div>
-                    </li>
-
-                        
-                        <li class="nav-item dropdown mb-3">
-                            @guest
-                            <a style="background-color: #f35525;border-radius: 20px; " class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                               Tizimga kirish
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre id="dropdownMenu">
+                                Qo'shimcha ma'lumotlar
                             </a>
-                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                @if (Route::has('login'))
-                                    <a style="{{ (Request::is('login') ? 'color: green; text-decoration: underline;' : '') }}" class="nav-link" href="{{ route('login') }}"><span>{{ __('Login') }}</span></a>
-                                @endif
-
-                                @if (Route::has('register'))
-                                    <a style="{{ (Request::is('register') ? 'color: green; text-decoration: underline;' : '') }}"  class="nav-link" href="{{ route('register') }}"><span>{{ __('Register') }}</span></a>
-                                @endif
-                            </div>
-                            @else
-                            <a style="background-color: #f35525;border-radius: 20px; " class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                <img src="{{ asset(Auth::user()->image) }}" alt="{{ Auth::user()->name }}'s image"class="rounded-circle position-relative" style="width: 30px; height: 30px; margin-right: 8px; border-radius: 20px; right: -4px; bottom: 8px;">
-                                {{ explode(" ", Auth::user()->name)[0] }}
-                            </a>
-
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    {{-- Main menu --}}
-                                    <a class="dropdown-item py-3" href="/">
-                                        <i class="bx bx-home text-success"></i>    {{ __('Main Page') }}
+                            <div class="dropdown-menu dropdown-menu-end position-absolute z-index-1000" aria-labelledby="dropdownMenu">
+                                <!-- User Profile Dropdown -->
+                                @guest
+                                    <a style="background-color: #f35525;border-radius: 20px; " class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        Tizimga kirish
                                     </a>
-                                    {{-- My Profile --}}
-                                    <a class="dropdown-item py-3" href="{{ route('profile.index') }}">
-                                        <i class="bx bx-user text-success"></i>    {{ __('My profile') }}
+                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                        @if (Route::has('login'))
+                                            <a style="{{ (Request::is('login') ? 'color: green; text-decoration: underline;' : '') }}" class="nav-link" href="{{ route('login') }}"><span>{{ __('Login') }}</span></a>
+                                        @endif
+
+                                        @if (Route::has('register'))
+                                            <a style="{{ (Request::is('register') ? 'color: green; text-decoration: underline;' : '') }}"  class="nav-link" href="{{ route('register') }}"><span>{{ __('Register') }}</span></a>
+                                        @endif
+                                    </div>
+                                @else
+                                    <a style="background-color: #f35525;border-radius: 20px; " class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        <img src="{{ asset(Auth::user()->image) }}" alt="{{ Auth::user()->name }}'s image"class="rounded-circle position-relative" style="width: 30px; height: 30px; margin-right: 8px; border-radius: 20px; right: -4px; bottom: 8px;">
+                                        {{ explode(" ", Auth::user()->name)[0] }}
                                     </a>
-                                    {{-- Dashboard --}}
-                                    @can('super-admin')
-                                        <a class="dropdown-item py-3" href="{{ route('home') }}">
-                                            <i class="bx bx-message text-success"></i>   {{ __('Dashboard') }} <i class="fa fa-list"></i>
+
+                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                        {{-- Main menu --}}
+                                        {{-- <a class="dropdown-item py-3" href="/">
+                                            <i class="bx bx-home text-success"></i>    {{ __('Main Page') }}
+                                        </a> --}}
+                                        {{-- My Profile
+                                        <a class="dropdown-item py-3" href="{{ route('profile.index') }}">
+                                            <i class="bx bx-user text-success"></i>    {{ __('My profile') }}
                                         </a>
-                                    @endcan
-                                    <a class="dropdown-item py-3" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                                    document.getElementById('logout-form').submit();">
-                                        <i class="bx bx-exit text-success"></i> {{ __('Logout') }}
-                                    </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            @endguest
+                                        {{-- Dashboard --}}
+                                        {{-- @can('super-admin')
+                                            <a class="dropdown-item py-3" href="{{ route('home') }}">
+                                                <i class="bx bx-message text-success"></i>   {{ __('Dashboard') }} <i class="fa fa-list"></i>
+                                            </a>
+                                        @endcan
+                                        <a class="dropdown-item py-3" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                        document.getElementById('logout-form').submit();">
+                                            <i class="bx bx-exit text-success"></i> {{ __('Logout') }}
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                        </form>
+                                    </div> --}}
+                                {{-- @endguest
+                            </div>
                         </li>
-                        @php
-                            $currentTime = now()->format('d-m-y , H:i');
-                        @endphp
-                        <li><a href="#"><i class="fa fa-calendar"></i>{{$currentTime}}</a></li>
                     </ul>
                     <a class='menu-trigger'>
                         <span>Menu</span>
@@ -155,37 +142,42 @@
                 </nav>
             </div>
         </div>
-    </div>
-</header>
+    </div> --}}
+{{-- </header> --}}
 
   <!-- ***** Header Area End ***** -->
 
 
      <!-- ======= Header ======= -->
-  {{-- <header id="header" class="fixed-top mb-5 ">
+  <header id="header" class="fixed-top mb-5 " style="margin-bottom: 200px ">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo me-auto"><a href="/"><span>i</span>Coder</a></h1>
+      <h1  class="logo me-auto"><a style="color:#f35525" href="/">MANGITOBOD</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a href="/" class="{{ (Request::is('/') ? 'active' : '') }}">Home</a></li>
+          <li><a href="/" class="{{ (Request::is('/') ? 'active' : '') }}">Yangiliklar</a></li>
 
-          <li class="dropdown "><a href="#"><span class="{{ (Request::is('about') ? 'active' : '') }} {{ (Request::is('view') ? 'active' : '') }}">About</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown "><a href="#"><span class="{{ (Request::is('about') ? 'active' : '') }} {{ (Request::is('view') ? 'active' : '') }}">Qo'shimcha</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li ><a href="{{ route('about') }}" class="{{ (Request::is('/about') ? 'active' : '') }}" >About Us</a></li>
-              <li><a href="{{ route('view') }} ">Our Clients view</a></li>
+              <li ><a href="{{ route('about') }}" class="{{ (Request::is('/about') ? 'active' : '') }}" >Biz haqimizda </a></li>
+              <li><a href="{{ route('view') }} ">Yangiliklar</a></li>
+              <li><a href="{{ route('view') }} ">Ishchi jamoa</a></li>
+              <li><a href="{{ route('view') }} ">Tibbiyot Birlashmasi</a></li>
+              <li><a href="{{ route('view') }} ">84-maktab</a></li>
+              <li><a href="{{ route('view') }} ">48-maktab</a></li>
             </ul>
           </li>
 
-          <li><a href="{{ route('services') }}"    class="{{ (Request::is('services') ? 'active' : '') }}">Services</a></li>
-          <li><a href="{{ route('portfolio') }}"   class="{{ (Request::is('portfolio') ? 'active' : '') }}">Portfolio</a></li>
-          <li><a href="{{ route('question.index') }}" class="{{ (Request::is('question') ? 'active' : '') }}">QUESTIONS</a></li>
-          <li><a href="{{ route('contact') }}"     class="{{ (Request::is('contact') ? 'active' : '') }}">Contact</a></li>
+          {{-- <li><a href="{{ route('services') }}"    class="{{ (Request::is('services') ? 'active' : '') }}">Services</a></li>
+          <li><a href="{{ route('portfolio') }}"   class="{{ (Request::is('portfolio') ? 'active' : '') }}">84-Maktab</a></li>
+          <li><a href="{{ route('question.index') }}" class="{{ (Request::is('question') ? 'active' : '') }}">Masjid</a></li>
+          <li><a href="{{ route('contact') }}"     class="{{ (Request::is('contact') ? 'active' : '') }}">48-Maktab</a></li>
+          <li><a href="{{ route('contact') }}"     class="{{ (Request::is('contact') ? 'active' : '') }}">Tibbiy shifoxona </a></li> --}}
 
         </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
+        <i class="fas fa-align-left mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
       <div class="header-social-links ps-2 d-flex">
@@ -206,8 +198,8 @@
             @else
                 <li class="nav-item dropdown d-flex "  id="navbarDropdown">
                     <a class="ps-md-3 " href="{{ asset(Auth::user()->image)  }}">
-                      <img
-                       class="user-circle-image-class"
+                      <img style="width:35px; border-radius:50%"
+                       class="user-circle-image-class "
                       src="{{ asset(Auth::user()->image)  }}"
                       alt="{{ Auth::user()->name }} `s image'">
                     </a>
@@ -215,17 +207,17 @@
                         {{ explode(" ", Auth::user()->name)[0] }}
                     </a>
 
-                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown"> --}}
-                      {{-- Main menu --}}
-                      {{-- <a class="dropdown-item py-3  " href="/">
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                      {{-- Main menu  --}}
+                         <a class="dropdown-item py-3  " href="/">
                         <i class="bx bx-home text-success"></i>    {{ __('Main Page') }}
-                      </a> --}}
+                      </a>
                       {{-- My Profile --}}
-                       {{-- <a class="dropdown-item py-3  " href="{{ route('profile.index') }}">
+                       <a class="dropdown-item py-3  " href="{{ route('profile.index') }}">
                          <i class="bx bx-user text-success"></i>    {{ __('My profile') }}
-                       </a> --}}
+                       </a>
                       {{-- dashboard --}}
-                      {{-- @can('super-admin')
+                       @can('super-admin')
                       <a class="dropdown-item py-3" href="{{ route('home') }}">
                         <i class="bx bx-message text-success"></i>   {{ __('Dashboard') }} <i class="fa fa-list"></i>
                       </a>
@@ -241,13 +233,14 @@
                     </div>
                 </li>
             @endguest
-        </ul>   <!-- Right Side Of Navbar -->
+          </ul>
+         <!-- Right Side Of Navbar -->
       </div>
-    </div> --}}
-  {{-- </header> --}}
+    </div>
+</header>
   <!--!End Header-->
 
-        <main id="app">
+        <main id="app " style="margin-top:90px;">
             @yield('content')
         </main>
 
@@ -348,6 +341,7 @@
   <script src="{{ asset('assets/js/owl-carousel.js') }}"></script>
   <script src="{{ asset('assets/js/counter.js') }}"></script>
   <script src="{{ asset('assets/js/custom.js') }}"></script>
+  <script src="{{ asset('assets/js/addational.js') }}"></script>
   {{-- End --}}
   <!-- Template Main JS File -->
   <script src="{{ asset('assets/js/main.js') }}"></script>
