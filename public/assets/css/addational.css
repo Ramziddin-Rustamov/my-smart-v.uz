@@ -2,21 +2,21 @@ body {
     font-family: "Open Sans", sans-serif;
     color: #4d4643;
   }
-  
+
   a {
     color: #1bbd36;
     text-decoration: none;
   }
-  
+
   a:hover {
     color: #2ae149;
     text-decoration: none;
   }
-  
+
   h1, h2, h3, h4, h5, h6 {
     font-family: "Roboto", sans-serif;
   }
-  
+
   /*--------------------------------------------------------------
   # Back to top button
   --------------------------------------------------------------*/
@@ -46,7 +46,7 @@ body {
     visibility: visible;
     opacity: 1;
   }
-  
+
   /*--------------------------------------------------------------
   # Disable AOS delay on mobile
   --------------------------------------------------------------*/
@@ -82,7 +82,7 @@ body {
   #header .logo img {
     max-height: 40px;
   }
-  
+
   /*--------------------------------------------------------------
   # Header Social Links
   --------------------------------------------------------------*/
@@ -109,12 +109,12 @@ body {
       border-left: 0;
     }
   }
-  
+
   /*--------------------------------------------------------------
   # Navigation Menu
   --------------------------------------------------------------*/
   /**
-  * Desktop Navigation 
+  * Desktop Navigation
   */
   .navbar {
     padding-bottom:10px;
@@ -205,9 +205,9 @@ body {
       left: -100%;
     }
   }
-  
+
   /**
-  * Mobile Navigation 
+  * Mobile Navigation
   */
   .mobile-nav-toggle {
     color: #111;
@@ -220,12 +220,12 @@ body {
   .mobile-nav-toggle.bi-x {
     color: #fff;
   }
-  
+
   @media (max-width: 991px) {
     .mobile-nav-toggle {
       display: block;
     }
-  
+
     .navbar ul {
       display: none;
     }
@@ -295,4 +295,3 @@ body {
   .navbar-mobile .dropdown > .dropdown-active {
     display: block;
   }
-  

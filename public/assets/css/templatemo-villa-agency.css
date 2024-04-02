@@ -625,11 +625,24 @@ Header Style
 
 }
 
+/* Default styles */
+.logo a {
+    color: #f35525;
+    font-size: 24px; /* Default font size */
+    text-decoration: none;
+    display: inline-block; /* Ensure proper alignment */
+}
+
+/* Media query for phone screens */
 @media screen and (max-width: 480px) {
     .logo a {
-        font-size: 14px; /* Adjust font size for smaller screens */
+        font-size: 0; /* Hide the text */
     }
-
+    .logo a::before {
+        content: "M"; /* Set content to "M" */
+        font-size: 24px; /* Adjust font size for the first letter */
+    }
+}
 @media (max-width: 767px) {
   .background-header .main-nav {
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
