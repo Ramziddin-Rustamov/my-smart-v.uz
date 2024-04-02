@@ -152,7 +152,7 @@
   <header id="header" class="fixed-top mb-5 " style="margin-bottom: 200px ">
     <div class="container d-flex align-items-center">
 
-      <h1  class="logo me-auto"><a style="color:#f35525" href="/">MANGITOBOD</a></h1>
+      <h1  class="logo me-auto"><a style="color:#f35525" href="/">M</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
 
       <nav id="navbar" class="navbar order-last order-lg-0">
