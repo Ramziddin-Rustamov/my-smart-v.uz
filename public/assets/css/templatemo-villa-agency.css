@@ -642,8 +642,8 @@ Header Style
   }
   .background-header .main-nav .nav li a,
   .header-area .main-nav .nav li a {
-    line-height: 50px;
-    height: 50px;
+    line-height: 40px;
+    height: 40px;
     font-weight: 400;
     color: #1e1e1e;
     background-color: #fff;
@@ -1711,7 +1711,7 @@ body {
 
 @media (max-width: 767px) {
   .header-area .main-nav .logo h1 {
-    line-height: 50px !important;
+    line-height: 30px !important;
   }
   .best-deal .tabs-content .nav-link {
     font-size: 14px;
@@ -1739,7 +1739,7 @@ body {
     display: none;
   }
   .header-area .main-nav .logo h1 {
-    line-height: 90px;
+    line-height: 60px;
   }
   .background-header .main-nav .logo h1 {
     line-height: 80px;
