@@ -627,7 +627,7 @@ Header Style
 
 @media screen and (max-width: 480px) {
     .logo a {
-        font-size: 18px; /* Adjust font size for smaller screens */
+        font-size: 14px; /* Adjust font size for smaller screens */
     }
 
 @media (max-width: 767px) {
