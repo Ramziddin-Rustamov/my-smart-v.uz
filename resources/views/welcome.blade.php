@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Home page')
+@section('title','Asosiy menu')
 @section('content')
   <!-- ======= Header ======= -->
 
