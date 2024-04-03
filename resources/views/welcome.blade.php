@@ -44,25 +44,25 @@
      {{-- 1 --}}
      <div class="main-banner">
         <div class="owl-carousel owl-banner">
-          <div class="item item-1" style="background-image: url('https://mangitobod.uz/images/navbar/1.jpg');">
+          <div class="item item-1" style="background-image: url('https://mangitobod.uz/assets/images/navbar/1.jpg');">
             <div class="header-text">
               <span class="category">Urgut tumani, <em>Mangitobod</em></span>
               <h2>Urgut tuman hokimi <br> bilan uchrashuv jarayoni </h2>
             </div>
           </div>
-          <div class="item item-2" style="background-image: url('https://mangitobod.uz/images/navbar/2.jpg');">
+          <div class="item item-2" style="background-image: url('https://mangitobod.uz/assets/images/navbar/2.jpg');">
             <div class="header-text">
               <span class="category"> Urgut tumani , <em>48 - maktab</em></span>
               <h2>Maktabda o'quvchilarga <br> tushintiruv ishlari olib borildi </h2>
             </div>
           </div>
-          <div class="item item-3"  style="background-image: url('https://mangitobod.uz/images/navbar/3.jpg');">
+          <div class="item item-3"  style="background-image: url('https://mangitobod.uz/assets/images/navbar/3.jpg');">
             <div class="header-text">
                 <span class="category">Urgut tumani, <em>Mangitobod</em></span>
                 <h2>Urgut tuman hokimi <br> bilan uchrashuv jarayoni </h2>
             </div>
           </div>
-          <div class="item item-4" style="background-image: url('https://mangitobod.uz/images/navbar/4.jpg');">
+          <div class="item item-4" style="background-image: url('https://mangitobod.uz/assets/images/navbar/4.jpg');">
             <div class="header-text">
               <span class="category">Mangitobod, <em>Jomiy Masjidi </em></span>
               <h2>Ramozon oyidan <br> lavhalar </h2>
