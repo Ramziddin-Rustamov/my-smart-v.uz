@@ -12,8 +12,8 @@ class PostService
     public function __construct(Post $post)
     {
         $this->postModel = $post;
-    }   
-    
+    }
+
     public function countPosts()
     {
         return Cache::remember('count.posts', now()->addSecond(60), function () {
@@ -21,11 +21,11 @@ class PostService
         });
     }
 
-    public function getLatestPosts($limit = 2)
+    public function getLatestPosts($limit = 4)
     {
         $cacheKey = "latest_posts_{$limit}";
-    
-        return Cache::remember($cacheKey, now()->addMinutes(15), function () use ($limit) {
+
+        return Cache::remember($cacheKey, now()->addMinutes(1), function () use ($limit) {
             return $this->postModel::orderBy('id', 'DESC')
                 ->with(['user', 'comments', 'likes'])
                 ->limit($limit)
@@ -41,5 +41,5 @@ class PostService
 
     // Post like method
 
-    
+
 }

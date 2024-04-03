@@ -38,10 +38,9 @@ class WelcomeController extends Controller
 
         $team = $this->userService->getAdminUsers(4);
         $slides = $this->slideImageService->getSlideImages(3);
-        $posts = $this->postService->getLatestPosts(2);
+        $posts = $this->postService->getLatestPosts();
         $technologies = $this->technologyService->getTechnologies(3);
         $portfolio = $this->portfolioService->getLatestPortfolioes(6);
-
         return view('welcome', compact(
             'posts',
             'team',

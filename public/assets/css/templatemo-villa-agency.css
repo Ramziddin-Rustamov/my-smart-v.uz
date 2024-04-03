@@ -625,24 +625,6 @@ Header Style
 
 }
 
-/* Default styles */
-.logo a {
-    color: #f35525;
-    font-size: 24px; /* Default font size */
-    text-decoration: none;
-    display: inline-block; /* Ensure proper alignment */
-}
-
-/* Media query for phone screens */
-@media screen and (max-width: 480px) {
-    .logo a {
-        font-size: 0; /* Hide the text */
-    }
-    .logo a::before {
-        content: "M"; /* Set content to "M" */
-        font-size: 24px; /* Adjust font size for the first letter */
-    }
-}
 @media (max-width: 767px) {
   .background-header .main-nav {
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
@@ -655,8 +637,8 @@ Header Style
   }
   .background-header .main-nav .nav li a,
   .header-area .main-nav .nav li a {
-    line-height: 40px;
-    height: 40px;
+    line-height: 50px;
+    height: 50px;
     font-weight: 400;
     color: #1e1e1e;
     background-color: #fff;
@@ -746,9 +728,6 @@ Header Style
     padding-right: 0px !important;
   }
 
-
-}
-
 }
 
 /*
@@ -766,20 +745,39 @@ Banner Style
 }
 
 .main-banner .item-1 {
-  background-image: url(../images/banner-01.jpg);
+  background-image: url(../images/navbar/1.jpg);
 }
 
 .main-banner .item-2 {
-  background-image: url(../images/banner-02.jpg);
+  background-image: url(../images/navbar/2.jpg);
 }
 
 .main-banner .item-3 {
-  background-image: url(../images/banner-03.jpg);
+  background-image: url(../images/navbar/3.jpg);
 }
+.main-banner .item-4 {
+    background-image: url(../images/navbar/4.jpg);
+  }
 
+
+/* Adjust padding for smaller screen sizes */
+@media (max-width: 768px) {
+    .main-banner .item {
+      padding: 120px 20% 220px 20%;
+    }
+  }
+
+  /* Adjust padding for even smaller screen sizes */
+  @media (max-width: 576px) {
+    .main-banner .item {
+      padding: 80px 10% 120px 10%;
+    }
+  }
 .main-banner .item span.category {
   background-color: #fff;
-  color: #1e1e1e;
+  color: #817979;
+
+  border-radius: 10px;
   font-size: 16px;
   font-weight: 500;
   text-transform: capitalize;
@@ -794,12 +792,11 @@ Banner Style
 }
 
 .main-banner .item h2 {
-  font-size: 62px;
-  font-weight: 700;
-  text-transform: uppercase;
+  font-size: 32px;
+  font-weight: 500;
   color: #fff;
-  line-height: 72px;
-  width: 50%;
+  line-height: 52px;
+  width: 100%;
   margin-bottom: 0px;
 }
 
@@ -1724,7 +1721,7 @@ body {
 
 @media (max-width: 767px) {
   .header-area .main-nav .logo h1 {
-    line-height: 30px !important;
+    line-height: 80px !important;
   }
   .best-deal .tabs-content .nav-link {
     font-size: 14px;
@@ -1733,7 +1730,7 @@ body {
     line-height: 44px;
   }
   .best-deal .tabs-content ul.nav-tabs li {
-    margin: 0px 5px;
+    margin: 10px 5px;
   }
   .properties ul.properties-filter li a {
     font-size: 14px;
@@ -1752,20 +1749,20 @@ body {
     display: none;
   }
   .header-area .main-nav .logo h1 {
-    line-height: 60px;
+    line-height: 10px;
   }
   .background-header .main-nav .logo h1 {
-    line-height: 80px;
+    line-height: 40px;
   }
   .header-area .main-nav .nav li a {
     padding-left: 3px;
     padding-right: 3px;
   }
   .header-area .main-nav .nav li:last-child a {
-    padding-right: 15px;
+    padding-right: 10px;
   }
   .main-banner .item h2 {
-    width: 100%;
+    width: 50%;
   }
   .featured .section-heading {
     margin-left: 0px;

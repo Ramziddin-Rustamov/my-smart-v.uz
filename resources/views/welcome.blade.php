@@ -10,7 +10,7 @@
 
       <div class="carousel-inner" role="listbox">
         {{-- @foreach ($slides as $slide ) --}}
-        {{-- <div class="carousel-item {{ ($loop->index == 0) ? 'active':'' }}" > 
+        {{-- <div class="carousel-item {{ ($loop->index == 0) ? 'active':'' }}" >
           <div class="carousel-container">
             <div style="background-color: rgb(0 0 , 44);
             border-radius: 10px;
@@ -18,14 +18,14 @@
               <h2>{{ $slide->title_en }}</h2>
               <p class="">{{ $slide->body_en }}</p>
               @guest
-              {{-- <div class="text-center"><a href="{{ route('register') }}" class="btn-get-started">{{ __('Follow Us') }}</a></div> 
+              {{-- <div class="text-center"><a href="{{ route('register') }}" class="btn-get-started">{{ __('Follow Us') }}</a></div>
               @endguest
             </div>
           </div>
         </div>
         {{-- @endforeach --}}
       {{-- </div> --}}
-{{-- 
+{{--
       <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
         <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
       </a>
@@ -41,20 +41,37 @@
   <!-- End Hero -->
   {{--N  starts --}}
    {{-- @if($slides) --}}
-   <div class="main-banner">
-    <div class="owl-carousel owl-banner">
-      {{-- @foreach ($slides as $slide ) --}}
-
-      <div class="item item-3">
-        <div class="header-text">
-          {{-- <span class="category">{{ $slide->title_en }}</em></span> --}}
-          <h2>Act Now!<br>Get the highest level penthouse </h2>
+     {{-- 1 --}}
+     <div class="main-banner">
+        <div class="owl-carousel owl-banner">
+          <div class="item item-1">
+            <div class="header-text">
+              <span class="category">Urgut tumani, <em>Mangitobod</em></span>
+              <h2>Urgut tuman hokimi <br> bilan uchrashuv jarayoni </h2>
+            </div>
+          </div>
+          <div class="item item-2">
+            <div class="header-text">
+              <span class="category"> Urgut tumani , <em>48 - maktab</em></span>
+              <h2>Maktabda o'quvchilarga <br> tushintiruv ishlari olib borildi </h2>
+            </div>
+          </div>
+          <div class="item item-3">
+            <div class="header-text">
+                <span class="category">Urgut tumani, <em>Mangitobod</em></span>
+                <h2>Urgut tuman hokimi <br> bilan uchrashuv jarayoni </h2>
+            </div>
+          </div>
+          <div class="item item-4">
+            <div class="header-text">
+              <span class="category">Mangitobod, <em>Jomiy Masjidi </em></span>
+              <h2>Ramozon oyidan <br> lavhalar </h2>
+            </div>
+          </div>
         </div>
       </div>
+     {{-- end 1 --}}
 
-      {{-- @endforeach --}}
-    </div>
-  </div>
    {{-- @else --}}
      {{-- <h1>No slide </h1> --}}
    {{-- @endif --}}
@@ -159,7 +176,7 @@
         <div class="col-lg-10 offset-lg-1">
           <div class="video-frame">
             <img src="{{asset('assets/images/village-video.jpg')}}" alt="">
-            <a href="https://www.youtube.com/watch?v=cP3atIcadGE" target="_blank"><i class="fa fa-play"></i></a>
+            <a href="https://www.youtube.com/watch?v=wZnSb7zqTbs&pp=ygUUbWFuZ2l0b2JvZCBtYWhhbGxhc2k%3D" target="_blank"><i class="fa fa-play"></i></a>
           </div>
         </div>
       </div>
@@ -217,7 +234,7 @@
                   <p class="count-text ">Dukonlar<br>soni</p>
                 </div>
               </div>
-              <div class="col-lg-4">
+              <div class="col-lg-4 ">
                 <div class="counter">
                   <h2 class="timer count-title count-number" data-to="1" data-speed="1000"></h2>
                   <p class="count-text ">Shifoxona<br>soni</p>
@@ -257,8 +274,8 @@
                   <li class="nav-item" role="presentation">
                     <button class="nav-link active" id="appartment-tab" data-bs-toggle="tab" data-bs-target="#young" type="button" role="tab" aria-controls="young" aria-selected="true">Yoshlar haqida</button>
                   </li>
-                  <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="hospital-tab" data-bs-toggle="tab" data-bs-target="#hospital" type="button" role="tab" aria-controls="hospital" aria-selected="false">Shifoxonamiz</button>
+                  <li class="nav-item " role="presentation">
+                    <button class="nav-link " id="hospital-tab" data-bs-toggle="tab" data-bs-target="#hospital" type="button" role="tab" aria-controls="hospital" aria-selected="false">Shifoxonamiz</button>
                   </li>
 				  <li class="nav-item" role="presentation">
                     <button class="nav-link" id="kindergarten-tab" data-bs-toggle="tab" data-bs-target="#kindergarten" type="button" role="tab" aria-controls="kindergarten" aria-selected="false">Maktabgacha ta'lim</button>
@@ -293,7 +310,7 @@
                         Rahmat! Sizga kerakli ma'lumotlarni taqdim etishim mumkin. "TemplateMo" veb-sayti, bepul CSS shriftlarini taklif etadi va ommaviy veb-saytlarida qidiruv motorlarida "TemplateMo" nomini qidirishingiz yoki "TemplateMo Portfolio", "TemplateMo One Page Layouts"
                         kabi so'rovlarni kiriting. Bu usullar orqali siz uyingiz uchun mos veb-dizaynlarni topishingiz mumkin..</p>
                       <div class="icon-button">
-                        <a href="{{route('youth.index')}}"><i class="fa fa-users"></i> Yoshlarimiz ...</a>
+                        <a href="{{route('youth.index')}}"><i class="fas fa-info"></i>Ko'proq malumot olish </a>
                       </div>
                     </div>
                   </div>
@@ -306,11 +323,11 @@
                     <div class="col-lg-3">
                       <div class="info-table">
                         <ul>
-                          <li>Total Flat Space <span>250 m2</span></li>
-                          <li>Floor number <span>26th</span></li>
-                          <li>Number of rooms <span>5</span></li>
-                          <li>Parking Available <span>Yes</span></li>
-                          <li>Payment Process <span>Bank</span></li>
+                          <li>Maydoni <span> 50 m2</span></li>
+                          <li>Shifokorlar <span>26</span></li>
+                          <li>Xonalar soni <span>8</span></li>
+                          <li>Bir yillik bemorlar  <span>2,000</span></li>
+                          <li>Holati<span> Tamirlangan</span></li>
                         </ul>
                       </div>
                     </div>
@@ -321,7 +338,7 @@
                       <h4>Detail Info About Villa</h4>
                       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, do eiusmod tempor pack incididunt ut labore et dolore magna aliqua quised ipsum suspendisse. <br><br>Swag fanny pack lyft blog twee. JOMO ethical copper mug, succulents typewriter shaman DIY kitsch twee taiyaki fixie hella venmo after messenger poutine next level humblebrag swag franzen.</p>
                       <div class="icon-button">
-                        <a href="property-details.html"><i class="fa fa-calendar"></i> Schedule a visit</a>
+                        <a href="property-details.html"><i class="fas fa-info"></i>Ko'proq malumot olish </a>
                       </div>
                     </div>
                   </div>
@@ -333,11 +350,11 @@
                     <div class="col-lg-3">
                       <div class="info-table">
                         <ul>
-                          <li>Total Flat Space <span>250 m2</span></li>
-                          <li>Floor number <span>26th</span></li>
-                          <li>Number of rooms <span>5</span></li>
-                          <li>Parking Available <span>Yes</span></li>
-                          <li>Payment Process <span>Bank</span></li>
+                          <li>O'quvchilar <span>2500</span></li>
+                          <li>O'qituvchilar <span>40</span></li>
+                          <li> Maktablar soni <span>2</span></li>
+                          <li>Maydoni  <span>150 m2 / 500 m2</span></li>
+                          <li>Nomi<span>84 & 48 - maktablar</span></li>
                         </ul>
                       </div>
                     </div>
@@ -348,7 +365,7 @@
                       <h4>Detail Info About Villa</h4>
                       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, do eiusmod tempor pack incididunt ut labore et dolore magna aliqua quised ipsum suspendisse. <br><br>Swag fanny pack lyft blog twee. JOMO ethical copper mug, succulents typewriter shaman DIY kitsch twee taiyaki fixie hella venmo after messenger poutine next level humblebrag swag franzen.</p>
                       <div class="icon-button">
-                        <a href="property-details.html"><i class="fa fa-calendar"></i> Schedule a visit</a>
+                        <a href="property-details.html"><i class="fas fa-info"></i> Ko'proq ma'lumot olish </a>
                       </div>
                     </div>
                   </div>
@@ -358,11 +375,11 @@
                     <div class="col-lg-3">
                       <div class="info-table">
                         <ul>
-                          <li>Total Flat Space <span>320 m2</span></li>
-                          <li>Floor number <span>34th</span></li>
-                          <li>Number of rooms <span>6</span></li>
-                          <li>Parking Available <span>Yes</span></li>
-                          <li>Payment Process <span>Bank</span></li>
+                          <li>Soni  <span> 4</span></li>
+                          <li>Umumiy hajmi <span>300 bola uchun</span></li>
+                          <li>Ta'lim sifati <span>Tarbiya/Asosiy mat</span></li>
+                          <li>Tarbiyachilar soni<span>100</span></li>
+                          <li> <span> Holati</span>O'rta</li>
                         </ul>
                       </div>
                     </div>
@@ -373,7 +390,7 @@
                       <h4>Extra Info About Penthouse</h4>
                       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, do eiusmod tempor pack incididunt ut labore et dolore magna aliqua quised ipsum suspendisse. <br><br>Swag fanny pack lyft blog twee. JOMO ethical copper mug, succulents typewriter shaman DIY kitsch twee taiyaki fixie hella venmo after messenger poutine next level humblebrag swag franzen.</p>
                       <div class="icon-button">
-                        <a href="property-details.html"><i class="fa fa-calendar"></i> Schedule a visit</a>
+                        <a href="property-details.html"><i class="fas fa-info"></i>ko'proq ma'lumot olish </a>
                       </div>
                     </div>
                   </div>
@@ -403,9 +420,10 @@
       <div class="row">
         @if ($postCount)
         @foreach ($posts as $post)
+
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <a href="property-details.html"><img src="{{asset('assets/images/property-01.jpg')}}" alt=""></a>
+            <a href="{{$post->image}}"><img src="{{$post->image}}" alt=""></a>
                 <span class="category">Yangilik </span>
 
             <h6><i class="fas fa-calendar-check"></i>  {{ ''.$post->created_at->format('d-m-Y')}}</h6>
@@ -419,17 +437,17 @@
             {{ strlen(strip_tags($post->body_en)) > 150 ? "....." : "" }}
            </p>
             <div class="main-button">
-              <a href="property-details.html">Ko'proq o'qish</a>
+              <a href="{{ route('posts.findOne',$post->id) }}">Ko'proq o'qish</a>
             </div>
           </div>
         </div>
         @endforeach
         <div class=" justify-content-end text-align-end d-flex pt-2">
-          <a href="{{ route('posts.allposts') }}" class="btn btn-primary text-center font-weight-bold"> View more</a>
+          <a href="{{ route('posts.allposts') }}" class="btn btn-primary text-center font-weight-bold">Hamma xabarlarni ko'rish</a>
         </div>
         <!-- End blog sidebar -->
         @else
-        <h6 class="text-center font-weight-bold">{{ __('There is no post yet, wait ') }}</h6><hr>
+        <h6 class="text-center font-weight-bold">{{ __('Yangilik joylanmadi ') }}</h6><hr>
         @endif
         {{-- <div class="col-lg-4 col-md-6">
           <div class="item">
@@ -567,8 +585,8 @@
                         {{ session('success') }}
                     </div>
                 @endif
-            </div> 
-            <form id="contact-form" action="{{ route('contact.store') }}" method="post" role="form" class="php-email-form ">    
+            </div>
+            <form id="contact-form" action="{{ route('contact.store') }}" method="post" role="form" class="php-email-form ">
               @guest
               <div class="col-lg-12">
                 <fieldset>
@@ -596,7 +614,7 @@
                 </fieldset>
               </div>
               @endguest
-              
+
               <div class="col-lg-12">
                 <fieldset>
                   <label for="subject">Nima buyicha  ? </label>

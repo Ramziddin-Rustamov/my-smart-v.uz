@@ -8,11 +8,11 @@ use App\Models\Comment;
 class CommentRepository
 {
     public function create($data)
-    {
-        if(is_array($data)){
-            Comment::create($data);
-        }
-        abort(500,"Provided {$data} is not array!");
+     {
+    if(is_array($data)){
+        return Comment::create($data);
+    }
+    throw new \InvalidArgumentException("Provided data is not array!");
     }
 
     public function delete($id)

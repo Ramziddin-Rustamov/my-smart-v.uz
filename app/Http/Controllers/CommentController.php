@@ -9,24 +9,25 @@ use Illuminate\Support\Facades\Request;
 class CommentController extends Controller
 {
     private $commentService;
+    private $commentRequest;
 
-    public function __construct(CommentService $commentService)
+    public function __construct(CommentService $commentService, CommentRequest $commentRequest )
     {
         $this->commentService = $commentService;
+        $this->commentRequest = $commentRequest;
     }
 
-    public function store(Request $req, CommentRequest $request)
+    public function store(CommentRequest $request)
     {
-        return 'a';
+        $data = $this->commentRequest->validated();
+        $user = $request->user();
+        $data['user_id'] = $user->id;
         $this->commentService->createComment($request);
-
         return back();
     }
 
-    public function destroy($id)
+    public function delete($id)
     {
         $this->commentService->deleteComment($id);
-
-        return back();
     }
 }
