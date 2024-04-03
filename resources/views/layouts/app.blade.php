@@ -152,7 +152,8 @@
   <header id="header" class="fixed-top mb-5 " style="margin-bottom: 200px ">
     <div class="container d-flex align-items-center">
 
-      <h1  class="logo me-auto"><a style="color:#f35525" href="/">M</a></h1>
+      <h1  class="logo me-auto"><a style="color:#f35525" href="/">Mangit <br>
+        <span style="padding-left:50px">obod</span></a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
 
       <nav id="navbar" class="navbar order-last order-lg-0">
@@ -186,13 +187,13 @@
             @guest
                 @if (Route::has('login'))
                     <li class="nav-item ">
-                        <a style="{{ (Request::is('login') ? 'color: green; text-decoration: underline;' : '') }}" class="nav-link " href="{{ route('login') }}"><span>{{ __('Login') }}</span></a>
+                        <a style="{{ (Request::is('login') ? 'color: green; text-decoration: underline;' : '') }}" class="nav-link " href="{{ route('login') }}"><span>{{ __('Kirish') }}</span></a>
                     </li>
                 @endif
 
                 @if (Route::has('register'))
                     <li class="nav-item active">
-                        <a style="{{ (Request::is('register') ? 'color: green; text-decoration: underline;' : '') }}"  class="nav-link {{ (Request::is('register') ? 'active' : '') }}" href="{{ route('register') }}"><span>{{ __('Register') }}</span></a>
+                        <a style="{{ (Request::is('register') ? 'color: green; text-decoration: underline;' : '') }}"  class="nav-link {{ (Request::is('register') ? 'active' : '') }}" href="{{ route('register') }}"><span>{{ __('R. O\'tish') }}</span></a>
                     </li>
                 @endif
             @else
@@ -210,22 +211,22 @@
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                       {{-- Main menu  --}}
                          <a class="dropdown-item py-3  " href="/">
-                        <i class="bx bx-home text-success"></i>    {{ __('Main Page') }}
+                        <i class="bx bx-home text-success"></i>    {{ __('Asosiy menu') }}
                       </a>
                       {{-- My Profile --}}
                        <a class="dropdown-item py-3  " href="{{ route('profile.index') }}">
-                         <i class="bx bx-user text-success"></i>    {{ __('My profile') }}
+                         <i class="bx bx-user text-success"></i>    {{ __('Mening profilm ') }}
                        </a>
                       {{-- dashboard --}}
                        @can('super-admin')
                       <a class="dropdown-item py-3" href="{{ route('home') }}">
-                        <i class="bx bx-message text-success"></i>   {{ __('Dashboard') }} <i class="fa fa-list"></i>
+                        <i class="bx bx-message text-success"></i>   {{ __('Boshqaruv') }} <i class="fa fa-list"></i>
                       </a>
                       @endcan
                         <a class="dropdown-item py-3" href="{{ route('logout') }}"
                         onclick="event.preventDefault();
                                       document.getElementById('logout-form').submit();">
-                        <i class="bx bx-exit text-success"></i> {{ __('Logout') }}
+                        <i class="bx bx-exit text-success"></i> {{ __('Chiqib ketish') }}
                        </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
@@ -325,7 +326,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <p class="text-center mb-0  text-white">
-                    Sayt 2024 yil boshida ishlab chiqildi. Agarda sayt ishlash jarayomida xato va kamchiliklar bo'lsa xabar bering, bog'lanish uchun <a rel="nofollow" class="text-primary" href="https://t.me/ramziddinrustamm">Shu yerga bosing</a>
+                    Sayt 2024 yil boshida ishlab chiqildi. Agarda sayt ishlash jarayomida xato va kamchiliklar bo'lsa xabar bering, bog'lanish uchun <a rel="nofollow" class="text-primary" href="https://t.me/contactmewitherror">Shu yerga bosing</a>
                 </p>
             </div>
         </div>
