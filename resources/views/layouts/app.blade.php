@@ -250,7 +250,9 @@
          <!-- Right Side Of Navbar -->
       </div>
     </div>
+    <h6 class="moving-text">Ushbu tizim hozircha test rejimda ishlamoqda ... </h6>
 </header>
+
   <!--!End Header-->
 
         <main id="app " style="margin-top:60px;">

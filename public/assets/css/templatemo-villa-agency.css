@@ -1842,3 +1842,17 @@ body {
     margin-right: 100px;
   }
 }
+
+.moving-text {
+    position: absolute;
+    top: 68%;
+    right: -300px; 
+    font-size: 24px;
+    color: #e4000f;
+    white-space: nowrap;
+    animation: moveText 10s linear infinite;
+}
+@keyframes moveText {
+    0% { right: -300px; }
+    100% { right: 100%; }
+}
