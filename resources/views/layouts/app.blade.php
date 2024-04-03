@@ -211,22 +211,34 @@
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                       {{-- Main menu  --}}
                          <a class="dropdown-item py-3  " href="/">
-                        <i class="bx bx-home text-success"></i>    {{ __('Asosiy menu') }}
+                        <i class="fas fa-home text-success"></i>    {{ __(' Asosiy menu') }}
                       </a>
                       {{-- My Profile --}}
+                      <a class="dropdown-item py-3  " href="{{ route('profile.index') }}">
+                        <i class="fas fa-user text-success"></i>    {{ __(' Mening profilm ') }}
+                      </a> 
                        <a class="dropdown-item py-3  " href="{{ route('profile.index') }}">
-                         <i class="bx bx-user text-success"></i>    {{ __('Mening profilm ') }}
-                       </a>
+                        <i class="fas fa-hand-holding-heart text-success"></i>    {{ __(' Hayriya ') }}
+                      </a>
+                      <a class="dropdown-item py-3  " href="{{ route('profile.index') }}">
+                        <i class="fas fa-phone text-success"></i>    {{ __('Telefon raqamlar') }}
+                      </a>
+                      <a class="dropdown-item py-3  " href="{{ route('profile.index') }}">
+                        <i class="fas fa-hospital text-success"></i>   {{ __('Shoshilinch Telefon') }}
+                      </a>
+                      <a class="dropdown-item py-3  " href="{{ route('profile.index') }}">
+                        <i class="fas fa-pray text-success"></i>   {{ __('Ibodat vaqtlari') }}
+                      </a>
                       {{-- dashboard --}}
                        @can('super-admin')
                       <a class="dropdown-item py-3" href="{{ route('home') }}">
-                        <i class="bx bx-message text-success"></i>   {{ __('Boshqaruv') }} <i class="fa fa-list"></i>
+                        <i class="fas fa-cog text-success"></i>   {{ __('Boshqaruv') }} </i>
                       </a>
                       @endcan
                         <a class="dropdown-item py-3" href="{{ route('logout') }}"
                         onclick="event.preventDefault();
                                       document.getElementById('logout-form').submit();">
-                        <i class="bx bx-exit text-success"></i> {{ __('Chiqib ketish') }}
+                        <i class="fas fa-sign-out text-success"></i> {{ __('Chiqib ketish') }}
                        </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
