@@ -32,32 +32,6 @@
     @if(Request::is('profile'))
     <link href="{{ asset('assets/vendor/custom/style.css') }}" rel="stylesheet">
   @endif
-  <style>
-
-        .main-banner .item {
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        padding: 220px 20% 320px 20%;
-        margin-top: 0px;
-        }
-
-        .main-banner .item-1 {
-        background-image: url({{ asset('images/navbar/1.jpg') }});
-        }
-
-        .main-banner .item-2 {
-        background-image: url({{ asset('images/navbar/2.jpg') }});
-        }
-
-        .main-banner .item-3 {
-        background-image: url({{ asset('images/navbar/3.jpg') }});
-        }
-
-        .main-banner .item-4 {
-        background-image: url({{ asset('images/navbar/4.jpg') }});
-        }
-  </style>
 </head>
 <body>
 

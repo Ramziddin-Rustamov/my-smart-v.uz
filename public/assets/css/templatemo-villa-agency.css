@@ -743,7 +743,6 @@ Banner Style
   padding: 220px 20% 320px 20%;
   margin-top: 0px;
 }
-/*
 .main-banner .item-1 {
   background-image: url(../images/navbar/1.jpg);
 }
@@ -757,7 +756,7 @@ Banner Style
 }
 .main-banner .item-4 {
     background-image: url(../images/navbar/4.jpg);
-  } */
+  }
 
 
 /* Adjust padding for smaller screen sizes */
