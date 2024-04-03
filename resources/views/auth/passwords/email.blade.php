@@ -2,7 +2,7 @@
 @section('title','Email')
 
 @section('content')
-<div class="container pb-5" style="margin-bottom:250px ; padding-top: 20px">
+<div class="container pb-5" style="margin-bottom:290px ; padding-top: 120px">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
