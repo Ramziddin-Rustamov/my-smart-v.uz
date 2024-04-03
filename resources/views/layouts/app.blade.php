@@ -240,7 +240,7 @@
 </header>
   <!--!End Header-->
 
-        <main id="app " style="margin-top:90px;">
+        <main id="app " style="margin-top:60px;">
             @yield('content')
         </main>
 
