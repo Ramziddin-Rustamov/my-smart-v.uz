@@ -1,11 +1,20 @@
 body{
-    background: #161616;
+  
+    background: #ffffff88;
     }
     h1{
-      color:hsl(0, 0%, 100%);
+      color:#fff;
     }
     .lead{
-      color:#aaa;
+      color:#000000;
+      padding: 10px;
+      border: 1px solid rgba(0,0,0,0.2);
+      border-radius:10px ;
+      box-shadow: 0 0 12px 0 rgba(0,0,0,0.2);
+
+    }
+    .display-4{
+        margin-top: 80px;
     }
     
     .wrapper{margin:10vh}

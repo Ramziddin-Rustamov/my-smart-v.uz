@@ -3,94 +3,82 @@
 @section('content')
         <div class="container ">
                   <div class="row justify-content-center ">
-                    <div class="col text-center mb-5 mt-5">
-                       <h1 class="display-4 font-weight-bolder">Ibodat vaqtlari </h1>
-                <p class="lead"> O'zbekiston | Samarqand | Urgut  , 10 - Aprel 2024 </p>
+                    <div class="col text-center mb-5">
+                       <h1 class="display-4 font-weight-bolder text-dark">Ibodat vaqtlari </h1>
+                        <p class="lead"> Samarqand | Urgut  {{$time['data']['date']['readable']}} Hijriy {{$time['data']['date']['hijri']['date']}} </p>
                     </div>
                   </div>
-                <div class="row">
+                <div class="row justify-content-around">
                     <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
                         <div class="card text-dark card-has-bg click-col position-relative" style="background-image: url('{{ asset('image/pray/sunrise.jpeg') }}');">
                             <img class="card-img d-none" src="{{ asset('image/pray/sunrise.jpeg') }}" alt="Sunrise image">
-                            <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center">
-                                <h2 class="text-white text-center">Fajr Prayer</h2>
-                                <p class="text-white text-center font-weight-bold">5:00 AM</p>
-                                <p class="text-white text-center font-weight-bold">April 10, 2024</p>
+                            <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center ">
+                                <h2 class="text-centr">Bomdod Nomozi</h2>
+                                <h4 class=" text-center"> Kirish <br> {{$time['data']['timings']['Fajr']}}</h4>
+                                <h4 class=" text-center"> Chiqish <br> {{$time['data']['timings']['Sunrise']}}</h4>
                             </div>
                         </div>
                     </div>
                     
-                   <div class="col-sm-12 col-md-6 col-lg-4 mb-4"><div class="card text-dark card-has-bg click-col" style="background-image: url('{{ asset('image/pray/peshin.jpeg') }}');">
-                       <img class="card-img d-none" src="{{asset('image/pray/peshin.jpeg')}}" alt="Creative Manner Design Lorem Ipsum Sit Amet Consectetur dipisi?">
-                      <div class="card-img-overlay d-flex flex-column">
-                       <div class="card-body">
-                          <small class="card-meta mb-2">Thought Leadership</small>
-                          <h4 class="card-title mt-0 "><a class="text-dark" herf="https://creativemanner.com">Creative Manner Lorem Ipsum Sit Amet Consectetur dipisi?</a></h4>
-                         <small><i class="far fa-clock"></i> October 15, 2020</small>
-                       </div>
+                    <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                        <div class="card text-dark card-has-bg click-col position-relative" style="background-image: url('{{ asset('image/pray/sunrise.jpeg') }}');">
+                            <img class="card-img d-none" src="{{ asset('image/pray/sunrise.jpeg') }}" alt="Sunrise image">
+                            <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center ">
+                                <h2 class="text-centr">Peshin Nomozi </h2>
+                                <h4 class=" text-center"> Kirish <br> {{$time['data']['timings']['Dhuhr']}}</h4>
+                                <h4 class=" text-center"> Chiqish <br> {{$time['data']['timings']['Asr']}}</h4>
+                            </div>
                         </div>
-                      </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                        <div class="card text-dark card-has-bg click-col position-relative" style="background-image: url('{{ asset('image/pray/sunrise.jpeg') }}');">
+                            <img class="card-img d-none" src="{{ asset('image/pray/sunrise.jpeg') }}" alt="Sunrise image">
+                            <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center ">
+                                <h2 class="text-centr">Asr Nomozi </h2>
+                                <h4 class=" text-center"> Kirish <br> {{$time['data']['timings']['Asr']}}</h4>
+                                <h4 class=" text-center"> Chiqish <br> {{$time['data']['timings']['Sunset']}}</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                        <div class="card text-dark card-has-bg click-col position-relative" style="background-image: url('{{ asset('image/pray/sunrise.jpeg') }}');">
+                            <img class="card-img d-none" src="{{ asset('image/pray/sunrise.jpeg') }}" alt="Sunrise image">
+                            <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center ">
+                                <h2 class="text-centr">Shom Nomozi </h2>
+                                <h4 class=" text-center"> Kirish <br> {{$time['data']['timings']['Sunset']}}</h4>
+                                <h4 class=" text-center"> Chiqish <br> {{$time['data']['timings']['Isha']}}</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                        <div class="card text-dark card-has-bg click-col position-relative" style="background-image: url('{{ asset('image/pray/sunrise.jpeg') }}');">
+                            <img class="card-img d-none" src="{{ asset('image/pray/sunrise.jpeg') }}" alt="Sunrise image">
+                            <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center ">
+                                <h2 class="text-centr">Xufton Nomozi</h2>
+                                <h4 class=" text-center"> Kirish <br> {{$time['data']['timings']['Isha']}}</h4>
+                                <h4 class=" text-center"> Chiqish <br> {{$time['data']['timings']['Imsak']}}</h4>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                        <div class="card text-dark card-has-bg click-col position-relative" style="background-image: url('{{ asset('image/pray/sunrise.jpeg') }}');">
+                            <img class="card-img d-none" src="{{ asset('image/pray/sunrise.jpeg') }}" alt="Sunrise image">
+                            <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center ">
+                                <h2 class="text-centr">Tun</h2>
+                                <h4 class=" text-center"> Boshlanishi  <br> {{$time['data']['timings']['Firstthird']}}</h4>
+                                <h4 class=" text-center"> Yarim Kecha <br> {{$time['data']['timings']['Midnight']}}</h4>
+                                <h4 class=" text-center"> Tun chiqishi <br> {{$time['data']['timings']['Lastthird']}}</h4>
+                                {{-- <p class="text-dark text-bold" > Tun Boshlanishi {{$time['data']['timings']['Firstthird']}} <br>
+                                Yarim tun  {{$time['data']['timings']['Midnight']}} <br>
+                                Tun tugashi  {{$time['data']['timings']['Lastthird']}} <br>
+                               </p> --}}
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-sm-12 col-md-6 col-lg-4 mb-4"><div class="card text-dark card-has-bg click-col" style="background-image: url('{{ asset('image/pray/asr.webp') }}');">
-                       <img class="card-img d-none" src="{{asset('image/pray/asr.webp')}}" alt="Creative Manner Design Lorem Ipsum Sit Amet Consectetur dipisi?">
-                      <div class="card-img-overlay d-flex flex-column">
-                       <div class="card-body">
-                          <small class="card-meta mb-2">Thought Leadership</small>
-                          <h4 class="card-title mt-0 "><a class="text-dark" herf="https://creativemanner.com">Design Studio Lorem Ipsum Sit Amet Consectetur dipisi?</a></h4>
-                         <small><i class="far fa-clock"></i> October 15, 2020</small>
-                        </div>
-                        <div class="card-footer">
-                         <div class="media">
-                <img class="mr-3 rounded-circle" src="https://assets.codepen.io/460692/internal/avatars/users/default.png?format=auto&version=1688931977&width=80&height=80" alt="Generic placeholder image" style="max-width:50px">
-                <div class="media-body">
-                  <h6 class="my-0 text-dark d-block">Oz Coruhlu</h6>
-                   <small>Director of UI/UX</small>
-                </div>
-              </div>
-                        </div>
-                      </div>
-                    </div></div>
-                 
-                  <div class="col-sm-12 col-md-6 col-lg-4 mb-4"><div class="card text-dark card-has-bg click-col" style="background-image: url('{{ asset('image/pray/shom.webp') }}');">
-                       <img class="card-img d-none" src="{{asset('image/pray/shom.webp')}}" alt=" Lorem Ipsum Sit Amet Consectetur dipisi?">
-                      <div class="card-img-overlay d-flex flex-column">
-                       <div class="card-body">
-                          <small class="card-meta mb-2">Thought Leadership</small>
-                          <h4 class="card-title mt-0 "><a class="text-dark" herf="https://creativemanner.com">UI/UX Design Lorem Ipsum Sit Amet Consectetur dipisi?</a></h4>
-                         <small><i class="far fa-clock"></i> October 15, 2020</small>
-                        </div>
-                        <div class="card-footer">
-                         <div class="media">
-                <img class="mr-3 rounded-circle" src="https://assets.codepen.io/460692/internal/avatars/users/default.png?format=auto&version=1688931977&width=80&height=80" alt="Generic placeholder image" style="max-width:50px">
-                <div class="media-body">
-                  <h6 class="my-0 text-dark d-block">Oz Coruhlu</h6>
-                   <small>Director of UI/UX</small>
-                </div>
-              </div>
-                        </div>
-                      </div>
-                    </div></div>
-                   <div class="col-sm-12 col-md-6 col-lg-4 mb-4"><div class="card text-dark card-has-bg click-col" style="background-image: url('{{ asset('image/pray/xufton.jpeg') }}');">
-                       <img class="card-img d-none" src="{{asset('image/pray/xufton.jpeg')}}" alt="Creative Manner Design Lorem Ipsum Sit Amet Consectetur dipisi?">
-                      <div class="card-img-overlay d-flex flex-column">
-                       <div class="card-body">
-                          <small class="card-meta mb-2">Thought Leadership</small>
-                          <h4 class="card-title mt-0 "><a class="text-dark" herf="https://creativemanner.com">Creative Manner Design Lorem Ipsum Sit Amet Consectetur dipisi?</a></h4>
-                         <small><i class="far fa-clock"></i> October 15, 2020</small>
-                        </div>
-                        <div class="card-footer">
-                         <div class="media">
-                <img class="mr-3 rounded-circle" src="https://assets.codepen.io/460692/internal/avatars/users/default.png?format=auto&version=1688931977&width=80&height=80" alt="Generic placeholder image" style="max-width:50px">
-                <div class="media-body">
-                  <h6 class="my-0 text-dark d-block">Oz Coruhlu</h6>
-                   <small>Director of UI/UX</small>
-                </div>
-              </div>
-                        </div>
-                      </div>
-                    </div>
-                </div>
-        </div>
         </div>
 @endsection

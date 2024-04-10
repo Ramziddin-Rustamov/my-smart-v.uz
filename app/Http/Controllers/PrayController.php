@@ -10,7 +10,9 @@ class PrayController extends Controller
         $response = Http::get('https://api.aladhan.com/v1/timingsByCity/10-04-2024?city=Samarkand&country=Uzbekistan&method=8');
         $time = $response->json();
 
-        return view("pray.index");
+        return view("pray.index",[
+            'time' => $time
+        ]);
         // if($response->successful()) {
         //     $prayerTimes = $time['data']['timings'];
             
