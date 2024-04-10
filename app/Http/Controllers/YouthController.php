@@ -9,7 +9,9 @@ class YouthController extends Controller
 {
     public function index()
     {
-        $users = User::where('active_status','1')->get();
+        $users = User::where('active_status', '1')
+        ->whereRaw('TIMESTAMPDIFF(YEAR, birthday, CURDATE()) <= 25')
+        ->get();
         return view("youth.index",[
             "users" => $users
         ]);

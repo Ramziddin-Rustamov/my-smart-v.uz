@@ -29,8 +29,8 @@
 
   <!-- Template Main CSS File -->
   <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
-    @if(Request::is('profile'))
-    <link href="{{ asset('assets/vendor/custom/style.css') }}" rel="stylesheet">
+    @if(Request::is('pray-time'))
+    <link href="{{ asset('assets/css/pray.css') }}" rel="stylesheet">
   @endif
 </head>
 <body>
@@ -216,17 +216,17 @@
                       {{-- My Profile --}}
                       <a class="dropdown-item py-3  " href="{{ route('profile.index') }}">
                         <i class="fas fa-user text-success"></i>    {{ __(' Mening profilm ') }}
-                      </a> 
+                      </a>
                        <a class="dropdown-item py-3  " href="{{ route('profile.index') }}">
                         <i class="fas fa-hand-holding-heart text-success"></i>    {{ __(' Hayriya ') }}
                       </a>
-                      <a class="dropdown-item py-3  " href="{{ route('profile.index') }}">
+                      <a class="dropdown-item py-3  " href="{{ route('phone.index') }}">
                         <i class="fas fa-phone text-success"></i>    {{ __('Telefon raqamlar') }}
                       </a>
-                      <a class="dropdown-item py-3  " href="{{ route('profile.index') }}">
+                      <a class="dropdown-item py-3  " href="{{ route('emergency.index') }}">
                         <i class="fas fa-hospital text-success"></i>   {{ __('Shoshilinch Telefon') }}
                       </a>
-                      <a class="dropdown-item py-3  " href="{{ route('profile.index') }}">
+                      <a class="dropdown-item py-3  " href="{{ route('pray.index') }}">
                         <i class="fas fa-pray text-success"></i>   {{ __('Ibodat vaqtlari') }}
                       </a>
                       {{-- dashboard --}}

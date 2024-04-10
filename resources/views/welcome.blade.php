@@ -579,25 +579,35 @@
           </div>
         </div>
         <div class="col-lg-5">
-            <div class="text-center col-lg-10 ">
-                @if (session('success'))
-                    <div class="alert alert-success mb-1 py-2">
-                        {{ session('success') }}
-                    </div>
-                @endif
-            </div>
-            <form id="contact-form" action="{{ route('contact.store') }}" method="post" role="form" class="php-email-form ">
+            <div class="row mt-5 justify-content-center" data-aos="fade-up">
+                <div class="text-center col-lg-10 ">
+                  @if($errors->any())
+                      @foreach ($errors->all() as $error )
+                        <strong>{{ $error }}</strong>
+                      @endforeach
+                  @endif
+                </div>
+                <div class="text-center col-lg-10 ">
+                  @if (session('success'))
+                      <div class="alert alert-success mb-1 py-2">
+                          {{ session('success') }}
+                      </div>
+                  @endif
+              </div> 
+              </div>
+            <form id="contact-form" action="{{ route('contact.store') }}" method="POST" class="php-email-form ">
+             @csrf
               @guest
               <div class="col-lg-12">
                 <fieldset>
                   <label for="name">F.I.SH</label>
-                  <input type="name" name="name" id="name" placeholder="Ismi sharifingiz " autocomplete="on" required>
+                  <input type="text" name="name" id="name" placeholder="Ismi sharifingiz " autocomplete="on" required>
                 </fieldset>
               </div>
               <div class="col-lg-12">
                 <fieldset>
-                  <label for="email">Email pochtangiz <span class="text-danger"> [ majburiy emas ]</span></label>
-                  <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Email pochtangizni kiriting " required="">
+                  <label for="email">Telefon raqam <span class="text-danger"> </span></label>
+                  <input type="text" name="phone" id="email"  placeholder="Telefon raqam kiriting " required="">
                 </fieldset>
               </div>
               @else
@@ -609,8 +619,8 @@
               </div>
               <div class="col-lg-12">
                 <fieldset>
-                  <label for="email">Email pochtangiz <span class="text-danger"> [ majburiy emas ]</span></label>
-                  <input type="text" name="email" id="email" value="{{Auth::user()->email}}" required="" disabled>
+                  <label for="phone">Telefon raqam</label>
+                  <input type="text" name="phone" id="email" value="{{Auth::user()->phone}}" required="">
                 </fieldset>
               </div>
               @endguest
@@ -618,7 +628,7 @@
               <div class="col-lg-12">
                 <fieldset>
                   <label for="subject">Nima buyicha  ? </label>
-                  <input type="subject" name="subject" id="subject" placeholder="Masalangiz nima ?" autocomplete="on" >
+                  <input type="text" name="reason" id="subject" placeholder="Masalangiz nima ?" autocomplete="on" >
                 </fieldset>
               </div>
               <div class="col-lg-12">

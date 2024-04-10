@@ -37,10 +37,11 @@ class ContactService
         $contact = new Contact([
             'reason' => $data['reason'],
             'message' => $data['message'],
-            'user_id' => $data['user_id'],
+            'name' => $data['name'],
+            'phone' => $data['phone'],
         ]);
         $contact->save();
-        return $contact;
+        return redirect()->back();
     }
     
 }

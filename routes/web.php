@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\ClientViewController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PhoneNumberController;
+use App\Http\Controllers\EmergencyNumberController;
+use App\Http\Controllers\PrayController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\AboutUsController;
@@ -46,8 +49,9 @@ Route::middleware('auth')->group(function () {
 
 // Route::middleware('can:admin')->group(function () {
 
-// });
+    // });
 
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 Route::get('/ourposts', [PostsController::class, 'index'])->name('posts.allposts');
 Route::get('posts-read/{post}', [PostsController::class, 'findOne'])->name('posts.findOne');
 Route::get('comment/{id}', [CommentController::class, 'showUser'])->name('comment.owner');
@@ -59,8 +63,11 @@ Route::get('question', [PriceController::class, 'index'])->name('question.index'
 Route::get('/services', [ServicesController::class, 'index'])->name('services');
 Route::get('/portfolio', [PortfolioController::class, 'index'])->name('portfolio');
 Route::get('/portfolio/{id}', [PortfolioController::class, 'show'])->name('portfolio.show');
-Route::get('/contact', [ContactController::class, 'index'])->name('contact');
-Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+Route::get('/phone-numbers', [PhoneNumberController::class, 'index'])->name('phone.index');
+Route::get('/phone-numbers', [PhoneNumberController::class, 'index'])->name('phone.index');
+Route::get('/emergency-numbers', [EmergencyNumberController::class, 'index'])->name('emergency.index');
+Route::get('/pray-time', [PrayController::class, 'index'])->name('pray.index');
+// Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 

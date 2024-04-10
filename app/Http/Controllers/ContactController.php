@@ -10,27 +10,26 @@ class ContactController extends Controller
 {
     private $technologyService;
     private $contactService;
+    private $contactRequest;
 
-    public function __construct(ContactService $contactService ,  TechnologyService $service)
+    public function __construct(ContactService $contactService ,  TechnologyService $service , )
     {
+        // dd('ss');
         $this->technologyService = $service;
         $this->contactService = $contactService;
     }
-    
-    public function index()
+
+    // public function index()
+    // {
+    //     $technologies =  $this->technologyService->getAll();
+    //     return view('contact.index',compact('technologies'));
+    // }
+
+    public function store(ContactRequest $contactRequest)
     {
-        $technologies =  $this->technologyService->getAll();
-        return view('contact.index',compact('technologies'));
+        // dd("aa");
+        $this->contactService->createContactMessage($contactRequest->validated());
+        return back()->with('success', 'Yaxshi  ...');
     }
 
-    public function store(Request $request ,ContactRequest $contactRequest )
-    {
-        $data = $contactRequest->validated();
-        $user = $request->user();
-        
-        $data['user_id'] = $user->id;
-        $this->contactService->createContactMessage($data);
-        return back()->with('success','Cool ...');
-
-    }
 }

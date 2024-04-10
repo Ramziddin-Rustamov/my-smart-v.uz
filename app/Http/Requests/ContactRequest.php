@@ -25,7 +25,9 @@ class ContactRequest extends FormRequest
     {
         return [
             'message'=> ['required'],
-            'reason' =>['required']
+            'name'=> ['required'],
+            'reason' =>['required'],
+            'phone' =>['required']
         ];
     }
 }
