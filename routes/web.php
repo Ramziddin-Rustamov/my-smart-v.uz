@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WelcomeController;
-use App\Http\Controllers\ClientViewController;
+// use App\Http\Controllers\ClientViewController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PhoneNumberController;
 use App\Http\Controllers\EmergencyNumberController;
@@ -52,14 +52,14 @@ Route::middleware('auth')->group(function () {
 
     // });
 
+    // Route::get('/clientViews', [ClientViewController::class, 'index'])->name('view');
+    // Route::get('/clientViews/{id}', [ClientViewController::class, 'show'])->name('client.show');
+    // Route::post('/clientViews', [ClientViewController::class, 'store'])->name('client.store');
 Route::post('/contact-us', [ContactController::class, 'store'])->name('contact.store');
 Route::get('/ourposts', [PostsController::class, 'index'])->name('posts.allposts');
 Route::get('posts-read/{post}', [PostsController::class, 'findOne'])->name('posts.findOne');
 Route::get('comment/{id}', [CommentController::class, 'showUser'])->name('comment.owner');
 Route::get('/about', [AboutUsController::class, 'index'])->name('about');
-Route::get('/clientViews', [ClientViewController::class, 'index'])->name('view');
-Route::get('/clientViews/{id}', [ClientViewController::class, 'show'])->name('client.show');
-Route::post('/clientViews', [ClientViewController::class, 'store'])->name('client.store');
 Route::get('question', [PriceController::class, 'index'])->name('question.index');
 Route::get('/services', [ServicesController::class, 'index'])->name('services');
 Route::get('/portfolio', [PortfolioController::class, 'index'])->name('portfolio');
