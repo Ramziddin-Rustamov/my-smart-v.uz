@@ -52,7 +52,7 @@ Route::middleware('auth')->group(function () {
 
     // });
 
-Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+Route::post('/contact-us', [ContactController::class, 'store'])->name('contact.store');
 Route::get('/ourposts', [PostsController::class, 'index'])->name('posts.allposts');
 Route::get('posts-read/{post}', [PostsController::class, 'findOne'])->name('posts.findOne');
 Route::get('comment/{id}', [CommentController::class, 'showUser'])->name('comment.owner');

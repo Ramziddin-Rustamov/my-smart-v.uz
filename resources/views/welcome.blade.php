@@ -593,11 +593,11 @@
                           {{ session('success') }}
                       </div>
                   @endif
-              </div> 
+              </div>
               </div>
             <form id="contact-form" action="{{ route('contact.store') }}" method="POST" class="php-email-form ">
              @csrf
-              @guest
+
               <div class="col-lg-12">
                 <fieldset>
                   <label for="name">F.I.SH</label>
@@ -610,20 +610,6 @@
                   <input type="text" name="phone" id="email"  placeholder="Telefon raqam kiriting " required="">
                 </fieldset>
               </div>
-              @else
-              <div class="col-lg-12">
-                <fieldset>
-                  <label for="name">F.I.SH</label>
-                  <input type="name" name="name" id="name" value="{{Auth::user()->name}}" autocomplete="on" disabled>
-                </fieldset>
-              </div>
-              <div class="col-lg-12">
-                <fieldset>
-                  <label for="phone">Telefon raqam</label>
-                  <input type="text" name="phone" id="email" value="{{Auth::user()->phone}}" required="">
-                </fieldset>
-              </div>
-              @endguest
 
               <div class="col-lg-12">
                 <fieldset>

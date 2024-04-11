@@ -27,9 +27,8 @@ class ContactController extends Controller
 
     public function store(ContactRequest $contactRequest)
     {
-        // dd("aa");
         $this->contactService->createContactMessage($contactRequest->validated());
-        return back()->with('success', 'Yaxshi  ...');
+        return redirect()->back()->with("success","Xabaringiz yuborildi");
     }
 
 }
