@@ -13,16 +13,5 @@ class PrayController extends Controller
         return view("pray.index",[
             'time' => $time
         ]);
-        // if($response->successful()) {
-        //     $prayerTimes = $time['data']['timings'];
-            
-        //     // Print or process the prayer times
-        //     foreach ($prayerTimes as $key => $value) {
-        //         echo $key . ': ' . $value . '<br>';
-        //     }
-        // } else {
-        //     // Handle error if request was not successful
-        //     echo "Error: Unable to fetch prayer times.";
-        // }
     }
 }

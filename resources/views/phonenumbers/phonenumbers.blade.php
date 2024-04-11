@@ -3,7 +3,7 @@
 @section('title', 'Telefon raqamlar ')
 
 @section('content')
-<section style="background-color: #50839d94;">
+<section style="background-color: #95bed394;">
     <div class="container py-5">
         <div class="row">
             @if($applicants)
@@ -54,7 +54,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 @endforeach
                 <div class="">
                     {{$applicants->links()}}

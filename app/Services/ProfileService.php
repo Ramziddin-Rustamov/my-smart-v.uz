@@ -23,7 +23,7 @@ class ProfileService
 
     protected function deleteOldImage($imagePath)
     {
-        $destinationPath = 'public/image/' . $imagePath;
+        $destinationPath = 'public/' . $imagePath;
         if (File::exists($destinationPath)) {
             File::delete($destinationPath);
         }
@@ -40,7 +40,7 @@ class ProfileService
     {
         $file = $data->file('image');
         $extension = $file->getClientOriginalExtension();
-        $filename = 'image/' . time() . '.' . $extension;
+        $filename = 'image/' . $data->user()->name.'.' . $extension;
         $file->move('image/', $filename);
         return $filename;
     }

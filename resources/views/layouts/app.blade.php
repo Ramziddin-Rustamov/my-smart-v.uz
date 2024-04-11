@@ -24,6 +24,7 @@
 <link href="{{ asset('assets/css/animate.css') }}" rel="stylesheet">
 <link href="{{ asset('assets/css/bundle.min.css') }}" rel="stylesheet">
 <link href="{{ asset('assets/css/addational.css') }}" rel="stylesheet">
+<link rel="icon" href="{{ asset('icon/icon.png') }}" type="image/x-icon">
 {{-- End --}}
 
 
@@ -212,6 +213,9 @@
                         <i class="fas fa-home text-success"></i>    {{ __(' Asosiy menu') }}
                       </a>
                       {{-- My Profile --}}
+                      <a class="dropdown-item py-3  " href="{{ route('youth.index') }}">
+                        <i class="fas fa-users text-success"></i>    {{ __(' Yoshlar ') }}
+                      </a>
                       <a class="dropdown-item py-3  " href="{{ route('profile.index') }}">
                         <i class="fas fa-user text-success"></i>    {{ __(' Mening profilm ') }}
                       </a>

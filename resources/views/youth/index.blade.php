@@ -3,7 +3,7 @@
 @section('title', 'Yoshlar')
 
 @section('content')
-<section style="background-color: #50839d94;">
+<section style="background-color: #abd5e894;">
     <div class="container py-5">
         <div class="row">
             @if($users)
