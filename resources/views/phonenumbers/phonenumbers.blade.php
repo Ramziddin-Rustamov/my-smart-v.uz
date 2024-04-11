@@ -17,7 +17,7 @@
                                         <div class="col-12">
                                             <div class="flex-shrink-0">
                                                 <a href="{{asset($user->image)}}">
-                                                    <img src="{{asset($user->image)}}" alt="Generic placeholder image" class="img-fluid" style="width: 100%; border-radius: 10px;">
+                                                    <img src="{{asset($user->image)}}" alt="Generic placeholder image" class="img-fluid " style="width: 100%; border-radius: 10px;">
                                                 </a>
                                             </div>
                                         </div>

@@ -1,171 +1,19 @@
 @extends('layouts.app')
-@section('title','About us')
+@section('title','Biz haqimizda')
 @section('content')
-
-
-  <!-- ======= Our Team Section ======= -->
-  <section style="padding-top:100px;"id="team" class="team section-bg">
-    <div class="container">
-
-      <div class="section-title" data-aos="fade-up">
-        <h2>{{ __('Our Team') }}</h2>
-          <p>"Our Team - A united force driving excellence together, embracing diversity and fostering a positive work culture to achieve remarkable results
-
-            . Our dedicated and passionate team collaborates with mutual respect, valuing each other's unique skills and experiences
-            
-            . Together, we strive to make a positive impact, overcoming challenges and celebrating success as one cohesive unit."</p>  
+<div class="container " style="margin-top:100px ">
+     <h2 class="py-3">Mang`itobod Qishlog'ining  Tarixi</h2>
+     <p  class="h-25 py-3"> Mang‘itobod tuman Urgut tumani shimoliy qismida joylashgan bo‘lib, atrofi Birlik, Sovg‘on, Oqmachit, Bekravot qishloqlari bilan chegaradosh. Ota-onalarimizning yozib qoldirishlaricha qishloqning paydo bo‘lganligi qariyb 300 yillik tarixga ega.
+      Dastlab axolimiz Mang‘it elining ming sulolasidan kelgan to‘rt oiladan tarkalgan. Shundan boshlab asta-sekinlik bilan ko‘chib kelgan Xalq utroqlashib qishloq shakliga kelgan. Dehqonchilik va chorvachilik yaxshi rivojlangan, shundan sung Mangitobod axolisi kupayib xozirda katta maxallaga aylandi. Mangitobod maxallasida dastavval birgina masjid bulgan usha masjidda namoz ukib xovlisida kunduz paytlari oksokollar yigilishib Mangitobod qishlogini qaysi yo‘l bilan bo‘lmasin qishloq xo‘jalik soxasini rivojlantirish yo‘llarini maslaxatlashib chora tadbirlarini izlashgan. O‘sha davrda Mangitobod qishlog‘iga oqarsuv muammosi eng og‘ir muammo bo‘lgan, o‘sha muammoni xal etish uchun qishloq axolisi qozon ariq nomi bilan ataladigan arig‘ini qazib suvni keltirishgan.
+      Shu tariqa Mangitobod qishlog‘i qishloq xo‘jalik soxasida rivojlanib bir qancha yutuqlarga erishgan. Ushbu jarayonda muntazam katnashgan Shukurov Rashid, Xakimov Xofiz, Oblokulov Melikullar uz xissalarini kushib faol xizmat kursatgan.
+      Sobik SSSR shuro xukumati davrida tasodif boshlangan ulug Vatan urushi davrida Mangitobod kishlogidan bir nechta fukarolar sovuk front katnashchilari buldilar jumladan: Eshonkulov Sulton, kizil yulduz ordeni soxibi Pulat Esonov, Rajabboy Begimkulov, Abdullo Jurayev, Shernazarov Xolmuratov, Egamurod Mirzayev, Mamatkul Pardayev, Fozil Ibragimov, Jamol Suyunovlar 1941-1945 yillardagi ulug Vatan urushida faol katnashib xalkimiz Vatanimiz tinchligi uchun xizmat kilganlar.
+      Sobik shuro xukumati davrida ( kolxoz davrida) Mangitobod kishlogidan bir nechta malakali mutaxasislar yetishib chikkkan. Jumladan, Pulat Esanov, Saidmurod Kurbonov, Musurmon Radjabov, Eshim Xolmurzayev, Obloyar Shadiyarovlar uzlarining munosib xissalarni Vatan ravnaki uchun kushganlar.
+      Uzbekiston Respublikasi Mustakllikka erishgandan sung uzini uzi boshkarish organlari faoliyatini takolmillashtirish Uzbekiston Respublikasi Prezidentining farmoniga asosan Respublikada maxalla tashkiloti tashkil etildi Jumladan: Mangitobod maxallasi 1992-yil oktyabr oyida tashkil topgan bo‘lib, maxalladaboshlab 2860 nafar axoli mavjud bulgan. Xozirga vaktga kelib Maxallada jami axoli 6390 nafar bulib, shundan erkaklar 3297 ta, ayollar soni 3093 nafar. Shundan 18-30 yosh 1746 nafar, 31-55 yoshgacha 1777 nafar, va 55 yoshdan yukori bulgan fukarolar soni 460 nafar, bogcha yoshidagilar esa 581-nafarni tashkil etadi.
+      Shuningdek Mangitobod maxallasida ayni vaktda bitta o‘rta maktab, unda 1126 nafar o‘quvchi 86 nafar o‘qituvchi faoliyat ko‘rsatmoqda,1 ta KVP, 1 ta Maishix xizmat va servis Kasb xunar kolleji faoliyat ko‘rsatmoqda. Ushbu tashkilotlarda jami 266 nafar mutaxxasislar mexnat kilib kelmokda.
+      Mangitobod maxallasida qadimdan tarixiy yodgorlik bo‘lib kelgan 11 tatepalik mavjud bo‘lib bular davlat muxofazasida saklanib kelmokda. Mangitobod maxallasida 19 ta savdo dukoni mavjud bulib shundan 16 tasioziq-ovqat do‘konlari va 3 ta xujalik mollari dukoni faoliyat olib bormoqda.
+      Bundan tashqari maishiy xizmat uyi ustaxona, apteka, dizayner xonasi va kompyuter xonasi ishlab turibdi. 3 ta qassobxona xam xalqimizning go‘sht mahsulotlariga bo‘lgan talabini qondirib kelmoqda. Maxallada xozirgi kunda 6390 ta aholi yashab kelmoqda. Xotinqizlar 3093 ta. Nuroniylar-pensianerlar 376 tani tashkel etadi. Yoshlar shug‘ullanishi uchun 2 ta stadion 1 ta mini stadion xizmat ko‘rsatmoqda. Hozirgi kunda maxallada
+      5 nafar xoji ota va xoji onalar yashaydi. Axoli asosan bog‘dorchilik va uzumchilik faoliyati bilan shug‘ullanib uzum–mayiz ëtishtirib kelmoqda. 46 ta fermer xo‘jaligida xalqimiz o‘ziga berilgan reja va topshiriqlarni munosib uddalab kelmoqda. Davlatimiz, yurtboshimiz tomanidan qabul qilingan qaror va farmonlarni xalqimiz ongli ravishda tushunib va amal qilib zamon bilan hamnafas yashab kelmoqda. Biz mustaqil yurt ravnaqiga munosib hissa qo‘shish uchun astoydil kurashib yashaymiz.
+      Ayni paytda Mangitobod maxallasida 100 nafardan ziyod oliy malumotli mutaxassislar va 1 nafar fan nomzodi davlatimiz ravnaqiga o‘z xissasini ko‘shib kelmokda.
+     </p>
     </div>
-        <div class="row justify-content-around">
-          @if ($team->count())
-          @foreach ($team as $user )
-          <div class="col-lg-3 col-md-6  d-flex align-items-stretch">
-            <div class="member" >
-              <div class="member-img">
-                <img src="{{ $user->image }}"   class="img-fluid" alt="{{ $user->name }}`image">
-                <div class="social">
-                  <a href="{{ $user->telegram }}"><i class="bi bi-telegram"></i></a>
-                  <a href="{{ $user->facebook }}"><i class="bi bi-facebook"></i></a>
-                  <a href="{{ $user->instagram }}"><i class="bi bi-instagram"></i></a>
-                  <a href="{{ $user->linkedin }}"><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>{{ $user->name }}</h4>
-                <span>{{ $user->job }}</span>
-              </div>
-            </div>
-          </div>
-          @endforeach
-          @else
-            <h6  class="text-center">{{ __('There is no User yet') }}</h6><hr>
-          @endif
-        </div>
-    </div>
-  </section><!-- End Our Team Section -->
-
-  <!-- ======= Our Skills Section ======= -->
-  <section id="skills" class="skills">
-    <div class="container">
-
-      <div class="section-title" data-aos="fade-up">
-        <h2>{{ __('Our Skills') }}</h2>
-        <p>With proficiency in these technologies, we are well-equipped to take on diverse challenges and deliver exceptional solutions for our clients."</p>
-      </div>
-
-      <div class="row skills-content">
-
-        <div class="col-lg-6" data-aos="fade-up">
-
-          <div class="progress">
-            <span class="skill">HTML <i class="val">90%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
-          
-
-          <div class="progress">
-            <span class="skill">CSS <i class="val">90%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
-          <div class="progress">
-            <span class="skill">JavaScript <i class="val">65%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
-          <div class="progress">
-            <span class="skill">Flutter <i class="val">70%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
-          <div class="progress">
-            <span class="skill">Python <i class="val">65%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-
-          <div class="progress">
-            <span class="skill">PHP <i class="val">75%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
-          <div class="progress">
-            <span class="skill">Larvel  <i class="val">70%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
-          <div class="progress">
-            <span class="skill">Vue.js  <i class="val">65%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
-          <div class="progress">
-            <span class="skill">React <i class="val">70%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
-          <div class="progress">
-            <span class="skill">Design <i class="val">65%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-  </section><!-- End Our Skills Section -->
-
-  <!-- ======= Our Clients Section ======= -->
-  <section id="clients" class="clients">
-    <div class="container">
-
-      <div class="section-title">
-        <h2 class="text-success font-weight-bold ">Clients</h2>
-      </div>
-
-      <div class="row text-center justify-content-center">
-        {{-- <div class="col-lg-3 col-md-6 col-6">         
-            <img src="assets/img/clients/clientIT.jpg" class="img-fluid" alt="">
-        </div> --}}
-        <div class="col-lg-3 col-md-6 col-12">
-            <img src="assets/img/clients/world1.jfif" class="img-fluid" alt="">
-        </div>
-
-        <div class="col-lg-3 col-md-6 col-12">
-          <img src="assets/img/clients/texno.jpg" class="img-fluid" alt="">
-        </div>
-        <div class="col-lg-3 col-md-6 col-12">
-          <img src="assets/img/clients/autoMed.png" class="img-fluid" alt="">
-        </div>
-          <div class="col-lg-3 col-md-6 col-12">
-            <img src="assets/img/clients/minded.jfif" class="img-fluid" alt="">
-        </div>
-      </div>
-
-    </div>
-  </section><!-- End Our Clients Section -->
 @endsection

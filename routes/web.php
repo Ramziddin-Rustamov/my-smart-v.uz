@@ -8,6 +8,7 @@ use App\Http\Controllers\PhoneNumberController;
 use App\Http\Controllers\EmergencyNumberController;
 use App\Http\Controllers\PrayController;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\TeamController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\PriceController;
@@ -67,6 +68,7 @@ Route::get('/phone-numbers', [PhoneNumberController::class, 'index'])->name('pho
 Route::get('/phone-numbers', [PhoneNumberController::class, 'index'])->name('phone.index');
 Route::get('/emergency-numbers', [EmergencyNumberController::class, 'index'])->name('emergency.index');
 Route::get('/pray-time', [PrayController::class, 'index'])->name('pray.index');
+Route::get('/team', [TeamController::class, 'index'])->name('team.index');
 // Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');

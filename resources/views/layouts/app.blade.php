@@ -158,13 +158,11 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a href="/" class="{{ (Request::is('/') ? 'active' : '') }}">Yangiliklar</a></li>
-
           <li class="dropdown "><a href="#"><span class="{{ (Request::is('about') ? 'active' : '') }} {{ (Request::is('view') ? 'active' : '') }}">Qo'shimcha</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li ><a href="{{ route('about') }}" class="{{ (Request::is('/about') ? 'active' : '') }}" >Biz haqimizda </a></li>
-              <li><a href="{{ route('view') }} ">Yangiliklar</a></li>
-              <li><a href="{{ route('view') }} ">Ishchi jamoa</a></li>
+              <li><a href="{{ route('posts.allposts') }} ">Yangiliklar</a></li>
+              <li><a href="{{ route('team.index') }} ">Ishchi jamoa</a></li>
               <li><a href="{{ route('view') }} ">Tibbiyot Birlashmasi</a></li>
               <li><a href="{{ route('view') }} ">84-maktab</a></li>
               <li><a href="{{ route('view') }} ">48-maktab</a></li>
