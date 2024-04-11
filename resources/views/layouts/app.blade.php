@@ -58,9 +58,9 @@
               <li ><a href="{{ route('about') }}" class="{{ (Request::is('/about') ? 'active' : '') }}" >Biz haqimizda </a></li>
               <li><a href="{{ route('posts.allposts') }} ">Yangiliklar</a></li>
               <li><a href="{{ route('team.index') }} ">Ishchi jamoa</a></li>
-              <li><a href="{{ route('view') }} ">Tibbiyot Birlashmasi</a></li>
-              <li><a href="{{ route('view') }} ">84-maktab</a></li>
-              <li><a href="{{ route('view') }} ">48-maktab</a></li>
+              <li><a href="#">Tibbiyot Birlashmasi</a></li>
+              <li><a href="#">84-maktab</a></li>
+              <li><a href="#">48-maktab</a></li>
             </ul>
           </li>
         </ul>
