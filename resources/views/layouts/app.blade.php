@@ -157,7 +157,7 @@
     </div>
 </footer>
   {{-- starts --}}
-   @livewireScripts
+     @livewireScripts
   <script src="{{ asset('assets/vendor/jquery/jquery.min.js') }}"></script>
   <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
   <script src="{{ asset('assets/js/isotope.min.js') }}"></script>
