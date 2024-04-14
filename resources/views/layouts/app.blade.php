@@ -104,13 +104,13 @@
                         <i class="fas fa-users text-success"></i>    {{ __(' Yoshlar ') }}
                       </a>
                       <a class="dropdown-item py-3  " href="{{ route('profile.index') }}">
-                        <i class="fas fa-user text-success"></i>    {{ __(' Mening profilm ') }}
+                        <i class="fas fa-user-tie text-success"></i>    {{ __(' Mening profilm ') }}
                       </a>
                        <a class="dropdown-item py-3  " href="{{ route('profile.index') }}">
                         <i class="fas fa-hand-holding-heart text-success"></i>    {{ __(' Hayriya ') }}
                       </a>
-                      <a class="dropdown-item py-3  " href="{{ route('phone.index') }}">
-                        <i class="fas fa-phone text-success"></i>    {{ __('Telefon raqamlar') }}
+                      <a class="dropdown-item py-3  " href="{{ route('people.index') }}">
+                        <i class="fas fa-user-group text-success"></i>    {{ __('Barcha Aholimiz') }}
                       </a>
                       <a class="dropdown-item py-3  " href="{{ route('emergency.index') }}">
                         <i class="fas fa-hospital text-success"></i>   {{ __('Shoshilinch Telefon') }}
@@ -157,6 +157,7 @@
     </div>
 </footer>
   {{-- starts --}}
+  @livewireScripts
   <script src="{{ asset('assets/vendor/jquery/jquery.min.js') }}"></script>
   <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
   <script src="{{ asset('assets/js/isotope.min.js') }}"></script>

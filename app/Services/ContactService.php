@@ -38,7 +38,7 @@ class ContactService
             'reason' => $data['reason'],
             'message' => $data['message'],
             'name' => $data['name'],
-            'phone' => $data['phone'],
+            'phone' => $data['phone']
         ]);
         $contact->save();
         return redirect()->back();
