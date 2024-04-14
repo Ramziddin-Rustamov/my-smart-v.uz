@@ -27,11 +27,9 @@
 <link rel="icon" href="{{ asset('icon/icon.png') }}" type="image/x-icon">
 {{-- End --}}
   <!-- Template Main CSS File -->
-  <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
     @if(Request::is('pray-time'))
       <link href="{{ asset('assets/css/pray.css') }}" rel="stylesheet">
     @endif
-  <livewire:styles />
 </head>
 <body>
   <div id="js-preloader" class="js-preloader">
@@ -159,7 +157,7 @@
     </div>
 </footer>
   {{-- starts --}}
-  <livewire:scripts />
+   @livewireScripts
   <script src="{{ asset('assets/vendor/jquery/jquery.min.js') }}"></script>
   <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
   <script src="{{ asset('assets/js/isotope.min.js') }}"></script>
@@ -168,8 +166,5 @@
   <script src="{{ asset('assets/js/custom.js') }}"></script>
   <script src="{{ asset('assets/js/addational.js') }}"></script>
   {{-- End --}}
-  <!-- Template Main JS File -->
-  <script src="{{ asset('assets/js/main.js') }}"></script>
-  <!-- SweetAlert 2 -->
 </body>
 </html>
