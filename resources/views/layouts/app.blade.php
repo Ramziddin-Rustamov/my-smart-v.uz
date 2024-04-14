@@ -31,6 +31,7 @@
     @if(Request::is('pray-time'))
     <link href="{{ asset('assets/css/pray.css') }}" rel="stylesheet">
   @endif
+  @livewireStyles
 </head>
 <body>
   <div id="js-preloader" class="js-preloader">
