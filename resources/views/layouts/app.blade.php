@@ -29,9 +29,9 @@
   <!-- Template Main CSS File -->
   <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
     @if(Request::is('pray-time'))
-    <link href="{{ asset('assets/css/pray.css') }}" rel="stylesheet">
-  @endif
-  @livewireStyles
+      <link href="{{ asset('assets/css/pray.css') }}" rel="stylesheet">
+    @endif
+  <livewire:styles />
 </head>
 <body>
   <div id="js-preloader" class="js-preloader">
@@ -159,7 +159,7 @@
     </div>
 </footer>
   {{-- starts --}}
-  @livewireScripts
+  <livewire:scripts />
   <script src="{{ asset('assets/vendor/jquery/jquery.min.js') }}"></script>
   <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
   <script src="{{ asset('assets/js/isotope.min.js') }}"></script>
