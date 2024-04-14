@@ -45,7 +45,8 @@
     </div>
   </div>
      <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top mb-5 " style="margin-bottom: 200px ">
+  <header id="header" class="fixed-top" style="background-color: rgba(255, 244, 239, 0.8);
+  box-shadow: 11px 11px 35px -10px rgba(66, 68, 90, 1);">
     <div class="container d-flex align-items-center">
 
       <h1  class="logo me-auto"><a style="color:#f35525" href="/">Mangit <br>
@@ -54,12 +55,12 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li class="dropdown "><a href="#"><span class="{{ (Request::is('about') ? 'active' : '') }} {{ (Request::is('view') ? 'active' : '') }}">Qo'shimcha</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li ><a href="{{ route('about') }}" class="{{ (Request::is('/about') ? 'active' : '') }}" >Biz haqimizda </a></li>
-              <li><a href="{{ route('posts.allposts') }} ">Yangiliklar</a></li>
+          <li ><a href="{{ route('about') }}" class="{{ (Request::is('/about') ? 'active' : '') }}" >Biz haqimizda </a></li>
+          <li><a href="{{ route('posts.allposts') }} ">Yangiliklar</a></li>
               <li><a href="{{ route('team.index') }} ">Ishchi jamoa</a></li>
               <li><a href="#">Tibbiyot Birlashmasi</a></li>
+          <li class="dropdown "><a href="#"><span class="{{ (Request::is('about') ? 'active' : '') }} {{ (Request::is('view') ? 'active' : '') }}">Maktablar</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
               <li><a href="#">84-maktab</a></li>
               <li><a href="#">48-maktab</a></li>
             </ul>
@@ -142,7 +143,7 @@
     </div>
     <h6 class="moving-text">Ushbu tizim hozircha test rejimda ishlamoqda ... </h6>
 </header>
-        <main id="app " style="margin-top:60px;">
+        <main id="app " style="">
             @yield('content')
         </main>
 <footer class="bg-dark  py-3 mt-5 mt-3 mt-sm-3 ">
@@ -150,8 +151,8 @@
         <div class="row">
             <div class="col-lg-12">
                 <p class="text-center mb-0  text-white">
-                    Sayt 2024 yil boshida ishlab chiqildi. Agarda sayt ishlash jarayomida xato va kamchiliklar bo'lsa xabar bering, bog'lanish uchun 
-                    <a rel="nofollow" class="text-primary" href="https://t.me/contactmewitherror">Shu yerga bosing</a>             
+                    Sayt 2024 yil boshida ishlab chiqildi. Agarda sayt ishlash jarayomida xato va kamchiliklar bo'lsa xabar bering, bog'lanish uchun
+                    <a rel="nofollow" class="text-primary" href="https://t.me/contactmewitherror">Shu yerga bosing</a>
                 </p>
             </div>
         </div>
