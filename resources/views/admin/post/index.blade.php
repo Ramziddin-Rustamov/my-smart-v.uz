@@ -23,6 +23,7 @@
                   <th scope="col">T/r</th>
                   <th scope="col">Rasm</th>
                   <th scope="col">Sarlovha</th>
+                  <th scope="col">Tana qismi </th>
                   <th scope="col">Yaratildi</th>
                   <th scope="col">Amallar</th>
                 </tr>
@@ -31,12 +32,13 @@
                 @foreach ($posts as $post)
                   <tr>
                     <th scope="col">{{ ($posts->currentpage()-1)*$posts->perpage() + ($loop->index+1 )}}</th>
-                    <th scope="row"><a href="#"><img style="width: 81px;height: 70px; object-fit: cover;" src="https://picsum.photos/id/{{ $post->id }}/200/300" alt="Post image"></a></th>
+                    <th scope="row"><a href="#"><img style="width: 81px;height: 70px; object-fit: cover;" src="{{asset($post->image)}}" alt="Post image"></a></th>
                     <td><a href="#" class="text-primary fw-bold">{{$post->title}}</a></td>
+                    <td><a href="#" class="text-primary fw-bold">{{$post->body}}</a></td>
                     <td>{{ $post->created_at->diffForHumans() }}</td>
                     <td class="fw-bold">
                       <div class="d-md-flex">
-                        <a  href="{{ route('posts.edit',$post->id) }}" class="btn btn-primary my-md-2 mx-sm-2 my-xs-2 "> <i class="bi bi-pencil-square"></i></a>
+                        {{-- <a  href="{{ route('posts.edit',$post->id) }}" class="btn btn-primary my-md-2 mx-sm-2 my-xs-2 "> <i class="bi bi-pencil-square"></i></a> --}}
                          <form action="{{ route('post.delete',['id'=>$post->id]) }}" method="POST">
                           @method('DELETE')
                           @csrf

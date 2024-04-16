@@ -23,7 +23,7 @@
                 <tr>
                   <th>T <br> R </th>
                   <th scope="col">Rasmi</th>
-                  <th scope="col">Ismi</th>
+                  <th scope="col">F.I.SH</th>
                   <th scope="col">A`zo bo'lgan kun</th>
                   <th scope="col">Holati</th>
                   <th scope="col">Amalllar</th>
@@ -35,7 +35,9 @@
                   <tr>
                     <th scope="col">{{ ($users->currentpage()-1)*$users->perpage() + ($loop->index+1 )}}</th>
                     <th scope="row"><a href="{{ route('admin.user.show',$user->id) }}"><img style="width: 81px;height: 70px; object-fit: cover;" src="{{ asset($user->image) }}" alt="user image"></a></th>
-                    <td><a href="{{ route('admin.user.show',$user->id) }}" class="text-primary fw-bold">{{ $user->name }}</a></td>
+                    <td><a href="{{ route('admin.user.show',$user->id) }}" class="text-primary fw-bold">{{ $user->first_name }} {{$user->last_name}} <br>
+                    {{$user->father_name}}
+                    </a></td>
                     <td>{{ $user->created_at->diffForHumans() }}</td>
                     <td class="fw-bold">
                         @if($user->active_status == '1')
@@ -47,13 +49,13 @@
                     <td class="fw-bold">
                       <div class="d-md-flex">
                         @can('super-admin')
-                        <a  href="{{ route('admin.user.edit',$user->id) }}" class="btn btn-primary my-md-2 mx-sm-2 my-xs-2 "> <i class="bi bi-eye"></i></a>
+                        <a  href="{{ route('admin.user.view',$user->id) }}" class="btn btn-primary my-md-2 mx-sm-2 my-xs-2 "> <i class="bi bi-eye"></i></a>
                         @endcan
-                        <form action="{{ route('admin.user.delete',['id'=>$user->id]) }}" method="POST">
+                        {{-- <form action="{{ route('admin.user.delete',['id'=>$user->id]) }}" method="POST">
                           @method('DELETE')
                           @csrf
                             <button type="submit" class="btn btn-danger my-md-2 mx-sm-2 my-xs-2"><i class="bi bi-trash"></i></button>
-                         </form>
+                         </form> --}}
                       </div>
                     </td>
                     <td class="fw-bold">

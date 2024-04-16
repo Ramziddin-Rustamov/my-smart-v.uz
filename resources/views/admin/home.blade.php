@@ -4,7 +4,9 @@
 <div class="container py-3">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <h1 class="text-primary font-weight-bold text-start py-5 "> Welcome to <span class="text-danger ">i</span>Coders Admin Page</h1>
+            <h2 class="text-primary font-weight-bold text-start py-5 ">
+                MANGITOBOD mahallasining Veb saytining <br> boshqaruv qismiga xush kelibsiz 
+            </h2>
         </div>
     </div>
 </div>

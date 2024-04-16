@@ -30,6 +30,6 @@ class AdminContactController extends Controller
     public function delete($id)
     {
         $this->contactService->deleteContact($id);
-        return redirect()->route('admin.contacts.index')->with('success', 'Deleted Successfully!');
+        return redirect()->route('admin.contact.index')->with('success', 'Xabar o`chirildi !');
     }
 }

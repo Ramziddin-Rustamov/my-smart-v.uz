@@ -11,12 +11,12 @@
         </ul>
        @endif
       </div>
-      <div class="d-flex justify-content-center">
+      <div class="text-start">
         <form action="{{ route('slide.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row">
               <div class="form-group col-md-12">
-                <label for="inputEmail4">IMAGE</label>
+                <label for="inputEmail4">Rasmi </label>
                 <input type="file" class="form-control" name="image" id="inputEmail4">
               </div>
               <div class="form-group col-md-12">

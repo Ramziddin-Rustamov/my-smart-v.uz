@@ -75,9 +75,10 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 // Super Admin Routes
 Route::middleware('can:super-admin')->group(function () {
         Route::get('super-admin-users/{id}/edit', [AdminUsersController::class, 'edit'])->name('admin.user.edit');
+        Route::get('super-admin-users/user/{id}/view', [AdminUsersController::class, 'show'])->name('admin.user.view');
         Route::put('super-admin-update-user/{user}', [AdminUsersController::class, 'update'])->name('admin.user.update');
         Route::delete('admin-delete/{id}/delete', [AdminUsersController::class, 'delete'])->name('admin.user.delete');
-        Route::delete('admin-contact-delete/{id}/delete', [AdminContactController::class, 'delete'])->name('admin.contact.delete');
+        // Route::delete('admin-contact-delete/{id}/delete', [AdminContactController::class, 'delete'])->name('admin.contact.delete');
 
         // Portfolio Routes
         Route::get('admin-portfolio', [PortfolioController::class, 'indexAdmin'])->name('admin.portfolio.index');

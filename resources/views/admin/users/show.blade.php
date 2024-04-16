@@ -1,66 +1,73 @@
 @extends('layouts.app')
+
 @section('title', 'About user')
+
 @section('content')
-<section class="h-100 gradient-custom-2" style="padding-top:125px;">
-    <div class="container pb-5 h-100">
-      <a href="{{ url()->previous() }}" class="btn btn-danger mb-2">{{ _('Back') }}</a>
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col col-lg-12 col-xl-12">
-        <h6 class="text-success text-center">{{ __('About user') }}</h6><hr>
-          <div class="card">
-            <div class="rounded-top text-white d-flex flex-row" style="background-color: #000; height:200px;">
-              <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
-                <img class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1" src="{{ asset($user->image) }}" alt="{{ $user->name }}`image">
-                {{-- <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px; z-index: 1"> --}}
-                <button desabled type="button" class="btn btn-dark" data-mdb-ripple-color="dark" style="z-index: 1;">
-                  {{ ($user->job)?? 'User JOB'  }}
-                </button>
-              </div>
-              <div class="ms-3" style="margin-top: 130px;">
-                <h5>{{ $user->name }}</h5>
-                <p>{{ $user->location ?? 'No location yet' }}</p>
-              </div>
+<section class="section about-section gray-bg" id="about">
+    <div class="container">
+        <!-- Back Button -->
+        <a href="{{ url()->previous() }}" class="btn btn-primary mb-4">{{ _('Orqaga qaytish !') }}</a>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="about-text go-to">
+                    
+                    <div class="row about-list card">
+                        <h3 class="dark-color card-header">Foydalanuvchi haqida</h3>
+                    <h6 class="theme-color lead">
+                        <h3>Kasbi </h3>
+                    <h5 class="bold text-end">
+                       {{ $user->profiles->job ?? 'Foydalanuvchi kasbi kiritilmagan' }}
+                    </h5>
+                    </h6>
+                    <h3>Biosi </h3>
+                    <p class="card-title">{{ $user->profiles->about }}</p>
+                        <div class="col-md-6 card-body">
+                            <div class="media">
+                                <label>Birthday</label>
+                                <p>{{ $user->birthday }}</p>
+                            </div>
+                            <div class="media">
+                                <label>Tug'ilgan sana </label>
+                                <p>{{ $user->profiles->birthday }} Yil </p>
+                            </div>
+                            <div class="media">
+                                <label>Manzili :</label>
+                                <p>{{ $user->profiles->location ?? 'No location yet' }}</p>
+                            </div>
+                            <div class="media">
+                                <label>Uyi </label>
+                                <p>{{ $user->profiles->address ?? 'No address yet' }}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="media">
+                                <label>E-mail</label>
+                                <p>{{ $user->email }}</p>
+                            </div>
+                            <div class="media">
+                                <label>Phone</label>
+                                <p>{{ $user->phone }}</p>
+                            </div>
+                            <div class="media">
+                                <label>Skype</label>
+                                <p>{{ $user->profiles->skype ?? 'No Skype yet' }}</p>
+                            </div>
+                            <div class="media">
+                                <label>Freelance</label>
+                                <p>{{ $user->profiles->freelance ?? 'Not available' }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="p-4 text-black col-xs-12" style="background-color: #f8f9fa;">
-              <div class="d-flex justify-content-end text-center py-1">
-                @if ($user->instagram)
-                <div class="ps-3">
-                  <a href="{{ $user->instagram }}"><i class="bi bi-instagram"></i></a>
-                  <p class="small text-muted mb-0">Instagram</p>
+            <div class="col-lg-6">
+                <div class="about-avatar card-body">
+                    <img class="img-fluid img-thumbnail " src="{{ asset($user->image) }}" alt="{{ $user->first_name }} image">
                 </div>
-                @endif
-                @if ($user->telegram)
-                <div class="ps-3">
-                  <a href="{{ $user->instagram }}"><i class="bi bi-telegram"></i></a>
-                  <p class="small text-muted mb-0">Telegram</p>
-                </div>
-                @endif
-                @if ($user->facebook)
-                <div class="ps-3">
-                  <a href="{{ $user->facebook }}"><i class="bi bi-facebook"></i></a>
-                  <p class="small text-muted mb-0">Facebook</p>
-                </div>
-                @else
-                <div class="ps-3">
-                  <a href="{{ $user->linkedin }}"><i class="bi bi-linkedin"></i></a>
-                  <p class="small text-muted mb-0">Linkedin</p>
-                </div>
-                @endif      
-              </div>
             </div>
-             @if ($user->about_uz)
-              <div class="card-body p-4 text-black">
-                <div class="mb-5">
-                  <p class="lead fw-normal mb-1">{{ __('About User') }}</p>
-                  <div class="p-4" style="background-color: #f8f9fa;">
-                    <p class="font-italic mb-1">{{ $user->about_uz }}</p>
-                  </div>
-                </div>  
-              </div>
-             @endif
-          </div>
         </div>
-      </div>
+        
     </div>
-  </section>
+</section>
 @endsection

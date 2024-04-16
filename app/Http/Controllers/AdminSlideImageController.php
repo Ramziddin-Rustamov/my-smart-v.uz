@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\SlideImage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+
 
 class AdminSlideImageController extends Controller
 {
@@ -22,32 +24,42 @@ class AdminSlideImageController extends Controller
     public function store(Request $req){
         
         $req->validate([
-           'title_uz'=>['max:100','required'],
-           'title_en'=>['max:100','required'],
-           'body_uz'=>['max:250','required'],
-           'body_en'=>['max:250','required'],
-           'image'=>['image','required','mimes:jpg,png,jpeg,gif,svg']
+           'title'=>['max:100','required'],
+           'body'=>['max:250','required'],
+           'image'=>['image','required','mimes:jpg,png,jpeg,svg','max:5112']
         ]);
 
         $file = $req->file('image');
         $extention =  $file->getClientOriginalExtension();
-        $filename = 'image/'.time().'.'.$extention;
-        $file->move('image/',$filename);
+        $filename = 'image/slide/'.time().'.'.$extention;
+        $file->move('image/slide/',$filename);
 
         $slide = new SlideImage();
-        $slide->title_uz = $req->title_uz;
-        $slide->title_en = $req->title_en;
-        $slide->body_en = $req->body_en;
-        $slide->body_uz = $req->body_uz; 
+        $slide->title = $req->title;
+        $slide->body = $req->body;
         $slide->image = $filename;
         $slide->save();
         
-        return redirect()->route('slide.index')->with('success','New data stored');
+        return redirect()->route('slide.index')->with('success','Yangi Rasm qo`shildi');
     }
 
     public function delete( $id){
-        $slide = SlideImage::findOrFail($id);
-        $slide->delete();
-        return back()->with('success','Post Deleted');
+        try{
+            // dd($post);
+            $post = SlideImage::find($id);
+            if($post){
+                $file = File::exists(public_path($post->image));
+                if($file){
+                    File::delete(public_path($post->image));
+                    $post->delete();
+                    return back()->with('success', 'O`chirildi !');
+                }
+                $post->delete();
+                return back()->with('success', 'Rasmsiz o`chirildi ');
+            }
+            return back()->with('errors', 'Topilmadi !');
+        }catch(Exception $e){
+        return back()->with('errors', 'Bu yangilikni o`chiraolmaysiz ');
+       }
     }
 }

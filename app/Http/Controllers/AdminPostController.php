@@ -25,29 +25,26 @@ class AdminPostController extends Controller
     }
 
     public function store(Request $req){
+
         $req->validate([
-            'title_uz'=> ['required'],
-            'title_en'=> ['required'],
-            'body_uz'=> ['required'],
-            'body_en'=> ['required'],
-            'image'=> ['image','mimes:jpg,jpeg,png,gif','required']
+            'title'=> ['required'],
+            'body'=> ['required'],
+            'image' => ['image', 'mimes:jpg,jpeg,png', 'max:5120', 'required'],
         ]);
         
         $file = $req->file('image');
         $extension =  $file->getClientOriginalExtension();
-        $filename = 'image/'.time().'.'.$extension;
-        $file->move('image/',$filename);
-
+        $filename = 'image/post/'.time().'.'.$extension;
+        $file->move('image/post/',$filename);
+        
         $post = new Post();
         $post->user_id = auth()->user()->id;
-        $post->title_uz = $req->title_uz;
-        $post->title_en = $req->title_en;
-        $post->body_uz = $req->body_uz;
-        $post->body_en = $req->body_en;
+        $post->title = $req->title;
+        $post->body = $req->body;
         $post->image = $filename;
         $post->save();
 
-        return back()->with('success', 'Data uploaded!');
+        return back()->with('success', 'Yangilik qo\'shildi!');
     }
 
     public function edit(Post $id){
@@ -58,26 +55,28 @@ class AdminPostController extends Controller
 
     public function update(Request $req ,Post $post){
         $req->validate([
-            'title_uz'=> ['required'],
-            'title_en'=> ['required'],
-            'body_uz'=> ['required'],
-            'body_en'=> ['required'],
+            'title'=> ['required'],
+            'body'=> ['required'],
             'image'=> ['required']
         ]);
-        $post->user_id = auth()->user()->id;
-        $post->title_uz = $req->title_uz;
-        $post->title_en = $req->title_en;
-        $post->body_uz = $req->body_uz;
-        $post->body_en = $req->body_en;
-        $post->image = $req->image;
+        
         if($req->hasFile('image')){
-            Storage::delete('image/'.$post->image);
-            $newName = "image".uniqid()."_".$req->file('image')->extension();
-            $req->file('image')->storeAs('image/',$newName);
-            $post->image = $newName;
+            $file = File::exists(public_path($post->image));
+            if($file){
+                File::delete(public_path($post->image));
+                $post->delete();
+            }
+            $file = $req->file('image');
+            $extension =  $file->getClientOriginalExtension();
+            $filename = 'image/post/'.time().'.'.$extension;
+            $file->move('image/post/',$filename);
         }
+        $post->user_id = auth()->user()->id;
+        $post->title = $req->title;
+        $post->body = $req->body;
+        $post->image = 'image/post/default.png';
         $post->update();
-        return redirect()->route('posts.index')->with('success','Updated Successfully');
+        return redirect()->route('posts.index')->with('success','Taxrirlandi !');
     }
 
     public function destroy($id){
@@ -89,14 +88,14 @@ class AdminPostController extends Controller
                 if($file){
                     File::delete(public_path($post->image));
                     $post->delete();
-                    return back()->with('success', 'Deleted with image');
+                    return back()->with('success', 'O`chirildi !');
                 }
                 $post->delete();
-                return back()->with('success', ' Deleted without image');
+                return back()->with('success', 'Rasmsiz o`chirildi ');
             }
-            return back()->with('errors', 'Not found');
+            return back()->with('errors', 'Topilmadi !');
         }catch(Exception $e){
-        return back()->with('errors', 'Can not be deleted!');
+        return back()->with('errors', 'Bu yangilikni o`chiraolmaysiz ');
        }
     }
 

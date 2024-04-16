@@ -29,15 +29,12 @@
 </head>
 
 <body>
-
-  
-
   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
       <a href="/" class="logo d-flex align-items-center">
-        <span class="d-none d-lg-block">i</span>
+        <span class="d-none d-lg-block">MANGITOBOD.UZ</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
@@ -279,20 +276,20 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="#">
-          <i class="bi bi-grid"></i>
-          <span>iCoders</span>
+        <a class="nav-link " href="https://mangitobod.uz">
+          <i class="bi bi-house"></i>
+          <span>Mangitobod.uz</span>
         </a>
       </li><!-- End Dashboard Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#message" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-alarm"></i><span> Message </span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-envelope"></i><span> Xabarlar </span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="message" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
             <a href="{{ route('admin.contact.index') }}">
-              <i class="bi bi-email"></i><span> Message </span>
+              <i class="bi bi-email"></i><span> Kelgan xabarlar  </span>
             </a>
           </li>
         </ul>
@@ -300,12 +297,12 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-pen"></i><span>Posts</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-file-post"></i><span>Yangilik Haqida !</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
             <a href="{{ route('posts.index') }}">
-              <i class="bi bi-circle"></i><span>All posts</span>
+              <i class="bi bi-circle"></i><span>Yangiliklar</span>
             </a>
           </li>
         </ul>
@@ -313,12 +310,12 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#slide" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-image"></i><span>Slide </span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-image"></i><span>Rasm qo'shish </span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="slide" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
             <a href="{{ route('slide.index') }}">
-              <i class="bi bi-circle"> </i><span> Slide image</span>
+              <i class="bi bi-circle"> </i><span>Rasmlar </span>
             </a>
           </li>
 
@@ -327,12 +324,12 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-person-square"></i><span> Users </span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-person-square"></i><span> Foydalanuvchilar  </span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
             <a href="{{ route('admin.user.index') }}">
-              <i class="bi bi-circle"></i><span> Subscribed Users </span>
+              <i class="bi bi-circle"></i><span>Ruyxatdan O'tgan Foydalanuvchilar  </span>
             </a>
           </li>
         </ul>

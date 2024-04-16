@@ -9,7 +9,7 @@
       </div>
       @endif
       </div>
-        <table class="table table-hover table-dark responsive">
+        <table class="table table-hover table-primary responsive">
             <thead>
               <tr>
                 <th scope="col">#</th>

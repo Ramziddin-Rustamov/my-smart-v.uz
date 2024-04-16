@@ -27,9 +27,10 @@ class ContactService
     {
         $cacheKey = 'all_contacts';
         Cache::forget($cacheKey);
-
-        $contact = Contact::findOrFail($id);
-        $contact->delete();
+        $contact = Contact::find($id);
+       if($contact){
+         return  $contact->delete();
+       }
     }
 
     public function createContactMessage($data)

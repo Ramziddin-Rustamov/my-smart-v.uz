@@ -14,7 +14,7 @@
       <div class="table-responsive-sm table-responsive-md table-responsive-lg">
         <div class="card-body pb-0">
             <div class="text-end py-2">
-                <a href="{{ route('slide.create') }}" class="btn btn-primary"> Create  </a>
+                <a href="{{ route('slide.create') }}" class="btn btn-primary"> Yangi rasm qo`shish   </a>
             </div>
 
             <table class="table table-bordered">
