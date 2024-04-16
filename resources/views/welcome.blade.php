@@ -398,12 +398,12 @@
             <h6><i class="fas fa-calendar-check"></i>  {{ ''.$post->created_at->format('d-m-Y')}}</h6>
             <h4>
             <a href="{{ route('posts.findOne',$post->id) }}">
-                {{ substr(strip_tags($post->title_en), 0, 100) }}
-                {{ strlen(strip_tags($post->title_en)) > 55 ? "..." : "" }}
+                {{ substr(strip_tags($post->title), 0, 100) }}
+                {{ strlen(strip_tags($post->title)) > 55 ? "..." : "" }}
             </a></h4>
            <p>
-            {{ substr(strip_tags($post->body_en), 0, 150) }}
-            {{ strlen(strip_tags($post->body_en)) > 150 ? "....." : "" }}
+            {{ substr(strip_tags($post->body), 0, 150) }}
+            {{ strlen(strip_tags($post->body)) > 150 ? "....." : "" }}
            </p>
             <div class="main-button">
               <a href="{{ route('posts.findOne',$post->id) }}">Ko'proq o'qish</a>
