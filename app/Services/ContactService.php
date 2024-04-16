@@ -10,8 +10,8 @@ class ContactService
     public function getAllContacts()
     {
         $cacheKey = 'all_contacts';
-         return Cache::remember($cacheKey, now()->addMinute(15), function () {
-            return Contact::orderBy('id', 'DESC')->with('user')->paginate(20);
+         return Cache::remember($cacheKey, now()->addMinute(2), function () {
+            return Contact::orderBy('id', 'DESC')->paginate(20);
         });
     }
 

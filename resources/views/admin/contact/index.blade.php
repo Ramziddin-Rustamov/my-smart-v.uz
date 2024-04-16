@@ -13,10 +13,11 @@
             <thead>
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">User</th>
-                <th scope="col">Reason</th>
-                <th scope="col">Sent at</th>
-                <th scope="col">Actions</th>
+                <th scope="col">Ismi</th>
+                <th scope="col">Telefon raqami</th>
+                <th scope="col">Sababi</th>
+                <th scope="col">Yuborilgan vaqti</th>
+                <th scope="col">Amallar</th>
               </tr>
             </thead>
             <tbody>
@@ -24,7 +25,8 @@
               @foreach ($contacts as $contact)
               <tr>       
                     <th scope="row">{{ $loop->index+1 }}</th>
-                    <td>{{ $contact->user->name }}</td>
+                    <td>{{ $contact->name }}</td>
+                    <td>{{ $contact->phone }}</td>
                     <td>{{ $contact->reason }}</td>
                     <td>{{ $contact->created_at->diffForHumans() }}</td>                
                 <td>
