@@ -22,7 +22,7 @@
                         </div>
 
                         <h2 class="entry-title">
-                            {{ $post->title_uz }}
+                            {{ $post->title}}
                         </h2>
 
                         <div class="entry-meta">
@@ -34,7 +34,7 @@
 
                         <div class="entry-content">
                             <p>
-                                {{ $post->body_uz }}
+                                {{ $post->body }}
                             </p>
                         </div>
                         @auth
