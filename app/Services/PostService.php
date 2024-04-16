@@ -21,7 +21,7 @@ class PostService
         });
     }
 
-    public function getLatestPosts($limit = 4)
+    public function getLatestPosts($limit = 3)
     {
         $cacheKey = "latest_posts_{$limit}";
 

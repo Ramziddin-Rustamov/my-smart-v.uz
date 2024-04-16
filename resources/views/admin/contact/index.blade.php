@@ -16,6 +16,7 @@
                 <th scope="col">Ismi</th>
                 <th scope="col">Telefon raqami</th>
                 <th scope="col">Sababi</th>
+                <th scope="col">Xabar matni</th>
                 <th scope="col">Yuborilgan vaqti</th>
                 <th scope="col">Amallar</th>
               </tr>
@@ -26,8 +27,13 @@
               <tr>       
                     <th scope="row">{{ $loop->index+1 }}</th>
                     <td>{{ $contact->name }}</td>
-                    <td>{{ $contact->phone }}</td>
+                    <td>
+                        <a href="tel:{{$contact->phone}}">
+                            {{ $contact->phone }}
+                        </a>
+                    </td>
                     <td>{{ $contact->reason }}</td>
+                    <td>{{ $contact->message }}</td>
                     <td>{{ $contact->created_at->diffForHumans() }}</td>                
                 <td>
                     <a class="btn btn-primary" title="Learn more" href="{{ route('admin.contact.show',['id'=>$contact->id]) }}"><i class="bi bi-eye"></i></a>

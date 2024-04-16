@@ -1,61 +1,58 @@
-@extends('layouts.app')
-
+@extends('admin.admin_layout.app')
 @section('title', 'About user')
-
 @section('content')
 <section class="section about-section gray-bg" id="about">
     <div class="container">
         <!-- Back Button -->
         <a href="{{ url()->previous() }}" class="btn btn-primary mb-4">{{ _('Orqaga qaytish !') }}</a>
 
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="about-text go-to">
-                    
-                    <div class="row about-list card">
-                        <h3 class="dark-color card-header">Foydalanuvchi haqida</h3>
+        <div class="row card-header">
+            <div class="col-lg-6 card-body">
+                <div class="about-text ">
+                    <h3 class="dark-color">Foydalanuvchi haqida</h3>
+                    <h1>{{$user->first_name . ' ' . $user->last_name . ' ' . $user->father_name}}</h1>
                     <h6 class="theme-color lead">
-                        <h3>Kasbi </h3>
-                    <h5 class="bold text-end">
+                    <p>
                        {{ $user->profiles->job ?? 'Foydalanuvchi kasbi kiritilmagan' }}
-                    </h5>
+                    </p>
                     </h6>
-                    <h3>Biosi </h3>
-                    <p class="card-title">{{ $user->profiles->about }}</p>
-                        <div class="col-md-6 card-body">
+                    <!-- About User Section -->
+                    <p class="">{{ $user->profiles->about ?? 'Ma`lumot kiritilmagan !' }}</p>
+                    <div class="row about-list ">
+                        <div class="col-md-6">
                             <div class="media">
-                                <label>Birthday</label>
-                                <p>{{ $user->birthday }}</p>
+                                <label>Azo bo'lgan</label>
+                                <p>{{ $user->created_at ?? 'Ma`lumot kiritilmagan !' }}</p>
                             </div>
                             <div class="media">
                                 <label>Tug'ilgan sana </label>
-                                <p>{{ $user->profiles->birthday }} Yil </p>
+                                <p>{{ $user->profiles->birthday ?? 'Ma`lumot kiritilmagan !' }} Yil </p>
                             </div>
                             <div class="media">
-                                <label>Manzili :</label>
-                                <p>{{ $user->profiles->location ?? 'No location yet' }}</p>
+                                <label>Telegram :</label>
+                                <p>{{ $user->profiles->telegram ?? 'Telegrami yo`q' }}</p>
                             </div>
                             <div class="media">
                                 <label>Uyi </label>
-                                <p>{{ $user->profiles->address ?? 'No address yet' }}</p>
+                                <p>{{ $user->profiles->location ?? 'Ma  ;umot yo`q' }}</p>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="media">
                                 <label>E-mail</label>
-                                <p>{{ $user->email }}</p>
+                                <p>{{ $user->email ?? 'Ma`lumot kiritilmagan !' }}</p>
                             </div>
                             <div class="media">
-                                <label>Phone</label>
-                                <p>{{ $user->phone }}</p>
+                                <label>Telefon</label>
+                                <p>{{ $user->profiles->phone ?? 'Ma`lumot kiritilmagan !' }}</p>
                             </div>
                             <div class="media">
-                                <label>Skype</label>
-                                <p>{{ $user->profiles->skype ?? 'No Skype yet' }}</p>
+                                <label>WhatsApp</label>
+                                <p>{{ $user->profiles->whatsup ?? 'WhatsApp yo`q' }}</p>
                             </div>
                             <div class="media">
-                                <label>Freelance</label>
-                                <p>{{ $user->profiles->freelance ?? 'Not available' }}</p>
+                                <label>Instagram</label>
+                                <p>{{ $user->profiles->instagram ?? 'yo`q' }}</p>
                             </div>
                         </div>
                     </div>

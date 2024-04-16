@@ -2,44 +2,6 @@
 @section('title','Asosiy menu')
 @section('content')
   <!-- ======= Header ======= -->
-
-
-  <!-- ======= Hero Section ======= -->
-  {{-- <section id="hero">
-    <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
-
-      <div class="carousel-inner" role="listbox">
-        {{-- @foreach ($slides as $slide ) --}}
-        {{-- <div class="carousel-item {{ ($loop->index == 0) ? 'active':'' }}" >
-          <div class="carousel-container">
-            <div style="background-color: rgb(0 0 , 44);
-            border-radius: 10px;
-            letter-spacing: 1px;" class="carousel-content animate__animated animate__fadeInUp">
-              <h2>{{ $slide->title_en }}</h2>
-              <p class="">{{ $slide->body_en }}</p>
-              @guest
-              {{-- <div class="text-center"><a href="{{ route('register') }}" class="btn-get-started">{{ __('Follow Us') }}</a></div>
-              @endguest
-            </div>
-          </div>
-        </div>
-        {{-- @endforeach --}}
-      {{-- </div> --}}
-{{--
-      <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
-      </a>
-
-      <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
-        <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
-      </a>
-
-      <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
-
-    </div>
-  </section>  --}}
-  <!-- End Hero -->
-  {{--N  starts --}}
    {{-- @if($slides) --}}
      {{-- 1 --}}
      <div class="main-banner">
@@ -87,7 +49,7 @@
         <div class="col-lg-5">
           <div class="section-heading">
             <h6>| Mahallamiz RAISi</h6>
-            <h2>Faxriddin  </h2>
+            <h2>Faxriddin Qurbonov </h2>
           </div>
           <div class="accordion" id="accordionExample">
             <div class="accordion-item">
@@ -135,10 +97,10 @@
                 <i style="color:#f35525" class="fas fa-clock fa-3x"></i>
                 <h4>Ishlash soatlari <br><span>08:00 - 17: 00</span></h4>
               </li>
-              <li>
+              {{-- <li>
                 <i style="color:#f35525" class="fas fa-mail-bulk fa-3x"></i>
                 <h4>Email<br><span>email@gmail.com</span></h4>
-              </li>
+              </li> --}}
               <li>
                 <i style="color:#f35525" class="fas fa-phone fa-3x"></i>
                 <h4>Telefon <br><span>+9989 771 39 09</span></h4>
@@ -173,12 +135,19 @@
   <div class="video-content">
     <div class="container">
       <div class="row">
-        <div class="col-lg-10 offset-lg-1">
+        <div class="col-lg-6 mb-1">
           <div class="video-frame">
-            <img src="{{asset('assets/images/village-video.jpg')}}" alt="">
+            <img src="{{asset('assets/images/video1.jpg')}}" alt="">
             <a href="https://www.youtube.com/watch?v=wZnSb7zqTbs&pp=ygUUbWFuZ2l0b2JvZCBtYWhhbGxhc2k%3D" target="_blank"><i class="fa fa-play"></i></a>
           </div>
         </div>
+
+        <div class="col-lg-6 mb-1">
+            <div class="video-frame">
+              <img src="{{asset('assets/images/video2.jpg')}}" alt="">
+              <a href="https://t.me/mangitobod_mahallam/64589" target="_blank"><i class="fa fa-play"></i></a>
+            </div>
+          </div>
       </div>
     </div>
   </div>
