@@ -12,7 +12,7 @@ class Contact extends Model
         'name',
         'phone',
         'reason',
-        'message'
+        'message',
     ];
 
 }
