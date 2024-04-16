@@ -17,7 +17,7 @@ class People extends Component
     }
 
     public function updatedname($name){
-        $this->users = User::where('name', 'like', '%' . $name . '%')->get();
+        $this->users = User::where('first_name', 'like', '%' . $name . '%')->get();
     }
     public function render()
     {

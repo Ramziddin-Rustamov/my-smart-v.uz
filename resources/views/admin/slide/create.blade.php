@@ -20,23 +20,16 @@
                 <input type="file" class="form-control" name="image" id="inputEmail4">
               </div>
               <div class="form-group col-md-12">
-                <label for="inputPassword4">TITLE_UZ</label>
-                <input type="text" name="title_uz" class="form-control" id="inputPassword4">
+                <label for="inputPassword4">Sarlovha</label>
+                <input type="text" name="title" class="form-control" id="inputPassword4">
               </div>
             </div>
+           
             <div class="form-group">
-              <label for="inputAddress">TITLE_EN</label>
-              <input type="text" name="title_en" class="form-control" id="inputAddress">
+              <label for="inputAddress2">Matn qismi  </label>
+              <input type="text" name="body" class="form-control" id="inputAddress2">
             </div>
-            <div class="form-group">
-              <label for="inputAddress2">BODY_EN </label>
-              <input type="text" name="body_en" class="form-control" id="inputAddress2">
-            </div>
-            <div class="form-group">
-                <label for="inputAddress2">BODY_UZ </label>
-                <input type="text" name="body_uz" class="form-control" id="inputAddress2">
-              </div>
-            <button type="submit" class="btn btn-primary my-2">Create</button>
+            <button type="submit" class="btn btn-primary my-2">Yaratish </button>
           </form>
       </div>
   </div>

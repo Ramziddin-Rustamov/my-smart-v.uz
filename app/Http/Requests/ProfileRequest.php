@@ -24,10 +24,13 @@ class ProfileRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:20',
+            'first_name' => 'required|max:20',
+            'last_name' => 'required|max:20',
+            'father_name' => 'required|max:20',
             'image' => 'max:10240|mimes:jpg,bmp,png',
             'instagram' => 'nullable',
             'telegram' => 'nullable',
+            'whatsup' => 'nullable',
             'job' => 'nullable|string',
             'location' => 'nullable|string',
             'phone' => 'nullable|string',

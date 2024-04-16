@@ -21,10 +21,10 @@
               <thead>
                 <tr>
                   <th scope="col">T/r</th>
-                  <th scope="col">Image</th>
-                  <th scope="col">Title</th>
-                  <th scope="col">Created at</th>
-                  <th scope="col">Action</th>
+                  <th scope="col">Rasmi</th>
+                  <th scope="col">Sarlovha</th>
+                  <th scope="col">Yaratildi at</th>
+                  <th scope="col">Harakatlar</th>
                 </tr>
               </thead>
               <tbody>
@@ -32,7 +32,7 @@
                   <tr>
                     <th scope="col">{{ ($slides->currentpage()-1)*$slides->perpage() + ($loop->index+1 )}}</th>
                     <th scope="row"><a href="#"><img style="width: 81px;height: 70px; object-fit: cover;" src="{{ $slide->image }}" alt="image"></a></th>
-                    <td><a href="#" class="text-primary fw-bold">{{ $slide->title_uz }}</a></td>
+                    <td><a href="#" class="text-primary fw-bold">{{ $slide->title }}</a></td>
                     <td>{{ $slide->created_at->diffForHumans() }}</td>
                     <td class="fw-bold">
                       <div class="d-md-flex">

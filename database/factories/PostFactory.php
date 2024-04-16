@@ -15,15 +15,13 @@ class PostFactory extends Factory
      */
 
     protected $model = Post::class;
-    
+
     public function definition()
     {
         return [
             'user_id'=>User::factory(),
-            'title_uz'=> $this->faker->sentence(),
-            'title_en'=> $this->faker->sentence(),
-            'body_uz' =>$this->faker->paragraph(10),
-            'body_en' =>$this->faker->paragraph(10),
+            'title'=> $this->faker->sentence(),
+            'body' =>$this->faker->paragraph(10),
             'image'=> $this->faker->sentence()
         ];
     }

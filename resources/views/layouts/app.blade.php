@@ -30,6 +30,7 @@
     @if(Request::is('pray-time'))
       <link href="{{ asset('assets/css/pray.css') }}" rel="stylesheet">
     @endif
+  @livewireStyles
 </head>
 <body>
   <div id="js-preloader" class="js-preloader">
@@ -43,7 +44,7 @@
     </div>
   </div>
      <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top" style="background-color: rgba(255, 244, 239, 0.8);
+  <header id="header" class="fixed-top " style="background-color: rgba(255, 244, 239, 0.8);
   box-shadow: 11px 11px 35px -10px rgba(66, 68, 90, 1);">
     <div class="container d-flex align-items-center">
 
@@ -88,10 +89,10 @@
                       <img style="width:35px; border-radius:50%"
                        class="user-circle-image-class "
                       src="{{ asset(Auth::user()->image)  }}"
-                      alt="{{ Auth::user()->name }} `s image'">
+                      alt="{{ Auth::user()->first_name }} `s image'">
                     </a>
                     <a style="padding-top:16px" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{ explode(" ", Auth::user()->name)[0] }}
+                        {{ Auth::user()->first_name }}
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -141,9 +142,9 @@
     </div>
     <h6 class="moving-text">Ushbu tizim hozircha test rejimda ishlamoqda ... </h6>
 </header>
-        <main id="app " style="">
-            @yield('content')
-        </main>
+<main id="app">
+    @yield('content')
+</main>
 <footer class="bg-dark  py-3 mt-5 mt-3 mt-sm-3 ">
     <div class="container">
         <div class="row">
@@ -157,7 +158,7 @@
     </div>
 </footer>
   {{-- starts --}}
-     @livewireScripts
+  @livewireScripts
   <script src="{{ asset('assets/vendor/jquery/jquery.min.js') }}"></script>
   <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
   <script src="{{ asset('assets/js/isotope.min.js') }}"></script>

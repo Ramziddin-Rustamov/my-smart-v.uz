@@ -42,6 +42,7 @@ class MyProfileController extends Controller
 
     public function edit(Request $request , User $id)
     {
+       
         $id = $request->user()->id;
         $user = User::findOrFail($id);
         return view('myprofile.edit',[
@@ -53,8 +54,10 @@ class MyProfileController extends Controller
 
     public function update(ProfileRequest $request, User $user)
     {
-        // dd($request->all());
+
         $this->profileService->updateProfile($user, $request);
+        // dd($request->all());
+        
 
         return redirect()->route('profile.index');
     }

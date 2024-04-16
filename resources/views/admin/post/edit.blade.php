@@ -21,10 +21,10 @@
           @csrf
           @method('PUT')
           <div class="col-md-6">
-            <label for="validationCustom01" class="form-label"> Title_uz</label>
-            <input type="text" class="form-control @error('title_uz') is-invalid @enderror" id="validationCustom01" name="title_uz" value="{{ old('title_uz') ?? $post->title_uz }}" required>
+            <label for="validationCustom01" class="form-label"> Sarlovha </label>
+            <input type="text" class="form-control @error('title') is-invalid @enderror" id="validationCustom01" name="title" value="{{ old('title_uz') ?? $post->title}}" required>
             <div class="valid-feedback">
-              Looks good!
+              Yaxshi !
             </div>
           </div>
             @error('title_uz')
@@ -33,36 +33,20 @@
               </div>
             @enderror
 
-          <div class="col-md-6">
-            <label for="validationCustom02" class="form-label">Title_en</label>
-            <input type="text" class="form-control @error('title_en') is-invalid @enderror" id="validationCustom02"name="title_en" value="{{ old('title_en') ?? $post->title_en}}" required>
-            <div class="valid-feedback">
-              Looks good!
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="mb-3">
-              <label for="validationCustomUsername" class="form-label">Body_uz</label>
-              <textarea class="form-control @error('body_uz') is-invalid @enderror" id="validationTextarea" name="body_uz" rows="6" cols="4"  placeholder="Body_uz" required> value="{{ old('body_uz') ?? $post->body_uz }}"</textarea>
-              <div class="invalid-feedback">
-                Please enter a message in the textarea.
-              </div>
-          </div>
-          </div>
 
           <div class="col-md-6">
             <div class="mb-3">
-              <label for="validationCustomUsername" class="form-label">Body_en</label>
-              <textarea class="form-control @error('body_en') is-invalid @enderror" id="validationTextarea" name="body_en" rows="6" cols="4"  placeholder="Body_en" required>value="{{ old('body_en') ?? $post->body_en }}"</textarea>
+              <label for="validationCustomUsernam" class="form-label">Matn Qismi </label>
+              <textarea class="form-control @error('body_uz') is-invalid @enderror" id="validationTextarea" name="body" rows="6" cols="4"  placeholder="Body_uz" required> value="{{ old('body') ?? $post->body}}"</textarea>
               <div class="invalid-feedback">
-                Please enter a message in the textarea.
+               Xabarnoma
               </div>
           </div>
           </div>
           <div class="col-md-12">
             <div class="mb-3">
               <input type="file" class="form-control" name="image" aria-label="file example" value="{{ old('image') ?? $post->image }}">
-              <div class="invalid-feedback @error('image') is-invalid @enderror">Image Required </div>
+              <div class="invalid-feedback @error('image') is-invalid @enderror">Rasm yuklash majburiy </div>
             </div>
           </div>
           <div class="col-12">

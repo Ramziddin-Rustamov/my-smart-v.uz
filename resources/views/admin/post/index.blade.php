@@ -2,7 +2,7 @@
 @section('title' , 'Posts')
 @section('content')
 
-<h1 class="text-center">Posts</h1>
+<h1 class="text-center">Yangiliklar !</h1>
   <div class="text-center">
     @if (session('success'))
         <div class="alert alert-success">
@@ -14,17 +14,17 @@
       <div class="table-responsive-sm table-responsive-md table-responsive-lg">
         <div class="card-body pb-0">
             <div class="text-end py-2">
-                <a href="{{ route('posts.create.index') }}" class="btn btn-primary"> Add new one </a>
+                <a href="{{ route('posts.create.index') }}" class="btn btn-primary">Yangi qo'shish  </a>
             </div>
 
             <table class="table table-bordered">
               <thead>
                 <tr>
                   <th scope="col">T/r</th>
-                  <th scope="col">Image</th>
-                  <th scope="col">Title</th>
-                  <th scope="col">Created at</th>
-                  <th scope="col">Action</th>
+                  <th scope="col">Rasm</th>
+                  <th scope="col">Sarlovha</th>
+                  <th scope="col">Yaratildi</th>
+                  <th scope="col">Amallar</th>
                 </tr>
               </thead>
               <tbody>
@@ -32,7 +32,7 @@
                   <tr>
                     <th scope="col">{{ ($posts->currentpage()-1)*$posts->perpage() + ($loop->index+1 )}}</th>
                     <th scope="row"><a href="#"><img style="width: 81px;height: 70px; object-fit: cover;" src="https://picsum.photos/id/{{ $post->id }}/200/300" alt="Post image"></a></th>
-                    <td><a href="#" class="text-primary fw-bold">Ut inventore ipsa voluptas nulla</a></td>
+                    <td><a href="#" class="text-primary fw-bold">{{$post->title}}</a></td>
                     <td>{{ $post->created_at->diffForHumans() }}</td>
                     <td class="fw-bold">
                       <div class="d-md-flex">
@@ -53,6 +53,6 @@
             </nav>
           </div>
       </div>
-        
+
   </div>
 @endsection

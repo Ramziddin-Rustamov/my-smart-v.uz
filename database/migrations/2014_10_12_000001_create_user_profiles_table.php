@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddToUsers extends Migration
+class CreateUserProfilesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,20 @@ class AddToUsers extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('birthday');
+        Schema::create('user_profiles', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->string('birthday')->nullable();
             $table->string('telegram')->nullable();
+            $table->string('whatsup')->nullable();
             $table->string('instagram')->nullable();
             $table->string('job')->nullable();
             $table->text('about')->nullable();
+            $table->string('location')->nullable();
+            $table->string('phone')->nullable();
+            $table->timestamps();
 
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -30,8 +37,6 @@ class AddToUsers extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            // Schema::dropIfExists('users');
-        });
+        Schema::dropIfExists('user_profiles');
     }
 }

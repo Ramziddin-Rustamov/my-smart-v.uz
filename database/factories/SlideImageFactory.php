@@ -14,10 +14,8 @@ class SlideImageFactory extends Factory
     public function definition()
     {
         return [
-            'title_uz' => $this->faker->sentence(1),
-            'title_en' => $this->faker->sentence(1),
-            'body_uz' => $this->faker->paragraph(2),
-            'body_en' => $this->faker->paragraph(2),
+            'title' => $this->faker->sentence(1),
+            'body' => $this->faker->paragraph(2),
             'image'=> $this->faker->sentence(1)
         ];
     }

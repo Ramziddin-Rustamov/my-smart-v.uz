@@ -2,6 +2,7 @@
 namespace App\Models;
 
 use App\Models\Like;
+use App\Models\UserProfile;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -18,16 +19,11 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'first_name',
+        'last_name',
+        'father_name',
         'email',
         'password',
-        'birthday',
-        'phone',
-        'job',
-        'location',
-        'about',
-        'telegram',
-        'instagram',
     ];
 
     /**
@@ -57,5 +53,10 @@ class User extends Authenticatable
     public function likes()
     {
         return $this->hasMany(Like::class);
+    }
+
+    public function profiles()
+    {
+        return $this->hasOne(UserProfile::class);
     }
 }
