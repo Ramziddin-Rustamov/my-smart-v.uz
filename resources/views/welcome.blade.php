@@ -145,7 +145,7 @@
         <div class="col-lg-6 mb-1">
             <div class="video-frame">
               <img src="{{asset('assets/images/video2.jpg')}}" alt="">
-              <a href="https://t.me/mangitobod_mahallam/64589" target="_blank"><i class="fa fa-play"></i></a>
+              <a href="https://t.me/mangitobod_village/2" target="_blank"><i class="fa fa-play"></i></a>
             </div>
           </div>
       </div>
