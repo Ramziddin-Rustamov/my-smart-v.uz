@@ -2,7 +2,7 @@
 @section('title', 'Mening Ma`lumotlarim ')
 @section('content')
 
- <div class="container-xl px-4 mt-4" style="padding-top:125px;">
+ <div class="container-xl px-4 mt-4" style="padding-top:160px;">
     @if ($errors->any())
     <div class="alert alert-danger">
         <ul>

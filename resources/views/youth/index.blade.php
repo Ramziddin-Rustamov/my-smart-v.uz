@@ -3,5 +3,8 @@
 @section('title', 'Yoshlar')
 
 @section('content')
-@livewire('youth')
+<div style="padding-top:60px">
+
+    @livewire('youth')
+</div>
 @endsection

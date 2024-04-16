@@ -3,7 +3,7 @@
 @section('title', 'Telefon raqamlar ')
 
 @section('content')
-<section style="background-color: #193c1a71;">
+<section style="background-color: #193c1a71;"style="padding-top:160px">
     <div class="container py-5">
             <table class="table table-hover ">
                 <thead>

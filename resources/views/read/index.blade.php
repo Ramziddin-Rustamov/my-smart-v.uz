@@ -4,7 +4,7 @@
 
 @section('content')
     <!-- ======= Blog Single Section ======= -->
-    <section id="blog" class="blog" style="padding-top:125px;">
+    <section id="blog" class="blog" style="padding-top:160px;">
         <div class="container" data-aos="fade-up">
 
             <div class="row">

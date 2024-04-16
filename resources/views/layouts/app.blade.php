@@ -140,7 +140,7 @@
          <!-- Right Side Of Navbar -->
       </div>
     </div>
-    <h6 class="moving-text">Ushbu tizim hozircha test rejimda ishlamoqda ... </h6>
+    {{-- <h6 class="moving-text">Ushbu tizim hozircha test rejimda ishlamoqda ... </h6> --}}
 </header>
 <main id="app">
     @yield('content')

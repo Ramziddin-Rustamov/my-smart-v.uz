@@ -2,7 +2,7 @@
 @section('title','Reset ')
 
 @section('content')
-<div class="container py-5 my-5" class="container pb-5" style="margin-bottom:190px ; padding-top: 120px">
+<div class="container py-5 my-5" class="container pb-5" style="margin-bottom:190px ; padding-top: 160px">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">

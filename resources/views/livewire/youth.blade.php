@@ -1,6 +1,6 @@
 <div>
     
-    <section style="background-color: #abd5e894;">
+    <section style="background-color: #abd5e894;" >
         <div class="container py-5">
             <div class="text-center my-2">
                 <input type="text" wire:model="name" class="form-control" placeholder="Ism buyicha toping...">

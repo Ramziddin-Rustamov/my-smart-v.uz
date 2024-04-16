@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title','Biz haqimizda')
 @section('content')
-<div class="container " style="margin-top:100px ">
+<div class="container " style="margin-top:160px ">
      <h2 class="py-3">Mang`itobod Qishlog'ining  Tarixi</h2>
      <p  class="h-25 py-3"> Mang‘itobod tuman Urgut tumani shimoliy qismida joylashgan bo‘lib, atrofi Birlik, Sovg‘on, Oqmachit, Bekravot qishloqlari bilan chegaradosh. Ota-onalarimizning yozib qoldirishlaricha qishloqning paydo bo‘lganligi qariyb 300 yillik tarixga ega.
       Dastlab axolimiz Mang‘it elining ming sulolasidan kelgan to‘rt oiladan tarkalgan. Shundan boshlab asta-sekinlik bilan ko‘chib kelgan Xalq utroqlashib qishloq shakliga kelgan. Dehqonchilik va chorvachilik yaxshi rivojlangan, shundan sung Mangitobod axolisi kupayib xozirda katta maxallaga aylandi. Mangitobod maxallasida dastavval birgina masjid bulgan usha masjidda namoz ukib xovlisida kunduz paytlari oksokollar yigilishib Mangitobod qishlogini qaysi yo‘l bilan bo‘lmasin qishloq xo‘jalik soxasini rivojlantirish yo‘llarini maslaxatlashib chora tadbirlarini izlashgan. O‘sha davrda Mangitobod qishlog‘iga oqarsuv muammosi eng og‘ir muammo bo‘lgan, o‘sha muammoni xal etish uchun qishloq axolisi qozon ariq nomi bilan ataladigan arig‘ini qazib suvni keltirishgan.

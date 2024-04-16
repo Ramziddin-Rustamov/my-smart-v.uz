@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title','Ibodat vaqtlari ')
 @section('content')
-        <div class="container ">
+        <div class="container " style="padding-top:50px">
                   <div class="row justify-content-center ">
                     <div class="col text-center mb-5">
                        <h1 class="display-4 font-weight-bolder text-dark">Ibodat vaqtlari </h1>

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title', 'My profile')
 @section('content')
-<section style="background-color: #eee;">
+<section style="background-color: #eee;" style="padding-top:160px">
     <div class="container py-5">
       <div class="row">
         <div class="col-lg-4">

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title', 'Profile Public view')
 @section('content')
-<section class="vh-100" style="background-color: #798388;">
+<section class="vh-100" style="background-color: #798388;" style="padding-top:160px">
     <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-md-9 col-lg-7 col-xl-5">
