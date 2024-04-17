@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Database\Seeders\PostSeeder;
+use Database\Seeders\ProductSeeder;
 use Database\Seeders\UserSeeder;
 use Database\Seeders\CommentSeeder;
 use Database\Seeders\SlideImageSeeder;
@@ -26,7 +27,8 @@ class DatabaseSeeder extends Seeder
             PortfolioSeeder::class,
             SlideImageSeeder::class,
             ClientViewSeeder::class,
-            ContactSeeder::class
+            ContactSeeder::class,
+            ProductSeeder::class,
         ]);
     }
 }
