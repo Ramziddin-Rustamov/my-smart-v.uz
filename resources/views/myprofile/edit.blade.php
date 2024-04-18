@@ -2,7 +2,7 @@
 @section('title', 'Mening Ma`lumotlarim ')
 @section('content')
 
- <div class="container-xl px-4 mt-4" style="padding-top:160px;">
+ <div class="container-xl px-4 mt-4" style="padding-top:100px">
     @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
@@ -77,7 +77,7 @@
                         <div class="row gx-3 mb-3">
                             <!-- Form Group (instagram)-->
                             <div class="col-md-6">
-                                <label class="small mb-1" for="inputFirstName">{{ __('Instagramda foydalanuvchi ismi :') }}</label>
+                                <label class="small mb-1" for="inputFirstName">{{ __('Instagramda foydalanuvchi ismi : [misol: tishavoy ]') }}</label>
                                 <input class="form-control  @error('instagram') is-invalid @enderror" id="inputFirstName" type="text" name="instagram" placeholder="instagram hisobingiz bo'lsa kiriting " value="{{ old('instagram') ?? $user->profiles->instagram }}">
                             </div>
                             @error('instagram')
@@ -87,7 +87,7 @@
                            @enderror
                             <!-- Form Group (telegram)-->
                             <div class="col-md-6">
-                                <label class="small mb-1" for="Telegram">{{ __('Telegram [username]') }}</label>
+                                <label class="small mb-1" for="Telegram">{{ __('Telegram [misol: alijon ]') }}</label>
                                 <input class="form-control @error('telegram') is-invalid @enderror" id="Telegram" type="text" name="telegram" placeholder="Telegram foydalanuvchi ismi" value="{{old('telegram') ?? $user->profiles->telegram }}">
                             </div>
                             @error('telegram')
@@ -97,7 +97,7 @@
                            @enderror
 
                            <div class="col-md-6">
-                            <label class="small mb-1" for="Telegram">{{ __('WhatsApp raqam : ') }}</label>
+                            <label class="small mb-1" for="Telegram">{{ __('WhatsApp raqam : [misol : +998 99 777 77 77] ') }}</label>
                             <input class="form-control @error('whatsup') is-invalid @enderror" id="Telegram" type="text" name="whatsup" placeholder="Whatsup foydalanuvchi ismi" value="{{old('whatsup') ?? $user->profiles->whatsup }}">
                         </div>
                         @error('whatsup')
@@ -107,7 +107,7 @@
                        @enderror
                             <!-- Form Group (phone)-->
                             <div class="col-md-12">
-                                <label class="small mb-1" for="phone">{{ __('Telefon Raqam :') }}</label>
+                                <label class="small mb-1" for="phone">{{ __('Telefon Raqam : [misol: +998 99 777 77 77]') }}</label>
                                 <input class="form-control @error('phone') is-invalid @enderror" id="phone" type="text" name="phone" placeholder="Telefon raqamingiz ?" value="{{ old('phone') ?? $user->profiles->phone }}">
                             </div>
                             @error('phone')

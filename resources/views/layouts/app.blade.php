@@ -101,17 +101,14 @@
                         <i class="fas fa-home text-success"></i>    {{ __(' Asosiy menu') }}
                       </a>
                       {{-- My Profile --}}
-                      <a class="dropdown-item py-3  " href="{{ route('youth.index') }}">
-                        <i class="fas fa-users text-success"></i>    {{ __(' Yoshlar ') }}
-                      </a>
                       <a class="dropdown-item py-3  " href="{{ route('profile.index') }}">
                         <i class="fas fa-user-tie text-success"></i>    {{ __(' Mening profilm ') }}
                       </a>
-                       <a class="dropdown-item py-3  " href="{{ route('profile.index') }}">
-                        <i class="fas fa-hand-holding-heart text-success"></i>    {{ __(' Hayriya ') }}
-                      </a>
                       <a class="dropdown-item py-3  " href="{{ route('people.index') }}">
                         <i class="fas fa-user-group text-success"></i>    {{ __('Barcha Aholimiz') }}
+                      </a>
+                      <a class="dropdown-item py-3  " href="{{ route('youth.index') }}">
+                        <i class="fas fa-users text-success"></i>    {{ __(' Yoshlar ') }}
                       </a>
                       <a class="dropdown-item py-3  " href="{{ route('emergency.index') }}">
                         <i class="fas fa-hospital text-success"></i>   {{ __('Shoshilinch Telefon') }}
@@ -119,6 +116,10 @@
                       <a class="dropdown-item py-3  " href="{{ route('pray.index') }}">
                         <i class="fas fa-pray text-success"></i>   {{ __('Ibodat vaqtlari') }}
                       </a>
+                      
+                       <a class="dropdown-item py-3  " href="{{ route('profile.index') }}">
+                        <i class="fas fa-hand-holding-heart text-success"></i>    {{ __(' Hayriya ') }}
+                      </a> 
                       {{-- dashboard --}}
                        @can('super-admin')
                       <a class="dropdown-item py-3" href="{{ route('home') }}">
@@ -140,7 +141,7 @@
          <!-- Right Side Of Navbar -->
       </div>
     </div>
-    <h6 class="moving-text">Ushbu tizim hozircha test rejimda ishlamoqda ... </h6>
+    {{-- <h6 class="moving-text">Ushbu tizim hozircha test rejimda ishlamoqda ... </h6> --}}
 </header>
 <main id="app">
     @yield('content')

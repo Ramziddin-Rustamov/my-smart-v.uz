@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('title', 'My profile')
 @section('content')
-<section style="background-color: #eee;" style="padding-top:200px">
-    <div class="container ">
+<section style="background-color: #eee; padding-top:100px">
+    <div class="container pb-3 ">
       <div class="row">
         <div class="col-lg-4">
           <div class="card mb-4">
@@ -22,8 +22,8 @@
             <div class="card-body p-0">
               <ul class="list-group list-group-flush rounded-3">
                  <div class="text-center py-2 my-2">
-                    <i class="  py-2 text-center fas fa-globe fa-lg text-warning"></i>
-                 </div> <hr>
+                     <h4 class="text-center">Internt orqali sizga bog'lanishi </h4>             
+                </div> <hr>
                 <li class="list-group-item d-flex justify-content-between align-items-center p-3">
                   <i class="fab fa-telegram fa-lg" style="color: #333333;"></i>
                   <p class="mb-0">{{$user->profiles->telegram ?? 'Telegram haqida ma`lumot  yo`q'}}</p>
@@ -53,11 +53,19 @@
                 <hr>
                 <div class="row">
                   <div class="col-sm-3">
-                    <p class="mb-0"><i class="fas fa-user"></i> Ismi</p>
+                    <p class="mb-0"><i class="fas fa-user"></i> Ism: </p>
                   </div>
                   <div class="col-sm-9">
                     <p class="text-muted mb-0">{{$user->first_name}}</p>
                   </div>
+
+                  <div class="col-sm-3">
+                    <p class="mb-0"><i class="fas fa-user"></i> Familiya: </p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0">{{$user->last_name}}</p>
+                  </div>
+
                 </div>
                 <hr>
                 <div class="row">

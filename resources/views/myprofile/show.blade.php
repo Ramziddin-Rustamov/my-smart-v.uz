@@ -1,64 +1,86 @@
 @extends('layouts.app')
-@section('title', 'Profile Public view')
+@section('title', 'Sizni ommaga ko\'rinishingiz')
 @section('content')
-<section class="vh-100" style="background-color: #798388;" style="padding-top:160px">
-    <div class="container py-5 h-100">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-md-9 col-lg-7 col-xl-5">
-                <div class="card" style="border-radius: 15px;">
-                    <div class="card-body p-4">
-                        <div class="d-flex text-black">
-                            <div class="flex-shrink-0">
-                                <a href="{{asset($user->image)}}" target="_blank">
-                                    <img src="{{asset($user->image)}}" alt="Profile Image"
-                                        class="img-fluid rounded-circle" style="max-width: 180px;">
-                                </a>
-                            </div>
-                            <div class="flex-grow-1 ms-3">
-                                <h5 class="mb-1">{{ $user->first_name }}</h5>
-                                <p class="mb-2 pb-1" style="color: #2b2a2a;">{{ $user->job }}</p>
-                                <div class="d-flex justify-content-start align-items-center mb-2">
-                                    @php
-                                    // Assuming $user->birthday is a valid date string
-                                    $birthday = new DateTime($user->profiles->birthday);
-                                    $today = new DateTime();
-                                    $age = $today->diff($birthday)->y;
-                                    @endphp
-                                    <div class="me-3">
-                                        <p class="small text-muted mb-1">Yoshi</p>
-                                        <p class="mb-0">{{ $age }}</p>
+<section style="background-color: #95bed394; padding-top:100px">
+    <div class="container">
+        <div class="row">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card mb-3" style="border-radius: 15px;">
+                        <div class="card-body p-4">
+                            <div class="d-flex text-black">
+                                <div class="ms-3">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="flex-shrink-0">
+                                                <a href="{{ asset($user->image) }}">
+                                                    <img src="{{ asset($user->image) }}" alt="Profile Image" class="img-fluid" style="border-radius: 10px;">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 py-2">
+                                            <div class="justify-content-between d-flex">
+                                                <h5 class="mb-1">{{ $user->first_name .'  '. $user->last_name }}</h5>
+                                                <h6 class="mb-1">{{ $user->father_name }}</h6>
+                                            </div>
+                                            <p class="mb-2 pb-1" style="color: #2b2a2a;">Kasbi: {{ $user->profiles ? $user->profiles->job ?? 'Kasbi yo`q' : 'Kasbi yo`q' }}</p>
+                                        </div>
+                                        
+                                        <div class="col-12">
+                                            @php
+                                            $birthday = new DateTime($user->profiles->birthday);
+                                            $today = new DateTime();
+                                            $age = $today->diff($birthday)->y;
+                                            @endphp
+                                            <p class="small text-muted mb-1">Yoshi: {{ $age }}</p>
+                                            <p class="small text-muted mb-1">Tug'ilgan: {{ $user->profiles ? $user->profiles->birthday : 'Noma\'lum' }}</p>
+                                            <p class="small text-muted mb-1">Azoligi: {{ $user->created_at->diffForHumans() }}</p>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12 py-2 d-flex justify-content-around">
+                                                @if($user->profiles && $user->profiles->instagram)
+                                                    <a href="https://instagram.com/{{$user->profiles->instagram}}" class="btn btn-info me-1 flex-grow-1">
+                                                        <i class="fab fa-instagram"></i> Instagram
+                                                    </a>
+                                                @endif
+                                                @if($user->profiles && $user->profiles->telegram)
+                                                    <a href="https://t.me/{{$user->profiles->telegram}}" class="btn btn-info me-1 flex-grow-1">
+                                                        <i class="fab fa-telegram"></i> Telegram
+                                                    </a>
+                                                @endif
+                                            </div>
+                                            <div class="col-12 py-2 d-flex justify-content-around">
+                                                @if($user->profiles && $user->profiles->whatsup)
+                                                    <a href="https://wa.me/{{$user->profiles->whatsup}}" class="btn btn-primary me-1 flex-grow-1">
+                                                        <i class="fab fa-whatsapp"></i> WhatsApp
+                                                    </a>
+                                                @endif
+                                                @if($user->profiles && $user->profiles->phone)
+                                                    <a href="tel:{{$user->profiles->phone}}" class="btn btn-primary me-1 flex-grow-1">
+                                                        <i class="fas fa-phone"></i> Telefon 
+                                                    </a>
+                                                @endif
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="me-3">
-                                        <p class="small text-muted mb-1">Azoligi</p>
-                                        <p class="mb-0">{{ $user->created_at->diffForHumans() }}</p>
-                                    </div>
-                                    <div>
-                                        <p class="small text-muted mb-1">Foaligi</p>
-                                        <p class="mb-0">4.5</p>
-                                    </div>
-                                </div>
-                                <div class="d-flex pt-1">
-                                    @if ($user->profiles->phone)
-                                    <a href="tel:{{$user->profiles->phone}}" class="btn btn-primary me-1 flex-grow-1">Telefon
-                                        qilish </a>
-                                    @endif
-                                    @if ($user->telegram)
-                                    <a href="https://t.me/{{$user->profiles->telegram}}" class="btn btn-info me-1 flex-grow-1"
-                                        target="_blank">Telegram</a>
-                                    @endif
-                                    @if ($user->instagram)
-                                    <a href="https://instagram.com/{{$user->profiles->instagram}}"
-                                        class="btn btn-info me-1 flex-grow-1" target="_blank"><i
-                                            class="fa-brands fa-instagram"></i>
-                                    </a>
-                                    @endif
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card mb-3" style="border-radius: 15px;">
+                        <div class="card-body p-4">
+                            <h5 class="card-header">Siz haqingizda !</h5>
+                            <div class="d-flex text-black">
+                                <p>{{$user->profiles->about ?? ''}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
         </div>
     </div>
+</section>
+
 </section>
 @endsection
