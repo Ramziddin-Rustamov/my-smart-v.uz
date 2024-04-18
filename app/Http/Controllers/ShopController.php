@@ -2,85 +2,53 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Shop;
+use Illuminate\Http\Request;
+use App\Services\ShopService;
+
 use App\Http\Requests\StoreShopRequest;
 use App\Http\Requests\UpdateShopRequest;
 
+
 class ShopController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    protected $shopService;
+
+    public function __construct(ShopService $shopService)
+    {
+        $this->shopService = $shopService;
+    }
+
     public function index()
     {
-        //
+        $shops = $this->shopService->getAll();
+
+        return $shops;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreShopRequest  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(StoreShopRequest $request)
     {
-        //
+        $data = $request->validated();
+        $this->shopService->create($data);
+
+        return "Shop created";
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Shop  $shop
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Shop $shop)
+    public function update(UpdateShopRequest $request, $id)
     {
-        //
+        $data = $request->validated();
+        $shop = $this->shopService->findById($id);
+        $this->shopService->update($shop, $data);
+
+        return response()->json($shop, 200);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Shop  $shop
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Shop $shop)
+    public function destroy($id)
     {
-        //
-    }
+        $shop = $this->shopService->findById($id);
+        $this->shopService->delete($shop);
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateShopRequest  $request
-     * @param  \App\Models\Shop  $shop
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateShopRequest $request, Shop $shop)
-    {
-        //
+        return response()->json(null, 204);
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Shop  $shop
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Shop $shop)
-    {
-        //
-    }
+    
+    // You can add more methods as needed...
 }

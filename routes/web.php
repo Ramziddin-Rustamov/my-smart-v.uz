@@ -23,6 +23,9 @@ use App\Http\Controllers\AdminUsersController;
 use App\Http\Controllers\AdminContactController;
 use App\Http\Controllers\AdminSlideImageController;
 use App\Http\Controllers\AdminTechnoligyController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ShopController;
+use App\Http\Controllers\ShopOwnerController;
 use Illuminate\Support\Facades\Auth;
 
 Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
@@ -33,42 +36,60 @@ Auth::routes();
 Route::middleware('auth')->group(function () {
 
 
-    Route::get('youth',[YouthController::class, 'index'])->name('youth.index');
+        Route::get('youth',[YouthController::class, 'index'])->name('youth.index');
 
-    // Likes and Comments
-    Route::delete('posts/{comment}/destroy',[ CommentController::class,'delete'])->name('comment.delete');
-    Route::post('posts/{post}/comments', [CommentController::class, 'store'])->name('posts.comments.store');
-    Route::post('post/{post:id}/likes', [PostLikesController::class, 'store'])->name('posts.like');
-    Route::delete('post/{post}/likes', [PostLikesController::class, 'destroy'])->name('posts.like');
+        // Likes and Comments
+        Route::delete('posts/{comment}/destroy',[ CommentController::class,'delete'])->name('comment.delete');
+        Route::post('posts/{post}/comments', [CommentController::class, 'store'])->name('posts.comments.store');
+        Route::post('post/{post:id}/likes', [PostLikesController::class, 'store'])->name('posts.like');
+        Route::delete('post/{post}/likes', [PostLikesController::class, 'destroy'])->name('posts.like');
 
-    // MyProfile Controller
-    Route::get('profile', [MyProfileController::class, 'index'])->name('profile.index');
-    Route::get('profile/{id}/edit', [MyProfileController::class, 'edit'])->name('profile.edit');
-    Route::put('profile/{user}', [MyProfileController::class, 'update'])->name('profile.update');
-    Route::get('profile/{id}', [MyProfileController::class, 'show'])->name('profile.show');
-});
+        // MyProfile Controller
+        Route::get('profile', [MyProfileController::class, 'index'])->name('profile.index');
+        Route::get('profile/{id}/edit', [MyProfileController::class, 'edit'])->name('profile.edit');
+        Route::put('profile/{user}', [MyProfileController::class, 'update'])->name('profile.update');
+        Route::get('profile/{id}', [MyProfileController::class, 'show'])->name('profile.show');
+       });
 
-// Route::middleware('can:admin')->group(function () {
+        // Route::middleware('can:admin')->group(function () {
 
-    // });
+            // });
 
-    // Route::get('/clientViews', [ClientViewController::class, 'index'])->name('view');
-    // Route::get('/clientViews/{id}', [ClientViewController::class, 'show'])->name('client.show');
-    // Route::post('/clientViews', [ClientViewController::class, 'store'])->name('client.store');
-Route::post('/contact-us', [ContactController::class, 'store'])->name('contact.store');
-Route::get('/ourposts', [PostsController::class, 'index'])->name('posts.allposts');
-Route::get('posts-read/{post}', [PostsController::class, 'findOne'])->name('posts.findOne');
-Route::get('comment/{id}', [CommentController::class, 'showUser'])->name('comment.owner');
-Route::get('/about', [AboutUsController::class, 'index'])->name('about');
-Route::get('question', [PriceController::class, 'index'])->name('question.index');
-Route::get('/services', [ServicesController::class, 'index'])->name('services');
-Route::get('/portfolio', [PortfolioController::class, 'index'])->name('portfolio');
-Route::get('/portfolio/{id}', [PortfolioController::class, 'show'])->name('portfolio.show');
-Route::get('/people', [PeopleController::class, 'index'])->name('people.index');
-Route::get('/emergency-numbers', [EmergencyNumberController::class, 'index'])->name('emergency.index');
-Route::get('/pray-time', [PrayController::class, 'index'])->name('pray.index');
-Route::get('/team', [TeamController::class, 'index'])->name('team.index');
-// Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+            // Route::get('/clientViews', [ClientViewController::class, 'index'])->name('view');
+            // Route::get('/clientViews/{id}', [ClientViewController::class, 'show'])->name('client.show');
+            // Route::post('/clientViews', [ClientViewController::class, 'store'])->name('client.store');
+        Route::post('/contact-us', [ContactController::class, 'store'])->name('contact.store');
+        Route::get('/ourposts', [PostsController::class, 'index'])->name('posts.allposts');
+        Route::get('posts-read/{post}', [PostsController::class, 'findOne'])->name('posts.findOne');
+        Route::get('comment/{id}', [CommentController::class, 'showUser'])->name('comment.owner');
+        Route::get('/about', [AboutUsController::class, 'index'])->name('about');
+        Route::get('question', [PriceController::class, 'index'])->name('question.index');
+        Route::get('/services', [ServicesController::class, 'index'])->name('services');
+        Route::get('/portfolio', [PortfolioController::class, 'index'])->name('portfolio');
+        Route::get('/portfolio/{id}', [PortfolioController::class, 'show'])->name('portfolio.show');
+        Route::get('/people', [PeopleController::class, 'index'])->name('people.index');
+        Route::get('/emergency-numbers', [EmergencyNumberController::class, 'index'])->name('emergency.index');
+        Route::get('/pray-time', [PrayController::class, 'index'])->name('pray.index');
+        Route::get('/team', [TeamController::class, 'index'])->name('team.index');
+
+        // Shop onwers route here 
+        Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+        Route::post('/products', [ProductController::class, 'store'])->name('products.store');
+        Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
+        Route::put('/products/{id}', [ProductController::class, 'update'])->name('products.update');
+        Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
+        // Shops 
+        Route::get('/shops', [ShopController::class, 'index'])->name('shops.index');
+        Route::post('/shops', [ShopController::class, 'store'])->name('shops.store');
+        Route::put('/shops/{id}', [ShopController::class, 'update'])->name('shops.update');
+        Route::delete('/shops/{id}', [ShopController::class, 'destroy'])->name('shops.destroy');
+
+        // Shop owner Route::get('/shop-owners', [ShopOwnerController::class, 'index'])->name('shop_owners.index');
+        Route::post('/shop-owners', [ShopOwnerController::class, 'store'])->name('shop_owners.store');
+        Route::get('/shop-owners/{id}', [ShopOwnerController::class, 'show'])->name('shop_owners.show');
+        Route::put('/shop-owners/{id}', [ShopOwnerController::class, 'update'])->name('shop_owners.update');
+        Route::delete('/shop-owners/{id}', [ShopOwnerController::class, 'destroy'])->name('shop_owners.destroy');
+        // Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 

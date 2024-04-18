@@ -24,7 +24,12 @@ class UpdateShopRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'string',
+            'address' => 'string',
+            'opened_date' => 'date',
+            'user_id' => 'exists:users,id',
+            'image' => 'nullable|string',
+            'phone' => 'nullable|string',
         ];
     }
 }

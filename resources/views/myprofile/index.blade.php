@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('title', 'My profile')
 @section('content')
-<section style="background-color: #eee;" style="padding-top:160px">
-    <div class="container py-5">
+<section style="background-color: #eee;" style="padding-top:200px">
+    <div class="container ">
       <div class="row">
         <div class="col-lg-4">
           <div class="card mb-4">

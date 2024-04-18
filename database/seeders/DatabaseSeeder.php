@@ -9,6 +9,7 @@ use Database\Seeders\UserSeeder;
 use Database\Seeders\CommentSeeder;
 use Database\Seeders\SlideImageSeeder;
 use Database\Seeders\TechnologySeeder;
+use Database\Seeders\ShopSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -29,6 +30,7 @@ class DatabaseSeeder extends Seeder
             ClientViewSeeder::class,
             ContactSeeder::class,
             ProductSeeder::class,
+            ShopSeeder::class,
         ]);
     }
 }

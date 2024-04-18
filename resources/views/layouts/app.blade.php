@@ -140,7 +140,7 @@
          <!-- Right Side Of Navbar -->
       </div>
     </div>
-    {{-- <h6 class="moving-text">Ushbu tizim hozircha test rejimda ishlamoqda ... </h6> --}}
+    <h6 class="moving-text">Ushbu tizim hozircha test rejimda ishlamoqda ... </h6>
 </header>
 <main id="app">
     @yield('content')
@@ -158,9 +158,7 @@
     </div>
 </footer>
   {{-- starts --}}
-  <script src="{{ asset('vendor/livewire/livewire.js') }}"></script>
-  <script src="{{ asset('vendor/livewire/livewire.js.map') }}"></script>
-  
+  @livewireScripts
   <script src="{{ asset('assets/vendor/jquery/jquery.min.js') }}"></script>
   <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
   <script src="{{ asset('assets/js/isotope.min.js') }}"></script>

@@ -29,7 +29,7 @@ class PortfolioController extends Controller
     public function indexAdmin()
     {
         $portfolio = $this->portfolioService->indexPaginate(6);
-        return view('portfolio.index',compact('portfolio'));
+        return view('admin.portfolio.index',compact('portfolio'));
     }
 
     public function index (){

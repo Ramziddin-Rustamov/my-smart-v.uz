@@ -1,7 +1,7 @@
 @extends('admin.admin_layout.app')
 @section('title' , 'All portfolio')
 @section('content')
-<div class="container py-5">
+{{-- <div class="container py-5">
     <div class="table-responsive-sm table-responsive-md table-responsive-lg">
       <div class="card-body pb-0">
         <div class="row justify-content-center">
@@ -37,7 +37,7 @@
               </tr>
             </thead>
             <tbody>
-              @foreach ($portfolioes as $port)
+              @foreach ($portfolio as $port)
                 <tr>
                   <th scope="col">{{ $loop->index+1 }}</th>
                   <th scope="row"><a href="{{ asset(json_decode($port->image)[0]) }}"><img style="width: 81px;height: 70px; object-fit: cover;" src="{{ asset(json_decode($port->image)[0]) }}" alt="Post image"></a></th>
@@ -64,5 +64,5 @@
         </div>
     </div>
       
-</div>
+</div> --}}
 @endsection
