@@ -22,15 +22,21 @@ class ShopController extends Controller
     {
         $shops = $this->shopService->getAll();
 
-        return $shops;
+        return view("shops.index",compact("shops"));
     }
+
+    public function create()
+    {
+        return view("shops.create");
+    }
+
 
     public function store(StoreShopRequest $request)
     {
         $data = $request->validated();
         $this->shopService->create($data);
 
-        return "Shop created";
+        return redirect()->back()->with("success","Siz yangi dukon qo`shdingiz!");
     }
 
     public function update(UpdateShopRequest $request, $id)
@@ -42,13 +48,11 @@ class ShopController extends Controller
         return response()->json($shop, 200);
     }
 
-    public function destroy($id)
+    public function delete ($id)
     {
         $shop = $this->shopService->findById($id);
         $this->shopService->delete($shop);
 
-        return response()->json(null, 204);
+        return "Deleted";
     }
-    
-    // You can add more methods as needed...
 }

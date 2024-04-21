@@ -18,8 +18,7 @@ class StoreShopRequest extends FormRequest
             'name' => 'string',
             'address' => 'string',
             'opened_date' => 'date',
-            'user_id' => 'exists:users,id',
-            'image' => 'nullable|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:3048',
             'phone' => 'nullable|string',
         ];
     }

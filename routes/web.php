@@ -37,8 +37,9 @@ Route::middleware(['auth'])->group(function () {
         // Shops for shop owners
         Route::get('/shops', [ShopController::class, 'index'])->name('shops.index')->middleware('can:shop-owner');
         Route::post('/shops', [ShopController::class, 'store'])->name('shops.store')->middleware('can:shop-owner');
+        Route::get('/shops/create', [ShopController::class, 'create'])->name('shops.create')->middleware('can:shop-owner');
         Route::put('/shops/{id}', [ShopController::class, 'update'])->name('shops.update')->middleware('can:shop-owner');
-        Route::delete('/shops/{id}', [ShopController::class, 'destroy'])->name('shops.destroy')->middleware('can:shop-owner');
+        Route::delete('/shops/{id}', [ShopController::class, 'delete '])->name('shops.destroy')->middleware('can:shop-owner');
                 
         Route::get('youth',[YouthController::class, 'index'])->name('youth.index');
 

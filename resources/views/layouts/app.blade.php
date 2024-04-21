@@ -106,7 +106,7 @@
                       </a> 
                       @can('shop-owner')
                         <a class="dropdown-item py-3  " href="{{ route('shops.index') }}">
-                          <i class="fas fa-user-tie text-success"></i>    {{ __('Dukonlarim') }}
+                          <i class="fas fa-store text-success"></i>    {{ __('Dukonlarim') }}
                         </a>
                       @endcan
                       <a class="dropdown-item py-3  " href="{{ route('people.index') }}">
