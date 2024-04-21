@@ -35,5 +35,8 @@ class AppServiceProvider extends ServiceProvider
         Gate::define('super-admin', function (User $user) {
             return  $user->email === 'rustamovramziddin7@gmail.com';
         });
+        Gate::define('shop-owner', function ($user) {
+            return $user->shopOwner()->exists();
+        });
     }
 }

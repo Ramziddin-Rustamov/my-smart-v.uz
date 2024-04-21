@@ -229,7 +229,7 @@
             <li>
               <a class="dropdown-item d-flex align-items-center" href="/">
                 <i class="bi bi-person"></i>
-                <span>Home</span>
+                <span>Asosiy</span>
               </a>
             </li>
             <li>
@@ -249,7 +249,7 @@
             {{-- dashboard --}}
             @can('admin')
             <a class="dropdown-item py-3" href="{{ route('home') }}">
-              <i class="bx bx-message text-success"></i>   {{ __('Dashboard') }} <i class="fa fa-list"></i>
+              <i class="bx bx-message text-success"></i>   {{ __('Asosiy') }} <i class="fa fa-list"></i>
             </a>
             @endcan
             <li>
@@ -331,6 +331,9 @@
             <a href="{{ route('admin.user.index') }}">
               <i class="bi bi-circle"></i><span>Ruyxatdan O'tgan Foydalanuvchilar  </span>
             </a>
+            <a href="{{ route('admin.shop-owners.index') }}">
+                <i class="bi bi-circle"></i><span>Magazinchilar</span>
+              </a>
           </li>
         </ul>
       </li><!-- End Charts Nav -->

@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WelcomeController;
 // use App\Http\Controllers\ClientViewController;
@@ -33,9 +33,13 @@ Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 Auth::routes();
 
 
-Route::middleware('auth')->group(function () {
-
-
+Route::middleware(['auth'])->group(function () {
+        // Shops for shop owners
+        Route::get('/shops', [ShopController::class, 'index'])->name('shops.index')->middleware('can:shop-owner');
+        Route::post('/shops', [ShopController::class, 'store'])->name('shops.store')->middleware('can:shop-owner');
+        Route::put('/shops/{id}', [ShopController::class, 'update'])->name('shops.update')->middleware('can:shop-owner');
+        Route::delete('/shops/{id}', [ShopController::class, 'destroy'])->name('shops.destroy')->middleware('can:shop-owner');
+                
         Route::get('youth',[YouthController::class, 'index'])->name('youth.index');
 
         // Likes and Comments
@@ -72,23 +76,15 @@ Route::middleware('auth')->group(function () {
         Route::get('/pray-time', [PrayController::class, 'index'])->name('pray.index');
         Route::get('/team', [TeamController::class, 'index'])->name('team.index');
 
-        // Shop onwers route here 
+        // Shop  route here 
         Route::get('/products', [ProductController::class, 'index'])->name('products.index');
         Route::post('/products', [ProductController::class, 'store'])->name('products.store');
         Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
         Route::put('/products/{id}', [ProductController::class, 'update'])->name('products.update');
         Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
-        // Shops 
-        Route::get('/shops', [ShopController::class, 'index'])->name('shops.index');
-        Route::post('/shops', [ShopController::class, 'store'])->name('shops.store');
-        Route::put('/shops/{id}', [ShopController::class, 'update'])->name('shops.update');
-        Route::delete('/shops/{id}', [ShopController::class, 'destroy'])->name('shops.destroy');
 
-        // Shop owner Route::get('/shop-owners', [ShopOwnerController::class, 'index'])->name('shop_owners.index');
-        Route::post('/shop-owners', [ShopOwnerController::class, 'store'])->name('shop_owners.store');
-        Route::get('/shop-owners/{id}', [ShopOwnerController::class, 'show'])->name('shop_owners.show');
-        Route::put('/shop-owners/{id}', [ShopOwnerController::class, 'update'])->name('shop_owners.update');
-        Route::delete('/shop-owners/{id}', [ShopOwnerController::class, 'destroy'])->name('shop_owners.destroy');
+
+        
         // Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
@@ -138,4 +134,12 @@ Route::middleware('can:super-admin')->group(function () {
         Route::post('admin-technoligy-post', [AdminTechnoligyController::class, 'store'])->name('admin.technology.store');
         Route::get('admin-technoligy/{id}/show', [AdminTechnoligyController::class, 'show'])->name('admin.technology.show');
         Route::delete('admin-technoliogy-delete/{id}', [AdminTechnoligyController::class, 'delete'])->name('admin.technology.delete');
+
+        // Shop owner Route::get('/shop-owners', [ShopOwnerController::class, 'index'])->name('shop_owners.index');
+        Route::get('/admin-shop-owners/all', [ShopOwnerController::class, 'index'])->name('admin.shop-owners.index');
+        Route::get('/admin-shop-owners/create', [ShopOwnerController::class, 'create'])->name('admin.shop-owners.create');
+        Route::post('/admin-shop-owners', [ShopOwnerController::class, 'store'])->name('admin.shop-owners.store');
+        Route::get('/admin-shop-owners/{id}', [ShopOwnerController::class, 'show'])->name('admin.shop-owners.show');
+        Route::put('/admin-shop-owners/{id}', [ShopOwnerController::class, 'update'])->name('admin.shop-owners.update');
+        Route::delete('/admin-shop-owners/{id}', [ShopOwnerController::class, 'destroy'])->name('admin.shop-owners.delete');
 });

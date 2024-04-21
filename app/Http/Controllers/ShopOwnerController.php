@@ -5,6 +5,7 @@ use App\Http\Requests\StoreShopOwnerRequest;
 use App\Http\Requests\UpdateShopOwnerRequest;
 use App\Services\ShopOwnerService;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class ShopOwnerController extends Controller
 {
@@ -17,12 +18,21 @@ class ShopOwnerController extends Controller
 
     public function index()
     {
-        return $this->shopOwnerService->getAllShopOwners();
+       $shopOwners = $this->shopOwnerService->getAllShopOwners();
+      
+       return view("admin.shop-owner.index",compact('shopOwners'));
+    }
+
+    public function create()
+    {
+        $users = User::whereDoesntHave('shopOwner')->get();
+      return view('admin.shop-owner.create',compact('users'));
     }
 
     public function store(StoreShopOwnerRequest $request)
     {
-        return $this->shopOwnerService->createShopOwner($request->validated());
+        $this->shopOwnerService->createShopOwner($request->validated());
+        return redirect()->route('admin.shop-owners.index')->with('success', 'Foydalanuvchi qo`shildi ..');
     }
 
     public function show($id)

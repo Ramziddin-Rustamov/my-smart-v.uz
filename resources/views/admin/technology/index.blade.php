@@ -1,4 +1,4 @@
-@extends('admin.admin_layout.app')
+{{-- @extends('admin.admin_layout.app')
 @section('title' , 'Technol..')
 @section('content')
 
@@ -58,4 +58,4 @@
       </div>
         
   </div>
-@endsection
+@endsection --}}

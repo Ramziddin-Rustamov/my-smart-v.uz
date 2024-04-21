@@ -8,7 +8,7 @@ class ShopOwnerRepository
 {
     public function getAll()
     {
-        return ShopOwner::all();
+        return ShopOwner::orderBy('id','desc')->get();
     }
 
     public function getById($id)
@@ -32,6 +32,6 @@ class ShopOwnerRepository
     {
         $shopOwner = ShopOwner::findOrFail($id);
         $shopOwner->delete();
-        return true;
+        return redirect()->route('admin.shop-owners.index')->with('success', 'Siz foydalanuvchini o\'chirdingiz... ');
     }
 }

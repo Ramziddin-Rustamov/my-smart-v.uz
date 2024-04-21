@@ -2,6 +2,7 @@
 namespace App\Models;
 
 use App\Models\Like;
+use App\Models\ShopOwner;
 use App\Models\UserProfile;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
@@ -59,4 +60,10 @@ class User extends Authenticatable
     {
         return $this->hasOne(UserProfile::class);
     }
+
+    public function shopOwner()
+    {
+        return $this->hasOne(ShopOwner::class);
+    }
+
 }

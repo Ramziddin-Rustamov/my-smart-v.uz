@@ -103,7 +103,12 @@
                       {{-- My Profile --}}
                       <a class="dropdown-item py-3  " href="{{ route('profile.index') }}">
                         <i class="fas fa-user-tie text-success"></i>    {{ __(' Mening profilm ') }}
-                      </a>
+                      </a> 
+                      @can('shop-owner')
+                        <a class="dropdown-item py-3  " href="{{ route('shops.index') }}">
+                          <i class="fas fa-user-tie text-success"></i>    {{ __('Dukonlarim') }}
+                        </a>
+                      @endcan
                       <a class="dropdown-item py-3  " href="{{ route('people.index') }}">
                         <i class="fas fa-user-group text-success"></i>    {{ __('Barcha Aholimiz') }}
                       </a>
