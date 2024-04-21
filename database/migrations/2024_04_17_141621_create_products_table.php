@@ -17,9 +17,9 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->foreignId('shop_id')->constrained()->onDelete('cascade');
             $table->string('name');
-            $table->decimal('price', 8, 2);
+            $table->string('price');
             $table->text('body')->nullable();
-            $table->decimal('quantity', 8, 2)->nullable();
+            $table->string('quantity')->nullable();
             $table->string('image')->nullable();
             $table->timestamps();
         });

@@ -24,23 +24,23 @@
     <form action="{{ route('shops.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
-            <label for="name" class="form-label">Nomi nima ?</label>
+            <label for="name" class="form-label">Nomi nima: </label>
             <input type="text" class="form-control" id="name" name="name" value="{{old('name')}}" required>
         </div>
         <div class="mb-3">
-            <label for="address" class="form-label">Manzili ?</label>
+            <label for="address" class="form-label">Manzili: </label>
             <input type="text" class="form-control" id="address" name="address" value="{{old('address')}}" required>
         </div>
         <div class="mb-3">
-            <label for="opened_date" class="form-label">Qachin ishga tushirilgan ?</label>
+            <label for="opened_date" class="form-label">Qachon ishga tushirilgan ?</label>
             <input type="date" class="form-control" id="opened_date" name="opened_date" value="{{old('opened_date')}}" required>
         </div>
         <div class="mb-3">
-            <label for="image" class="form-label">Rasmi </label>
+            <label for="image" class="form-label">Rasmi : </label>
             <input type="file" class="form-control" id="image" name="image" required>
         </div>
         <div class="mb-3">
-            <label for="phone" class="form-label">Ishchi telefon raqami </label>
+            <label for="phone" class="form-label">Ishchi telefon raqami : </label>
             <input type="text" class="form-control" id="phone" value="{{old('phone')}}" name="phone" required>
         </div>
         <button type="submit" class="btn btn-primary">Qo'shish </button>

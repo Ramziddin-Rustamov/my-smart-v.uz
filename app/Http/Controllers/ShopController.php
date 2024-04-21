@@ -7,15 +7,30 @@ use App\Services\ShopService;
 
 use App\Http\Requests\StoreShopRequest;
 use App\Http\Requests\UpdateShopRequest;
-
+use App\Services\ProductService;
 
 class ShopController extends Controller
 {
     protected $shopService;
+    protected $productService;
+    
 
-    public function __construct(ShopService $shopService)
+    public function __construct(ShopService $shopService,ProductService $productService)
     {
         $this->shopService = $shopService;
+        $this->productService = $productService;
+    }
+
+    public function publicIndex()
+    {
+        $shops = $this->shopService->getPublicShops();
+        return view("public-shops.index",compact('shops'));
+    }
+
+    public function shopProducts($shopId)
+    {
+        $products = $this->productService->findPublicProducts($shopId);
+        return view('public-shop-product.index',compact('products')) ;
     }
 
     public function index()
@@ -48,11 +63,10 @@ class ShopController extends Controller
         return response()->json($shop, 200);
     }
 
-    public function delete ($id)
+    public function destroy($id)
     {
-        $shop = $this->shopService->findById($id);
-        $this->shopService->delete($shop);
+        $shop = $this->shopService->delete($id);
 
-        return "Deleted";
+        return redirect()->back()->with("success","Siz mavjud dukoningizni o`chirib tashladingiz ");
     }
 }

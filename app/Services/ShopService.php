@@ -13,6 +13,11 @@ class ShopService
         $this->shopRepository = $shopRepository;
     }
 
+    public function getPublicShops()
+    {
+        return $this->shopRepository->getPublicShops();
+    }
+
     public function getAll()
     {
         return $this->shopRepository->getAll();
@@ -36,8 +41,7 @@ class ShopService
 
     public function delete($id)
     {
-        $shop = $this->shopRepository->findById($id);
-        $this->shopRepository->delete($shop);
+        return $this->shopRepository->delete($id);
     }
 
     // You can add more methods as needed...

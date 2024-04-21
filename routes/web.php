@@ -26,6 +26,7 @@ use App\Http\Controllers\AdminTechnoligyController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ShopOwnerController;
+use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
 
 Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
@@ -39,8 +40,15 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/shops', [ShopController::class, 'store'])->name('shops.store')->middleware('can:shop-owner');
         Route::get('/shops/create', [ShopController::class, 'create'])->name('shops.create')->middleware('can:shop-owner');
         Route::put('/shops/{id}', [ShopController::class, 'update'])->name('shops.update')->middleware('can:shop-owner');
-        Route::delete('/shops/{id}', [ShopController::class, 'delete '])->name('shops.destroy')->middleware('can:shop-owner');
-                
+        Route::delete('/shops/delete/{id}', [ShopController::class, 'destroy'])->name('shops.delete')->middleware('can:shop-owner');
+       // Product  routes here  for Shop-owners 
+        Route::get('/products', [ProductController::class, 'index'])->name('products.index')->middleware('can:shop-owner');
+        Route::get('/products/create', [ProductController::class, 'create'])->name('products.create')->middleware('can:shop-owner');
+        Route::post('/products', [ProductController::class, 'store'])->name('products.store')->middleware('can:shop-owner');
+        Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show')->middleware('can:shop-owner');
+        Route::put('/products/{id}', [ProductController::class, 'update'])->name('products.update')->middleware('can:shop-owner');
+        Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy')->middleware('can:shop-owner');
+        
         Route::get('youth',[YouthController::class, 'index'])->name('youth.index');
 
         // Likes and Comments
@@ -54,6 +62,11 @@ Route::middleware(['auth'])->group(function () {
         Route::get('profile/{id}/edit', [MyProfileController::class, 'edit'])->name('profile.edit');
         Route::put('profile/{user}', [MyProfileController::class, 'update'])->name('profile.update');
         Route::get('profile/{id}', [MyProfileController::class, 'show'])->name('profile.show');
+
+        // Shops for public 
+        Route::get('/public/shops', [ShopController::class, 'publicIndex'])->name('public.shops.index');
+        Route::get('/public/shops/{id}/products', [ShopController::class, 'shopProducts'])->name('public.shops.products.index');
+        Route::get('/public/shops/products', [ProductController::class, 'compare'])->name('public.shops.products');
        });
 
         // Route::middleware('can:admin')->group(function () {
@@ -83,7 +96,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
         Route::put('/products/{id}', [ProductController::class, 'update'])->name('products.update');
         Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
-
+        
 
         
         // Route::get('/contact', [ContactController::class, 'index'])->name('contact');

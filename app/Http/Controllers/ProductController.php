@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Services\ProductService;
+use App\Models\Shop;
 
 class ProductController extends Controller
 {
@@ -12,16 +13,26 @@ class ProductController extends Controller
     {
         $this->productService = $productService;
     }
+    
 
     public function index()
     {
-        return $this->productService->getAllProducts();
+        $products = $this->productService->getAllProducts();
+        return view("product.index",compact('products'));
+    }
+
+    
+    public function create()
+    {
+        $shops = Shop::where('user_id',auth()->user()->id)->get();
+        return view("product.create",compact('shops'));
     }
 
     public function store(StoreProductRequest $request)
     {
         $data = $request->validated();
-        return $this->productService->createProduct($data);
+        $products =  $this->productService->createProduct($data);
+        return redirect()->back()->with("success","Siz yangi maxsulot qo`shdingiz ..");
     }
 
     public function show($id)
@@ -39,5 +50,11 @@ class ProductController extends Controller
     {
         $this->productService->deleteProduct($id);
         return response()->json(['message' => 'Product deleted successfully']);
+    }
+
+    public function compare()
+    {
+          $products = $this->productService->getSortedProducts();
+          return view('public-shop-product.compare',compact('products'));
     }
 }

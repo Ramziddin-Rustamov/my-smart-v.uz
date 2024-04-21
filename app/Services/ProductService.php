@@ -18,6 +18,11 @@ class ProductService
         return $this->productRepository->getAll();
     }
 
+    public function findPublicProducts($id)
+    {
+        return $this->productRepository->findPublicProducts($id);
+    }
+
     public function getProductById($id)
     {
         return $this->productRepository->getById($id);
@@ -36,5 +41,10 @@ class ProductService
     public function deleteProduct($id)
     {
         $this->productRepository->delete($id);
+    }
+
+    public function getSortedProducts()
+    {
+        return $this->productRepository->getSortedProducts();
     }
 }

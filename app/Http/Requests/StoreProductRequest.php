@@ -26,10 +26,10 @@ class StoreProductRequest extends FormRequest
         return [
             'shop_id' => 'required|exists:shops,id',
             'name' => 'required',
-            'price' => 'required|numeric|min:0',
+            'price' => 'required|min:0|max:20',
             'body' => 'required',
-            'quantity' => 'required|numeric|min:0',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'quantity' => 'required|min:0|max:30',
+            // 'image' => 'required|image|mimes:jpeg,png,jpg,svg',
         ];
     }
 }

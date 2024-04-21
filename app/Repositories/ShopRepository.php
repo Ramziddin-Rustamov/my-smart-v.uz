@@ -11,6 +11,11 @@ class ShopRepository
     public function getAll(){
         return Shop::orderBy('id','desc')->where('user_id', auth()->user()->id)->get();
     }
+
+    public function getPublicShops()
+    {
+        return Shop::orderBy('id','desc')->get();
+    }
     public function create(array $data)
     {
         $auth = Auth::id();
@@ -24,14 +29,16 @@ class ShopRepository
         return $shop;
     }
 
-    public function delete($shop)
+    public function delete($id)
     {
-        $shop->delete();
+       $shop = Shop::where('id',$id)->first();
+       return $shop->delete();
     }
 
     public function findById($id)
     {
-        return Shop::find($id);
+        $shop = Shop::findOrFail($id);
+        return $shop;
     }
     
 }

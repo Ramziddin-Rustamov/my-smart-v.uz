@@ -8,7 +8,13 @@ class ProductRepository
 {
     public function getAll()
     {
-        return Product::all();
+        return Product::whereHas('shop', function ($query) {
+            $query->where('user_id', auth()->user()->id);
+        })->orderBy('id','desc')->paginate(50);
+    }
+    public function findPublicProducts($shopId)
+    {
+        return Product::orderBy('id','desc')->where('shop_id',$shopId)->get();
     }
 
     public function getById($id)
@@ -32,5 +38,9 @@ class ProductRepository
     {
         $product = Product::findOrFail($id);
         $product->delete();
+    }
+    public function getSortedProducts()
+    {
+        return   $productsOrderedByPrice = Product::orderBy('price')->get();
     }
 }

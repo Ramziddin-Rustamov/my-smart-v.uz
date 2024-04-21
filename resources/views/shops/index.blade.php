@@ -17,7 +17,24 @@
     <div class="container overflow-hidden">
   
         <div class="row gy-4 gy-lg-0 gx-xxl-5">
-          @if ($shops)
+            <div class="text-center">
+                @if (session('errors'))
+                    <div class="alert alert-danger">
+                        {{ session('errors') }}
+                    </div>
+                @endif
+            </div>
+            <div class="text-center">
+                @if (session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
+            </div>
+          @if (!$shops->isEmpty())
+          <div class="text-end ">
+            <a href="{{ route('shops.create') }}" class="btn btn-primary"> <i class="fas fa-plus"></i> <i class="fas fa-shop"></i> </a>
+          </div>
             @foreach ($shops as $shop)
            
                 <div class="col-10 offset-1 col-md-6 col-lg-4">
@@ -44,18 +61,20 @@
                                   
                             
                             <div class="col text-start">
-                                <form action="{{ route('shops.destroy', $shop->id) }}" method="POST">
-                                    @csrf
+                                <form action="{{ route('shops.delete',['id'=>$shop->id]) }}"
+                                    method="POST">
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
+                                    @csrf
+                                    <button  onclick="return confirm('Haqiqatdan ham o`chirmoqchimisiz ? Shu dukonga tegishli hamma mahsulot o`chiriladi .')" type="submit"
+                                        class="btn btn-danger my-md-2 mx-sm-2 my-xs-2"><i
+                                            class="fas fa-trash"></i></button>
                                 </form>
                             </div>
                             <div class="col text-end">
-                                <a href="" class="btn btn-primary">
-                                    <i class="fas fa-cart-arrow-down"></i>
-                                </a>
+                              <a href="{{ route('products.index') }}" class="btn btn-primary">
+                                <i class="fas fa-cart-arrow-down"></i> Maxsulot qo`shish
+                            </a>
+                            
                             </div>
                             </div>
                           </figcaption>
@@ -64,11 +83,10 @@
                     </div>
                   </div>
             @endforeach
-            <div class="text-end">
-                <a href="{{ route('shops.create') }}" class="btn btn-primary">Yangi dukon qo'ng </a>
-              </div>
           @else
-              <h4 class="text-center">Siz hali dukonlaringiz qo'shmagansiz !</h4>
+          <div class="vh-100">
+              <h4 class="text-center ">Siz hali dukon qo'shmagansiz !</h4>
+          </div>
           @endif
        </div>
     </div>
