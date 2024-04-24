@@ -27,6 +27,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ShopOwnerController;
 use App\Models\Product;
+use App\Http\Controllers\AnnouncementController;
 use Illuminate\Support\Facades\Auth;
 
 Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
@@ -67,7 +68,18 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/public/shops', [ShopController::class, 'publicIndex'])->name('public.shops.index');
         Route::get('/public/shops/{id}/products', [ShopController::class, 'shopProducts'])->name('public.shops.products.index');
         Route::get('/public/shops/products', [ProductController::class, 'compare'])->name('public.shops.products');
-       });
+        // public announcement
+        Route::get('/all-announcement', [AnnouncementController::class, 'publicAnnouncement'])->name('public.announcements.index');
+
+        Route::get('/announcement', [AnnouncementController::class, 'index'])->name('announcements.index');
+        Route::post('/announcement', [AnnouncementController::class, 'store'])->name('announcements.store');
+        Route::get('/announcement/create/new', [AnnouncementController::class, 'create'])->name('announcements.create');
+        Route::get('/announcement/{announcement}', [AnnouncementController::class, 'show'])->name('announcements.show');
+        Route::get('/announcement/{announcement}/edit', [AnnouncementController::class, 'edit'])->name('announcements.edit');
+        Route::put('/announcement/{announcement}', [AnnouncementController::class, 'update'])->name('announcements.update');
+        Route::delete('/announcement/{announcement}', [AnnouncementController::class, 'destroy'])->name('announcements.destroy');
+
+  });
 
         // Route::middleware('can:admin')->group(function () {
 

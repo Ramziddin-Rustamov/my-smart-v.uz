@@ -54,17 +54,21 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li ><a href="{{ route('about') }}" class="{{ (Request::is('/about') ? 'active' : '') }}" >Biz haqimizda </a></li>
-          <li><a href="{{ route('posts.allposts') }} ">Yangiliklar</a></li>
-              <li><a href="{{ route('team.index') }} ">Ishchi jamoa</a></li>
-              <li><a href="#">Tibbiyot Birlashmasi</a></li>
-          <li class="dropdown "><a href="#"><span class="{{ (Request::is('about') ? 'active' : '') }} {{ (Request::is('view') ? 'active' : '') }}">Maktablar</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="#">84-maktab</a></li>
-              <li><a href="#">48-maktab</a></li>
-            </ul>
+          <li><a href="{{ route('about') }}" class="{{ request()->routeIs('about') ? 'active' : '' }}">Biz haqimizda</a></li>
+          <li><a href="{{ route('posts.allposts') }}" class="{{request()->routeIs('posts.allposts') ? 'active' : '' }}">Yangiliklar</a></li>
+          <li><a href="{{ route('team.index') }}" class="{{request()->routeIs('team.index') ? 'active' : '' }}">Ishchi jamoa</a></li>
+          <li><a href="#">Tibbiyot Birlashmasi</a></li>
+          <li class="dropdown">
+              <a href="#">
+                  <span class="#">Maktablar</span>
+                  <i class="fas fa-chevron-down"></i>
+                </a>
+              <ul>
+                  <li><a href="#">84-maktab</a></li>
+                  <li><a href="#">48-maktab</a></li>
+              </ul>
           </li>
-        </ul>
+      </ul>      
         <i class="fas fa-align-left mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
@@ -86,7 +90,11 @@
             @else
                 <li class="nav-item dropdown d-flex "  id="navbarDropdown" >
                     <a class="ps-md-3 " href="{{ asset(Auth::user()->image)  }}">
-                      <img style="width:35px; border-radius:50%"
+                      <img style="    background-size: contain;
+                      width: 35px;
+                      border-radius: 50%;
+                      height: 40px;
+                      background-position: center;"
                        class="user-circle-image-class "
                       src="{{ asset(Auth::user()->image)  }}"
                       alt="{{ Auth::user()->first_name }} `s image'">
@@ -95,54 +103,71 @@
                         {{ Auth::user()->first_name }}
                     </a>
 
-                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="background-color: rgba(255, 244, 239, 0.8);
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="background-color: rgba(255, 244, 239, 1);
                     box-shadow: 11px 11px 35px -10px rgba(66, 68, 90, 1);">
-                      {{-- Main menu  --}}
-                         <a class="dropdown-item py-3  " href="/">
-                        <i class="fas fa-home text-success"></i>    {{ __(' Asosiy menu') }}
-                      </a>
-                      {{-- My Profile --}}
-                      <a class="dropdown-item py-3  " href="{{ route('profile.index') }}">
-                        <i class="fas fa-user-tie text-success"></i>    {{ __(' Mening profilm ') }}
-                      </a> 
-                      @can('shop-owner')
-                        <a class="dropdown-item py-3  " href="{{ route('shops.index') }}">
-                          <i class="fas fa-store text-success"></i>    {{ __('Dukonlarim') }}
-                        </a>
-                      @endcan
-                      <a class="dropdown-item py-3  " href="{{ route('public.shops.index') }}">
-                        <i class="fas fa-store text-success"></i>    {{ __('Dukonlar') }}
-                      </a>
-                      <a class="dropdown-item py-3  " href="{{ route('people.index') }}">
-                        <i class="fas fa-user-group text-success"></i>    {{ __('Barcha Aholimiz') }}
-                      </a>
-                      <a class="dropdown-item py-3  " href="{{ route('youth.index') }}">
-                        <i class="fas fa-users text-success"></i>    {{ __(' Yoshlar ') }}
-                      </a>
-                      <a class="dropdown-item py-3  " href="{{ route('emergency.index') }}">
-                        <i class="fas fa-hospital text-success"></i>   {{ __('Shoshilinch Telefon') }}
-                      </a>
-                      <a class="dropdown-item py-3  " href="{{ route('pray.index') }}">
-                        <i class="fas fa-pray text-success"></i>   {{ __('Ibodat vaqtlari') }}
-                      </a>
-                      
-                       <a class="dropdown-item py-3  " href="{{ route('profile.index') }}">
-                        <i class="fas fa-hand-holding-heart text-success"></i>    {{ __(' Hayriya ') }}
-                      </a> 
-                      {{-- dashboard --}}
-                       @can('super-admin')
-                      <a class="dropdown-item py-3" href="{{ route('home') }}">
-                        <i class="fas fa-cog text-success"></i>   {{ __('Boshqaruv') }} </i>
-                      </a>
-                      @endcan
-                        <a class="dropdown-item py-3" href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
-                                      document.getElementById('logout-form').submit();">
+                            {{-- Main menu --}}
+                    <a class="dropdown-item py-3 {{ request()->is('/') ? 'active' : '' }}" href="/">
+                        <i class="fas fa-home text-success"></i> {{ __(' Asosiy menu') }}
+                    </a>
+                    
+                    {{-- My Profile --}}
+                    <a class="dropdown-item py-3 {{ request()->routeIs('profile.index') ? 'active' : '' }}" href="{{ route('profile.index') }}">
+                        <i class="fas fa-user-tie text-success"></i> {{ __(' Mening profilm ') }}
+                    </a>
+
+                    @can('shop-owner')
+                    <a class="dropdown-item py-3 {{ request()->routeIs('shops.index') ? 'active' : '' }}" href="{{ route('shops.index') }}">
+                        <i class="fas fa-store text-success"></i> {{ __('Dukonlarim') }}
+                    </a>
+                    @endcan
+
+                    <a class="dropdown-item py-3 {{ request()->routeIs('announcements.index') ? 'active' : '' }}" href="{{ route('announcements.index') }}">
+                        <i class="fas fa-bullhorn text-success"></i> {{ __('E`lonlarim ') }}
+                    </a>
+
+                    <a class="dropdown-item py-3 {{ request()->routeIs('public.announcements.index') ? 'active' : '' }}" href="{{ route('public.announcements.index') }}">
+                        <i class="fas fa-bell text-success"></i> {{ __('E`lonlar ') }}
+                    </a>
+
+                    <a class="dropdown-item py-3 {{ request()->routeIs('public.shops.index') ? 'active' : '' }}" href="{{ route('public.shops.index') }}">
+                        <i class="fas fa-store text-success"></i> {{ __('Dukonlar') }}
+                    </a>
+
+                    <a class="dropdown-item py-3 {{ request()->routeIs('people.index') ? 'active' : '' }}" href="{{ route('people.index') }}">
+                        <i class="fas fa-user-group text-success"></i> {{ __('Barcha Aholimiz') }}
+                    </a>
+
+                    <a class="dropdown-item py-3 {{ request()->routeIs('youth.index') ? 'active' : '' }}" href="{{ route('youth.index') }}">
+                        <i class="fas fa-users text-success"></i> {{ __(' Yoshlar ') }}
+                    </a>
+
+                    <a class="dropdown-item py-3 {{ request()->routeIs('emergency.index') ? 'active' : '' }}" href="{{ route('emergency.index') }}">
+                        <i class="fas fa-hospital text-success"></i> {{ __('Shoshilinch Telefon') }}
+                    </a>
+
+                    <a class="dropdown-item py-3 {{ request()->routeIs('pray.index') ? 'active' : '' }}" href="{{ route('pray.index') }}">
+                        <i class="fas fa-pray text-success"></i> {{ __('Ibodat vaqtlari') }}
+                    </a>
+
+                    <a class="dropdown-item py-3" href="#">
+                        <i class="fas fa-hand-holding-heart text-success"></i> {{ __(' Hayriya ') }}
+                    </a>
+
+                    {{-- Dashboard --}}
+                    @can('super-admin')
+                    <a class="dropdown-item py-3 {{ request()->routeIs('home') ? 'active' : '' }}" href="{{ route('home') }}">
+                        <i class="fas fa-cog text-success"></i> {{ __('Boshqaruv') }}
+                    </a>
+                    @endcan
+
+                    <a class="dropdown-item py-3 {{ request()->routeIs('logout') ? 'active' : '' }}" href="{{ route('logout') }}"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         <i class="fas fa-sign-out text-success"></i> {{ __('Chiqib ketish') }}
-                       </a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
                     </div>
                 </li>
             @endguest

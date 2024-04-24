@@ -10,6 +10,7 @@ use Database\Seeders\CommentSeeder;
 use Database\Seeders\SlideImageSeeder;
 use Database\Seeders\TechnologySeeder;
 use Database\Seeders\ShopOwnerSeeder;
+use Database\Seeders\AnnouncementSeeder;
 use Database\Seeders\ShopSeeder;
 
 class DatabaseSeeder extends Seeder
@@ -33,6 +34,7 @@ class DatabaseSeeder extends Seeder
             ProductSeeder::class,
             ShopSeeder::class,
             ShopOwnerSeeder::class,
+            AnnouncementSeeder::class
         ]);
     }
 }
