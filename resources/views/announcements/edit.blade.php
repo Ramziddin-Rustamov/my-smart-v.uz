@@ -49,8 +49,8 @@
                         <div class="form-group">
                             <label for="is_active">Status:</label>
                             <select class="form-control @error('is_active') is-invalid @enderror" id="is_active" name="is_active">
-                                <option value="1" {{ old('is_active', $announcement->is_active) ? 'selected' : '' }}>Active</option>
-                                <option value="0" {{ !old('is_active', $announcement->is_active) ? 'selected' : '' }}>Inactive</option>
+                                <option value="1" {{ old('is_active', $announcement->is_active) ? 'selected' : '' }}>Aktive qilish</option>
+                                <option value="0" {{ !old('is_active', $announcement->is_active) ? 'selected' : '' }}>Ko'rinmas qilish !</option>
                             </select>
                             @error('is_active')
                                 <span class="invalid-feedback" role="alert">
@@ -59,8 +59,8 @@
                             @enderror
                         </div>
 
-                        <button type="submit" class="btn btn-primary my-2 ">Update</button>
-                        <a href="{{ route('announcements.index') }}" class="btn btn-secondary mx-2" >Cancel</a>
+                        <button type="submit" class="btn btn-primary my-2 ">Taxrirlash Yakunlash</button>
+                        <a href="{{ route('announcements.index') }}" class="btn btn-secondary mx-2" >Orqaga </a>
                     </form>
                 </div>
             </div>

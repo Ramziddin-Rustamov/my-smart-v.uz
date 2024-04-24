@@ -26,9 +26,10 @@ class AnnouncementRepository
     public function getById($id)
     {
         if (Auth::check()) {
-            return $this->model->where('id', $id)
+            $a =  $this->model->where('id', $id)
                                ->where('user_id', Auth::user()->id)
-                               ->get();
+                               ->first();
+            return $a;
         } else {
             
            return abort(403, 'Bu ma`lumotga sizga ruxsat yo\'q '); 
@@ -48,7 +49,7 @@ class AnnouncementRepository
     }
     public function delete($id)
     {
-        $announcement = Announcement::where('id',$id)->where('user_id',auth()->user()->id)->get();
-        return $announcement[0]->delete();
+        $announcement = Announcement::where('id',$id)->where('user_id',auth()->user()->id)->first();
+        return $announcement->delete();
     }
 }

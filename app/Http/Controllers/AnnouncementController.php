@@ -40,10 +40,7 @@ class AnnouncementController extends Controller
 
     public function edit($id)
     {
-        // Retrieve the announcement by ID
         $announcement = $this->announcementService->getAnnouncementById($id);
-
-        // Return the edit view with the announcement data
         return view('announcements.edit', compact('announcement'));
     }
 
