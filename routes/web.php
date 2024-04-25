@@ -65,7 +65,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('profile/{id}', [MyProfileController::class, 'show'])->name('profile.show');
 
         // Shops for public 
-        Route::get('/public/shops', [ShopController::class, 'publicIndex'])->name('public.shops.index');
+        Route::get('/public/view/shops', [ShopController::class, 'publicIndex'])->name('public.shops.index');
         Route::get('/public/shops/{id}/products', [ShopController::class, 'shopProducts'])->name('public.shops.products.index');
         Route::get('/public/shops/products', [ProductController::class, 'compare'])->name('public.shops.products');
         // public announcement
@@ -107,13 +107,10 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/products', [ProductController::class, 'store'])->name('products.store');
         Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
         Route::put('/products/{id}', [ProductController::class, 'update'])->name('products.update');
-        Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
-        
-
-        
+        Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');    
         // Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+       Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 // Super Admin Routes
 Route::middleware('can:super-admin')->group(function () {

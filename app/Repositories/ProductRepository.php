@@ -10,7 +10,7 @@ class ProductRepository
     {
         return Product::whereHas('shop', function ($query) {
             $query->where('user_id', auth()->user()->id);
-        })->orderBy('id','desc')->paginate(50);
+        })->orderBy('id','desc')->paginate(100);
     }
     public function findPublicProducts($shopId)
     {
