@@ -40,10 +40,17 @@ class ProductController extends Controller
         return $this->productService->getProductById($id);
     }
 
+    public function edit($productid)
+    {
+        $product = $this->productService->getProductById($productid);
+        return view('product.edit',compact('product'));
+    }
+
     public function update(UpdateProductRequest $request, $id)
     {
         $data = $request->validated();
-        return $this->productService->updateProduct($id, $data);
+         $this->productService->updateProduct($id, $data);
+         return redirect()->route('products.index')->with("success","Siz maxsulotni taxrirladingiz !");
     }
 
     public function destroy($id)

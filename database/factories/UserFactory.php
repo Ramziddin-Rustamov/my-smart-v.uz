@@ -20,13 +20,7 @@ class UserFactory extends Factory
             'father_name' => $this->faker->firstName . ' ' . $this->faker->lastName,
             'email' => $this->faker->unique()->safeEmail,
             'provider_id' => null,
-            'image' => $this->faker->randomElement([
-                "image/team1.jpg",
-                "image/team2.jpg",
-                "image/team3.jpg",
-                "image/team4.jpg",
-                "image/user-128.jpg"
-            ]),
+            'image' => "image/user-128.png",
             'email_verified_at' => now(),
             'password' => bcrypt('password'), // default password 'password'
             'is_admin' => $this->faker->randomElement([false]),

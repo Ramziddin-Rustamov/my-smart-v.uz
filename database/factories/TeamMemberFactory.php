@@ -3,8 +3,9 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\User;
 
-class SlideImageFactory extends Factory
+class TeamMemberFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -14,9 +15,7 @@ class SlideImageFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->name(1),
-            'body' => $this->faker->name(2),
-            'image' => $this->faker->imageUrl(),
+            'user_id' => User::factory(),
         ];
     }
 }

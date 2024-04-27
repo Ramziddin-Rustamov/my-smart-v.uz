@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Portfolio;
+use App\Models\TeamMember;
 use Illuminate\Database\Seeder;
 
-class PortfolioSeeder extends Seeder
+class TeamMemberSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +14,6 @@ class PortfolioSeeder extends Seeder
      */
     public function run()
     {
-        Portfolio::factory(10)->create();
+        TeamMember::factory()->count(6)->create();
     }
 }

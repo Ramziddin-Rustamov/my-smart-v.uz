@@ -22,7 +22,7 @@ class PostFactory extends Factory
             'user_id'=>User::factory(),
             'title'=> $this->faker->sentence(),
             'body' =>$this->faker->paragraph(10),
-            'image'=> $this->faker->sentence()
+            'image'=>'image/news/news.jpg'
         ];
     }
 }

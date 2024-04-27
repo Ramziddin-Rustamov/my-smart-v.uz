@@ -2,15 +2,15 @@
 @section('title' , 'Slide')
 @section('content')
 
-<h1 class="text-center">Slide</h1>
-  <div class="text-center">
+<h1 class="text-center">Rasm asosiy menu uchun</h1>
+  <div class="text-center container">
     @if (session('success'))
         <div class="alert alert-success">
             {{ session('success') }}
         </div>
     @endif
   </div>
-  <div class="container py-5">
+  <div class="container py-2">
       <div class="table-responsive-sm table-responsive-md table-responsive-lg">
         <div class="card-body pb-0">
             <div class="text-end py-2">

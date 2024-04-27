@@ -25,8 +25,8 @@ class AdminSlideImageController extends Controller
         
         $req->validate([
            'title'=>['max:100','required'],
-           'body'=>['max:250','required'],
-           'image'=>['image','required','mimes:jpg,png,jpeg,svg','max:5112']
+           'body'=>['max:40','required'],
+           'image'=>['image','required','mimes:jpg,png,jpeg,svg','max:10000']
         ]);
 
         $file = $req->file('image');

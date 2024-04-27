@@ -14,6 +14,6 @@ class SlideImageSeeder extends Seeder
      */
     public function run()
     {
-        SlideImage::factory(5)->create();
+        SlideImage::factory(3)->create();
     }
 }

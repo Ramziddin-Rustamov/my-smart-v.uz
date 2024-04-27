@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Dukonlaringiz Ruyxati  ')
+@section('title', 'Barcha do\'konlar')
 @section('content')
 <!-- Team 1 - Bootstrap Brain Component -->
 <section class="bg-light py-3  py-md-5 py-xl-8" style="margin-top:90px">
@@ -17,18 +17,18 @@
     <div class="container overflow-hidden">
            <div class="row">
             <div class="col py-2">
-                <h3 class="text-start">Mahalla Dukonlari </h3>
+                <h3 class="text-start">Mahalladagi  Do'konlar </h3>
             </div>
             <div class="col py-2 text-end">
-               <a href="{{route('public.shops.products')}}">
+               <a  class="btn btn-info" href="{{route('public.shops.products')}}">
                 Maxsulotlarni solishtiring
                </a>
             </div>
            </div>
-        <div class="row gy-4 gy-lg-0 gx-xxl-5">
+        <div class="row">
           @if (!$shops->isEmpty())
             @foreach ($shops as $shop)
-            <div class="col-12 col-md-4 col-lg-4 ">
+            <div class="col-12 col-md-4 col-lg-4  my-2 py-2">
                     <a href="{{route('public.shops.products.index',['id'=>$shop->id])}}">
                     <div class="card border-0 border-bottom border-primary shadow-sm overflow-hidden">
                       <div class="card-body p-md-3">

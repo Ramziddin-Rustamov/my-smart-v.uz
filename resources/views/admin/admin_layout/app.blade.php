@@ -334,6 +334,9 @@
             <a href="{{ route('admin.shop-owners.index') }}">
                 <i class="bi bi-circle"></i><span>Magazinchilar</span>
               </a>
+              <a href="{{ route('admin.team.index') }}">
+                <i class="bi bi-circle"></i><span>Ishchi Jamoa</span>
+              </a>
           </li>
         </ul>
       </li><!-- End Charts Nav -->

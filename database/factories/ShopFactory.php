@@ -18,7 +18,7 @@ class ShopFactory extends Factory
             'address' => $this->faker->address,
             'opened_date' => $this->faker->dateTimeBetween('-1 year', 'now'),
             'user_id' => \App\Models\User::factory()->create()->id,
-            'image' => $this->faker->imageUrl(),
+            'image' => 'image/shop/shop.jpg',
             'phone' => $this->faker->phoneNumber,
         ];
     }

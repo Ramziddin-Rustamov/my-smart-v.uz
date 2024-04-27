@@ -23,18 +23,19 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            // UserSeeder::class,
-            // CommentSeeder::class,
-            // PostSeeder::class,
-            // TechnologySeeder::class,
-            // PortfolioSeeder::class,
-            // SlideImageSeeder::class,
-            // ClientViewSeeder::class,
-            // ContactSeeder::class,
+            UserSeeder::class,
+            CommentSeeder::class,
+            PostSeeder::class,
+            TechnologySeeder::class,
+            PortfolioSeeder::class,
+            SlideImageSeeder::class,
+            ClientViewSeeder::class,
+            ContactSeeder::class,
             ProductSeeder::class,
             ShopSeeder::class,
             ShopOwnerSeeder::class,
-            AnnouncementSeeder::class
+            AnnouncementSeeder::class,
+            TeamMemberSeeder::class,
         ]);
     }
 }

@@ -37,7 +37,7 @@
                             <input type="text" class="form-control" id="price" name="price" value="{{ old('price') }}">
                         </div>
                         <div class="mb-3">
-                            <label for="image" class="form-label">Rasmini yulang [ majburiy emas ]</label>
+                            <label for="image" class="form-label">Rasmini yulang [ majburiy emas yuklamasangiz ham bo'ladi ]</label>
                             <input type="file" class="form-control" id="image" name="image">
                             @error('image')
                                 <div class="text-danger">{{ $message }}</div>

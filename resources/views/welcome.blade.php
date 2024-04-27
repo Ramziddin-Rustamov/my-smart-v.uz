@@ -6,8 +6,8 @@
      <div class="main-banner">
         <div class="owl-carousel owl-banner">
           @foreach ($slides as $slide )
-            
-          <div class="item item-1" style="background-image: url('https://mangitobod.uz/assets/images/navbar/1.jpg');">
+            {{-- {{dd($slides)}} --}}
+          <div class="item item-1" style="background-image: url({{$slide->image}})">
             <div class="header-text">
               <span class="category  my-3"> <em>{{$slide->title}}</em></span>
               <h2 class="category"> {{$slide->body}}</h2>
@@ -377,7 +377,7 @@
 
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <a href="{{$post->image}}"><img src="{{$post->image}}" alt=""></a>
+            <a href="{{$post->image}}"><img src="{{asset($post->image)}}" alt=""></a>
                 <span class="category">Yangilik </span>
 
             <h6><i class="fas fa-calendar-check"></i>  {{ ''.$post->created_at->format('d-m-Y')}}</h6>

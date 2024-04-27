@@ -25,7 +25,7 @@ class ShopOwnerController extends Controller
 
     public function create()
     {
-        $users = User::whereDoesntHave('shopOwner')->get();
+      $users = User::whereDoesntHave('shopOwner')->get();
       return view('admin.shop-owner.create',compact('users'));
     }
 

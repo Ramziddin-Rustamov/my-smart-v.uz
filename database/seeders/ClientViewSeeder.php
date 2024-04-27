@@ -14,6 +14,6 @@ class ClientViewSeeder extends Seeder
      */
     public function run()
     {
-        ClientView::factory(50)->create();
+        ClientView::factory(20)->create();
     }
 }

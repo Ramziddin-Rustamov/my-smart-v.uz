@@ -10,14 +10,14 @@
     @endif
     @if(!$products->isEmpty())
        <div class="col text-start">
-        <h3 class="pb-3"> Maxsulotlar !</h3>
+        <h3 class="py-3">  Maxsulotlari</h3>
       </div>
         <div class="row">
          
            @foreach ($products as $product)
            <div class="col-md-4 mb-4">
             <div class="card">
-                <img src="{{ $product->image }}" class="card-img-top img-fluid" alt="Product Image">
+                <img src="{{ asset($product->image) }}" class="card-img-top img-fluid" alt="Product Image">
                 <div class="card-body">
                     <h5 class="card-title">{{ $product->name }}</h5>
                     <p class="card-text"><i class="fa-solid text-primary fa-money-bill"></i> {{ $product->price }}</p>

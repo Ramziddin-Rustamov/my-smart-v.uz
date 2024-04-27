@@ -14,6 +14,6 @@ class TechnologySeeder extends Seeder
      */
     public function run()
     {
-        Technology::factory(30)->create();
+        Technology::factory(10)->create();
     }
 }
