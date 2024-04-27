@@ -31,13 +31,13 @@
                 <div class="card">
                     <img src="{{ asset($product->image) }}" class="card-img-top" alt="{{ $product->name }}">
                     <div class="card-body">
-                        <h5 class="card-title">{{ $product->name }}</h5>
+                        <h5 class="card-title"><span class="text-info">Maxsulot nomi: <br></span>{{ $product->name }}</h5>
                         <p class="card-text"><i class="fa-solid text-primary fa-money-bill"></i>  {{ $product->price }}</p>
                         <p class="card-text"> <i class="fas fa-shop text-primary"></i> {{ $product->shop->name }}</p>
                         <p class="card-text"> <i class="fas fa-list text-primary"></i>  {{  $product->body }}</p>
 
                         <div class="d-grid gap-2">
-                            <a href="{{ route('products.show', $product->id) }}" class="btn btn-primary">Batafsil</a>
+                            {{-- <a href="{{ route('products.show', $product->id) }}" class="btn btn-primary">Batafsil</a> --}}
                             <a href="{{ route('products.edit', $product->id) }}" class="btn btn-secondary">Taxrirlash </a>
                             <form action="{{ route('products.destroy', $product->id) }}" method="POST" style="display: inline;">
                                 @csrf

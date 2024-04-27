@@ -102,6 +102,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/portfolio', [PortfolioController::class, 'index'])->name('portfolio');
         Route::get('/portfolio/{id}', [PortfolioController::class, 'show'])->name('portfolio.show');
         Route::get('/people', [PeopleController::class, 'index'])->name('people.index');
+        Route::get('/people/show/{id}', [PeopleController::class, 'show'])->name('people.show');
         Route::get('/emergency-numbers', [EmergencyNumberController::class, 'index'])->name('emergency.index');
         Route::get('/pray-time', [PrayController::class, 'index'])->name('pray.index');
         Route::get('/team', [TeamController::class, 'index'])->name('team.index');

@@ -38,7 +38,7 @@
                                 <form action="{{ route('announcements.destroy', $announcement->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> O'chirish</button>
+                                    <button type="submit" onclick="return confirm('Haqiqatdan ham e`lonni o`chirasizmi ?')" class="btn btn-danger"><i class="fas fa-trash"></i> O'chirish</button>
                                 </form>
                             </div>
                         </div>

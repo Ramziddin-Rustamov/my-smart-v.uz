@@ -31,14 +31,14 @@
                     </div>
                 @endif
             </div>
-            <div class="text-end ">
+            <div class="text-end mb-4 ">
               <a href="{{ route('shops.create') }}" class="btn btn-primary"> <i class="fas fa-plus"></i> <i class="fas fa-shop"></i> </a>
             </div>
           @if (!$shops->isEmpty())
          
             @foreach ($shops as $shop)
            
-                <div class="col-10 offset-1 col-md-6 col-lg-4">
+                <div class="col-12 col-md-12 col-lg-12">
                     <div class="card border-0 border-bottom border-primary shadow-sm overflow-hidden">
                       <div class="card-body p-md-3">
                         <figure class="m-0 p-0">
@@ -46,16 +46,17 @@
                           <figcaption class="m-0 p-4">
                             <div class="row">
                                 <div class="col">
-                                    <h4 class="mb-1">{{$shop->name}}</h4>
+                                    <h4 class="mb-1"> <span class="text-info">Do'kon nomi: <br></span> {{$shop->name}}</h4>
                                 </div>
                                 <div class="col text-end">
-                                    {{$shop->created_at}}
+                                  <span class="text-info">Birinchi ish boshlagan vaqti: <br></span>  {{$shop->created_at}}
                                 </div>
                             </div>
-                            <p class="text-secondary mb-0">{{$shop->address}}</p>
+                            <p class="text-secondary mb-0"><span class="text-info h4">Manzili: <br></span>{{$shop->address}}</p>
                             <div class="row py-2 my-2">
                               <div class="col">
-                                Tegishli: {{$shop->user->first_name .' '. $shop->user->last_name}}ga
+                                <span class="text-info">Do'kon egasi: <br></span>
+                                 {{$shop->user->first_name .' '. $shop->user->last_name}}ga
                               </div>
                             </div>
                             <div class="row">
