@@ -53,7 +53,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('profile/{id}', [MyProfileController::class, 'show'])->name('profile.show');
 
         // Shops for public 
-        Route::get('/public/all/shops', [ShopController::class, 'publicIndex'])->name('public.shops.index');
+        Route::get('/public/view/shops', [ShopController::class, 'publicIndex'])->name('public.shops.index');
         Route::get('/public/shops/{id}/products', [ShopController::class, 'shopProducts'])->name('public.shops.products.index');
         Route::get('/public/shops/products', [ProductController::class, 'compare'])->name('public.shops.products');
         // public announcement
@@ -82,40 +82,38 @@ Route::middleware(['auth'])->group(function () {
          Route::put('/products/{id}', [ProductController::class, 'update'])->name('products.update')->middleware('can:shop-owner');
          Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy')->middleware('can:shop-owner');
          
-
-  });
-
-        // Route::middleware('can:admin')->group(function () {
-
-            // });
+              // });
 
             // Route::get('/clientViews', [ClientViewController::class, 'index'])->name('view');
             // Route::get('/clientViews/{id}', [ClientViewController::class, 'show'])->name('client.show');
             // Route::post('/clientViews', [ClientViewController::class, 'store'])->name('client.store');
-        Route::post('/contact-us', [ContactController::class, 'store'])->name('contact.store');
-        Route::get('/ourposts', [PostsController::class, 'index'])->name('posts.allposts');
-        Route::get('posts-read/{post}', [PostsController::class, 'findOne'])->name('posts.findOne');
-        Route::get('comment/{id}', [CommentController::class, 'showUser'])->name('comment.owner');
-        Route::get('/about', [AboutUsController::class, 'index'])->name('about');
-        Route::get('question', [PriceController::class, 'index'])->name('question.index');
-        Route::get('/services', [ServicesController::class, 'index'])->name('services');
-        Route::get('/portfolio', [PortfolioController::class, 'index'])->name('portfolio');
-        Route::get('/portfolio/{id}', [PortfolioController::class, 'show'])->name('portfolio.show');
-        Route::get('/people', [PeopleController::class, 'index'])->name('people.index');
-        Route::get('/people/show/{id}', [PeopleController::class, 'show'])->name('people.show');
-        Route::get('/emergency-numbers', [EmergencyNumberController::class, 'index'])->name('emergency.index');
-        Route::get('/pray-time', [PrayController::class, 'index'])->name('pray.index');
-        Route::get('/team', [TeamController::class, 'index'])->name('team.index');
+            Route::post('/contact-us', [ContactController::class, 'store'])->name('contact.store');
+            Route::get('/ourposts', [PostsController::class, 'index'])->name('posts.allposts');
+            Route::get('posts-read/{post}', [PostsController::class, 'findOne'])->name('posts.findOne');
+            Route::get('comment/{id}', [CommentController::class, 'showUser'])->name('comment.owner');
+            Route::get('/about', [AboutUsController::class, 'index'])->name('about');
+            Route::get('question', [PriceController::class, 'index'])->name('question.index');
+            Route::get('/services', [ServicesController::class, 'index'])->name('services');
+            Route::get('/portfolio', [PortfolioController::class, 'index'])->name('portfolio');
+            Route::get('/portfolio/{id}', [PortfolioController::class, 'show'])->name('portfolio.show');
+            Route::get('/people', [PeopleController::class, 'index'])->name('people.index');
+            Route::get('/people/show/{id}', [PeopleController::class, 'show'])->name('people.show');
+            Route::get('/emergency-numbers', [EmergencyNumberController::class, 'index'])->name('emergency.index');
+            Route::get('/pray-time', [PrayController::class, 'index'])->name('pray.index');
+            Route::get('/team', [TeamController::class, 'index'])->name('team.index');
+    
+            // Shop  route here 
+            Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+            Route::post('/products', [ProductController::class, 'store'])->name('products.store');
+            Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
+            Route::put('/products/{id}', [ProductController::class, 'update'])->name('products.update');
+            Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');    
+            // Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+    
+           Route::get('/home', [HomeController::class, 'index'])->name('home');
+  });
 
-        // Shop  route here 
-        Route::get('/products', [ProductController::class, 'index'])->name('products.index');
-        Route::post('/products', [ProductController::class, 'store'])->name('products.store');
-        Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
-        Route::put('/products/{id}', [ProductController::class, 'update'])->name('products.update');
-        Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');    
-        // Route::get('/contact', [ContactController::class, 'index'])->name('contact');
-
-       Route::get('/home', [HomeController::class, 'index'])->name('home');
+      
 
 // Super Admin Routes
 Route::middleware('can:super-admin')->group(function () {

@@ -7,6 +7,7 @@ use App\Services\ShopService;
 
 use App\Http\Requests\StoreShopRequest;
 use App\Http\Requests\UpdateShopRequest;
+use App\Models\Shop;
 use App\Services\ProductService;
 
 class ShopController extends Controller
@@ -23,7 +24,7 @@ class ShopController extends Controller
 
     public function publicIndex()
     {
-        $shops = $this->shopService->getPublicShops();
+        $shops = Shop::orderBy('id','desc')->get();
         return view("public-shops.index",compact('shops'));
     }
 
