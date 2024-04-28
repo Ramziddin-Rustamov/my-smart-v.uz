@@ -15,7 +15,7 @@
 
     @if($announcements->isEmpty())
         <div class="alert alert-info">
-            Sizda hali e'lon joylamadingiz.
+            Siz hali e'lon joylamadingiz.
         </div>
         <div style="height: 50vh">
 
@@ -28,10 +28,10 @@
                     <div class="card">
                         <img src="{{ asset($announcement->photo) }}" class="card-img-top" alt="{{ $announcement->name }}">
                         <div class="card-body">
-                            <h5 class="card-title">Yukladi {{ $announcement->user->first_name }}</h5>
-                            <h5 class="card-title">{{ $announcement->name }}</h5>
+                            <h5 class="card-title"> <span class="text-info">E'lon beruvchi: <br></span>{{ $announcement->user->first_name }}</h5>
+                            <h5 class="card-title"><span class="text-info">Sarlovhasi: <br></span>{{ $announcement->name }}</h5>
 
-                            <p class="card-text">{{ $announcement->description }}</p>
+                            <p class="card-text"> <span class="text-info">Batafsil Ma'lumot:  <br></span> {{ $announcement->description }}</p>
                             <p class="card-text"><strong>Holati:</strong> {{ $announcement->is_active ? 'Aktiv holatda' : 'Hech kim ko`rgan emas ' }}</p>
                             <div class="btn-group" role="group">
                                 <a href="{{ route('announcements.edit', $announcement->id) }}" class="btn btn-primary  mx-2"> <i class="fas fa-pen"></i> Taxrirlash</a>

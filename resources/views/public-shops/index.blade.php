@@ -19,11 +19,13 @@
             <div class="col py-2">
                 <h3 class="text-start">Mahalladagi  Do'konlar </h3>
             </div>
+            @if(!$shops->isEmpty())
             <div class="col py-2 text-end">
                <a  class="btn btn-info" href="{{route('public.shops.products')}}">
                 Maxsulotlarni solishtiring
                </a>
             </div>
+            @endif
            </div>
         <div class="row">
           @if (!$shops->isEmpty())
@@ -56,8 +58,8 @@
                   </div>    
             @endforeach
           @else
-          <div class="vh-100">
-              <h4 class="text-center ">Siz hali dukon qo'shmagansiz !</h4>
+          <div class="vh-100  alert-info">
+              <h4 class="text-center text-info">Hali mahallaga do'kon ruyxatdan o'tmagan  !</h4>
           </div>
           @endif
        </div>

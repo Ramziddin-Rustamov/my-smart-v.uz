@@ -117,7 +117,7 @@
 
                     @can('shop-owner')
                     <a class="dropdown-item py-3 {{ request()->routeIs('shops.index') ? 'active' : '' }}" href="{{ route('shops.index') }}">
-                        <i class="fas fa-store text-success"></i> {{ __('Dukonlarim') }}
+                        <i class="fas fa-store text-success"></i> {{ __('Do`konlarim') }}
                     </a>
                     @endcan
 
@@ -130,7 +130,7 @@
                     </a>
 
                     <a class="dropdown-item py-3 {{ request()->routeIs('public.shops.index') ? 'active' : '' }}" href="{{ route('public.shops.index') }}">
-                        <i class="fas fa-store text-success"></i> {{ __('Dukonlar') }}
+                        <i class="fas fa-store text-success"></i> {{ __('Do`konlar') }}
                     </a>
 
                     <a class="dropdown-item py-3 {{ request()->routeIs('people.index') ? 'active' : '' }}" href="{{ route('people.index') }}">

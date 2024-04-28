@@ -28,10 +28,13 @@
                         <img src="{{ asset($announcement->photo) }}" class="card-img-top" alt="{{ $announcement->name }}">
                         <div class="card-body">
                             <h5 class="card-title"><span class="text-info my-1">E'lon bergan kishi:</span> <br>
-                                {{ $announcement->user->first_name .' '. $announcement->user->last_name }}</h5>
+                                <a href="{{route('people.show',['id'=>$announcement->user->id])}}">
+                                    {{ $announcement->user->first_name .' '. $announcement->user->last_name }}
+                                </a>
+                            </h5>
                             <h5 class="card-title"><span class="text-info my-1">E'lon nomi: </span> <br> {{ $announcement->name }}</h5>
                             <p class="card-text">{{ $announcement->description }}</p>
-                            <p class="card-text"><span class="text-info my-1 h4">Sanasi: <br></span>{{ $announcement->created_at}}</p>
+                            <p class="card-text"><span class="text-info my-1 h5">Joylagan Sanasi: <br></span>{{ $announcement->created_at}}</p>
                         </div>
                     </div>
                 </div>
