@@ -9,10 +9,11 @@
                         <div class="card-body p-4">
                             <div class="d-flex text-black">
                                 <div class="ms-3">
+                                    @if ($user)
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="flex-shrink-0">
-                                                <a href="{{ asset($user->image) }}">
+                                                <a href="{{ asset($user->image) ?? '' }}">
                                                     <img src="{{ asset($user->image) }}" alt="Profile Image" class="img-fluid" style="border-radius: 10px;">
                                                 </a>
                                             </div>
@@ -63,6 +64,9 @@
                                             </div>
                                         </div>
                                     </div>
+                                    @else
+                                        <h5 class="text-center text-info">Foydalanuvchi bor, lekin hali admin tomonidan kimligi tasdiqlanmagan</h5>
+                                    @endif
                                 </div>
                             </div>
                         </div>
