@@ -53,7 +53,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('profile/{id}', [MyProfileController::class, 'show'])->name('profile.show');
 
         // Shops for public 
-        Route::get('/public/view/shops', [ShopController::class, 'publicIndex'])->name('public.shops.index');
+        Route::get('shops/public', [ShopController::class, 'publicView'])->name('public.shop.index');
         Route::get('/public/shops/{id}/products', [ShopController::class, 'shopProducts'])->name('public.shops.products.index');
         Route::get('/public/shops/products', [ProductController::class, 'compare'])->name('public.shops.products');
         // public announcement

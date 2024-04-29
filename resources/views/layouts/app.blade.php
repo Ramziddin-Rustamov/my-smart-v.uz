@@ -120,6 +120,9 @@
                         <i class="fas fa-store text-success"></i> {{ __('Do`konlarim') }}
                     </a>
                     @endcan
+                    <a class="dropdown-item py-3 {{ request()->routeIs('public.shop.index') ? 'active' : '' }}" href="{{ route('public.shop.index') }}">
+                      <i class="fas fa-store text-success"></i> {{ __('Do`konlar') }}
+                  </a>
 
                     <a class="dropdown-item py-3 {{ request()->routeIs('announcements.index') ? 'active' : '' }}" href="{{ route('announcements.index') }}">
                         <i class="fas fa-bullhorn text-success"></i> {{ __('E`lonlarim ') }}
@@ -129,12 +132,10 @@
                         <i class="fas fa-bell text-success"></i> {{ __('E`lonlar ') }}
                     </a>
 
-                    <a class="dropdown-item py-3 {{ request()->routeIs('public.shops.index') ? 'active' : '' }}" href="{{ route('public.shops.index') }}">
-                        <i class="fas fa-store text-success"></i> {{ __('Do`konlar') }}
-                    </a>
+                   
 
                     <a class="dropdown-item py-3 {{ request()->routeIs('people.index') ? 'active' : '' }}" href="{{ route('people.index') }}">
-                        <i class="fas fa-user-group text-success"></i> {{ __('Barcha Aholimiz') }}
+                        <i class="fas fa-user-group text-success"></i> {{ __('Foydalanuvchilar') }}
                     </a>
                      
                     <a class="dropdown-item py-3 {{ request()->routeIs('youth.index') ? 'active' : '' }}" href="{{ route('youth.index') }}">
