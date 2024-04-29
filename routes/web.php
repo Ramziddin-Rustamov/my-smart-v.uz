@@ -28,7 +28,6 @@ use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ShopOwnerController;
 use App\Models\Product;
 use App\Http\Controllers\AnnouncementController;
-use App\Http\Controllers\PublicShopController;
 use App\Http\Controllers\TeamMemberController;
 use Illuminate\Support\Facades\Auth;
 
@@ -53,9 +52,35 @@ Route::middleware(['auth'])->group(function () {
         Route::put('profile/{user}', [MyProfileController::class, 'update'])->name('profile.update');
         Route::get('profile/{id}', [MyProfileController::class, 'show'])->name('profile.show');
 
-       
+        // Shops for public 
+        Route::get('/public/view/shops', [ShopController::class, 'publicIndex'])->name('public.shops.index');
+        Route::get('/public/shops/{id}/products', [ShopController::class, 'shopProducts'])->name('public.shops.products.index');
+        Route::get('/public/shops/products', [ProductController::class, 'compare'])->name('public.shops.products');
+        // public announcement
+        Route::get('/all-announcement', [AnnouncementController::class, 'publicAnnouncement'])->name('public.announcements.index');
 
-        
+        Route::get('/announcement', [AnnouncementController::class, 'index'])->name('announcements.index');
+        Route::post('/announcement', [AnnouncementController::class, 'store'])->name('announcements.store');
+        Route::get('/announcement/create/new', [AnnouncementController::class, 'create'])->name('announcements.create');
+        Route::get('/announcement/{announcement}', [AnnouncementController::class, 'show'])->name('announcements.show');
+        Route::get('/announcement/{announcement}/edit', [AnnouncementController::class, 'edit'])->name('announcements.edit');
+        Route::put('/announcement/{announcement}', [AnnouncementController::class, 'update'])->name('announcements.update');
+        Route::delete('/announcement/{announcement}', [AnnouncementController::class, 'destroy'])->name('announcements.destroy');
+
+         // Shops for shop owners
+         Route::get('/shops', [ShopController::class, 'index'])->name('shops.index')->middleware('can:shop-owner');
+         Route::post('/shops', [ShopController::class, 'store'])->name('shops.store')->middleware('can:shop-owner');
+         Route::get('/shops/create', [ShopController::class, 'create'])->name('shops.create')->middleware('can:shop-owner');
+         Route::put('/shops/{id}', [ShopController::class, 'update'])->name('shops.update')->middleware('can:shop-owner');
+         Route::delete('/shops/delete/{id}', [ShopController::class, 'destroy'])->name('shops.delete')->middleware('can:shop-owner');
+        // Product  routes here  for Shop-owners 
+         Route::get('/products', [ProductController::class, 'index'])->name('products.index')->middleware('can:shop-owner');
+         Route::get('/products/create', [ProductController::class, 'create'])->name('products.create')->middleware('can:shop-owner');
+         Route::post('/products', [ProductController::class, 'store'])->name('products.store')->middleware('can:shop-owner');
+         Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show')->middleware('can:shop-owner');
+         Route::get('/products/{id}/edit', [ProductController::class, 'edit'])->name('products.edit')->middleware('can:shop-owner');
+         Route::put('/products/{id}', [ProductController::class, 'update'])->name('products.update')->middleware('can:shop-owner');
+         Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy')->middleware('can:shop-owner');
          
               // });
 
@@ -88,34 +113,8 @@ Route::middleware(['auth'])->group(function () {
            Route::get('/home', [HomeController::class, 'index'])->name('home');
   });
 
-       Route::get('/all/shops', [PublicShopController::class, 'publicView'])->name('all.shops');
-       // Shops for public 
-       Route::get('/public/shops/{id}/products', [ShopController::class, 'shopProducts'])->name('public.shops.products.index');
-       Route::get('/public/shops/products', [ProductController::class, 'compare'])->name('public.shops.products');
-       // public announcement
-       Route::get('/all-announcement', [AnnouncementController::class, 'publicAnnouncement'])->name('public.announcements.index');
+      
 
-       Route::get('/announcement', [AnnouncementController::class, 'index'])->name('announcements.index');
-       Route::post('/announcement', [AnnouncementController::class, 'store'])->name('announcements.store');
-       Route::get('/announcement/create/new', [AnnouncementController::class, 'create'])->name('announcements.create');
-       Route::get('/announcement/{announcement}', [AnnouncementController::class, 'show'])->name('announcements.show');
-       Route::get('/announcement/{announcement}/edit', [AnnouncementController::class, 'edit'])->name('announcements.edit');
-       Route::put('/announcement/{announcement}', [AnnouncementController::class, 'update'])->name('announcements.update');
-       Route::delete('/announcement/{announcement}', [AnnouncementController::class, 'destroy'])->name('announcements.destroy');
-        // Shops for shop owners
-        Route::get('/shops', [ShopController::class, 'index'])->name('shops.index')->middleware('can:shop-owner');
-        Route::post('/shops', [ShopController::class, 'store'])->name('shops.store')->middleware('can:shop-owner');
-        Route::get('/shops/create', [ShopController::class, 'create'])->name('shops.create')->middleware('can:shop-owner');
-        Route::put('/shops/{id}', [ShopController::class, 'update'])->name('shops.update')->middleware('can:shop-owner');
-        Route::delete('/shops/delete/{id}', [ShopController::class, 'destroy'])->name('shops.delete')->middleware('can:shop-owner');
-       // Product  routes here  for Shop-owners 
-        Route::get('/products', [ProductController::class, 'index'])->name('products.index')->middleware('can:shop-owner');
-        Route::get('/products/create', [ProductController::class, 'create'])->name('products.create')->middleware('can:shop-owner');
-        Route::post('/products', [ProductController::class, 'store'])->name('products.store')->middleware('can:shop-owner');
-        Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show')->middleware('can:shop-owner');
-        Route::get('/products/{id}/edit', [ProductController::class, 'edit'])->name('products.edit')->middleware('can:shop-owner');
-        Route::put('/products/{id}', [ProductController::class, 'update'])->name('products.update')->middleware('can:shop-owner');
-        Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy')->middleware('can:shop-owner');
 // Super Admin Routes
 Route::middleware('can:super-admin')->group(function () {
         Route::get('super-admin-users/{id}/edit', [AdminUsersController::class, 'edit'])->name('admin.user.edit');

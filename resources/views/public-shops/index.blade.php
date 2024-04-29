@@ -17,7 +17,7 @@
             @endif
            </div>
         <div class="row">
-          @if (!$shops->isEmpty())
+          @if (count($shops))
             @foreach ($shops as $shop)
             <div class="col-12 col-md-4 col-lg-4  my-2 py-2">
                     <a href="{{route('public.shops.products.index',['id'=>$shop->id])}}">

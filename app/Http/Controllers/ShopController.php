@@ -22,7 +22,7 @@ class ShopController extends Controller
         $this->productService = $productService;
     }
 
-    public function publicView()
+    public function publicIndex()
     {
         $shops = Shop::orderBy('id','desc')->get();
         return view("public-shops.index",compact('shops'));
