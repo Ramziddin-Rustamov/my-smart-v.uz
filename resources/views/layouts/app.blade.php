@@ -120,7 +120,7 @@
                         <i class="fas fa-store text-success"></i> {{ __('Do`konlarim') }}
                     </a>
                     @endcan
-                    <a class="dropdown-item py-3 {{ request()->routeIs('public.shop.index') ? 'active' : '' }}" href="{{ route('public.shop.index') }}">
+                    <a class="dropdown-item py-3 {{ request()->routeIs('all.shops') ? 'active' : '' }}" href="{{ route('all.shops') }}">
                       <i class="fas fa-store text-success"></i> {{ __('Do`konlar') }}
                   </a>
 

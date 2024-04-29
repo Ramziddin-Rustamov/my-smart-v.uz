@@ -28,6 +28,7 @@ use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ShopOwnerController;
 use App\Models\Product;
 use App\Http\Controllers\AnnouncementController;
+use App\Http\Controllers\PublicShopController;
 use App\Http\Controllers\TeamMemberController;
 use Illuminate\Support\Facades\Auth;
 
@@ -53,7 +54,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('profile/{id}', [MyProfileController::class, 'show'])->name('profile.show');
 
         // Shops for public 
-        Route::get('shops/public', [ShopController::class, 'publicView'])->name('public.shop.index');
+        Route::get('/all/shops', [PublicShopController::class, 'publicView'])->name('all.shops');
         Route::get('/public/shops/{id}/products', [ShopController::class, 'shopProducts'])->name('public.shops.products.index');
         Route::get('/public/shops/products', [ProductController::class, 'compare'])->name('public.shops.products');
         // public announcement
