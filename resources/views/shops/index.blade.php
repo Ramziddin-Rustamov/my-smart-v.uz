@@ -7,9 +7,7 @@
     <div class="container">
       <div class="row  justify-content-around">
         <div class="col-12 col-md-10 col-lg-8 col-xl-7 col-xxl-6">
-          <h5 class="mb-4  text-center">Sizning  Do'koninlaringiz Ruyxati </h5>
-          <p class="text-secondary mb-5 text-center lead fs-4"></p><hr>
-          {{-- <hr class="w-50 mx-auto mb-5 mb-xl-9 border-dark-subtle"> --}}
+          <h5 class="mb-4  text-center text-info pt-5">Sizning  Do'koninlaringiz Ruyxati </h5><hr>
         </div>
       </div>
     </div>
@@ -49,7 +47,7 @@
                                     <h4 class="mb-1"> <span class="text-info">Do'kon nomi: <br></span> {{$shop->name}}</h4>
                                 </div>
                                 <div class="col text-end">
-                                  <span class="text-info">Birinchi ish boshlagan vaqti: <br></span>  {{$shop->created_at}}
+                                  <span class="text-info">Birinchi ish boshlagan vaqti: <br></span>  {{$shop->created_at->format('m-d-y')}}
                                 </div>
                             </div>
                             <p class="text-secondary mb-0"><span class="text-info h4">Manzili: <br></span>{{$shop->address}}</p>

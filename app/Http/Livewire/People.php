@@ -22,6 +22,7 @@ class People extends Component
         } else {
             $this->users = User::where('active_status', '1')
                 ->where('first_name', 'like', '%' . $name . '%')
+                ->orWhere('last_name', 'like', '%' . $name . '%')
                 ->with('profiles')
                 ->get();
         }

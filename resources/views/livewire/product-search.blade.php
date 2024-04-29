@@ -3,20 +3,21 @@
     @if (session('success'))
     <div class="alert alert-success">{{ session('success') }}</div>
     @endif
+    <h4 for="productName" class="text-info pt-4">Mahsulot nomi buyicha izlang </h4> <br>
     <div class="input-group mb-3">
         <input type="text" class="form-control" wire:model="productName">
     </div>
     @if ($products->count())
     <div class="col text-start">
-        <h3 class="pb-3">Arzonlari birinchilikda </h3>
+        <h3 class="pb-3"> Eng arzon mahsulot eng yo'qorida  </h3>
     </div>
     <div class="row">
         @foreach ($products as $product)
         <div class="col-md-4 mb-4">
             <div class="card">
-                <img src="{{ $product->image }}" class="card-img-top img-fluid" alt="Product Image">
+                <img src="{{ asset($product->image) }}" class="card-img-top img-fluid" alt="Product Image">
                 <div class="card-body">
-                    <h5 class="card-title">{{ $product->name }}</h5>
+                    <h5 class="card-title"><span class="text-info h5">Maxsulot nomi: <br></span>{{ $product->name }}</h5>
                     <p class="card-text"><i class="fa-solid text-primary fa-money-bill"></i> {{ $product->price }}</p>
                     <p class="card-text"><i class="fas fa-map text-primary"></i> {{ $product->shop->address }}</p>
                     <p class="card-text"><i class="fas fa-shop text-primary"></i> {{ $product->shop->name }}</p>

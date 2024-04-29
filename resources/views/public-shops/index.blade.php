@@ -2,22 +2,11 @@
 
 @section('title', 'Barcha do\'konlar')
 @section('content')
-<!-- Team 1 - Bootstrap Brain Component -->
 <section class="bg-light py-3  py-md-5 py-xl-8" style="margin-top:90px">
-    {{-- <div class="container">
-      <div class="row  justify-content-around">
-        <div class="col-12 col-md-10 col-lg-8 col-xl-7 col-xxl-6">
-          <h5 class="mb-4  text-center">Sizning  Dukoninlaringiz Ruyxati </h5>
-          <p class="text-secondary mb-5 text-center lead fs-4"></p>
-          <hr class="w-50 mx-auto mb-5 mb-xl-9 border-dark-subtle">
-        </div>
-      </div>
-    </div> --}}
-
     <div class="container overflow-hidden">
            <div class="row">
             <div class="col py-2">
-                <h3 class="text-start">Mahalladagi  Do'konlar </h3>
+                <h3 class="text-start text-info">Mahalladagi  Do'konlari </h3>
             </div>
             @if(!$shops->isEmpty())
             <div class="col py-2 text-end">

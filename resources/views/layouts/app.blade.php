@@ -136,10 +136,10 @@
                     <a class="dropdown-item py-3 {{ request()->routeIs('people.index') ? 'active' : '' }}" href="{{ route('people.index') }}">
                         <i class="fas fa-user-group text-success"></i> {{ __('Barcha Aholimiz') }}
                     </a>
-                     {{-- 
+                     
                     <a class="dropdown-item py-3 {{ request()->routeIs('youth.index') ? 'active' : '' }}" href="{{ route('youth.index') }}">
                         <i class="fas fa-users text-success"></i> {{ __(' Yoshlar ') }}
-                    </a> --}}
+                    </a>
 
                     <a class="dropdown-item py-3 {{ request()->routeIs('emergency.index') ? 'active' : '' }}" href="{{ route('emergency.index') }}">
                         <i class="fas fa-hospital text-success"></i> {{ __('Shoshilinch Telefon') }}
