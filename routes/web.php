@@ -54,7 +54,6 @@ Route::middleware(['auth'])->group(function () {
         Route::get('profile/{id}', [MyProfileController::class, 'show'])->name('profile.show');
 
         // Shops for public 
-        Route::get('/all/shops', [PublicShopController::class, 'publicView'])->name('all.shops');
         Route::get('/public/shops/{id}/products', [ShopController::class, 'shopProducts'])->name('public.shops.products.index');
         Route::get('/public/shops/products', [ProductController::class, 'compare'])->name('public.shops.products');
         // public announcement
@@ -114,6 +113,7 @@ Route::middleware(['auth'])->group(function () {
            Route::get('/home', [HomeController::class, 'index'])->name('home');
   });
 
+  Route::get('/all/shops', [PublicShopController::class, 'publicView'])->name('all.shops');
       
 
 // Super Admin Routes
