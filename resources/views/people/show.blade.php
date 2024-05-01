@@ -4,12 +4,12 @@
 <section style="background-color: #95bed394; padding-top:100px">
     <div class="container">
         <div class="row">
+            @if ($user)
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="card mb-3" style="border-radius: 15px;">
                         <div class="card-body p-4">
                             <div class="d-flex text-black">
                                 <div class="ms-3">
-                                    @if ($user)
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="flex-shrink-0">
@@ -64,9 +64,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    @else
-                                        <h5 class="text-center text-info">Foydalanuvchi bor, lekin hali admin tomonidan kimligi tasdiqlanmagan</h5>
-                                    @endif
+                                   
                                 </div>
                             </div>
                         </div>
@@ -82,6 +80,9 @@
                         </div>
                     </div>
                 </div>
+                @else
+                <h5 style="padding-bottom:400px" class="text-center text-info">Foydalanuvchi bor, lekin hali admin tomonidan kimligi tasdiqlanmagan</h5>
+            @endif
             
         </div>
     </div>

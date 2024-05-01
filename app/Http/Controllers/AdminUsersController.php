@@ -98,8 +98,8 @@ class AdminUsersController extends Controller
                 $file = $request->file('image');
     
                 $extention =  $file->getClientOriginalExtension();
-                $filename = 'image/'.time().'.'.$extention;
-                $file->move('image/',$filename);
+                $filename = 'image/users/'.time().'.'.$extention;
+                $file->move('image/users/',$filename);
                 $user->image = $filename;
             }else{
                 $filename = null;
@@ -122,7 +122,6 @@ class AdminUsersController extends Controller
 
         public function changeStatus($user, Request $request){
             $user = User::findOrFail($user);
-            // dd($user);
             if($user){
                 $user->active_status = $request->input('active_status');
                 $user->save();

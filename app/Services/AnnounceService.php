@@ -30,15 +30,15 @@ class AnnounceService
         return $this->announcementRepository->getById($id);
     }
 
-    public function createAnnouncement(array $data)
+    public function createAnnouncement($request)
     {
-        return $this->announcementRepository->create($data);
+        return $this->announcementRepository->store($request);
     }
 
 
-    public function updateAnnouncement($id, array $data)
+    public function updateAnnouncement($id, $request)
     {
-        return $this->announcementRepository->update($id, $data);
+        return $this->announcementRepository->update($id, $request);
     }
 
     public function deleteAnnouncement($id)

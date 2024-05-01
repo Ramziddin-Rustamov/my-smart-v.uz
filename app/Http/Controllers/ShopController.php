@@ -49,17 +49,15 @@ class ShopController extends Controller
 
     public function store(StoreShopRequest $request)
     {
-        $data = $request->validated();
-        $this->shopService->create($data);
+        $this->shopService->create($request);
 
         return redirect()->back()->with("success","Siz yangi dukon qo`shdingiz!");
     }
 
     public function update(UpdateShopRequest $request, $id)
     {
-        $data = $request->validated();
         $shop = $this->shopService->findById($id);
-        $this->shopService->update($shop, $data);
+        $this->shopService->update($shop, $request);
 
         return response()->json($shop, 200);
     }

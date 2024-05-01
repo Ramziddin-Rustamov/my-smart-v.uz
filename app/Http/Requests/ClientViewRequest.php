@@ -24,7 +24,7 @@ class ClientViewRequest extends FormRequest
     public function rules()
     {
         return [
-            'clientView' => ['required', 'max:300'],
+            'clientView' => ['required', 'max:300','min:20'],
         ];
     }
 }

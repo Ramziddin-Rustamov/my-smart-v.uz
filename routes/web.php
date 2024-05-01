@@ -2,7 +2,7 @@
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WelcomeController;
-// use App\Http\Controllers\ClientViewController;
+use App\Http\Controllers\ClientViewController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PeopleController;
 use App\Http\Controllers\EmergencyNumberController;
@@ -84,9 +84,11 @@ Route::middleware(['auth'])->group(function () {
          
               // });
 
-            // Route::get('/clientViews', [ClientViewController::class, 'index'])->name('view');
-            // Route::get('/clientViews/{id}', [ClientViewController::class, 'show'])->name('client.show');
-            // Route::post('/clientViews', [ClientViewController::class, 'store'])->name('client.store');
+            Route::get('/client-views', [ClientViewController::class, 'index'])->name('client.view.index');
+            Route::get('/client-views/{id}', [ClientViewController::class, 'show'])->name('client.view.show');
+            Route::post('/client-views', [ClientViewController::class, 'store'])->name('client.view.store');
+
+
             Route::post('/contact-us', [ContactController::class, 'store'])->name('contact.store');
             Route::get('/ourposts', [PostsController::class, 'index'])->name('posts.allposts');
             Route::get('posts-read/{post}', [PostsController::class, 'findOne'])->name('posts.findOne');
@@ -153,14 +155,7 @@ Route::middleware('can:super-admin')->group(function () {
         // Admin Contact
         Route::get('admin-contact', [AdminContactController::class, 'index'])->name('admin.contact.index');
         Route::get('admin-contacts/{id}/edit', [AdminContactController::class, 'show'])->name('admin.contact.show');
-
-        // Technology
-        Route::get('admin-technoligy', [AdminTechnoligyController::class, 'index'])->name('admin.technology.index');
-        Route::get('admin-technoligy-create', [AdminTechnoligyController::class, 'create'])->name('admin.technology.create');
-        Route::post('admin-technoligy-post', [AdminTechnoligyController::class, 'store'])->name('admin.technology.store');
-        Route::get('admin-technoligy/{id}/show', [AdminTechnoligyController::class, 'show'])->name('admin.technology.show');
-        Route::delete('admin-technoliogy-delete/{id}', [AdminTechnoligyController::class, 'delete'])->name('admin.technology.delete');
-
+        
         // Shop owner Route::get('/shop-owners', [ShopOwnerController::class, 'index'])->name('shop_owners.index');
         Route::get('/admin-shop-owners/all', [ShopOwnerController::class, 'index'])->name('admin.shop-owners.index');
         Route::get('/admin-shop-owners/create', [ShopOwnerController::class, 'create'])->name('admin.shop-owners.create');
@@ -178,9 +173,5 @@ Route::middleware('can:super-admin')->group(function () {
         // Route::get('/admin/team/{teamMember}/edit', [TeamMemberController::class, 'edit'])->name('admin.team.edit');
         Route::put('/admin/team/{id}', [TeamMemberController::class, 'update'])->name('admin.team.update');
         // Route::delete('/admin/team/{teamMember}', [TeamMemberController::class, 'destroy'])->name('admin.team.destroy');
-
         // Route::post('/admin-team-members/create', [ShopOwnerController::class, 'store'])->name('admin.shop-owners.store');
-
-
-
 });

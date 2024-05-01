@@ -354,21 +354,6 @@
           
         </ul>
       </li><!-- End Icons Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#tech" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-bezier"></i><span>Technolies</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="tech" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="{{ route('admin.technology.index') }}">
-              <i class="bi bi-bezier"></i><span>Technologies</span>
-            </a>
-          </li>
-          
-        </ul>
-      </li><!-- End Icons Nav -->
-
     </ul>
 
   </aside><!-- End Sidebar-->

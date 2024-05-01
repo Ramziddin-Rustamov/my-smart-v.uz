@@ -36,7 +36,7 @@ class ProfileService
 
     protected function deleteOldImage($imagePath)
     {
-        $destinationPath = 'public/' . $imagePath;
+        $destinationPath = 'public/users/' . $imagePath;
         if (File::exists($destinationPath)) {
             File::delete($destinationPath);
         }
@@ -47,14 +47,13 @@ class ProfileService
     {
         return User::findOrFail($userId);
     }
-
-//  inner function
+    
     protected function uploadNewImage($data)
     {
         $file = $data->file('image');
         $extension = $file->getClientOriginalExtension();
-        $filename = 'image/' . $data->user()->first_name.''.$data->user()->last_name.'.' . $extension;
-        $file->move('image/', $filename);
+        $filename = 'image/users/' . $data->user()->first_name.''.$data->user()->last_name.'.' . $extension;
+        $file->move('image/users/', $filename);
         return $filename;
     }
 

@@ -60,12 +60,13 @@
           <li><a href="#">Tibbiyot Birlashmasi</a></li>
           <li class="dropdown">
               <a href="#">
-                  <span class="#">Maktablar</span>
+                  <span class="#">Qo'shimcha</span>
                   <i class="fas fa-chevron-down"></i>
                 </a>
               <ul>
                   <li><a href="#">84-maktab</a></li>
                   <li><a href="#">48-maktab</a></li>
+                  <li><a href="{{route('client.view.index')}}">Bizga bildirilgan fikrlar</a></li>
               </ul>
           </li>
       </ul>      

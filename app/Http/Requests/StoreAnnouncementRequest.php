@@ -28,7 +28,7 @@ class StoreAnnouncementRequest extends FormRequest
         return [
             'name' => 'required|string|max:255',
             'description' => 'required|string',
-            'photo' => 'nullable|image|max:2048',
+            'photo' => 'nullable|image|max:10000',
             'is_active' => 'boolean',
         ];
     }

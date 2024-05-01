@@ -30,8 +30,7 @@ class ProductController extends Controller
 
     public function store(StoreProductRequest $request)
     {
-        $data = $request->validated();
-        $products =  $this->productService->createProduct($data);
+        $products =  $this->productService->createProduct($request);
         return redirect()->back()->with("success","Siz yangi maxsulot qo`shdingiz ..");
     }
 
@@ -48,15 +47,14 @@ class ProductController extends Controller
 
     public function update(UpdateProductRequest $request, $id)
     {
-        $data = $request->validated();
-         $this->productService->updateProduct($id, $data);
+         $this->productService->updateProduct($id, $request);
          return redirect()->route('products.index')->with("success","Siz maxsulotni taxrirladingiz !");
     }
 
     public function destroy($id)
     {
         $this->productService->deleteProduct($id);
-        return response()->json(['message' => 'Product deleted successfully']);
+        return redirect()->back()->with('success','Mahsulot o\'chirildi!');
     }
 
     public function compare()

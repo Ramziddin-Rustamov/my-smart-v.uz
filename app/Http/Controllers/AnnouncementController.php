@@ -34,7 +34,7 @@ class AnnouncementController extends Controller
 
     public function store(StoreAnnouncementRequest $request)
     {
-        $this->announcementService->createAnnouncement($request->validated());
+        $this->announcementService->createAnnouncement($request);
         return redirect()->route('announcements.index')->with('success', 'Announcement created successfully.');
     }
 
@@ -46,7 +46,7 @@ class AnnouncementController extends Controller
 
     public function update(UpdateAnnouncementRequest $request, $id)
     {
-        $this->announcementService->updateAnnouncement($id, $request->validated());
+        $this->announcementService->updateAnnouncement($id, $request);
         return redirect()->route('announcements.index')->with('success', 'Announcement updated successfully.');
     }
 

@@ -8,7 +8,6 @@ use Database\Seeders\ProductSeeder;
 use Database\Seeders\UserSeeder;
 use Database\Seeders\CommentSeeder;
 use Database\Seeders\SlideImageSeeder;
-use Database\Seeders\TechnologySeeder;
 use Database\Seeders\ShopOwnerSeeder;
 use Database\Seeders\AnnouncementSeeder;
 use Database\Seeders\ShopSeeder;
@@ -26,7 +25,6 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             CommentSeeder::class,
             PostSeeder::class,
-            TechnologySeeder::class,
             PortfolioSeeder::class,
             SlideImageSeeder::class,
             ClientViewSeeder::class,

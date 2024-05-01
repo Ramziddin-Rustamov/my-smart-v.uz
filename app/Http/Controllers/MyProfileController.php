@@ -49,19 +49,9 @@ class MyProfileController extends Controller
             'user'=> $user
         ]);
     }
-
-
-
     public function update(ProfileRequest $request, User $user)
     {
-
         $this->profileService->updateProfile($user, $request);
-        // dd($request->all());
-        
-
         return redirect()->route('profile.index');
     }
-
-
-
 }

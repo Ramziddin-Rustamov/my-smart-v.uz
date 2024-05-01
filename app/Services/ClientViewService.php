@@ -16,10 +16,10 @@ class ClientViewService
         $this->clintViewModel = $client;
         $this->user = $user;
     }
-    public function paginate($perPage = 6)
+    public function paginate($perPage = 100)
     {
-        return Cache::remember("all_client_view",now()->addMinute(59),function () use ($perPage){
-            return $this->clintViewModel->simplePaginate($perPage);
+        return Cache::remember("all_client_view",now()->addSecond(3),function () use ($perPage){
+            return $this->clintViewModel->with(['user'])->orderBy('id','desc')->simplePaginate($perPage);
         });
     }
 
@@ -31,15 +31,5 @@ class ClientViewService
         $client->save();
     }
 
-    public function showUser($id)
-    {
-        $user = $this->user->find($id);
-
-        if (!$user) {
-            return false; 
-        }
-
-        return $user;
-    }
 }
 

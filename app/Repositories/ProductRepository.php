@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Product;
+use Illuminate\Support\Facades\File;
 
 class ProductRepository
 {
@@ -22,14 +23,24 @@ class ProductRepository
         return Product::findOrFail($id);
     }
 
-    public function create(array $data)
+    public function create($request)
     {
+        $data =  $request->validated();
+        if ($request->hasfile('image')) {
+            $data['image'] = $this->uploadNewImage($request);
+        }
         return Product::create($data);
     }
 
-    public function update($id, array $data)
+    public function update($id,  $request)
     {
-        $product = Product::findOrFail($id);
+        $data = $request->validated();
+        $product = $this->getById($id);
+        if($request->hasFile('image')){
+            $this->deleteOldImage($product->image);
+            $product->image = $this->uploadNewImage($request);
+        }
+        $data['image'] = $product->image;
         $product->update($data);
         return $product;
     }
@@ -37,10 +48,30 @@ class ProductRepository
     public function delete($id)
     {
         $product = Product::findOrFail($id);
+        if($product->image){
+            $this->deleteOldImage($product->image);
+        }
         $product->delete();
     }
     public function getSortedProducts()
     {
         return   $productsOrderedByPrice = Product::orderBy('price')->get();
+    }
+
+    protected function uploadNewImage($data)
+    {
+        $file = $data->file('image');
+        $extension = $file->getClientOriginalExtension();
+        $filename = 'image/products/' .uniqid().'.' . $extension;
+        $file->move('image/products/', $filename);
+        return $filename;
+    }
+
+    protected function deleteOldImage($imagePath)
+    {
+        $destinationPath = public_path($imagePath);
+        if (File::exists($destinationPath)) {
+            File::delete($destinationPath);
+        }
     }
 }

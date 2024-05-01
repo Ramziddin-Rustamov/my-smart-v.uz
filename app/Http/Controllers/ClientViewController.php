@@ -18,26 +18,16 @@ class ClientViewController extends Controller
 
     public function index()
     {
-       $clientviews = $this->clientViewService->paginate(6);
+       $clientviews = $this->clientViewService->paginate(80);
        return view('clients.index', compact('clientviews'));
     }
 
     public function store(ClientViewRequest $request)
     {
         $request->validated();
-    
         $this->clientViewService->create($request->clientView, $request->user()->id);
     
-        return back()->with('success', 'You added! Thanks for your feedback.');
+        return back()->with('success', 'Bizga bildirgan fikringiz uchun rahmat');
     }
 
-    public function show($id, ClientViewService $clientViewService)
-    {
-        $client = $clientViewService->showUser($id);
-    
-        if (!$client) {
-            return redirect()->route('clients.index')->with('error', 'User not found.');
-        }
-        return view('clients.show', ['user' => $client]);
-    }
 }

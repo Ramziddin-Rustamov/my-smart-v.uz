@@ -1,70 +1,82 @@
 @extends('layouts.app')
-@section('title' ,'Clients view')
+@section('title' ,'Bizga bildirilgan fikrlar')
 @section('content')
    <!-- ======= Testimonials Section ======= -->
-   <section id="testimonials" class="testimonials section-bg" style="padding-top:125px;">
-    <div class="container">
+   <section class="pt-3" style="background-color: #eee;">
+    <div class="pt-5 ">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-12 col-lg-10 col-xl-8 mt-5">
+          <div class="card ">
+            <div class="card-header pt-3 ">Bizga bildirilgan fikrlar</div>
+            <div class="card-body">
+              @if (session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
 
-      <form method="post" action="{{ route('client.store') }}" >
-        @csrf
-            <div class="text-start d-flex">
-              @auth
-              <div class=" py-2">
-                <a href="{{ asset(Auth::user()->image) }}">
-                <img  
-                class="user-circle-image-class" 
-                src="{{ asset(Auth::user()->image)  }}"
-                 alt="image'">  
-                </a>
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif        
+
+              @if($clientviews)
+              <div class="row">
+                @foreach ($clientviews as $view )
+
+                <div class="col-12">
+                  <div class="d-flex flex-start align-items-center">
+                    <div>
+                      <div class="d-flex">
+                        <a href="{{route('people.show',['id'=>$view->user->id])}}">
+                          <h6 class="fw-bold text-primary mb-1">{{$view->user->first_name .' ' . $view->user->last_name .' '. $view->user->father_name }}</h6>
+                        </a>
+                      </div>
+                      <p class="text-dark">
+                          {{ $view->clientView }}
+                      </p>
+                      <p class=" text-start text-info pb-4">
+                        Sanasi {{ $view->created_at->format('d-m-y') }}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                @endforeach
+                <div class="text-end">
+                  {{$clientviews->links()}}
+                </div>
               </div>
-              <h5 class="text-bold  pt-3">{{ auth()->user()->name }}</h5>
-              @endauth
-          </div>
-        <div class="row">
-          <div class="col form-group">
-            <textarea rows="3" name="clientView" 
-               class="form-control w-100 @error('clientView') is-invalid  @enderror " placeholder="{{ __('Post , your personal view for us') }}" required></textarea>
-               @auth
-               <div class="text-end"> 
-                <button type="submit" class="btn btn-primary my-2 ">
-                  Commit
-                </button>
-              </div>   
-               @endauth  
-               @guest
-               <div class="">
-                <a href="{{ route('register') }}" class="btn btn-primary my-2">{{ __('Please Log in') }}</a> 
-              </div>
-               @endguest       
+              @else
+                <h4 class="text-center">Hali fikrlar joylanmagan</h4>
+              @endif
+            </div>
           </div>
         </div>
-      </form>
-
-      <div class="row">
-        @if ($clientviews->count())
-        @foreach ($clientviews as $item )
-        <div class="col-lg-6">
-          <div class="testimonial-item mt-4 mt-lg-4">
-            <a href="{{ asset($item->user->image) }}">
-              <img class=" rounded img-fluid  " src="{{ asset($item->user->image) }}" alt="{{ $item->user->name }}`image">
-            </a>
-            <a href="{{ route('client.show',['id'=>$item->user->id]) }}">{{ $item->user->name }}</a>
-            <h4>{{ ($item->user->job) ?? 'No job yet' }}</h4>
-            <p>
-              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-               {{ substr(strip_tags($item->clientView), 0, 500) }}
-                {{ strlen(strip_tags($item->clientView)) > 140 ? "....." : "" }}
-              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-            </p>
-          </div>
-        </div>
-        @endforeach  
-        <div class="d-flex justify-content-end pt-3">
-          {{ $clientviews->links() }}
-        </div> 
-        @endif              
       </div>
-      
+       
     </div>
-  </section><!-- End Testimonials Section -->
+    <div class="pb-2">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-12 col-lg-10 col-xl-8 pt-2">
+          <div class="card ">
+                  <form action="{{route('client.view.store')}}" method="POST" class=" form-control">
+                    @csrf
+                     <div data-mdb-input-init class="form-outline w-100">
+                    <textarea class="form-control my-2" id="textAreaExample" rows="4" name="clientView" style="background: #fff;"></textarea>
+                    <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-sm">{{ __('Fikr Qoldirish') }}</button>
+                  </div>
+                  </form>
+        </div>
+      </div>
+       
+    </div>
+  </section>
+  
+  <!-- End Testimonials Section -->
   @endsection
+ 

@@ -28,15 +28,15 @@ class ShopService
         return $this->shopRepository->findById($id);
     }
 
-    public function create(array $data)
+    public function create($request)
     {
-        return $this->shopRepository->create($data);
+        return $this->shopRepository->create($request);
     }
 
-    public function update($id, array $data)
+    public function update($id, $request)
     {
         $shop = $this->shopRepository->findById($id);
-        return $this->shopRepository->update($shop, $data);
+        return $this->shopRepository->update($shop, $request);
     }
 
     public function delete($id)

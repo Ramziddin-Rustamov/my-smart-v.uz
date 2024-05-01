@@ -28,14 +28,14 @@ class ProductService
         return $this->productRepository->getById($id);
     }
 
-    public function createProduct(array $data)
+    public function createProduct($request)
     {
-        return $this->productRepository->create($data);
+        return $this->productRepository->create($request);
     }
 
-    public function updateProduct($id, array $data)
+    public function updateProduct($id, $request)
     {
-        return $this->productRepository->update($id, $data);
+        return $this->productRepository->update($id, $request);
     }
 
     public function deleteProduct($id)

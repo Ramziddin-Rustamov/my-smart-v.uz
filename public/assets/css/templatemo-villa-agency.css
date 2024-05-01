@@ -76,6 +76,14 @@ header, nav, section, article, aside, footer, hgroup {
   box-sizing: border-box;
 }
 
+.user-cricle-image{
+  width: 100px;
+  border-radius: 50%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 html, body {
   font-family: 'Poppins', sans-serif;
   -ms-text-size-adjust: 100%;
