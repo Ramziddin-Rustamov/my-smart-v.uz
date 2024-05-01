@@ -25,7 +25,7 @@
             </div>
         @endif        
 
-              @if($clientviews)
+              @if(!$clientviews)
               <div class="row">
                 @foreach ($clientviews as $view )
 
@@ -52,7 +52,7 @@
                 </div>
               </div>
               @else
-                <h4 class="text-center">Hali fikrlar joylanmagan</h4>
+                <h4 style="padding-bottom: 150px" class="text-center">Hali fikrlar joylanmagan</h4>
               @endif
             </div>
           </div>
