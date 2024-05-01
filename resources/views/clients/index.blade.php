@@ -25,7 +25,7 @@
             </div>
         @endif        
 
-              @if(!$clientviews)
+              @if(count($clientviews))
               <div class="row">
                 @foreach ($clientviews as $view )
 
