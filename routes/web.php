@@ -52,10 +52,7 @@ Route::middleware(['auth'])->group(function () {
         Route::put('profile/{user}', [MyProfileController::class, 'update'])->name('profile.update');
         Route::get('profile/{id}', [MyProfileController::class, 'show'])->name('profile.show');
 
-        // Shops for public 
-        Route::get('/public/view/shops', [ShopController::class, 'publicIndex'])->name('public.shops.index');
-        Route::get('/public/shops/{id}/products', [ShopController::class, 'shopProducts'])->name('public.shops.products.index');
-        Route::get('/public/shops/products', [ProductController::class, 'compare'])->name('public.shops.products');
+       
         // public announcement
         Route::get('/all-announcement', [AnnouncementController::class, 'publicAnnouncement'])->name('public.announcements.index');
 
@@ -67,6 +64,10 @@ Route::middleware(['auth'])->group(function () {
         Route::put('/announcement/{announcement}', [AnnouncementController::class, 'update'])->name('announcements.update');
         Route::delete('/announcement/{announcement}', [AnnouncementController::class, 'destroy'])->name('announcements.destroy');
 
+          // Shops for public 
+        Route::get('/public/view/shops/all', [ShopController::class, 'publicShops'])->name('public.shops.index');
+        Route::get('/public/shops/{id}/products', [ShopController::class, 'shopProducts'])->name('public.shops.products.index');
+        Route::get('/public/shops/products', [ProductController::class, 'compare'])->name('public.shops.products');
          // Shops for shop owners
          Route::get('/shops', [ShopController::class, 'index'])->name('shops.index')->middleware('can:shop-owner');
          Route::post('/shops', [ShopController::class, 'store'])->name('shops.store')->middleware('can:shop-owner');

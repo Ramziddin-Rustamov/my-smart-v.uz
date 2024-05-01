@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Services\ShopService;
 
 use App\Http\Requests\StoreShopRequest;
 use App\Http\Requests\UpdateShopRequest;
-use App\Models\Shop;
 use App\Services\ProductService;
 
 class ShopController extends Controller
@@ -22,22 +20,10 @@ class ShopController extends Controller
         $this->productService = $productService;
     }
 
-    public function publicIndex()
-    {
-        $shops = Shop::orderBy('id','desc')->get();
-        return view("public-shops.index",compact('shops'));
-    }
-
-    public function shopProducts($shopId)
-    {
-        $products = $this->productService->findPublicProducts($shopId);
-        return view('public-shop-product.index',compact('products')) ;
-    }
-
+   
     public function index()
     {
-        $shops = $this->shopService->getAll();
-
+        $shops = $this->shopService->getAllByUser();
         return view("shops.index",compact("shops"));
     }
 
@@ -51,7 +37,7 @@ class ShopController extends Controller
     {
         $this->shopService->create($request);
 
-        return redirect()->back()->with("success","Siz yangi dukon qo`shdingiz!");
+        return redirect()->back()->with("success","Siz yangi do`kon qo`shdingiz!");
     }
 
     public function update(UpdateShopRequest $request, $id)
@@ -68,4 +54,17 @@ class ShopController extends Controller
 
         return redirect()->back()->with("success","Siz mavjud dukoningizni o`chirib tashladingiz ");
     }
+
+    public function publicShops()
+    {
+        $shops = $this->shopService->getPublicShops();
+        return view("public-shops.index",compact('shops'));
+    }
+
+    public function shopProducts($shopId)
+    {
+        $products = $this->productService->findPublicProducts($shopId);
+        return view('public-shop-product.index',compact('products')) ;
+    }
+
 }

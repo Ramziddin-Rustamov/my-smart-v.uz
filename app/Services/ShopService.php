@@ -18,9 +18,9 @@ class ShopService
         return $this->shopRepository->getPublicShops();
     }
 
-    public function getAll()
+    public function getAllByUser()
     {
-        return $this->shopRepository->getAll();
+        return $this->shopRepository->getAllByUser();
     }
 
     public function findById($id)
@@ -44,5 +44,4 @@ class ShopService
         return $this->shopRepository->delete($id);
     }
 
-    // You can add more methods as needed...
 }

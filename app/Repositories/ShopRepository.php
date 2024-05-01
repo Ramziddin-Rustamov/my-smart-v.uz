@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\File;
 class ShopRepository
 {
 
-    public function getAll(){
+    public function getAllByUser()
+    {
         return Shop::orderBy('id','desc')->where('user_id', auth()->user()->id)->get();
     }
 
