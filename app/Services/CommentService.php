@@ -15,12 +15,8 @@ class CommentService
     }
 
     public function createComment(CommentRequest $request)
-    {
-        $this->commentRepository->create([
-            'post_id' => $request->input('post_id'),
-            'user_id' => $request->user()->id,
-            'body' => $request->input('body')
-        ]);
+    {  
+        $this->commentRepository->create($request);
         return back();
     }
 

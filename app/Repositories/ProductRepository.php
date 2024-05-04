@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Product;
+use App\Models\Shop;
 use Illuminate\Support\Facades\File;
 
 class ProductRepository
@@ -73,5 +74,11 @@ class ProductRepository
         if (File::exists($destinationPath)) {
             File::delete($destinationPath);
         }
+    }
+
+    public function getAllShopsRelatedToUser()
+    {
+        return Shop::where('user_id',auth()->user()->id)->get();
+    
     }
 }

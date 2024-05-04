@@ -16,7 +16,7 @@ class UserService
     public function getAdminUsers($limit = 4)
     {
         $cacheKey = "get_admin_user{$limit}";
-       return Cache::remember($cacheKey,now()->addMinutes(60),function() use($limit){
+       return Cache::remember($cacheKey,now()->addSeconds(1),function() use($limit){
         return User::orderBy('id', 'DESC')
         ->where('is_admin', 1)
         ->limit($limit)

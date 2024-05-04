@@ -24,7 +24,7 @@ class ProductController extends Controller
     
     public function create()
     {
-        $shops = Shop::where('user_id',auth()->user()->id)->get();
+        $shops = $this->productService->getAllShopsRelatedToUser();
         return view("product.create",compact('shops'));
     }
 

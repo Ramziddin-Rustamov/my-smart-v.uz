@@ -7,9 +7,12 @@ use App\Models\Comment;
 
 class CommentRepository
 {
-    public function create($data)
+    public function create($request)
      {
-    if(is_array($data)){
+    if($request){
+        $data =  $request->validated();
+        $data['user_id'] = auth()->user()->id;
+        $data['post_id'] = $request->post_id;
         return Comment::create($data);
     }
     throw new \InvalidArgumentException("Provided data is not array!");

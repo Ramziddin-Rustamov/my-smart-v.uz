@@ -22,18 +22,14 @@ class MyProfileController extends Controller
 
     public function index(Request $request )
     {
-        $userId = $request->user()->id;
-        $user = $this->profileService->getUserProfile($userId);
-
+        $user = $this->profileService->getUserProfile($request);
         return view('myprofile.index',compact('user'));
     }
 
 
-    public function show(Request $request,User $id)
+    public function show(Request $request)
     {
-        $id = $request->user()->id;
-        $user = User::findOrFail($id);
-
+        $user = $this->profileService->getUserProfile($request);
         return view('myprofile.show',[
             'user'=> $user
         ]);
@@ -42,12 +38,8 @@ class MyProfileController extends Controller
 
     public function edit(Request $request , User $id)
     {
-       
-        $id = $request->user()->id;
-        $user = User::findOrFail($id);
-        return view('myprofile.edit',[
-            'user'=> $user
-        ]);
+        $user = $this->profileService->getUserProfile($request);
+        return view('myprofile.edit',compact('user'));
     }
     public function update(ProfileRequest $request, User $user)
     {

@@ -4,8 +4,9 @@
 
 @section('content')
     <!-- ======= Blog Single Section ======= -->
-    <section id="blog" class="blog" style="padding-top:160px;">
-        <div class="container" data-aos="fade-up">
+            <section id="blog" class="blog" style="padding-top:160px;">
+            <div class="container" data-aos="fade-up">
+        
 
             <div class="row">
 
@@ -64,7 +65,7 @@
 
                     {{-- starts comment form --}}
                     <div class="reply-form mt-4">
-                        <h4>{{ __('Izoh qoldirish') }}</h4>
+                        <h4  class="pb-2">{{ __('Izoh qoldirish') }}</h4>
                         <form method="POST" action="{{ route('posts.comments.store', ['post' => $post->id]) }}">
                             @csrf
                             @auth
@@ -74,9 +75,9 @@
                                     <a href="{{ asset(Auth::user()->image) }}">
                                         <img class=" img-fluid img-thumbnail  " style="width: 55px;" src="{{ asset(Auth::user()->image)  }}" alt="rasmingiz">
                                     </a>
-                                    <h5 class="mb-0">{{ auth()->user()->name }}</h5>
+                                    <h5 class="mb-0">{{ auth()->user()->first_name  }}</h5>
                                     <input type="hidden" name="post_id" value="{{$post->id}}">
-                                    <textarea rows="7" name="body" class="form-control mt-2" placeholder="{{ __('Izoh qoldiring') }}"></textarea>
+                                    <textarea rows="4" name="body" class="form-control mt-2" placeholder="{{ __('Izoh qoldiring') }}"></textarea>
                                     <div class="text-end">
                                         <button type="submit" class="btn btn-primary mt-2">
                                             {{ __('Izoh qoldirish') }}
@@ -93,6 +94,17 @@
                     {{-- Ends comment form --}}
 
                     <div class="blog-comments mt-4">
+                        @if(Session::has('success'))
+                        <div class="alert alert-success">
+                            {{ Session::get('success') }}
+                        </div>
+                    @endif
+        
+                    @if(Session::has('error'))
+                        <div class="alert alert-danger">
+                            {{ Session::get('error') }}
+                        </div>
+                    @endif
                         @if ($post->comments->count())
                             <h4 class="comments-count">{{ $post->comments->count() }}  | {{ __('Izohlar') }}</h4><hr>
                             @foreach ($post->comments as $comment )
@@ -104,15 +116,15 @@
                                             </a>
                                         </div>
                                         <div>
-                                            <h5><a href="{{route('comment.owner',['id'=>$comment->user->id])}}">{{ $comment->user->name }}</a></h5>
+                                            <h5><a href="{{route('people.show',['id'=>$comment->user->id])}}">{{ $comment->user->first_name .' ' . $comment->user->last_name }}</a></h5>
                                             <time datetime="2020-01-01">{{ $comment->created_at; }}</time>
                                             <p style="font-weight: bold; color: #333;">{{ $comment->body }}</p>
                                             @auth
                                                 @if($comment->ownedBy(Auth()->user()))
-                                                <form action="{{ route('comment.delete', ['comment' => $comment->id]) }}" method="POST">
+                                                <form action="{{ route('comment.delete', ['postid' => $comment->id]) }}" method="POST">
                                                     @csrf
                                                         @method('DELETE')
-                                                        <button type="submit" class="mt-1 pt-1 btn text-danger underline">O`chirish</button>
+                                                        <button type="submit" class="mt-1 pt-1 btn  btn-outline-danger btn-sm">O`chirish</button>
                                                     </form>
                                                 @endif
                                             @endauth

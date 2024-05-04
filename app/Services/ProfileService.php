@@ -43,8 +43,9 @@ class ProfileService
     }
 
 
-    public function getUserProfile($userId)
+    public function getUserProfile($request)
     {
+        $userId = $request->user()->id;
         return User::findOrFail($userId);
     }
     

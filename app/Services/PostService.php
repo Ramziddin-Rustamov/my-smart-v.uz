@@ -25,7 +25,7 @@ class PostService
     {
         $cacheKey = "latest_posts_{$limit}";
 
-        return Cache::remember($cacheKey, now()->addMinutes(1), function () use ($limit) {
+        return Cache::remember($cacheKey, now()->addSeconds(5), function () use ($limit) {
             return $this->postModel::orderBy('id', 'DESC')
                 ->with(['user', 'comments', 'likes'])
                 ->limit($limit)
@@ -35,7 +35,20 @@ class PostService
 
     public function getPaginate()
     {
-        return $this->postModel
-        ->orderBy('id', 'DESC')->paginate(8);
+        return $this->postModel->orderBy('id', 'DESC')->paginate(8);
+    }
+
+
+    public function liked($post,$request)
+    {
+        if($post->likedBy($request->user())){
+          return redirect()->back();
+         }
+        $post->likes()->create(['user_id' =>$request->user()->id]);
+    }
+
+    public function delete($post,$request)
+    {
+        $request->user()->likes()->where('post_id',$post->id)->delete();
     }
 }

@@ -2,11 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Services\TeamService;
 
 class TeamController extends Controller
 {
-    public function index(){
-        return view('team.index');
+
+    private $teamServie;
+
+
+    public function __construct(TeamService $teamSerive)
+    {
+        $this->teamServie = $teamSerive;
+    }
+
+
+    public function index()
+    {
+        $teamMembers = $this->teamServie->getTeamMembers();
+        return view('team.index',compact('teamMembers'));
     }
 }

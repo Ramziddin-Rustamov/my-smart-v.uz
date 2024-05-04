@@ -22,29 +22,26 @@ use App\Http\Controllers\AdminPostController;
 use App\Http\Controllers\AdminUsersController;
 use App\Http\Controllers\AdminContactController;
 use App\Http\Controllers\AdminSlideImageController;
-use App\Http\Controllers\AdminTechnoligyController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ShopOwnerController;
-use App\Models\Product;
 use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\TeamMemberController;
 use Illuminate\Support\Facades\Auth;
-
 Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 
 Auth::routes();
 
 
 Route::middleware(['auth'])->group(function () {
-       
+
         Route::get('youth',[YouthController::class, 'index'])->name('youth.index');
 
         // Likes and Comments
-        Route::delete('posts/{comment}/destroy',[ CommentController::class,'delete'])->name('comment.delete');
         Route::post('posts/{post}/comments', [CommentController::class, 'store'])->name('posts.comments.store');
         Route::post('post/{post:id}/likes', [PostLikesController::class, 'store'])->name('posts.like');
         Route::delete('post/{post}/likes', [PostLikesController::class, 'destroy'])->name('posts.like');
+        Route::delete('posts/post/{postid}/destroy',[CommentController::class,'delete'])->name('comment.delete');
 
         // MyProfile Controller
         Route::get('profile', [MyProfileController::class, 'index'])->name('profile.index');

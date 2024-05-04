@@ -4,30 +4,33 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CommentRequest;
 use App\Services\CommentService;
-use Illuminate\Support\Facades\Request;
 
 class CommentController extends Controller
 {
     private $commentService;
-    private $commentRequest;
 
-    public function __construct(CommentService $commentService, CommentRequest $commentRequest )
+    public function __construct(CommentService $commentService)
     {
         $this->commentService = $commentService;
-        $this->commentRequest = $commentRequest;
     }
 
     public function store(CommentRequest $request)
     {
-        $data = $this->commentRequest->validated();
-        $user = $request->user();
-        $data['user_id'] = $user->id;
+        // dd($request->all());
         $this->commentService->createComment($request);
         return back();
     }
 
-    public function delete($id)
+    public function delete($postId)
     {
-        $this->commentService->deleteComment($id);
+        try {
+            $this->commentService->deleteComment($postId);
+             return  redirect()->back()->with('success', 'Siz yozgan fikr o`chirildi !');
+        } catch (\Exception $e) {
+           return redirect()->back()->with('error', 'Xatolik sodir bo`ldi !');
+        }
+    
+        return redirect()->back();
     }
+    
 }

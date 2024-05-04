@@ -18,6 +18,11 @@ class ProductService
         return $this->productRepository->getAll();
     }
 
+    public function getAllShopsRelatedToUser()
+    {
+        return $this->productRepository->getAllShopsRelatedToUser();
+    }
+
     public function findPublicProducts($id)
     {
         return $this->productRepository->findPublicProducts($id);

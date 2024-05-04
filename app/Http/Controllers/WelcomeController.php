@@ -35,14 +35,6 @@ class WelcomeController extends Controller
         $slides = $this->slideImageService->getSlideImages(3);
         $posts = $this->postService->getLatestPosts(6);
         $portfolio = $this->portfolioService->getLatestPortfolioes(6);
-        return view('welcome', compact(
-            'posts',
-            'team',
-            'portfolio',
-            'slides',
-            'postCount',
-            'teamCount',
-            'portfolioCount'
-        ));
+        return view('welcome', compact('posts','team','portfolio','slides','postCount','teamCount','portfolioCount'));
     }
 }
