@@ -397,7 +397,9 @@
         </div>
         @endforeach
         <div class=" justify-content-end text-align-end d-flex pt-2">
-          <a href="{{ route('posts.allposts') }}" class="btn btn-primary text-center font-weight-bold">Hamma xabarlarni ko'rish</a>
+          <div class="main-button">
+            <a href="{{ route('posts.allposts') }}" class="">Barcha Yangiliklar </a>
+          </div>
         </div>
         <!-- End blog sidebar -->
         @else
@@ -419,7 +421,7 @@
       </div>
     </div>
   </div>
-
+  
   <div class="contact-content">
     <div class="container">
       <div class="row">
@@ -431,7 +433,7 @@
             <div class="col-lg-6">
               <div class="item phone">
                 <img src="{{asset('assets/images/phone-icon.png')}}" alt="" style="max-width: 52px;">
-                <h6>+998 99 771 39 09<br><span>Phone Number</span></h6>
+                <h6>+777 77 777 77 77<br><span>Telefon Raqam</span></h6>
               </div>
             </div>
             <div class="col-lg-6">

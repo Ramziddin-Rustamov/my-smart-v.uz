@@ -41,32 +41,33 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function redirectToGoogle(){
-        return Socialite::driver('google')->redirect();
-    }
+    // public function redirectToGoogle(){
+    //     return Socialite::driver('google')->redirect();
+    // }
      
-    public function handleGoogleCallback(){
+    // public function handleGoogleCallback(){
         
-        $user = Socialite::driver('google')->user();
-        $this->_registerOrLoginUser($user);
-        redirect()->route('profile.index');
-    }
+    //     $user = Socialite::driver('google')->user();
+    //     $this->_registerOrLoginUser($user);
+    //     redirect()->route('profile.index');
+    // }
 
     
 
-    public function redirectToGithub(){
-        return Socialite::driver('github')->redirect();
-    }
+    // public function redirectToGithub(){
+    //     return Socialite::driver('github')->redirect();
+    // }
      
-    public function handleGithubCallback(){
+    // public function handleGithubCallback(){
         
-        $user = Socialite::driver('github')->user();
-        $this->_registerOrLoginUser($user);
-        redirect()->route('profile.index');
-    }
+    //     $user = Socialite::driver('github')->user();
+    //     $this->_registerOrLoginUser($user);
+    //     redirect()->route('profile.index');
+    // }
 
 
     protected function _registerOrLoginUser($data){
+        dd($data);
         $user = User::where('email' , '=' , $data->email)->first();
         if(!$user){
             $user = new User();

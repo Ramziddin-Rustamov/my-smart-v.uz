@@ -4,9 +4,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\PortfolioRequest;
-use App\Models\Portfolio;
-use App\Repositories\PortfolioRepository;
 use App\Services\FileUploadService;
 use App\Services\PortfolioService;
 
@@ -17,8 +14,6 @@ class PortfolioController extends Controller
     protected $portfolioService;
 
     public function __construct(
-        PortfolioService $portfolioService,
-        PortfolioRepository $portfolioRepository,
         FileUploadService $fileUploadService
     ) {
         $this->portfolioService = $portfolioService;

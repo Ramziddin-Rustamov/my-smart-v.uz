@@ -12,8 +12,6 @@ use App\Http\Controllers\TeamController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\PriceController;
-use App\Http\Controllers\ServicesController;
-use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\YouthController;
 use App\Http\Controllers\PostLikesController;
@@ -93,9 +91,6 @@ Route::middleware(['auth'])->group(function () {
             Route::get('comment/{id}', [CommentController::class, 'showUser'])->name('comment.owner');
             Route::get('/about', [AboutUsController::class, 'index'])->name('about');
             Route::get('question', [PriceController::class, 'index'])->name('question.index');
-            Route::get('/services', [ServicesController::class, 'index'])->name('services');
-            Route::get('/portfolio', [PortfolioController::class, 'index'])->name('portfolio');
-            Route::get('/portfolio/{id}', [PortfolioController::class, 'show'])->name('portfolio.show');
             Route::get('/people', [PeopleController::class, 'index'])->name('people.index');
             Route::get('/people/show/{id}', [PeopleController::class, 'show'])->name('people.show');
             Route::get('/emergency-numbers', [EmergencyNumberController::class, 'index'])->name('emergency.index');
@@ -108,7 +103,6 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
             Route::put('/products/{id}', [ProductController::class, 'update'])->name('products.update');
             Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');    
-            // Route::get('/contact', [ContactController::class, 'index'])->name('contact');
     
            Route::get('/home', [HomeController::class, 'index'])->name('home');
   });
@@ -122,14 +116,6 @@ Route::middleware('can:super-admin')->group(function () {
         Route::put('super-admin-update-user/{user}', [AdminUsersController::class, 'update'])->name('admin.user.update');
         Route::delete('admin-delete/{id}/delete', [AdminUsersController::class, 'delete'])->name('admin.user.delete');
         Route::delete('admin-contact-delete/{id}/delete', [AdminContactController::class, 'delete'])->name('admin.contact.delete');
-
-        // Portfolio Routes
-        Route::get('admin-portfolio', [PortfolioController::class, 'indexAdmin'])->name('admin.portfolio.index');
-        Route::get('admin-portfolio-create', [PortfolioController::class, 'create'])->name('admin.portfolio.create');
-        Route::post('portfolio/store', [PortfolioController::class, 'store'])->name('admin.portfolio.store');
-        Route::get('portfolio/{portfolio}/edit', [PortfolioController::class, 'edit'])->name('admin.portfolio.edit');
-        Route::put('portfolio/{portfolio}', [PortfolioController::class, 'update'])->name('admin.portfolio.update');
-        Route::delete('admin-portfolio/{portfolio}/delete', [PortfolioController::class, 'delete'])->name('admin.portfolio.delete');
 
         // Admin Posts
         Route::get('admin-posts', [AdminPostController::class, 'index'])->name('posts.index');
