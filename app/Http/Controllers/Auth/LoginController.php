@@ -67,7 +67,6 @@ class LoginController extends Controller
 
 
     protected function _registerOrLoginUser($data){
-        dd($data);
         $user = User::where('email' , '=' , $data->email)->first();
         if(!$user){
             $user = new User();
@@ -77,6 +76,7 @@ class LoginController extends Controller
             $user->image = $data->avatar;
             $user->save();
         }
-        Auth::login($user);
+        
+        Auth::guard('web')->login($user);
     }
 }

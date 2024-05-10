@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Portfolio;
 use Illuminate\Database\Seeder;
+use App\Models\VillageInfo;
 
-class PortfolioSeeder extends Seeder
+class VillageInfoSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +14,6 @@ class PortfolioSeeder extends Seeder
      */
     public function run()
     {
-        Portfolio::factory(10)->create();
+        VillageInfo::factory()->count(1)->create();
     }
 }

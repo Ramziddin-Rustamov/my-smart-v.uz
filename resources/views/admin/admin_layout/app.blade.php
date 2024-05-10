@@ -33,18 +33,27 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="/" class="logo d-flex align-items-center">
-        <span class="d-none d-lg-block">MANGITOBOD.UZ</span>
+      <h4 class="logo me-auto">
+        <a style="color:#f35525" href="/">
+        <?PHP
+        $words = explode(' ', auth()->user()->quarter->name);
+        $firstWord = $words[0];
+        ?> 
+        {{$firstWord}}
+
+        
+        <br>
+        <span style="padding-left:50px">{{$words[1]}}</span>
       </a>
+      </h4>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
 
-    {{-- <div class="search-bar">
       <form class="search-form d-flex align-items-center" method="POST" action="#">
         <input type="text" name="query" placeholder="Search" title="Enter search keyword">
         <button type="submit" title="Search"><i class="bi bi-search"></i></button>
       </form>
-    </div> --}}
+    </div> 
     <!-- End Search Bar -->
 
     <nav class="header-nav ms-auto">
@@ -242,7 +251,7 @@
             <li>
               <a class="dropdown-item d-flex align-items-center" href="{{ route('profile.index') }}">
                 <i class="bi bi-home"></i>
-                <span>My Profile</span>
+                <span>Mening sahifam</span>
               </a>
             </li>
             
@@ -272,76 +281,106 @@
 
   <!-- ======= Sidebar ======= -->
   <aside id="sidebar" class="sidebar">
-
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="https://mangitobod.uz">
+        <a class="nav-link " href="/">
           <i class="bi bi-house"></i>
-          <span>Mangitobod.uz</span>
+          <span>Mahallam</span>
         </a>
       </li><!-- End Dashboard Nav -->
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#message" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-envelope"></i><span> Xabarlar </span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="message" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="{{ route('admin.contact.index') }}">
-              <i class="bi bi-email"></i><span> Kelgan xabarlar  </span>
+     @can('super-admin')
+     <li class="nav-item">
+      <a class="nav-link collapsed" data-bs-target="#message" data-bs-toggle="collapse" href="#">
+        <i class="bi bi-envelope"></i><span> Xabarlar </span><i class="bi bi-chevron-down ms-auto"></i>
+      </a>
+      <ul id="message" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <li>
+          <a href="{{ route('admin.contact.index') }}">
+            <i class="bi bi-email"></i><span> Kelgan xabarlar  </span>
+          </a>
+        </li>
+      </ul>
+    </li><!-- End Charts Nav -->
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+        <i class="bi bi-file-post"></i><span>Yangilik Haqida !</span><i class="bi bi-chevron-down ms-auto"></i>
+      </a>
+      <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <li>
+          <a href="{{ route('posts.index') }}">
+            <i class="bi bi-circle"></i><span>Yangiliklar</span>
+          </a>
+        </li>
+      </ul>
+    </li><!-- End Components Nav -->
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" data-bs-target="#slide" data-bs-toggle="collapse" href="#">
+        <i class="bi bi-image"></i><span>Rasm qo'shish </span><i class="bi bi-chevron-down ms-auto"></i>
+      </a>
+      <ul id="slide" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <li>
+          <a href="{{ route('slide.index') }}">
+            <i class="bi bi-circle"> </i><span>Rasmlar </span>
+          </a>
+        </li>
+
+      </ul>
+    </li><!-- End SLIDE  Nav -->
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" data-bs-target="#menu" data-bs-toggle="collapse" href="#">
+        <i class="bi bi-lamp"></i><span>Mahalla haqida  </span><i class="bi bi-chevron-down ms-auto"></i>
+      </a>
+      <ul id="menu" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <li>
+          <a href="{{ route('village_infos.index') }}">
+            <i class="bi bi-circle"> </i><span>Asosiy menuga ma'lumot qo'shish </span>
+          </a>
+        </li>
+
+      </ul>
+    </li><!-- End -->
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+        <i class="bi bi-person-square"></i><span> Foydalanuvchilar  </span><i class="bi bi-chevron-down ms-auto"></i>
+      </a>
+      <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <li>
+          <a href="{{ route('admin.user.index') }}">
+            <i class="bi bi-circle"></i><span>Ruyxatdan O'tgan Foydalanuvchilar  </span>
+          </a>
+          <a href="{{ route('admin.shop-owners.index') }}">
+              <i class="bi bi-circle"></i><span>Magazinchilar</span>
             </a>
-          </li>
-        </ul>
-      </li><!-- End Charts Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-file-post"></i><span>Yangilik Haqida !</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="{{ route('posts.index') }}">
-              <i class="bi bi-circle"></i><span>Yangiliklar</span>
+            <a href="{{ route('admin.team.index') }}">
+              <i class="bi bi-circle"></i><span>Ishchi Jamoa</span>
             </a>
-          </li>
-        </ul>
-      </li><!-- End Components Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#slide" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-image"></i><span>Rasm qo'shish </span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="slide" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="{{ route('slide.index') }}">
-              <i class="bi bi-circle"> </i><span>Rasmlar </span>
+            <a href="{{ route('admins.index') }}">
+              <i class="bi bi-circle"></i><span>Mahalla boshqaruvchilarni qo'shish</span>
             </a>
-          </li>
-
-        </ul>
-      </li><!-- End SLIDE  Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-person-square"></i><span> Foydalanuvchilar  </span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="{{ route('admin.user.index') }}">
-              <i class="bi bi-circle"></i><span>Ruyxatdan O'tgan Foydalanuvchilar  </span>
+        </li>
+      </ul>
+    </li><!-- End Charts Nav -->
+     @endcan
+     @can('owner')
+     <li class="nav-item">
+      <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+        <i class="bi bi-person-square"></i><span> Adminlar   </span><i class="bi bi-chevron-down ms-auto"></i>
+      </a>
+      <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <li>
+            <a href="{{ route('admins.index') }}">
+              <i class="bi bi-circle"></i><span>Mahalla boshqaruvchilarni qo'shish</span>
             </a>
-            <a href="{{ route('admin.shop-owners.index') }}">
-                <i class="bi bi-circle"></i><span>Magazinchilar</span>
-              </a>
-              <a href="{{ route('admin.team.index') }}">
-                <i class="bi bi-circle"></i><span>Ishchi Jamoa</span>
-              </a>
-          </li>
-        </ul>
-      </li><!-- End Charts Nav -->
-    </ul>
-
+        </li>
+      </ul>
+    </li><!-- End Charts Nav -->
+     @endcan
   </aside><!-- End Sidebar-->
    <main style="padding-top: 77px;">
       @yield('content')

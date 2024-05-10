@@ -32,9 +32,16 @@ class AppServiceProvider extends ServiceProvider
     {
 
         Paginator::useBootstrap();
-        Gate::define('super-admin', function (User $user) {
+
+        
+        Gate::define('owner', function (User $user) {
             return  $user->email === 'rustamovramziddin7@gmail.com';
         });
+
+        Gate::define('super-admin', function ($user) {
+            return $user->admin()->exists() && $user->admin->is_active;
+        });
+
         Gate::define('shop-owner', function ($user) {
             return $user->shopOwner()->exists();
         });

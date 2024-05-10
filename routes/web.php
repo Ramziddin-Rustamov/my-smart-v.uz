@@ -1,5 +1,4 @@
 <?php
-use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\ClientViewController;
@@ -19,20 +18,21 @@ use App\Http\Controllers\MyProfileController;
 use App\Http\Controllers\AdminPostController;
 use App\Http\Controllers\AdminUsersController;
 use App\Http\Controllers\AdminContactController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminSlideImageController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ShopOwnerController;
 use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\TeamMemberController;
+use App\Http\Controllers\VillageInfoController;
 use Illuminate\Support\Facades\Auth;
-Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 
 Auth::routes();
 
 
 Route::middleware(['auth'])->group(function () {
-
+        Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
         Route::get('youth',[YouthController::class, 'index'])->name('youth.index');
 
         // Likes and Comments
@@ -158,4 +158,30 @@ Route::middleware('can:super-admin')->group(function () {
         Route::put('/admin/team/{id}', [TeamMemberController::class, 'update'])->name('admin.team.update');
         // Route::delete('/admin/team/{teamMember}', [TeamMemberController::class, 'destroy'])->name('admin.team.destroy');
         // Route::post('/admin-team-members/create', [ShopOwnerController::class, 'store'])->name('admin.shop-owners.store');
+
+
+        Route::get('/village-infos', [VillageInfoController::class, 'index'])->name('village_infos.index');
+
+        Route::get('/village-infos/create', [VillageInfoController::class, 'create'])->name('village_infos.create');
+
+        Route::post('/village-infos', [VillageInfoController::class, 'store'])->name('village_infos.store');
+
+        Route::get('/village-infos/{id}/edit', [VillageInfoController::class, 'edit'])->name('village_infos.edit');
+
+        Route::put('/village-infos/{id}', [VillageInfoController::class, 'update'])->name('village_infos.update');
+
+        Route::delete('/village-infos/{id}', [VillageInfoController::class, 'destroy'])->name('village_infos.destroy');
+
+
+
 });
+
+Route::middleware('can:owner')->group(function(){       
+        Route::get('/admins', [AdminController::class, 'index'])->name('admins.index');
+        Route::get('/admins/create', [AdminController::class, 'create'])->name('admins.create');
+        Route::post('/admins', [AdminController::class, 'store'])->name('admins.store');
+        Route::get('/admins/{id}', [AdminController::class, 'show'])->name('admins.show');
+        Route::get('/admins/{id}/edit', [AdminController::class, 'edit'])->name('admins.edit');
+        Route::put('/admins/{id}', [AdminController::class, 'update'])->name('admins.update');
+        Route::delete('/admins/{id}', [AdminController::class, 'destroy'])->name('admins.destroy');
+   });

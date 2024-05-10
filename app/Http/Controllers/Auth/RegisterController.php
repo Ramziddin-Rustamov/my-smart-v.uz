@@ -52,6 +52,7 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
+            'quarter_id' => ['required',' exists:quarters,id'],
             'first_name' => ['required', 'string', 'max:15'],
             'last_name' => ['required', 'string', 'max:15'],
             'father_name' => ['required', 'string', 'max:20'],
@@ -72,19 +73,22 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $user = User::create([
+            'quarter_id' => $data['quarter_id'],
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
             'father_name' => $data['father_name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
-        
-        // Create a UserProfile record and associate it with the User
         $userProfile = UserProfile::create([
-            'user_id' => $user->id, // Associate with the newly created user
+            'user_id' => $user->id, 
             'birthday' => $data['birthday'],
             'phone' => $data['phone']
         ]);
+
+        if(!$user->active_status){
+            return response()->json("Eltimos Adminni javobini kuting sizni biz oldin tasdiqdan o'tqazishimiz kerak");
+        }
         if ($user) {
             // Log in the user
             Auth::login($user);

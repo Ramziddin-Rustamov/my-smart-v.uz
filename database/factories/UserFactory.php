@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Quarter;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -15,6 +16,7 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
+            'quarter_id' => Quarter::inRandomOrder()->first()->id,
             'first_name' => $this->faker->firstName,
             'last_name' => $this->faker->lastName,
             'father_name' => $this->faker->firstName . ' ' . $this->faker->lastName,
@@ -22,7 +24,7 @@ class UserFactory extends Factory
             'provider_id' => null,
             'image' => "image/user-128.png",
             'email_verified_at' => now(),
-            'password' => bcrypt('password'), // default password 'password'
+            'password' => bcrypt('password'),
             'is_admin' => $this->faker->randomElement([false]),
             'remember_token' => Str::random(10),
         ];

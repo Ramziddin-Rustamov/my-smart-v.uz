@@ -46,7 +46,8 @@
               </h2>
               <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                Get <strong>the best school</strong> website template in HTML CSS and Bootstrap for your business. TemplateMo provides you the <a href="https://www.google.com/search?q=best+free+css+templates" target="_blank">best free CSS templates</a> in the world. Please tell your friends about it.</div>
+                   <strong>{{$villageInfo->what_reasons}}</strong>
+                </div>
               </div>
             </div>
             <div class="accordion-item">
@@ -57,7 +58,7 @@
               </h2>
               <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  Dolor <strong>almesit amet</strong>, consectetur adipiscing elit, sed doesn't eiusmod tempor incididunt ut labore consectetur <code>adipiscing</code> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  {{$villageInfo->working_hours}} soatlar ichida telefon orqali aloqaga chiqib ham muammolaringizni hal qilsangiz bo'ladi .
                 </div>
               </div>
             </div>
@@ -69,7 +70,7 @@
               </h2>
               <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  Dolor <strong>almesit amet</strong>, consectetur adipiscing elit, sed doesn't eiusmod tempor incididunt ut labore consectetur <code>adipiscing</code> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  <strong>{{$villageInfo->additional_information}}</strong>
                 </div>
               </div>
             </div>
@@ -80,7 +81,7 @@
             <ul>
               <li>
                 <i style="color:#f35525" class="fas fa-clock fa-3x"></i>
-                <h4>Ishlash soatlari <br><span>08:00 - 17: 00</span></h4>
+                <h4>Ishlash soatlari <br><span>{{ $villageInfo->working_hours }}</span></h4>
               </li>
               {{-- <li>
                 <i style="color:#f35525" class="fas fa-mail-bulk fa-3x"></i>
@@ -88,11 +89,11 @@
               </li> --}}
               <li>
                 <i style="color:#f35525" class="fas fa-phone fa-3x"></i>
-                <h4>Telefon <br><span>+9989 771 39 09</span></h4>
+                <h4>Telefon <br><span>{{$villageInfo->phone}}</span></h4>
               </li>
               <li>
                 <i style="color:#f35525" class="fas fa-map-location fa-3x"></i>
-                <h4>Manzili<br><span>mangitobod fuqorolar yig'ini</span></h4>
+                <h4>Manzili<br><span>{{$villageInfo->quarter->name}}</span></h4>
               </li>
             </ul>
           </div>
@@ -104,7 +105,7 @@
   {{-- video section s --}}
 
 
-  <div class="video section">
+  <div class="video section" >
     <div class="container">
       <div class="row">
         <div class="col-lg-4 offset-lg-4">
@@ -122,15 +123,15 @@
       <div class="row">
         <div class="col-lg-6 mb-1">
           <div class="video-frame">
-            <img src="{{asset('assets/images/video1.jpg')}}" alt="">
-            <a href="https://www.youtube.com/watch?v=wZnSb7zqTbs&pp=ygUUbWFuZ2l0b2JvZCBtYWhhbGxhc2k%3D" target="_blank"><i class="fa fa-play"></i></a>
+            <img src="{{$villageInfo->video1_image_cover}}" alt="">
+            <a href="{{$villageInfo->video1}}" target="_blank"><i class="fa fa-play"></i></a>
           </div>
         </div>
 
         <div class="col-lg-6 mb-1">
             <div class="video-frame">
-              <img src="{{asset('assets/images/video2.jpg')}}" alt="">
-              <a href="https://t.me/mangitobod_village/2" target="_blank"><i class="fa fa-play"></i></a>
+              <img src="{{$villageInfo->video2_image_cover}}" alt="">
+              <a href="{{$villageInfo->video2}}" target="_blank"><i class="fa fa-play"></i></a>
             </div>
           </div>
       </div>
@@ -148,56 +149,56 @@
             <div class="row">
               <div class="col-lg-4 pb-5 ">
                 <div class="counter">
-                  <h2 class="timer count-title count-number" data-to="8500" data-speed="1000"></h2>
+                  <h2 class="timer count-title count-number" data-to="{{$villageInfo->population}}" data-speed="1000"></h2>
                    <p class="count-text ">Aholi <br>Soni</p>
                 </div>
               </div>
               <div class="col-lg-4">
                 <div class="counter">
-                  <h2 class="timer count-title count-number" data-to="3400" data-speed="1000"></h2>
-                   <p class="count-text ">Yoshlarimiz<br>dan ko'p</p>
+                  <h2 class="timer count-title count-number" data-to="{{$villageInfo->youth}}" data-speed="1000"></h2>
+                   <p class="count-text ">Yoshlarimiz<br></p>
                 </div>
               </div>
               <div class="col-lg-4">
                 <div class="counter">
-                  <h2 class="timer count-title count-number" data-to="334" data-speed="1000"></h2>
+                  <h2 class="timer count-title count-number" data-to="{{$villageInfo->retailers}}" data-speed="1000"></h2>
                    <p class="count-text ">Pensiyanerlar<br>dan ko'p</p>
                 </div>
               </div>
               <div class="col-lg-4 pb-5">
                 <div class="counter">
-                  <h2 class="timer count-title count-number" data-to="2" data-speed="1500"></h2>
+                  <h2 class="timer count-title count-number" data-to="{{$villageInfo->schools}}" data-speed="1500"></h2>
                    <p class="count-text">Maktablar<br>soni</p>
                 </div>
               </div>
               <div class="col-lg-4">
                 <div class="counter">
-                  <h2 class="timer count-title count-number" data-to="12" data-speed="1000"></h2>
-                  <p class="count-text ">Bog'cha<br>soni</p>
+                  <h2 class="timer count-title count-number" data-to="{{$villageInfo->kindergartens}}" data-speed="1000"></h2>
+                  <p class="count-text ">Bog'chalar<br></p>
                 </div>
               </div>
               <div class="col-lg-4">
                 <div class="counter">
-                  <h2 class="timer count-title count-number" data-to="2" data-speed="1000"></h2>
-                  <p class="count-text ">Masjidlari<br>soni</p>
+                  <h2 class="timer count-title count-number" data-to="{{$villageInfo->mosques}}" data-speed="1000"></h2>
+                  <p class="count-text ">Masjidlar<br></p>
                 </div>
               </div>
               <div class="col-lg-4">
                 <div class="counter">
-                  <h2 class="timer count-title count-number" data-to="200" data-speed="1000"></h2>
-                  <p class="count-text ">Dukonlar<br>soni</p>
+                  <h2 class="timer count-title count-number" data-to="{{$villageInfo->shops}}" data-speed="1000"></h2>
+                  <p class="count-text ">Dukonlar<br></p>
                 </div>
               </div>
               <div class="col-lg-4 ">
                 <div class="counter">
-                  <h2 class="timer count-title count-number" data-to="1" data-speed="1000"></h2>
+                  <h2 class="timer count-title count-number" data-to="{{$villageInfo->hospital}}" data-speed="1000"></h2>
                   <p class="count-text ">Shifoxona<br>soni</p>
                 </div>
               </div>
               <div class="col-lg-4">
                 <div class="counter">
-                  <h2 class="timer count-title count-number" data-to="10" data-speed="1000"></h2>
-                  <p class="count-text ">Xizmat ko'<br>rsatish</p>
+                  <h2 class="timer count-title count-number" data-to="{{$villageInfo->other_services}}" data-speed="1000"></h2>
+                  <p class="count-text ">Xizmatlar</p>
                 </div>
               </div>
             </div>
@@ -231,7 +232,7 @@
                   <li class="nav-item " role="presentation">
                     <button class="nav-link " id="hospital-tab" data-bs-toggle="tab" data-bs-target="#hospital" type="button" role="tab" aria-controls="hospital" aria-selected="false">Shifoxonamiz</button>
                   </li>
-				  <li class="nav-item" role="presentation">
+				           <li class="nav-item" role="presentation">
                     <button class="nav-link" id="kindergarten-tab" data-bs-toggle="tab" data-bs-target="#kindergarten" type="button" role="tab" aria-controls="kindergarten" aria-selected="false">Maktabgacha ta'lim</button>
                   </li>
                   <li class="nav-item" role="presentation">
@@ -242,7 +243,7 @@
               </div>
               <div class="tab-content" id="myTabContent">
                 <!-- young start -->
-				<div class="tab-pane fade show active" id="young" role="tabpanel" aria-labelledby="young-tab">
+			      	<div class="tab-pane fade show active" id="young" role="tabpanel" aria-labelledby="young-tab">
                   <div class="row">
                     <div class="col-lg-3">
                       <div class="info-table">
@@ -413,9 +414,8 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-4 offset-lg-4">
-          <div class="section-heading text-center">
-            <h6>| Biz bilan bog'laning </h6>
-            <h2>Biz bilan aloqaga chiqing </h2>
+          <div class="mb-5 text-center">
+            <h3>| Biz bilan bog'laning </h3>
           </div>
         </div>
       </div>
@@ -433,13 +433,13 @@
             <div class="col-lg-6">
               <div class="item phone">
                 <img src="{{asset('assets/images/phone-icon.png')}}" alt="" style="max-width: 52px;">
-                <h6>+777 77 777 77 77<br><span>Telefon Raqam</span></h6>
+                <h6>{{$villageInfo->phone}}<br><span>Telefon Raqam</span></h6>
               </div>
             </div>
             <div class="col-lg-6">
               <div class="item email">
                 <img src="{{asset('assets/images/email-icon.png')}}" alt="" style="max-width: 52px;">
-                <h6>email@.uz<br><span> Email Pochtamiz</span></h6>
+                <h6>{{$villageInfo->main_email}}</h6>
               </div>
             </div>
           </div>

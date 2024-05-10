@@ -47,32 +47,47 @@
   <header id="header" class="fixed-top " style="background-color: rgba(255, 244, 239, 0.8);
   box-shadow: 11px 11px 35px -10px rgba(66, 68, 90, 1);">
     <div class="container d-flex align-items-center">
+      @guest
+        <h2>Mahallam</h2>
+      @else
+      <h4 class="logo me-auto">
+        <a style="color:#f35525" href="/">
+        <?PHP
+        $words = explode(' ', auth()->user()->quarter->name);
+        $firstWord = $words[0];
+        ?> 
+        {{$firstWord}}
 
-      <h1  class="logo me-auto"><a style="color:#f35525" href="/">Mangit <br>
-        <span style="padding-left:50px">obod</span></a></h1>
+        
+        <br>
+        <span style="padding-left:50px">{{$words[1]}}</span>
+      </a>
+      </h4>
+        <nav id="navbar" class="navbar order-last order-lg-0">
+          <ul>
+            <li><a href="{{ route('about') }}" class="{{ request()->routeIs('about') ? 'active' : '' }}">Biz haqimizda</a></li>
+            <li><a href="{{ route('posts.allposts') }}" class="{{request()->routeIs('posts.allposts') ? 'active' : '' }}">Yangiliklar</a></li>
+            <li><a href="{{ route('team.index') }}" class="{{request()->routeIs('team.index') ? 'active' : '' }}">Ishchi jamoa</a></li>
+            <li><a href="#">Tibbiyot Birlashmasi</a></li>
+            <li class="dropdown">
+                <a href="#">
+                    <span class="#">Qo'shimcha</span>
+                    <i class="fas fa-chevron-down"></i>
+                  </a>
+                <ul>
+                    <li><a href="#">84-maktab</a></li>
+                    <li><a href="#">48-maktab</a></li>
+                    <li><a href="{{route('client.view.index')}}">Bizga bildirilgan fikrlar</a></li>
+                </ul>
+            </li>
+        </ul>      
+          <i class="fas fa-align-left mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
+  
+      @endguest
       <!-- Uncomment below if you prefer to use an image logo -->
 
-      <nav id="navbar" class="navbar order-last order-lg-0">
-        <ul>
-          <li><a href="{{ route('about') }}" class="{{ request()->routeIs('about') ? 'active' : '' }}">Biz haqimizda</a></li>
-          <li><a href="{{ route('posts.allposts') }}" class="{{request()->routeIs('posts.allposts') ? 'active' : '' }}">Yangiliklar</a></li>
-          <li><a href="{{ route('team.index') }}" class="{{request()->routeIs('team.index') ? 'active' : '' }}">Ishchi jamoa</a></li>
-          <li><a href="#">Tibbiyot Birlashmasi</a></li>
-          <li class="dropdown">
-              <a href="#">
-                  <span class="#">Qo'shimcha</span>
-                  <i class="fas fa-chevron-down"></i>
-                </a>
-              <ul>
-                  <li><a href="#">84-maktab</a></li>
-                  <li><a href="#">48-maktab</a></li>
-                  <li><a href="{{route('client.view.index')}}">Bizga bildirilgan fikrlar</a></li>
-              </ul>
-          </li>
-      </ul>      
-        <i class="fas fa-align-left mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-
+     
       <div class="header-social-links ps-2 d-flex">
         <ul class="navbar-nav ms-auto d-md-flex d-lg-flex ">
             <!-- Authentication Links -->
