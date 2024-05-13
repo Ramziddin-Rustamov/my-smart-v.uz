@@ -1,66 +1,43 @@
 <?php
-
 namespace App\Http\Controllers;
 
-use App\Models\SlideImage;
-use Exception;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\File;
-
+use App\Http\Requests\SlideImageRequest;
+use App\Services\SlideImageService;
 
 class AdminSlideImageController extends Controller
 {
+    protected $slideImageService;
+
+    public function __construct(SlideImageService $slideImageService)
+    {
+        $this->slideImageService = $slideImageService;
+    }
+
     public function index()
     {
-        $slide = SlideImage::paginate(10); 
-        return view('admin.slide.index',[
-            'slides'=>$slide
-        ]);
+        $slides = $this->slideImageService->getAll();
+        return view('admin.slide.index', ['slides' => $slides]);
     }
-    
-    public function create(){
+
+    public function create()
+    {
         return view('admin.slide.create');
     }
 
-    public function store(Request $req){
-        
-        $req->validate([
-           'title'=>['max:100','required'],
-           'body'=>['max:40','required'],
-           'image'=>['image','required','mimes:jpg,png,jpeg,svg','max:10000']
-        ]);
+    public function store(SlideImageRequest $request)
+    {
+        $this->slideImageService->createSlide(
+            $request->title,
+            $request->body,
+            $request->file('image')
+        );
 
-        $file = $req->file('image');
-        $extention =  $file->getClientOriginalExtension();
-        $filename = 'image/slide/'.time().'.'.$extention;
-        $file->move('image/slide/',$filename);
-
-        $slide = new SlideImage();
-        $slide->title = $req->title;
-        $slide->body = $req->body;
-        $slide->image = $filename;
-        $slide->save();
-        
-        return redirect()->route('slide.index')->with('success','Yangi Rasm qo`shildi');
+        return redirect()->route('slide.index')->with('success', 'Yangi Rasm qo`shildi');
     }
 
-    public function delete( $id){
-        try{
-            // dd($post);
-            $post = SlideImage::find($id);
-            if($post){
-                $file = File::exists(public_path($post->image));
-                if($file){
-                    File::delete(public_path($post->image));
-                    $post->delete();
-                    return back()->with('success', 'O`chirildi !');
-                }
-                $post->delete();
-                return back()->with('success', 'Rasmsiz o`chirildi ');
-            }
-            return back()->with('errors', 'Topilmadi !');
-        }catch(Exception $e){
-        return back()->with('errors', 'Bu yangilikni o`chiraolmaysiz ');
-       }
+    public function delete($id)
+    {
+        $this->slideImageService->deleteSlide($id);
+        return back()->with('success', 'Rasm o`chirildi');
     }
 }

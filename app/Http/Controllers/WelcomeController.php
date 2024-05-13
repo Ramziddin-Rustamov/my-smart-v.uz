@@ -31,9 +31,10 @@ class WelcomeController extends Controller
         $teamCount = $this->userService->countUsers();
 
         $team = $this->userService->getAdminUsers(4);
-        $slides = $this->slideImageService->getSlideImages(3);
+        $slides = $this->slideImageService->getAll();
         $posts = $this->postService->getLatestPosts(6);
         $villageInfo = $this->villageInfoService->getAll();
+       
         return view('welcome', compact('posts','team','slides','postCount','teamCount','villageInfo'));
     }
 }

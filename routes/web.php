@@ -24,16 +24,16 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ShopOwnerController;
 use App\Http\Controllers\AnnouncementController;
+use App\Http\Controllers\API\v1\AuthController;
 use App\Http\Controllers\TeamMemberController;
 use App\Http\Controllers\VillageInfoController;
 use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
 
-
 Route::middleware(['auth'])->group(function () {
+  Route::get('youth',[YouthController::class, 'index'])->name('youth.index');
         Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
-        Route::get('youth',[YouthController::class, 'index'])->name('youth.index');
 
         // Likes and Comments
         Route::post('posts/{post}/comments', [CommentController::class, 'store'])->name('posts.comments.store');

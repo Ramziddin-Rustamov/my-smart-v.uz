@@ -15,4 +15,9 @@ class SlideImage extends Model
     public function user(){
         return $this->hasOne(User::class);
     }
+
+    // public function quarter()
+    // {
+    //     return $this->belongsTo(Quarter::class);
+    // }
 }

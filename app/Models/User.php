@@ -101,6 +101,16 @@ class User extends Authenticatable implements JWTSubject
         return $this->belongsTo(Quarter::class);
     }
 
+    public function getMapLocationUrl()
+    {
+        $quarter = $this->quarter;
+        if ($quarter) {
+            $location = urlencode($quarter->name . ' ' . $quarter->district->name . ' ' . $quarter->district->region->name);
+            return "https://maps.google.com/maps?q={$location}&t=k&z=9&ie=UTF8&iwloc=B&output=embed";
+        }
+        return "null";
+    }
+
     public function admin()
     {
         return $this->hasOne(Admin::class);

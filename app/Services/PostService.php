@@ -1,43 +1,51 @@
 <?php
-
 namespace App\Services;
 
 use App\Models\Post;
-use Illuminate\Support\Facades\Cache;
+use App\Repositories\PostRepository;
+use Illuminate\Support\Facades\Auth;
 
 class PostService
 {
-    private $postModel;
+    protected $postRepository;
 
-    public function __construct(Post $post)
+    public function __construct(PostRepository $postRepository)
     {
-        $this->postModel = $post;
+        $this->postRepository = $postRepository;
     }
 
     public function countPosts()
     {
-        return Cache::remember('count.posts', now()->addSecond(60), function () {
-            return $this->postModel->count();
-        });
+        return $this->postRepository->countPosts();
     }
 
     public function getLatestPosts($limit = 3)
     {
-        $cacheKey = "latest_posts_{$limit}";
-
-        return Cache::remember($cacheKey, now()->addSeconds(5), function () use ($limit) {
-            return $this->postModel::orderBy('id', 'DESC')
-                ->with(['user', 'comments', 'likes'])
-                ->limit($limit)
-                ->get();
-        });
+        $quarterId = $this->getQuarterId();
+        return $this->postRepository->getLatestPosts($quarterId, $limit);
     }
 
-    public function getPaginate()
+    public function getPaginated()
     {
-        return $this->postModel->orderBy('id', 'DESC')->paginate(8);
+        return $this->postRepository->getPaginated();
     }
 
+    public function likePost(Post $post)
+    {
+        $user = Auth::user();
+        return $this->postRepository->liked($post, $user);
+    }
+
+    public function unlikePost(Post $post)
+    {
+        $user = Auth::user();
+        $this->postRepository->unlike($post, $user);
+    }
+
+    private function getQuarterId()
+    {
+        return Auth::user()->quarter->id;
+    }
 
     public function liked($post,$request)
     {

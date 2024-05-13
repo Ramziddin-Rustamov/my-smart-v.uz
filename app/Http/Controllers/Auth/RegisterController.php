@@ -80,21 +80,14 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
-        $userProfile = UserProfile::create([
-            'user_id' => $user->id, 
-            'birthday' => $data['birthday'],
-            'phone' => $data['phone']
-        ]);
-
-        if(!$user->active_status){
-            return response()->json("Eltimos Adminni javobini kuting sizni biz oldin tasdiqdan o'tqazishimiz kerak");
-        }
         if ($user) {
-            // Log in the user
+            $userProfile = UserProfile::create([
+                'user_id' => $user->id, 
+                'birthday' => $data['birthday'],
+                'phone' => $data['phone']
+            ]);
             Auth::login($user);
         }
-        
-        // Return the created User
         return $user;
     }
 }

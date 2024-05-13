@@ -15,10 +15,12 @@ class CreateSlideImagesTable extends Migration
     {
         Schema::create('slide_images', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('quarter_id');
             $table->string('title');
             $table->text('body');
             $table->text('image');
             $table->timestamps();
+            $table->foreign('quarter_id')->references('id')->on('quarters')->onDelete('cascade');
         });
     }
 

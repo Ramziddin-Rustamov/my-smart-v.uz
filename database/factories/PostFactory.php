@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Post;
+use App\Models\Quarter;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -19,7 +20,8 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
-            'user_id'=>User::factory(),
+            'user_id'=>User::factory(),        
+            'quarter_id' => Quarter::pluck('id')->random(),
             'title'=> $this->faker->sentence(),
             'body' =>$this->faker->paragraph(10),
             'image'=>'image/news/news.jpg'

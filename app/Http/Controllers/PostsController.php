@@ -16,7 +16,7 @@ class PostsController extends Controller
 
     public function index()
     {
-        $allposts = $this->PostService->getPaginate();
+        $allposts = $this->PostService->getLatestPosts();
         return view('allpost.index', compact('allposts'));
     }
     

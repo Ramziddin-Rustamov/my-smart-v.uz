@@ -77,6 +77,6 @@ class LoginController extends Controller
             $user->save();
         }
         
-        Auth::guard('web')->login($user);
+        Auth::guard()->login($user);
     }
 }

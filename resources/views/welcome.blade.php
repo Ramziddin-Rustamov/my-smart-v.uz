@@ -46,7 +46,7 @@
               </h2>
               <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                   <strong>{{$villageInfo->what_reasons}}</strong>
+                   <strong>{{$villageInfo->what_reasons ?? 'Nima masalalar buyicha yozilishi kerak '}}</strong>
                 </div>
               </div>
             </div>
@@ -58,7 +58,7 @@
               </h2>
               <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  {{$villageInfo->working_hours}} soatlar ichida telefon orqali aloqaga chiqib ham muammolaringizni hal qilsangiz bo'ladi .
+                  {{$villageInfo->working_hours ?? 'ish soatlari' }} soatlar ichida telefon orqali aloqaga chiqib ham muammolaringizni hal qilsangiz bo'ladi .
                 </div>
               </div>
             </div>
@@ -70,7 +70,7 @@
               </h2>
               <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  <strong>{{$villageInfo->additional_information}}</strong>
+                  <strong>{{$villageInfo->additional_information ?? ''}}</strong>
                 </div>
               </div>
             </div>
@@ -81,7 +81,7 @@
             <ul>
               <li>
                 <i style="color:#f35525" class="fas fa-clock fa-3x"></i>
-                <h4>Ishlash soatlari <br><span>{{ $villageInfo->working_hours }}</span></h4>
+                <h4>Ishlash soatlari <br><span>{{ $villageInfo->working_hours ?? 'ishlash soatlari' }}</span></h4>
               </li>
               {{-- <li>
                 <i style="color:#f35525" class="fas fa-mail-bulk fa-3x"></i>
@@ -89,11 +89,11 @@
               </li> --}}
               <li>
                 <i style="color:#f35525" class="fas fa-phone fa-3x"></i>
-                <h4>Telefon <br><span>{{$villageInfo->phone}}</span></h4>
+                <h4>Telefon <br><span>{{$villageInfo->phone ?? 'telefon raqami'}}</span></h4>
               </li>
               <li>
                 <i style="color:#f35525" class="fas fa-map-location fa-3x"></i>
-                <h4>Manzili<br><span>{{$villageInfo->quarter->name}}</span></h4>
+                <h4>Manzili<br><span>{{$villageInfo->quarter->name ?? ' Mahalla nomi '}}</span></h4>
               </li>
             </ul>
           </div>
@@ -123,15 +123,23 @@
       <div class="row">
         <div class="col-lg-6 mb-1">
           <div class="video-frame">
-            <img src="{{$villageInfo->video1_image_cover}}" alt="">
-            <a href="{{$villageInfo->video1}}" target="_blank"><i class="fa fa-play"></i></a>
+            @if(isset($villageInfo->video2_image_cover))
+                <img src="{{ $villageInfo->video2_image_cover }}" alt="">
+            @else
+                <img src="{{ asset('assets/images/cover.default.jpg') }}" alt="">
+            @endif
+               <a href="{{$villageInfo->video1 ?? 'https://youtube.com'}}" target="_blank"><i class="fa fa-play"></i></a>
           </div>
         </div>
 
         <div class="col-lg-6 mb-1">
             <div class="video-frame">
-              <img src="{{$villageInfo->video2_image_cover}}" alt="">
-              <a href="{{$villageInfo->video2}}" target="_blank"><i class="fa fa-play"></i></a>
+              @if(isset($villageInfo->video2_image_cover))
+                 <img src="{{ $villageInfo->video2_image_cover }}" alt="">
+              @else
+                 <img src="{{ asset('assets/images/cover.default.jpg') }}" alt="">
+              @endif          
+              <a href="{{$villageInfo->video2 ?? 'https://youtube.com'}}" target="_blank"><i class="fa fa-play"></i></a>
             </div>
           </div>
       </div>
@@ -149,55 +157,55 @@
             <div class="row">
               <div class="col-lg-4 pb-5 ">
                 <div class="counter">
-                  <h2 class="timer count-title count-number" data-to="{{$villageInfo->population}}" data-speed="1000"></h2>
+                  <h2 class="timer count-title count-number" data-to="{{$villageInfo->population ?? '0'}}" data-speed="1000"></h2>
                    <p class="count-text ">Aholi <br>Soni</p>
                 </div>
               </div>
               <div class="col-lg-4">
                 <div class="counter">
-                  <h2 class="timer count-title count-number" data-to="{{$villageInfo->youth}}" data-speed="1000"></h2>
+                  <h2 class="timer count-title count-number" data-to="{{$villageInfo->youth ?? '0'}}" data-speed="1000"></h2>
                    <p class="count-text ">Yoshlarimiz<br></p>
                 </div>
               </div>
               <div class="col-lg-4">
                 <div class="counter">
-                  <h2 class="timer count-title count-number" data-to="{{$villageInfo->retailers}}" data-speed="1000"></h2>
+                  <h2 class="timer count-title count-number" data-to="{{$villageInfo->retailers ?? '0'}}" data-speed="1000"></h2>
                    <p class="count-text ">Pensiyanerlar<br>dan ko'p</p>
                 </div>
               </div>
               <div class="col-lg-4 pb-5">
                 <div class="counter">
-                  <h2 class="timer count-title count-number" data-to="{{$villageInfo->schools}}" data-speed="1500"></h2>
+                  <h2 class="timer count-title count-number" data-to="{{$villageInfo->schools ?? '0'}}" data-speed="1500"></h2>
                    <p class="count-text">Maktablar<br>soni</p>
                 </div>
               </div>
               <div class="col-lg-4">
                 <div class="counter">
-                  <h2 class="timer count-title count-number" data-to="{{$villageInfo->kindergartens}}" data-speed="1000"></h2>
+                  <h2 class="timer count-title count-number" data-to="{{$villageInfo->kindergartens ?? '0'}}" data-speed="1000"></h2>
                   <p class="count-text ">Bog'chalar<br></p>
                 </div>
               </div>
               <div class="col-lg-4">
                 <div class="counter">
-                  <h2 class="timer count-title count-number" data-to="{{$villageInfo->mosques}}" data-speed="1000"></h2>
+                  <h2 class="timer count-title count-number" data-to="{{$villageInfo->mosques ?? '0'}}" data-speed="1000"></h2>
                   <p class="count-text ">Masjidlar<br></p>
                 </div>
               </div>
               <div class="col-lg-4">
                 <div class="counter">
-                  <h2 class="timer count-title count-number" data-to="{{$villageInfo->shops}}" data-speed="1000"></h2>
+                  <h2 class="timer count-title count-number" data-to="{{$villageInfo->shops ?? '0'}}" data-speed="1000"></h2>
                   <p class="count-text ">Dukonlar<br></p>
                 </div>
               </div>
               <div class="col-lg-4 ">
                 <div class="counter">
-                  <h2 class="timer count-title count-number" data-to="{{$villageInfo->hospital}}" data-speed="1000"></h2>
+                  <h2 class="timer count-title count-number" data-to="{{$villageInfo->hospital ?? '0'}}" data-speed="1000"></h2>
                   <p class="count-text ">Shifoxona<br>soni</p>
                 </div>
               </div>
               <div class="col-lg-4">
                 <div class="counter">
-                  <h2 class="timer count-title count-number" data-to="{{$villageInfo->other_services}}" data-speed="1000"></h2>
+                  <h2 class="timer count-title count-number" data-to="{{$villageInfo->other_services ?? '0'}}" data-speed="1000"></h2>
                   <p class="count-text ">Xizmatlar</p>
                 </div>
               </div>
@@ -427,19 +435,27 @@
       <div class="row">
         <div class="col-lg-7">
           <div id="map">
-            <iframe src="https://maps.google.com/maps?width=520&amp;height=400&amp;hl=en&amp;q=Mangitobod%20Neighborhood%20Samarkand+(Mangitobod%20mahallasi)&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" width="100%" height="500px" frameborder="0" style="border:0; border-radius: 10px; box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);" allowfullscreen=""></iframe>
-          </div>
+          @php
+            $mapUrl = auth()->user()->getMapLocationUrl();
+          @endphp
+          
+          @if($mapUrl)
+              <iframe src="{{ $mapUrl }}" width="100%" height="600px" frameborder="0" style="border:0; border-radius: 10px; box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);" allowfullscreen=""></iframe>
+          @else
+              <p>No location found for this user.</p>
+          @endif
+         </div>
           <div class="row">
             <div class="col-lg-6">
               <div class="item phone">
                 <img src="{{asset('assets/images/phone-icon.png')}}" alt="" style="max-width: 52px;">
-                <h6>{{$villageInfo->phone}}<br><span>Telefon Raqam</span></h6>
+                <h6>{{$villageInfo->phone ?? 'Telefon nomeri '}}<br><span>Telefon Raqam</span></h6>
               </div>
             </div>
             <div class="col-lg-6">
               <div class="item email">
                 <img src="{{asset('assets/images/email-icon.png')}}" alt="" style="max-width: 52px;">
-                <h6>{{$villageInfo->main_email}}</h6>
+                <h6>{{$villageInfo->main_email ?? 'Asossiy emaili '}}</h6>
               </div>
             </div>
           </div>

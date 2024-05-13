@@ -176,6 +176,11 @@
                         <i class="fas fa-cog text-success"></i> {{ __('Boshqaruv') }}
                     </a>
                     @endcan
+                    @can('owner')
+                    <a class="dropdown-item py-3 {{ request()->routeIs('home') ? 'active' : '' }}" href="{{ route('home') }}">
+                        <i class="fas fa-cog text-success"></i> {{ __('Boshqaruv') }}
+                    </a>
+                    @endcan
 
                     <a class="dropdown-item py-3 {{ request()->routeIs('logout') ? 'active' : '' }}" href="{{ route('logout') }}"
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

@@ -46,7 +46,9 @@ class ProfileService
     public function getUserProfile($request)
     {
         $userId = $request->user()->id;
-        return User::findOrFail($userId);
+        $user = User::findOrFail($userId);
+      
+        return $user;
     }
     
     protected function uploadNewImage($data)
