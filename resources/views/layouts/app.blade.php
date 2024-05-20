@@ -48,7 +48,7 @@
   box-shadow: 11px 11px 35px -10px rgba(66, 68, 90, 1);">
     <div class="container d-flex align-items-center">
       @guest
-        <h2>Mahallam</h2>
+        <h2 style="color:#f35525" >Mahallam</h2>
       @else
       <h4 class="logo me-auto">
         <a style="color:#f35525" href="/">

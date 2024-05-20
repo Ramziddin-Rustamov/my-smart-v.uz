@@ -360,19 +360,16 @@
             <a href="{{ route('admin.team.index') }}">
               <i class="bi bi-circle"></i><span>Ishchi Jamoa</span>
             </a>
-            <a href="{{ route('admins.index') }}">
-              <i class="bi bi-circle"></i><span>Mahalla boshqaruvchilarni qo'shish</span>
-            </a>
         </li>
       </ul>
     </li><!-- End Charts Nav -->
      @endcan
      @can('owner')
      <li class="nav-item">
-      <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+      <a class="nav-link collapsed" data-bs-target="#forms-nav-control" data-bs-toggle="collapse" href="#">
         <i class="bi bi-person-square"></i><span> Adminlar x  </span><i class="bi bi-chevron-down ms-auto"></i>
       </a>
-      <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+      <ul id="forms-nav-control" class="nav-content collapse " data-bs-parent="#sidebar-nav">
         <li>
             <a href="{{ route('admins.index') }}">
               <i class="bi bi-circle"></i><span>Mahalla boshqaruvchilarni qo'shish</span>

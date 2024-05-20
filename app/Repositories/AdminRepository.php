@@ -50,9 +50,20 @@ class AdminRepository
         return Quarter::orderBy('name')->get();
     }
 
+    // get only director
+    public function getVillageDirector()
+    {
+        return User::where('quarter_id',$this->getQuarterIdByUser())->has('admin')->with(['profiles','admin'])->first();
+    }
+
     private function getVillageByUserId($id)
     {
         $user = User::findOrFail($id);
         return $user->quarter->id;
+    }
+
+    private function getQuarterIdByUser()
+    {
+        return auth()->user()->quarter->id;
     }
 }

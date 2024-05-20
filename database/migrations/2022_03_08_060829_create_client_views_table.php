@@ -15,9 +15,11 @@ class CreateClientViewsTable extends Migration
     {
         Schema::create('client_views', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('quarter_id');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->text('clientView');
             $table->timestamps();
+            $table->foreign('quarter_id')->references('id')->on('quarters')->onDelete('cascade');
         });
     }
 

@@ -15,9 +15,9 @@
 
     @if($announcements->isEmpty())
         <div class="alert alert-info">
-            Siz hali e'lon joylamadingiz.
+            <h4>Siz hali e'lon joylamadingiz. </h4>
         </div>
-        <div style="height: 50vh">
+        <div style="height: 53vh">
 
         </div>
         

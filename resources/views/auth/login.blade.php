@@ -52,8 +52,6 @@
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email"
                                 @if(isset($_COOKIE["email"]))
                                  value="{{ $_COOKIE["email"] }}"
-                                 @else
-                                 value="{{old('email')}}"
                                  @endif
                                   required autocomplete="email" autofocus>
 

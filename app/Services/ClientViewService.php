@@ -19,7 +19,7 @@ class ClientViewService
     public function paginate($perPage = 100)
     {
         return Cache::remember("all_client_view",now()->addSecond(3),function () use ($perPage){
-            return $this->clintViewModel->with(['user'])->orderBy('id','desc')->simplePaginate($perPage);
+            return $this->clintViewModel->with(['user'])->orderBy('id','desc')->where('quarter_id',$this->getAuthUserQuarterId())->simplePaginate($perPage);
         });
     }
 
@@ -27,8 +27,14 @@ class ClientViewService
     {
         $client = new $this->clintViewModel;
         $client->clientView = $clientView;
+        $client->quarter_id = $this->getAuthUserQuarterId();
         $client->user_id = $userId;
         $client->save();
+    }
+
+    public function getAuthUserQuarterId()
+    {
+        return auth()->user()->quarter->id;
     }
 
 }

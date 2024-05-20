@@ -3,35 +3,32 @@
 namespace App\Http\Controllers;
 
 use App\Models\TeamMember;
-use App\Http\Requests\StoreTeamMemberRequest;
-use App\Http\Requests\UpdateTeamMemberRequest;
+use App\Http\Requests\AdminStoreTeamMemberRequest;
 use App\Models\User;
-use GuzzleHttp\Psr7\Request;
-use Illuminate\Http\Client\Request as ClientRequest;
-use Illuminate\Http\Request as HttpRequest;
 
-class TeamMemberController extends Controller
+class AdminTeamMemberController extends Controller
 {
    
     public function index()
     {
-        $teamMembers = TeamMember::with('user')->get();
+        $teamMembers = User::where('quarter_id',$this->quarterId())->has('teamMembers')->get();
         return view('admin.team.index',compact('teamMembers'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    private function quarterId()
+    {
+        return auth()->user()->quarter->id;
+    }
+
+   
     public function create()
     {
-        $users = User::all();
+        $users = User::where('quarter_id',$this->quarterId())->get();
         return view('admin.team.create',compact('users'));
     }
 
    
-    public function store(StoreTeamMemberRequest $request)
+    public function store(AdminStoreTeamMemberRequest $request)
     {
         $m = new TeamMember();
         $m->user_id = $request->user_id;
@@ -39,23 +36,14 @@ class TeamMemberController extends Controller
         return redirect()->route('admin.team.index')->with('success','Siz yangi jamao azosini qo`shdingiz');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\TeamMember  $teamMember
-     * @return \Illuminate\Http\Response
-     */
+
+
     public function show(TeamMember $teamMember)
     {
     //    
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\TeamMember  $teamMember
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(TeamMember $teamMember)
     {
         //
@@ -72,12 +60,7 @@ class TeamMemberController extends Controller
         return back()->with("erorr","Topilmadi !");
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\TeamMember  $teamMember
-     * @return \Illuminate\Http\Response
-     */
+  
     public function destroy(TeamMember $teamMember)
     {
         //

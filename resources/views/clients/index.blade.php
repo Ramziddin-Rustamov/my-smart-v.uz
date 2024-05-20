@@ -6,6 +6,7 @@
     <div class="pt-5 ">
       <div class="row d-flex justify-content-center">
         <div class="col-md-12 col-lg-10 col-xl-8 mt-5">
+          @if(count($clientviews))
           <div class="card ">
             <div class="card-header pt-3 ">Bizga bildirilgan fikrlar</div>
             <div class="card-body">
@@ -25,7 +26,6 @@
             </div>
         @endif        
 
-              @if(count($clientviews))
               <div class="row">
                 @foreach ($clientviews as $view )
 
@@ -51,16 +51,16 @@
                   {{$clientviews->links()}}
                 </div>
               </div>
-              @else
-                <h4 style="padding-bottom: 150px" class="text-center">Hali fikrlar joylanmagan</h4>
-              @endif
+             
             </div>
           </div>
+          @else
+          <h4 style="padding-bottom:400px" class="text-center ">Hali fikrlar joylanmagan</h4>
+        @endif
         </div>
-      </div>
-       
+      </div>     
     </div>
-    <div class="pb-2">
+    <div style="padding-bottom: 120px" >
       <div class="row d-flex justify-content-center">
         <div class="col-md-12 col-lg-10 col-xl-8 pt-2">
           <div class="card ">

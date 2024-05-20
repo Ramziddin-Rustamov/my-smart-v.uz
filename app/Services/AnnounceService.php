@@ -43,7 +43,6 @@ class AnnounceService
 
     public function deleteAnnouncement($id)
     {
-        // dd("a");
         return $this->announcementRepository->delete($id);
     }
 }

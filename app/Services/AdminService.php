@@ -44,4 +44,9 @@ class AdminService
     {
        return  $this->repository->quarters();
     }
+
+    public function getVillageDirector()
+    {
+        return $this->repository->getVillageDirector();
+    }
 }

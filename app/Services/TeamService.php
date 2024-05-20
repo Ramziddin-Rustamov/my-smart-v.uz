@@ -1,16 +1,38 @@
 <?php
 
 namespace App\Services;
-use App\Models\User;
+
+use App\Repositories\TeamRepository;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Auth;
 
 class TeamService
 {
-    public  function getTeamMembers()
+    protected $teamRepository;
+
+    public function __construct(TeamRepository $teamRepository)
     {
-        return Cache::remember('count.User', now()->addSecond(60), function () {
-            return User::has('teamMembers')->get();
+        $this->teamRepository = $teamRepository;
+    }
+
+    public function getTeamMembers()
+    {
+        return Cache::remember('count.User', now()->addSecond(1), function () {
+            $villageId = $this->getVillageId();
+            if ($villageId) {
+                return $this->teamRepository->getTeamMembersByQuarterId($villageId);
+            }
+            return collect();
         });
     }
 
+    private function getVillageId()
+    {
+        if ($user = Auth::user()) {
+            if ($quarter = $user->quarter) {
+                return $quarter->id;
+            }
+        }
+        return null;
+    }
 }

@@ -12,7 +12,7 @@
                         <div class="row mb-3"> 
                             <label for="selectedRegion" class="col-md-4 col-form-label text-md-end">{{ __('Qaysi viloyatdansiz ?') }}</label>
                             <div class="col-md-6">
-                                <select wire:model="selectedRegion" value="{{$selectedRegion}}" name="region_id" class="form-select">
+                                <select wire:model="selectedRegion" value="{{$selectedRegion}}" name="region_id" class="form-select" autofocus>
                                     <option value="">Viloyat</option>
                                     @foreach ($regions as $region)
                                         <option value="{{ $region->id }}" class="py-3 my-3 mt-5">{{ $region->name }}</option>

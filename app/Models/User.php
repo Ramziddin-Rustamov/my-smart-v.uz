@@ -93,7 +93,7 @@ class User extends Authenticatable implements JWTSubject
 
     public function teamMembers()
     {
-        return $this->hasMany(TeamMember::class);
+        return $this->hasOne(TeamMember::class);
     }
 
     public function quarter()

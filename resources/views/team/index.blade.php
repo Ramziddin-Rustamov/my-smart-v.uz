@@ -4,6 +4,7 @@
 @section('content')
 <!-- Team 1 - Bootstrap Brain Component -->
 <section class="bg-light py-3  py-md-5 py-xl-8" style="margin-top:90px">
+
     <div class="container">
       <div class="row  justify-content-around">
         <div class="col-12 col-md-10 col-lg-8 col-xl-7 col-xxl-6">
@@ -16,78 +17,54 @@
 
     <div class="container overflow-hidden">
       <div class="row gy-4 gy-lg-0 gx-xxl-5">
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="card border-0 border-bottom border-primary shadow-sm overflow-hidden">
-            <div class="card-body p-0">
-              <figure class="m-0 p-0">
-                <img class="img-fluid" loading="lazy" src="https://bootstrapbrain.com/demo/components/teams/team-1/assets/img/team-img-5.jpg" alt="Flora Nyra">
-                <figcaption class="m-0 p-4">
-                  <h4 class="mb-1">Flora Nyra</h4>
-                  <p class="text-secondary mb-0">Product Manager</p>
-                  <div class="row ">
-                    <div class="col justify-content-between ">
-                        <i class="fas fa-phone"></i>
-                    </div>
-                    <div class="col">
-                        <i class="fas fa-message"></i>
-                    </div>
-                    <div class="col">
-                        <i class="fas fab-email">a</i>
-                    </div>
-                  </div>
-                </figcaption>
-              </figure>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-            <div class="card border-0 border-bottom border-primary shadow-sm overflow-hidden">
-              <div class="card-body p-0">
-                <figure class="m-0 p-0">
-                  <img class="img-fluid" loading="lazy" src="https://bootstrapbrain.com/demo/components/teams/team-1/assets/img/team-img-5.jpg" alt="Flora Nyra">
-                  <figcaption class="m-0 p-4">
-                    <h4 class="mb-1">Flora Nyra</h4>
-                    <p class="text-secondary mb-0">Product Manager</p>
-                    <div class="row ">
-                      <div class="col justify-content-between ">
-                          <i class="fas fa-phone"></i>
-                      </div>
-                      <div class="col">
-                          <i class="fas fa-message"></i>
-                      </div>
-                      <div class="col">
-                          <i class="fas fab-email">a</i>
-                      </div>
-                    </div>
-                  </figcaption>
-                </figure>
-              </div>
-            </div>
-          </div>
+        @if (count($teamMembers))
+          @foreach ($teamMembers as $user )
           <div class="col-12 col-md-6 col-lg-4">
             <div class="card border-0 border-bottom border-primary shadow-sm overflow-hidden">
               <div class="card-body p-0">
                 <figure class="m-0 p-0">
-                  <img class="img-fluid" loading="lazy" src="https://bootstrapbrain.com/demo/components/teams/team-1/assets/img/team-img-5.jpg" alt="Flora Nyra">
+                  <img class="img-fluid" loading="lazy" 
+                  src="{{asset($user->image)}}" alt="Flora Nyra">
                   <figcaption class="m-0 p-4">
-                    <h4 class="mb-1">Flora Nyra</h4>
-                    <p class="text-secondary mb-0">Product Manager</p>
-                    <div class="row ">
-                      <div class="col justify-content-between ">
-                          <i class="fas fa-phone"></i>
+                    <h4 class="mb-1 text-info">{{ $user->first_name .' '. $user->last_name .' '.$user->father_name }}</h4>
+                    <p class="text-secondary mb-0">{{ $user->profiles->job ?? ' Hozircha kasbi kiritilmagan' }}</p>
+                    <div class="row">
+                      <div class="col-12 py-2 d-flex justify-content-around">
+                          @if($user->profiles && $user->profiles->instagram)
+                              <a href="https://instagram.com/{{$user->profiles->instagram}}" class="btn btn-info me-1 flex-grow-1">
+                                  <i class="fab fa-instagram"></i> Instagram
+                              </a>
+                          @endif
+                          @if($user->profiles && $user->profiles->telegram)
+                              <a href="https://t.me/{{$user->profiles->telegram}}" class="btn btn-info me-1 flex-grow-1">
+                                  <i class="fab fa-telegram"></i> Telegram
+                              </a>
+                          @endif
                       </div>
-                      <div class="col">
-                          <i class="fas fa-message"></i>
+                      <div class="col-12 py-2 d-flex justify-content-around">
+                          @if($user->profiles && $user->profiles->whatsup)
+                              <a href="https://wa.me/{{$user->profiles->whatsup}}" class="btn btn-primary me-1 flex-grow-1">
+                                  <i class="fab fa-whatsapp"></i> WhatsApp
+                              </a>
+                          @endif
+                          @if($user->profiles && $user->profiles->phone)
+                              <a href="tel:{{$user->profiles->phone}}" class="btn btn-primary me-1 flex-grow-1">
+                                  <i class="fas fa-phone"></i> Telefon 
+                              </a>
+                          @endif
                       </div>
-                      <div class="col">
-                          <i class="fas fab-email">a</i>
-                      </div>
-                    </div>
+                  </div>
                   </figcaption>
                 </figure>
               </div>
             </div>
           </div>
+          @endforeach
+        @else
+          <h4 class="vh-100 text-center">Jamoa azolari qo'shilmagan.</h4>
+        @endif
+    
+
       </div>
     </div>
   </section>

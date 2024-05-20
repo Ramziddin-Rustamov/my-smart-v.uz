@@ -15,8 +15,8 @@ class CreateAdminsTable extends Migration
     {
         Schema::create('admins', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('quarter_id');
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('quarter_id')->unique();
+            $table->unsignedBigInteger('user_id')->unique();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('quarter_id')->references('id')->on('quarters')->onDelete('cascade');
             $table->boolean('is_active')->default(true);

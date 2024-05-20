@@ -25,7 +25,7 @@ use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ShopOwnerController;
 use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\API\v1\AuthController;
-use App\Http\Controllers\TeamMemberController;
+use App\Http\Controllers\AdminTeamMemberController;
 use App\Http\Controllers\VillageInfoController;
 use Illuminate\Support\Facades\Auth;
 
@@ -84,7 +84,7 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/client-views/{id}', [ClientViewController::class, 'show'])->name('client.view.show');
             Route::post('/client-views', [ClientViewController::class, 'store'])->name('client.view.store');
 
-
+            // indexes
             Route::post('/contact-us', [ContactController::class, 'store'])->name('contact.store');
             Route::get('/ourposts', [PostsController::class, 'index'])->name('posts.allposts');
             Route::get('posts-read/{post}', [PostsController::class, 'findOne'])->name('posts.findOne');
@@ -150,13 +150,13 @@ Route::middleware('can:super-admin')->group(function () {
         // admin.team.members.store
         // Routes for create team members 
 
-        Route::get('/admin/team', [TeamMemberController::class, 'index'])->name('admin.team.index');
-        Route::get('/admin/team/create', [TeamMemberController::class, 'create'])->name('admin.team.create');
-        Route::post('/admin/store/team', [TeamMemberController::class, 'store'])->name('admin.team.store');
-        // Route::get('/admin/team/{teamMember}', [TeamMemberController::class, 'show'])->name('admin.team.show');
-        // Route::get('/admin/team/{teamMember}/edit', [TeamMemberController::class, 'edit'])->name('admin.team.edit');
-        Route::put('/admin/team/{id}', [TeamMemberController::class, 'update'])->name('admin.team.update');
-        // Route::delete('/admin/team/{teamMember}', [TeamMemberController::class, 'destroy'])->name('admin.team.destroy');
+        Route::get('/admin/team', [AdminTeamMemberController::class, 'index'])->name('admin.team.index');
+        Route::get('/admin/team/create', [AdminTeamMemberController::class, 'create'])->name('admin.team.create');
+        Route::post('/admin/store/team', [AdminTeamMemberController::class, 'store'])->name('admin.team.store');
+        // Route::get('/admin/team/{teamMember}', [AdminTeamMemberController::class, 'show'])->name('admin.team.show');
+        // Route::get('/admin/team/{teamMember}/edit', [AdminTeamMemberController::class, 'edit'])->name('admin.team.edit');
+        Route::put('/admin/team/{id}', [AdminTeamMemberController::class, 'update'])->name('admin.team.update');
+        // Route::delete('/admin/team/{teamMember}', [AdminTeamMemberController::class, 'destroy'])->name('admin.team.destroy');
         // Route::post('/admin-team-members/create', [ShopOwnerController::class, 'store'])->name('admin.shop-owners.store');
 
 

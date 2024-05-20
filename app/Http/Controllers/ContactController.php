@@ -18,7 +18,7 @@ class ContactController extends Controller
 
     public function store(ContactRequest $contactRequest)
     {
-        $this->contactService->createContactMessage($contactRequest->validated());
+        $this->contactService->createContactMessage($contactRequest);
         return redirect()->back()->with("success","Xabaringiz yuborildi");
     }
 

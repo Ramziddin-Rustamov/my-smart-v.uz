@@ -27,14 +27,14 @@
       <div class="row">
         <div class="col-lg-4">
           <div class="left-image">
-            <img src="https://images.ctfassets.net/lh3zuq09vnm2/3JFYi0nAqOxgVXHTYzQsL9/8b5d3b077342437c38678cb7b94d5800/what-is-usability-testing-1_FJaO9XF.svg" alt="">
-            {{-- <img src="{{asset('assets/images/featured.jpg') }}" alt=""> --}}
+            <img class=" img-fluid image card-img border-1 " src="{{asset($director->image)}}" alt="">
           </div>
         </div>
         <div class="col-lg-5">
           <div class="section-heading">
             <h6>| Mahallamiz RAISi</h6>
-            <h2>Faxriddin Qurbonov </h2>
+            <h2>{{$director->first_name .' ' . $director->last_name}} </h2>
+            <p class="text-info">Kasbi: {{$director->profiles->job ?? 'Mahalla oqsaqoli '}}</p>
           </div>
           <div class="accordion" id="accordionExample">
             <div class="accordion-item">
@@ -89,11 +89,11 @@
               </li> --}}
               <li>
                 <i style="color:#f35525" class="fas fa-phone fa-3x"></i>
-                <h4>Telefon <br><span>{{$villageInfo->phone ?? 'telefon raqami'}}</span></h4>
+                <h4>Telefon <br><span>{{$director->profiles->phone ?? 'telefon raqami'}}</span></h4>
               </li>
               <li>
                 <i style="color:#f35525" class="fas fa-map-location fa-3x"></i>
-                <h4>Manzili<br><span>{{$villageInfo->quarter->name ?? ' Mahalla nomi '}}</span></h4>
+                <h4>Manzili<br><span>{{$director->quarter->name}}</span></h4>
               </li>
             </ul>
           </div>

@@ -35,9 +35,10 @@
                         </div>
                     </div>
                 @endforeach
-                {{ $allposts->links()}}
             @else
-                <h6 class="text-center font-weight-bold">{{ __('Yangilik joylanmadi ') }}</h6><hr>
+                <div class="w-100">
+                    <h4 class="vh-100 text-center">Yangilik qo'shilmagan.</h4>
+                </div>
             @endif
         </div>
     </div>

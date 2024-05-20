@@ -16,7 +16,6 @@ class VillageInfoController extends Controller
 
     public function index()
     {
-        // dd("d");
         $villageInfo = $this->villageInfoService->getAll();
         return view('admin.village-info.index',[
             'villageInfo' =>$villageInfo

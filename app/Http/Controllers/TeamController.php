@@ -21,4 +21,6 @@ class TeamController extends Controller
         $teamMembers = $this->teamServie->getTeamMembers();
         return view('team.index',compact('teamMembers'));
     }
+
+    
 }
