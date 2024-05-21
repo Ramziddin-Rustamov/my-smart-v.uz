@@ -17,7 +17,7 @@
 
     <div class="container overflow-hidden">
       <div class="row gy-4 gy-lg-0 gx-xxl-5">
-        @if (count($teamMembers))
+        @if (is_null($teamMembers))
           @foreach ($teamMembers as $user )
           <div class="col-12 col-md-6 col-lg-4">
             <div class="card border-0 border-bottom border-primary shadow-sm overflow-hidden">
@@ -61,7 +61,9 @@
           </div>
           @endforeach
         @else
-          <h4 class="vh-100 text-center">Jamoa azolari qo'shilmagan.</h4>
+         <div class="vh-100 pb-5">
+           <h4 class="vh-100 text-center">Jamoa azolari qo'shilmagan.</h4>
+         </div>
         @endif
     
 

@@ -2,11 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\InfoVillage;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Schema;
 
-class DistrictSeeder extends Seeder
+class InfoVillageSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,6 +14,6 @@ class DistrictSeeder extends Seeder
      */
     public function run()
     {
-    //   
+        InfoVillage::factory()->count(3)->create();
     }
 }

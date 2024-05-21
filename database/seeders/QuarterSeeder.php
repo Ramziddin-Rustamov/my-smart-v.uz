@@ -11,13 +11,6 @@ class QuarterSeeder extends Seeder
   
     public function run()
     {
-          
-        $sql = file_get_contents(public_path('db/quarters.sql'));
-        $queries = explode(';', $sql);
-        foreach ($queries as $query) {
-            if (!empty(trim($query))) {
-                DB::statement($query);
-            }
-        }
+        // 
     }
 }

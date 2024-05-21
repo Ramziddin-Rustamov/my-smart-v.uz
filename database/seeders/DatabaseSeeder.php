@@ -39,7 +39,8 @@ class DatabaseSeeder extends Seeder
             AnnouncementSeeder::class,
             TeamMemberSeeder::class,
             VillageInfoSeeder::class,
-            AdminSeeder::class
+            AdminSeeder::class,
+            InfoVillageSeeder::class
         ]);
     }
 }

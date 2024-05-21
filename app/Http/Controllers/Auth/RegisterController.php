@@ -85,7 +85,6 @@ class RegisterController extends Controller
                 'birthday' => $data['birthday'],
                 'phone' => $data['phone']
             ]);
-            Auth::login($user);
         }
         return $user;
     }

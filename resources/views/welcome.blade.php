@@ -27,13 +27,13 @@
       <div class="row">
         <div class="col-lg-4">
           <div class="left-image">
-            <img class=" img-fluid image card-img border-1 " src="{{asset($director->image)}}" alt="">
+            <img class=" img-fluid image card-img border-1 " src="{{asset($director->image ?? asset('image/user-128.png'))}}" alt="">
           </div>
         </div>
         <div class="col-lg-5">
           <div class="section-heading">
             <h6>| Mahallamiz RAISi</h6>
-            <h2>{{$director->first_name .' ' . $director->last_name}} </h2>
+            <h2>{{$director->first_name ?? ' Ismi '}} {{ $director->last_name ?? ' Familiyasi ' }}</h2>
             <p class="text-info">Kasbi: {{$director->profiles->job ?? 'Mahalla oqsaqoli '}}</p>
           </div>
           <div class="accordion" id="accordionExample">
@@ -93,7 +93,7 @@
               </li>
               <li>
                 <i style="color:#f35525" class="fas fa-map-location fa-3x"></i>
-                <h4>Manzili<br><span>{{$director->quarter->name}}</span></h4>
+                <h4>Manzili<br><span>{{$director->quarter->name ?? 'Manzili '}}</span></h4>
               </li>
             </ul>
           </div>
@@ -234,11 +234,8 @@
             <div class="row">
               <div class="nav-wrapper ">
                 <ul class="nav nav-tabs" role="tablist">
-                  <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="appartment-tab" data-bs-toggle="tab" data-bs-target="#young" type="button" role="tab" aria-controls="young" aria-selected="true">Yoshlar haqida</button>
-                  </li>
                   <li class="nav-item " role="presentation">
-                    <button class="nav-link " id="hospital-tab" data-bs-toggle="tab" data-bs-target="#hospital" type="button" role="tab" aria-controls="hospital" aria-selected="false">Shifoxonamiz</button>
+                    <button class="nav-link active " id="hospital-tab" data-bs-toggle="tab" data-bs-target="#hospital" type="button" role="tab" aria-controls="hospital" aria-selected="false">Shifoxonamiz</button>
                   </li>
 				           <li class="nav-item" role="presentation">
                     <button class="nav-link" id="kindergarten-tab" data-bs-toggle="tab" data-bs-target="#kindergarten" type="button" role="tab" aria-controls="kindergarten" aria-selected="false">Maktabgacha ta'lim</button>
@@ -250,38 +247,9 @@
                 </ul>
               </div>
               <div class="tab-content" id="myTabContent">
-                <!-- young start -->
-			      	<div class="tab-pane fade show active" id="young" role="tabpanel" aria-labelledby="young-tab">
-                  <div class="row">
-                    <div class="col-lg-3">
-                      <div class="info-table">
-                        <ul>
-                          <li>Yoshlar <span>1 400 ta </span></li>
-                          <li>Sovrindorlari <span>200</span></li>
-                          <li>Til buyicha s.t<span>4</span></li>
-                          <li>Alimpeyada sovrindorlari <span>20 ta </span></li>
-                          <li>Oliy ta'limda  <span>30 ta </span></li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div class="col-lg-6">
-                      <img class="thuminale" src="{{asset('assets/images/youth.jpg ')}}" alt="">
-                    </div>
-                    <div class="col-lg-3">
-                      <h4>Extra Info About Property</h4>
-                      <p>
-                        Rahmat! Sizga kerakli ma'lumotlarni taqdim etishim mumkin. "TemplateMo" veb-sayti, bepul CSS shriftlarini taklif etadi va ommaviy veb-saytlarida qidiruv motorlarida "TemplateMo" nomini qidirishingiz yoki "TemplateMo Portfolio", "TemplateMo One Page Layouts"
-                        kabi so'rovlarni kiriting. Bu usullar orqali siz uyingiz uchun mos veb-dizaynlarni topishingiz mumkin..</p>
-                      <div class="icon-button">
-                        <a href="{{route('youth.index')}}"><i class="fas fa-info"></i>Ko'proq malumot olish </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-				<!-- young end -->
 
-               <!-- hospital -->
-			   <div class="tab-pane fade" id="hospital" role="tabpanel" aria-labelledby="hospital-tab">
+                 <!-- hospital -->
+		      	   <div class="tab-pane fade show active" id="hospital" role="tabpanel" aria-labelledby="hospital-tab">
                   <div class="row">
                     <div class="col-lg-3">
                       <div class="info-table">

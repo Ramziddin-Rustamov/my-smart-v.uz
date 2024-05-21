@@ -65,11 +65,11 @@
       </h4>
         <nav id="navbar" class="navbar order-last order-lg-0">
           <ul>
-            <li><a href="{{ route('about') }}" class="{{ request()->routeIs('about') ? 'active' : '' }}">Biz haqimizda</a></li>
-            <li><a href="{{ route('posts.allposts') }}" class="{{request()->routeIs('posts.allposts') ? 'active' : '' }}">Yangiliklar</a></li>
             <li><a href="{{ route('team.index') }}" class="{{request()->routeIs('team.index') ? 'active' : '' }}">Ishchi jamoa</a></li>
-            <li><a href="#">Tibbiyot Birlashmasi</a></li>
-            <li class="dropdown">
+            {{-- <li><a href="{{ route('about') }}" class="{{ request()->routeIs('about') ? 'active' : '' }}">Biz haqimizda</a></li> --}}
+            <li><a href="{{ route('posts.allposts') }}" class="{{request()->routeIs('posts.allposts') ? 'active' : '' }}">Yangiliklar</a></li>
+            <li><a href="{{route('client.view.index')}}">Bizga bildirilgan fikrlar</a></li>
+            {{-- <li class="dropdown">
                 <a href="#">
                     <span class="#">Qo'shimcha</span>
                     <i class="fas fa-chevron-down"></i>
@@ -77,9 +77,8 @@
                 <ul>
                     <li><a href="#">84-maktab</a></li>
                     <li><a href="#">48-maktab</a></li>
-                    <li><a href="{{route('client.view.index')}}">Bizga bildirilgan fikrlar</a></li>
                 </ul>
-            </li>
+            </li> --}}
         </ul>      
           <i class="fas fa-align-left mobile-nav-toggle"></i>
         </nav><!-- .navbar -->

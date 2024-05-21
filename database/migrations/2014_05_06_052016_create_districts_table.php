@@ -23,7 +23,16 @@ class CreateDistrictsTable extends Migration
             $table->timestamps();
         });
 
+        $sql = file_get_contents(public_path('db/districts.sql'));
+        $queries = explode(';', $sql);
+        foreach ($queries as $query) {
+            if (!empty(trim($query))) {
+                DB::statement($query);
+            }
+        }
+        
        }
+
     }
 
     /**
