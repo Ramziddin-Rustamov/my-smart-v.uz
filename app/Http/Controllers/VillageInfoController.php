@@ -42,7 +42,6 @@ class VillageInfoController extends Controller
 
     public function update(Request $request, $id)
     {
-        // Validation here if needed
 
         $this->villageInfoService->update($request, $id);
 

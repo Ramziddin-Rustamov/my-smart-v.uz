@@ -18,6 +18,8 @@ class InfoVillage extends Model
         'condition',
         'about',
         'customers',
-        'image'
+        'image',
+        'quarter_id',
+        'title'
     ];
 }

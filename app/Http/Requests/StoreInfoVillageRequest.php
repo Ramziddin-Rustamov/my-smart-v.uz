@@ -13,7 +13,7 @@ class StoreInfoVillageRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,15 @@ class StoreInfoVillageRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'image' => 'nullable|image|mimes:jpg,jpeg,png,gif|max:2048',
+            'title' => 'required',
+            'number' => 'required|integer|min:1',
+            'territory' => 'required|string|max:255',
+            'workers_count' => 'required|integer|min:1',
+            'rooms' => 'required|integer|min:1',
+            'condition' => 'required|string|max:255',
+            'about' => 'required|string|max:1000',
+            'customers' => 'required|integer|min:0',
         ];
     }
 }

@@ -18,6 +18,7 @@ class InfoVillageFactory extends Factory
             'quarter_id' => Quarter::inRandomOrder()->first()->id,
             'number' => $this->faker->numberBetween(1, 100),
             'image'=> 'image/',
+            'title'=> 'title',
             'territory' => $this->faker->city,
             'workers_count' => $this->faker->numberBetween(1, 50),
             'rooms' => $this->faker->numberBetween(1, 20),

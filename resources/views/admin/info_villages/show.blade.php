@@ -12,7 +12,7 @@
                     <div class="mb-3">
                         <strong>Image:</strong>
                         @if($infoVillage->image)
-                            <img src="{{ asset('storage/' . $infoVillage->image) }}" alt="Info Village Image" class="img-fluid">
+                            <img src="{{ asset($infoVillage->image) }}"  alt="Info Village Image" class="img-fluid w-50">
                         @else
                             No image available
                         @endif
@@ -22,6 +22,9 @@
                     </div>
                     <div class="mb-3">
                         <strong>Territory:</strong> {{ $infoVillage->territory }}
+                    </div>  
+                     <div class="mb-3">
+                        <strong>Title:</strong> {{ $infoVillage->title }}
                     </div>
                     <div class="mb-3">
                         <strong>Workers Count:</strong> {{ $infoVillage->workers_count }}

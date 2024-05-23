@@ -28,18 +28,15 @@ class InfoVillageService
         return $this->infoVillageRepository->find($id);
     }
 
-    public function create(array $data)
+    public function create($request)
     {
-        $this->validate($data);
-
-        return $this->infoVillageRepository->create($data);
+        return $this->infoVillageRepository->create($request);
     }
 
-    public function update($id, array $data)
+    public function update($id, $request)
     {
-        $this->validate($data);
 
-        return $this->infoVillageRepository->update($id, $data);
+        return $this->infoVillageRepository->update($id, $request);
     }
 
     public function delete($id)

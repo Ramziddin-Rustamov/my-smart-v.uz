@@ -339,6 +339,9 @@
         <li>
           <a href="{{ route('village_infos.index') }}">
             <i class="bi bi-circle"> </i><span>Asosiy menuga ma'lumot qo'shish </span>
+          </a>  
+           <a href="{{ route('info_villages.index') }}">
+            <i class="bi bi-circle"> </i><span>Qo'shimcha </span>
           </a>
         </li>
 

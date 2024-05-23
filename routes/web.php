@@ -24,8 +24,8 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ShopOwnerController;
 use App\Http\Controllers\AnnouncementController;
-use App\Http\Controllers\API\v1\AuthController;
 use App\Http\Controllers\AdminTeamMemberController;
+use App\Http\Controllers\InfoVillageController;
 use App\Http\Controllers\VillageInfoController;
 use Illuminate\Support\Facades\Auth;
 
@@ -171,6 +171,17 @@ Route::middleware('can:super-admin')->group(function () {
         Route::put('/village-infos/{id}', [VillageInfoController::class, 'update'])->name('village_infos.update');
 
         Route::delete('/village-infos/{id}', [VillageInfoController::class, 'destroy'])->name('village_infos.destroy');
+
+
+        // for addtional information 
+        Route::get('/info_villages', [InfoVillageController::class, 'index'])->name('info_villages.index');
+        Route::get('/info_villages/create', [InfoVillageController::class, 'create'])->name('info_villages.create');
+        Route::post('/info_villages', [InfoVillageController::class, 'store'])->name('info_villages.store');
+        Route::get('/info_villages/{id}', [InfoVillageController::class, 'show'])->name('info_villages.show');
+        Route::get('/info_villages/{id}/edit', [InfoVillageController::class, 'edit'])->name('info_villages.edit');
+        Route::put('/info_villages/{id}', [InfoVillageController::class, 'update'])->name('info_villages.update');
+        Route::delete('/info_villages/{id}', [InfoVillageController::class, 'destroy'])->name('info_villages.destroy');
+
 
 
 

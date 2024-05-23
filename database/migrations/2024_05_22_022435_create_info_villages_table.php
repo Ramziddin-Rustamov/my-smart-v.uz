@@ -15,8 +15,10 @@ class CreateInfoVillagesTable extends Migration
     {
         Schema::create('info_villages', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('quarter_id')->unique();
+            $table->unsignedBigInteger('quarter_id');
             $table->integer('number');
+            $table->string('title');
+            $table->string('image')->default('image/announcement/announcement.webp');
             $table->string('territory');
             $table->integer('workers_count');
             $table->integer('rooms');
