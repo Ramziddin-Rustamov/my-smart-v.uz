@@ -2,5 +2,5 @@
 
 @section('title', 'Barchar maxsulotlar !')
 @section('content')
-@livewire('product-search')
+    @livewire('product-search')
 @endsection

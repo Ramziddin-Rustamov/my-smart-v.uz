@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Repositories;
 
 use App\Models\Post;
@@ -8,7 +9,7 @@ class AdminPostRepository
 {
     public function getAllPostsPaginated()
     {
-        return Post::orderBy('id', 'DESC')->where('quarter_id',$this->quarter())->with(['user', 'comments', 'likes'])->paginate(20);
+        return Post::orderBy('id', 'DESC')->where('quarter_id', $this->quarter())->with(['user', 'comments', 'likes'])->paginate(20);
     }
 
     public function create($userId, $title, $body, $image)
@@ -69,8 +70,8 @@ class AdminPostRepository
 
     public function getById($id)
     {
-        return Post::orderBy('id', 'DESC')->where('id',$id)
-        ->where('quarter_id',$this->quarter())->with(['user', 'comments', 'likes'])
-        ->first();
+        return Post::orderBy('id', 'DESC')->where('id', $id)
+            ->where('quarter_id', $this->quarter())->with(['user', 'comments', 'likes'])
+            ->first();
     }
 }

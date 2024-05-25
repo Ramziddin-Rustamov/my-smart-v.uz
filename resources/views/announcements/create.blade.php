@@ -5,7 +5,7 @@
         <h2 class="py-2">Yangi E'lon Joylang</h2>
         <ul>
             @foreach ($errors->all() as $error)
-            <li class="alert alert-danger">{{ $error }}</li>
+                <li class="alert alert-danger">{{ $error }}</li>
             @endforeach
         </ul>
         <form action="{{ route('announcements.store') }}" method="POST" enctype="multipart/form-data">

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Barcha Aholimiz  ')
+@section('title', 'Barcha Aholimiz ')
 @section('content')
-@livewire('people')
+    @livewire('people')
 @endsection

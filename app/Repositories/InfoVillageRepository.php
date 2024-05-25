@@ -9,7 +9,7 @@ class InfoVillageRepository
 {
     public function getAll()
     {
-        return InfoVillage::all();
+        return InfoVillage::where('quarter_id',$this->userVillageId())->get();
     }
 
     public function find($id)
@@ -82,5 +82,10 @@ class InfoVillageRepository
         if (File::exists($destinationPath)) {
             File::delete($destinationPath);
         }
+    }
+
+    private function userVillageId()
+    {
+        return auth()->user()->quarter->id;
     }
 }

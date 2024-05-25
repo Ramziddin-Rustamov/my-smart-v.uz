@@ -17,13 +17,11 @@ class TeamService
 
     public function getTeamMembers()
     {
-        return Cache::remember('count.User', now()->addSecond(1), function () {
+       
             $villageId = $this->getVillageId();
             if ($villageId) {
                 return $this->teamRepository->getTeamMembersByQuarterId($villageId);
             }
-            return collect();
-        });
     }
 
     private function getVillageId()

@@ -3,8 +3,8 @@
 @section('title', 'Telefon raqamlar ')
 
 @section('content')
-<section style="background-color: #193c1a71;padding-top:80px;">
-    <div class="container py-5">
+    <section style="background-color: #193c1a71;padding-top:80px;">
+        <div class="container py-5">
             <table class="table table-hover bg-white  rounded">
                 <thead>
                     <tr>
@@ -55,8 +55,8 @@
                         </td>
                     </tr>
                 </tbody>
-            </table>        
-          <ul class="list-group">
+            </table>
+            <ul class="list-group">
                 <li class="list-group-item">
                     <a href="tel:101">
                         <i class="fas fa-phone"></i> 101 - Yong'in xavfsizligi xizmati
@@ -93,7 +93,7 @@
                     </a>
                 </li>
             </ul>
-        
-    </div>
-</section>
+
+        </div>
+    </section>
 @endsection

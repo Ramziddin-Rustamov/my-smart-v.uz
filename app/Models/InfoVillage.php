@@ -22,4 +22,9 @@ class InfoVillage extends Model
         'quarter_id',
         'title'
     ];
+
+    public function quarter()
+    {
+        return $this->belongsTo(Quarter::class);
+    }
 }

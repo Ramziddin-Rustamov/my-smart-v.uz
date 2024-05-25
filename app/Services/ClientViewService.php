@@ -18,8 +18,8 @@ class ClientViewService
     }
     public function paginate($perPage = 100)
     {
-        return Cache::remember("all_client_view",now()->addSecond(3),function () use ($perPage){
-            return $this->clintViewModel->with(['user'])->orderBy('id','desc')->where('quarter_id',$this->getAuthUserQuarterId())->simplePaginate($perPage);
+        return Cache::remember("all_client_view",now()->addSecond(2),function () use ($perPage){
+            return $this->clintViewModel->with(['user'])->orderBy('id','desc')->where('quarter_id',$this->getAuthUserQuarterId())->get();
         });
     }
 
