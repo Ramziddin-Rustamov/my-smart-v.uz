@@ -3,6 +3,7 @@
 use App\Http\Controllers\API\v1\Announcement\AnnouncementApiController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\v1\AuthController;
+use App\Http\Controllers\API\v1\ClientView\ClientViewApiController;
 
 Route::post('login', [AuthController::class, 'login']);
 Route::post('register', [AuthController::class, 'register']);
@@ -17,4 +18,10 @@ Route::middleware(['auth:api'])->group(function () {
     Route::get('announcements/{id}', [AnnouncementApiController::class, 'show']);
     Route::put('announcements/{id}', [AnnouncementApiController::class, 'update']);
     Route::delete('announcements/{id}', [AnnouncementApiController::class, 'destroy']);
+
+    // for client view 
+
+    Route::get('client-views', [ClientViewApiController::class, 'index']);
+    Route::post('client-views', [ClientViewApiController::class, 'store']);
+    
 });
