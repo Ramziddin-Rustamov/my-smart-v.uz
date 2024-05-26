@@ -1,9 +1,8 @@
 @extends('layouts.app')
-@section('title','confirm page')
 
 @section('content')
-<div class="container pb-5"style="margin-bottom:190px ; padding-top: 160px">
-    <div class="row justify-content-center">
+<div class="container">
+    <div class="row justify-content-center" style="padding-top:120px; padding-bottom:320px">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Confirm Password') }}</div>

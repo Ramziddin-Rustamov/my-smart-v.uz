@@ -30,7 +30,7 @@ use App\Http\Controllers\InfoVillageController;
 use App\Http\Controllers\VillageInfoController;
 use Illuminate\Support\Facades\Auth;
 
-Auth::routes();
+// Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
   Route::get('youth', [YouthController::class, 'index'])->name('youth.index');
@@ -162,15 +162,10 @@ Route::middleware('can:super-admin')->group(function () {
 
 
   Route::get('/village-infos', [VillageInfoController::class, 'index'])->name('village_infos.index');
-
   Route::get('/village-infos/create', [VillageInfoController::class, 'create'])->name('village_infos.create');
-
   Route::post('/village-infos', [VillageInfoController::class, 'store'])->name('village_infos.store');
-
   Route::get('/village-infos/{id}/edit', [VillageInfoController::class, 'edit'])->name('village_infos.edit');
-
   Route::put('/village-infos/{id}', [VillageInfoController::class, 'update'])->name('village_infos.update');
-
   Route::delete('/village-infos/{id}', [VillageInfoController::class, 'destroy'])->name('village_infos.destroy');
 
 
@@ -193,3 +188,6 @@ Route::middleware('can:owner')->group(function () {
   Route::put('/admins/{id}', [AdminController::class, 'update'])->name('admins.update');
   Route::delete('/admins/{id}', [AdminController::class, 'destroy'])->name('admins.destroy');
 });
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

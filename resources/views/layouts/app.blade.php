@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -57,9 +58,9 @@
                 <h4 class="logo me-auto">
                     <a style="color:#f35525" href="/">
                         <?php
-                          $words = explode(' ', auth()->user()->quarter->name);
-                          $firstWord = $words[0];
-                          ?>
+                        $words = explode(' ', auth()->user()->quarter->name);
+                        $firstWord = $words[0];
+                        ?>
                         {{ $firstWord }}
                         <br>
                         <span style="padding-left:50px">{{ $words[1] }}</span>
@@ -76,7 +77,7 @@
                     </ul>
                     <i class="fas fa-align-left mobile-nav-toggle"></i>
                 </nav>
-              <!-- .navbar -->
+                <!-- .navbar -->
 
             @endguest
             <div class="header-social-links ps-2 d-flex">
@@ -101,10 +102,10 @@
                         <li class="nav-item dropdown d-flex " id="navbarDropdown">
                             <a class="ps-md-3 " href="{{ asset(Auth::user()->image) }}">
                                 <img style="    background-size: contain;
-                      width: 35px;
-                      border-radius: 50%;
-                      height: 40px;
-                      background-position: center;"
+                                    width: 35px;
+                                    border-radius: 50%;
+                                    height: 40px;
+                                    background-position: center;"
                                     class="user-circle-image-class " src="{{ asset(Auth::user()->image) }}"
                                     alt="{{ Auth::user()->first_name }} `s image'">
                             </a>

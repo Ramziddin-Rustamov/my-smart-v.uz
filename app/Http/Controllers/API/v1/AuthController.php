@@ -44,6 +44,7 @@ class AuthController extends Controller
 
     public function register(Request $request){
         $request->validate([
+            'quarter_id' => 'required|exists:quarters,id',
             'first_name' => 'required|string|max:25',
             'last_name' => 'required|string|max:25',
             'father_name' => 'required|string|max:35',
@@ -52,6 +53,7 @@ class AuthController extends Controller
         ]);
 
         $user = User::create([
+            'quarter_id' => $request->quarter_id,
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'father_name' => $request->father_name,

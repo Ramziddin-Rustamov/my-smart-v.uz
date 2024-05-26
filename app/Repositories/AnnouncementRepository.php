@@ -21,20 +21,17 @@ class AnnouncementRepository
 
     public function getAllForAuth()
     {
-        return $this->model->orderBy('id','desc')->where('user_id',auth()->user()->id)->get();
+        return $this->model->orderBy('id','desc')->where('user_id',$this->userId())->get();
     }
 
     public function getById($id)
     {
-        if (Auth::check()) {
-            $a =  $this->model->where('id', $id)
-                               ->where('user_id', Auth::user()->id)
+        if ($this->userId()) {
+            return $this->model->where('id', $id)
+                               ->where('user_id', $this->userId())
                                ->first();
-            return $a;
-        } else {
-            
-           return abort(403, 'Bu ma`lumotga sizga ruxsat yo\'q '); 
-        }
+        } 
+        return null;
     }
     public function store($request)
     { 
@@ -42,25 +39,25 @@ class AnnouncementRepository
         if ($request->hasfile('photo')) {
             $data['photo'] = $this->uploadNewImage($request);
         }
-        $data['user_id'] = auth()->user()->id;
+        $data['user_id'] = $this->userId();
         return $this->model->create($data);
     }
 
     public function update($id, $request)
     {
-        $data = $request->validated();
         $announcement = $this->getById($id);
+        $data = $request->validated();
         if($request->hasFile('photo')){
             $this->deleteOldImage($announcement->photo);
             $announcement->photo = $this->uploadNewImage($request);
         }
-        $data['photo'] = $announcement->photo;
+        $data["photo"] = $announcement->photo;
 
         return $announcement->update($data);
     }
     public function delete($id)
     {
-        $announcement = Announcement::where('id',$id)->where('user_id',auth()->user()->id)->first();
+        $announcement = Announcement::where('id',$id)->where('user_id',$this->userId())->first();
         if($announcement->photo){
             $this->deleteOldImage($announcement->photo);
         }
@@ -84,5 +81,9 @@ class AnnouncementRepository
         return $filename;
     }
 
-    
+    protected function userId()
+    {
+        return Auth::user()->id;
+    }
+
 }

@@ -26,7 +26,7 @@ class UpdateAnnouncementRequest extends FormRequest
         return [
             'name' => 'required|string|max:40',
             'description' => 'required|string',
-            'photo' => 'nullable|image|max:10000',
+            'photo' => 'image|max:10000',
             'is_active' => 'boolean',
         ];
     }

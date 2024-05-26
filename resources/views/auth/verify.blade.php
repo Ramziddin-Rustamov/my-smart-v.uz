@@ -1,11 +1,10 @@
 @extends('layouts.app')
-@section('title','Verify pass')
 
 @section('content')
-<div class="container pb-5" style="padding-top:160px;">
-    <div class="row justify-content-center">
+<div class="container">
+    <div class="row justify-content-center" style="padding-top:120px; padding-bottom:320px">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card" >
                 <div class="card-header">{{ __('Verify Your Email Address') }}</div>
 
                 <div class="card-body">

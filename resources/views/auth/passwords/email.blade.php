@@ -1,12 +1,11 @@
 @extends('layouts.app')
-@section('title','Email')
 
 @section('content')
-<div class="container pb-5" style="margin-bottom:290px ; padding-top: 160px">
-    <div class="row justify-content-center">
+<div class="container">
+    <div class="row justify-content-center" style="padding-top:120px; padding-bottom:320px">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Parolni tiklash ') }}</div>
+                <div class="card-header">{{ __('Reset Password') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -19,7 +18,7 @@
                         @csrf
 
                         <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email manzil') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -35,7 +34,7 @@
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Tasdiqlash kodini yuboring !') }}
+                                    {{ __('Send Password Reset Link') }}
                                 </button>
                             </div>
                         </div>
