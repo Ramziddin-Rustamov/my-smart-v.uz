@@ -16,8 +16,7 @@ class CommentService
 
     public function createComment(CommentRequest $request)
     {  
-        $this->commentRepository->create($request);
-        return back();
+        return $this->commentRepository->create($request);
     }
 
     public function deleteComment($id)

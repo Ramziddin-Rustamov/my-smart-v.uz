@@ -5,7 +5,6 @@ use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\ClientViewController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PeopleController;
-use App\Http\Controllers\EmergencyNumberController;
 use App\Http\Controllers\PrayController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\TeamController;
@@ -26,6 +25,7 @@ use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ShopOwnerController;
 use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\AdminTeamMemberController;
+use App\Http\Controllers\EmergencyPhoneNumberController;
 use App\Http\Controllers\InfoVillageController;
 use App\Http\Controllers\VillageInfoController;
 use Illuminate\Support\Facades\Auth;
@@ -94,7 +94,7 @@ Route::middleware(['auth'])->group(function () {
   Route::get('question', [PriceController::class, 'index'])->name('question.index');
   Route::get('/people', [PeopleController::class, 'index'])->name('people.index');
   Route::get('/people/show/{id}', [PeopleController::class, 'show'])->name('people.show');
-  Route::get('/emergency-numbers', [EmergencyNumberController::class, 'index'])->name('emergency.index');
+  Route::get('/emergency-numbers', [EmergencyPhoneNumberController::class, 'publicIndex'])->name('emergency.index');
   Route::get('/pray-time', [PrayController::class, 'index'])->name('pray.index');
   Route::get('/team', [TeamController::class, 'index'])->name('team.index');
 
@@ -177,6 +177,15 @@ Route::middleware('can:super-admin')->group(function () {
   Route::get('/info_villages/{id}/edit', [InfoVillageController::class, 'edit'])->name('info_villages.edit');
   Route::put('/info_villages/{id}', [InfoVillageController::class, 'update'])->name('info_villages.update');
   Route::delete('/info_villages/{id}', [InfoVillageController::class, 'destroy'])->name('info_villages.destroy');
+
+  // for emerjency phone numbers 
+  Route::get('/emergency-phone-numbers', [EmergencyPhoneNumberController::class, 'index'])->name('emergency_phone_numbers.index');
+  Route::get('/emergency-phone-numbers/create', [EmergencyPhoneNumberController::class, 'create'])->name('emergency_phone_numbers.create');
+  Route::post('/emergency-phone-numbers', [EmergencyPhoneNumberController::class, 'store'])->name('emergency_phone_numbers.store');
+  Route::get('/emergency-phone-numbers/{emergency_phone_number}', [EmergencyPhoneNumberController::class, 'show'])->name('emergency_phone_numbers.show');
+  Route::get('/emergency-phone-numbers/{emergency_phone_number}/edit', [EmergencyPhoneNumberController::class, 'edit'])->name('emergency_phone_numbers.edit');
+  Route::put('/emergency-phone-numbers/{emergency_phone_number}', [EmergencyPhoneNumberController::class, 'update'])->name('emergency_phone_numbers.update');
+  Route::delete('/emergency-phone-numbers/{emergency_phone_number}', [EmergencyPhoneNumberController::class, 'destroy'])->name('emergency_phone_numbers.destroy');
 });
 
 Route::middleware('can:owner')->group(function () {

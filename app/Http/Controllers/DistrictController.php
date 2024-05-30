@@ -2,12 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\District;
+use App\Services\DistrictService;
 use App\Http\Requests\StoreDistrictRequest;
 use App\Http\Requests\UpdateDistrictRequest;
+use App\Models\District;
 
 class DistrictController extends Controller
 {
+    protected $districtService;
+
+    public function __construct(DistrictService $districtService)
+    {
+        $this->districtService = $districtService;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +23,8 @@ class DistrictController extends Controller
      */
     public function index()
     {
-        //
+        $districts = $this->districtService->getAllDistricts();
+        return response()->json($districts);
     }
 
     /**
@@ -36,7 +45,8 @@ class DistrictController extends Controller
      */
     public function store(StoreDistrictRequest $request)
     {
-        //
+        $district = $this->districtService->createDistrict($request->validated());
+        return response()->json($district, 201);
     }
 
     /**
@@ -47,7 +57,8 @@ class DistrictController extends Controller
      */
     public function show(District $district)
     {
-        //
+        $district = $this->districtService->getDistrictById($district->id);
+        return response()->json($district);
     }
 
     /**
@@ -70,7 +81,8 @@ class DistrictController extends Controller
      */
     public function update(UpdateDistrictRequest $request, District $district)
     {
-        //
+        $district = $this->districtService->updateDistrict($district, $request->validated());
+        return response()->json($district);
     }
 
     /**
@@ -81,6 +93,7 @@ class DistrictController extends Controller
      */
     public function destroy(District $district)
     {
-        //
+        $this->districtService->deleteDistrict($district);
+        return response()->json(null, 204);
     }
 }

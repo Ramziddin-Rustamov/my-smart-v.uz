@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Repositories;
 
 use App\Models\Post;
@@ -15,20 +16,18 @@ class PostRepository
 
     public function getLatestPosts($quarterId, $limit = 3)
     {
-        $cacheKey = "latest_posts_{$limit}_{$quarterId}";
 
-        return Cache::remember($cacheKey, now()->addSeconds(5), function () use ($quarterId, $limit) {
-            return Post::orderBy('id', 'DESC')
-                ->where('quarter_id', $quarterId)
-                ->with(['user', 'comments', 'likes'])
-                ->limit($limit)
-                ->get();
-        });
+        return Post::orderBy('id', 'DESC')
+            ->where('quarter_id', $quarterId)
+            ->with(['user', 'comments', 'likes'])
+            ->limit($limit)
+            ->get();
     }
-
-    public function getPaginated()
+    public function getPaginated($perPage = 8)
     {
-        return Post::orderBy('id', 'DESC')->paginate(8);
+        return Post::orderBy('id', 'DESC')
+            ->where('quarter_id', $this->getQuarterIdByUser())
+            ->paginate($perPage);
     }
 
     public function liked($post, $user)
@@ -43,5 +42,10 @@ class PostRepository
     public function unlike($post, $user)
     {
         $user->likes()->where('post_id', $post->id)->delete();
+    }
+
+    protected function getQuarterIdByUser()
+    {
+        return auth()->user()->quarter->id;
     }
 }

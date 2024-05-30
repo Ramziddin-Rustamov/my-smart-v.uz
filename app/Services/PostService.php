@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Services;
 
 use App\Models\Post;
@@ -30,6 +31,7 @@ class PostService
         return $this->postRepository->getPaginated();
     }
 
+
     public function likePost(Post $post)
     {
         $user = Auth::user();
@@ -42,21 +44,22 @@ class PostService
         $this->postRepository->unlike($post, $user);
     }
 
+
+    public function liked($post, $request)
+    {
+        if ($post->likedBy($request->user())) {
+            return redirect()->back();
+        }
+        $post->likes()->create(['user_id' => $request->user()->id]);
+    }
+
+    public function delete($post, $request)
+    {
+        $request->user()->likes()->where('post_id', $post->id)->delete();
+    }
+
     private function getQuarterId()
     {
         return Auth::user()->quarter->id;
-    }
-
-    public function liked($post,$request)
-    {
-        if($post->likedBy($request->user())){
-          return redirect()->back();
-         }
-        $post->likes()->create(['user_id' =>$request->user()->id]);
-    }
-
-    public function delete($post,$request)
-    {
-        $request->user()->likes()->where('post_id',$post->id)->delete();
     }
 }

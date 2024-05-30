@@ -25,7 +25,8 @@ class Post extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function comments(){
+    public function comments()
+    {
 
         return $this->hasMany(Comment::class)->latest();
     }
@@ -38,5 +39,10 @@ class Post extends Model
     public function likes()
     {
         return $this->hasMany(Like::class);
+    }
+
+    public function quarter()
+    {
+        return $this->belongsTo(Quarter::class);
     }
 }

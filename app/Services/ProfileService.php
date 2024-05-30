@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Services;
 
 use Illuminate\Support\Facades\File;
@@ -20,7 +21,7 @@ class ProfileService
             'last_name' => $data['last_name'],
             'father_name' => $data['father_name'],
         ]);
-        
+
         $user->profiles->update([
             'instagram' => $data['instagram'],
             'telegram' => $data['telegram'],
@@ -30,6 +31,7 @@ class ProfileService
             'phone' => $data['phone'],
             'about' => $data['about'],
         ]);
+        return $user;
     }
 
 
@@ -47,18 +49,16 @@ class ProfileService
     {
         $userId = $request->user()->id;
         $user = User::findOrFail($userId);
-      
+
         return $user;
     }
-    
+
     protected function uploadNewImage($data)
     {
         $file = $data->file('image');
         $extension = $file->getClientOriginalExtension();
-        $filename = 'image/users/' . $data->user()->first_name.''.$data->user()->last_name.'.' . $extension;
+        $filename = 'image/users/' . $data->user()->first_name . '' . $data->user()->last_name . '.' . $extension;
         $file->move('image/users/', $filename);
         return $filename;
     }
-
-
 }

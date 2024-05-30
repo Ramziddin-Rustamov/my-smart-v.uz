@@ -25,13 +25,13 @@ class CreateUsersTable extends Migration
             $table->string('image')->default('image/user-128.png');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
-            $table->boolean('is_admin')->default(false);
+            // $table->boolean('is_admin')->default(false);
             $table->boolean('active_status')->default(0);
             $table->rememberToken();
             $table->timestamps();
             $table->foreign('quarter_id')->references('id')->on('quarters')->onDelete('cascade');
         });
-    } 
+    }
 
     /**
      * Reverse the migrations.

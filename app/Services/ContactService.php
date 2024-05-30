@@ -10,8 +10,8 @@ class ContactService
     public function getAllContacts()
     {
         $cacheKey = 'all_contacts';
-         return Cache::remember($cacheKey, now()->addMinute(1), function () {
-            return Contact::orderBy('id', 'DESC')->where('quarter_id',$this->getQuarterId())->paginate(20);
+        return Cache::remember($cacheKey, now()->addMinute(1), function () {
+            return Contact::orderBy('id', 'DESC')->where('quarter_id', $this->getQuarterId())->paginate(20);
         });
     }
 
@@ -32,10 +32,10 @@ class ContactService
     {
         $cacheKey = 'all_contacts';
         Cache::forget($cacheKey);
-        $contact = Contact::where('id',$id)->where('quarter_id',$this->getQuarterId())->first();
-       if($contact){
-         return  $contact->delete();
-       }
+        $contact = Contact::where('id', $id)->where('quarter_id', $this->getQuarterId())->first();
+        if ($contact) {
+            return  $contact->delete();
+        }
     }
 
     public function createContactMessage($contactRequest)
@@ -49,7 +49,6 @@ class ContactService
             'phone' => $data['phone']
         ]);
         $contact->save();
-        return redirect()->back();
+        return $contact;
     }
-    
 }
