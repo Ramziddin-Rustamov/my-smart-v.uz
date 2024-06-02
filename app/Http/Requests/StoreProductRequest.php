@@ -25,11 +25,11 @@ class StoreProductRequest extends FormRequest
     {
         return [
             'shop_id' => 'required|exists:shops,id',
-            'name' => 'required',
-            'price' => 'required|min:0|max:20',
-            'body' => 'required',
-            'quantity' => 'required|min:0|max:30',
-            'image' => 'image|mimes:jpeg,png,jpg|max:5062',
+            'name' => 'required|min:3|max:20',
+            'price' => 'required|min:2|max:20',
+            'body' => 'required|min:10|max:150',
+            'quantity' => 'required|min:1|max:20',
+            'image' => 'image|mimes:jpeg,png,jpg|max:10062',
         ];
     }
 }

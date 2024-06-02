@@ -11,12 +11,14 @@ class ProductRepository
     public function getAll()
     {
         return Product::whereHas('shop', function ($query) {
-            $query->where('user_id', auth()->user()->id);
-        })->orderBy('id','desc')->paginate(100);
+            $query->where('user_id', $this->getUserId());
+        })->orderBy('id', 'desc')->paginate(100);
     }
+
+
     public function findPublicProducts($shopId)
     {
-        return Product::orderBy('id','desc')->where('shop_id',$shopId)->get();
+        return Product::orderBy('id', 'desc')->where('shop_id', $shopId)->get();
     }
 
     public function getById($id)
@@ -37,7 +39,7 @@ class ProductRepository
     {
         $data = $request->validated();
         $product = $this->getById($id);
-        if($request->hasFile('image')){
+        if ($request->hasFile('image')) {
             $this->deleteOldImage($product->image);
             $product->image = $this->uploadNewImage($request);
         }
@@ -49,10 +51,10 @@ class ProductRepository
     public function delete($id)
     {
         $product = Product::findOrFail($id);
-        if($product->image){
+        if ($product->image) {
             $this->deleteOldImage($product->image);
         }
-        $product->delete();
+        return $product->delete();
     }
     public function getSortedProducts()
     {
@@ -63,9 +65,23 @@ class ProductRepository
     {
         $file = $data->file('image');
         $extension = $file->getClientOriginalExtension();
-        $filename = 'image/products/' .uniqid().'.' . $extension;
+        $filename = 'image/products/' . uniqid() . '.' . $extension;
         $file->move('image/products/', $filename);
         return $filename;
+    }
+
+    public function all()
+    {
+        return Product::orderBy('id', 'desc')->paginate(20);
+    }
+
+    public function isShopIdForCurrentUser($shopId)
+    {
+        $userShops = auth()->user()->shops->pluck('id')->toArray();
+        if (in_array($shopId, $userShops)) {
+            return true;
+        }
+        return false;
     }
 
     protected function deleteOldImage($imagePath)
@@ -78,7 +94,11 @@ class ProductRepository
 
     public function getAllShopsRelatedToUser()
     {
-        return Shop::where('user_id',auth()->user()->id)->get();
-    
+        return Shop::where('user_id', $this->getUserId())->get();
+    }
+
+    protected function getUserId()
+    {
+        return auth()->user()->id;
     }
 }

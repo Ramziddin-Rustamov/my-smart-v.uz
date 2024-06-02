@@ -12,18 +12,17 @@ class ShopRepository
 
     public function getAllByUser()
     {
-        return Shop::orderBy('id','desc')->where('user_id', auth()->user()->id)->get();
+        return Shop::orderBy('id', 'desc')->where('user_id', auth()->user()->id)->get();
     }
 
     public function getPublicShops()
     {
-        return Shop::orderBy('id','desc')->get();
+        return Shop::orderBy('id', 'desc')->get();
     }
 
     public function findById($id)
     {
-        $shop = Shop::findOrFail($id);
-        return $shop;
+        return Shop::findOrFail($id);
     }
 
     public function create($request)
@@ -32,16 +31,15 @@ class ShopRepository
         if ($request->hasfile('image')) {
             $data['image'] = $this->uploadNewImage($request);
         }
-        $auth = Auth::id();
-        $data["user_id"] = $auth;
+        $data["user_id"] = $this->userId();
         return Shop::create($data);
     }
 
-    public function update(Shop $shop, $request)
+    public function update($id, $request)
     {
         $data = $request->validated();
-        $shop = $this->findById($shop);
-        if($request->hasFile('image')){
+        $shop = $this->findById($id);
+        if ($request->hasFile('image')) {
             $this->deleteOldImage($shop->image);
             $shop->image = $this->uploadNewImage($request);
         }
@@ -52,20 +50,25 @@ class ShopRepository
 
     public function delete($id)
     {
-       $shop = Shop::where('id',$id)->first();
-       if($shop->image){
-           $this->deleteOldImage($shop->image);
-       }  
-       return $shop->delete();
+        $shop = Shop::where('id', $id)->where('user_id', $this->userId())->first();
+        if ($shop->image) {
+            $this->deleteOldImage($shop->image);
+        }
+        return $shop->delete();
     }
 
- 
+    protected function userId()
+    {
+        return auth()->user()->id;
+    }
+
+
 
     protected function uploadNewImage($data)
     {
         $file = $data->file('image');
         $extension = $file->getClientOriginalExtension();
-        $filename = 'image/shops/' .uniqid().'.' . $extension;
+        $filename = 'image/shops/' . uniqid() . '.' . $extension;
         $file->move('image/shops/', $filename);
         return $filename;
     }
@@ -77,5 +80,4 @@ class ShopRepository
             File::delete($destinationPath);
         }
     }
-    
 }

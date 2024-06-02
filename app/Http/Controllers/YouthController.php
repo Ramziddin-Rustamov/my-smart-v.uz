@@ -18,6 +18,7 @@ class YouthController extends Controller
 
     public function index()
     {
+        // youth
         return view("youth.index");
     }
 

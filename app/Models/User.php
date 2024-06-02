@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Models;
 
 use App\Models\Like;
@@ -68,9 +69,10 @@ class User extends Authenticatable implements JWTSubject
     {
         return [];
     }
-    
 
-    public function posts(){
+
+    public function posts()
+    {
 
         return $this->hasMany(Post::class);
     }
@@ -88,6 +90,11 @@ class User extends Authenticatable implements JWTSubject
     public function shopOwner()
     {
         return $this->hasOne(ShopOwner::class);
+    }
+
+    public function shops()
+    {
+        return $this->hasMany(Shop::class);
     }
 
     public function teamMembers()
@@ -114,5 +121,4 @@ class User extends Authenticatable implements JWTSubject
     {
         return $this->hasOne(Admin::class);
     }
-
 }

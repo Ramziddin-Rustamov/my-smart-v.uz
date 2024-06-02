@@ -45,11 +45,21 @@ class ProductService
 
     public function deleteProduct($id)
     {
-        $this->productRepository->delete($id);
+        return $this->productRepository->delete($id);
     }
 
     public function getSortedProducts()
     {
         return $this->productRepository->getSortedProducts();
+    }
+
+    public function isShopIdForCurrentUser($shopId)
+    {
+        return $this->productRepository->isShopIdForCurrentUser($shopId);
+    }
+
+    public function all()
+    {
+        return $this->productRepository->all();
     }
 }

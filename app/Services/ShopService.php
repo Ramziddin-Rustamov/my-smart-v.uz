@@ -35,13 +35,11 @@ class ShopService
 
     public function update($id, $request)
     {
-        $shop = $this->shopRepository->findById($id);
-        return $this->shopRepository->update($shop, $request);
+        return $this->shopRepository->update($id, $request);
     }
 
     public function delete($id)
     {
         return $this->shopRepository->delete($id);
     }
-
 }

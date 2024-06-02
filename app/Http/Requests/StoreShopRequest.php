@@ -6,7 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class StoreShopRequest extends FormRequest
 {
-    
+
     public function authorize()
     {
         return true;
@@ -15,8 +15,8 @@ class StoreShopRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'string',
-            'address' => 'string',
+            'name' => 'string|max:60|min:5',
+            'address' => 'string|max:100|min:10',
             'opened_date' => 'date',
             'image' => 'nullable|image|mimes:jpeg,png,jpg|max:3048',
             'phone' => 'nullable|string',

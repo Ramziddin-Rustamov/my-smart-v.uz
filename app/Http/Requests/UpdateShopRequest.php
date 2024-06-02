@@ -24,11 +24,10 @@ class UpdateShopRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'string',
-            'address' => 'string',
+            'name' => 'string|max:60|min:5',
+            'address' => 'string|max:100|min:10',
             'opened_date' => 'date',
-            'user_id' => 'exists:users,id',
-            'image' => 'nullable|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:1048',
             'phone' => 'nullable|string',
         ];
     }

@@ -12,8 +12,10 @@ use App\Http\Controllers\API\v1\EmergencyPhoneNumber\EmergencyPhoneNumberControl
 use App\Http\Controllers\API\v1\People\PeopleController;
 use App\Http\Controllers\API\v1\Post\PostsController;
 use App\Http\Controllers\API\v1\PostLike\PostLikesController;
+use App\Http\Controllers\API\v1\Product\ProductController;
 use App\Http\Controllers\API\v1\Profile\MyProfileController;
 use App\Http\Controllers\API\v1\Quarter\QuarterController;
+use App\Http\Controllers\API\v1\Shop\ShopController;
 
 Route::post('login', [AuthController::class, 'login']);
 Route::post('register', [AuthController::class, 'register']);
@@ -74,4 +76,20 @@ Route::middleware(['auth:api'])->group(function () {
     Route::get('posts', [PostsController::class, 'index']);
     Route::get('posts/{post}', [PostsController::class, 'findOne']);
     Route::get('latest-posts', [PostsController::class, 'getThree']);
+
+    // Product routes
+    Route::get('products', [ProductController::class, 'index']);
+    Route::post('products', [ProductController::class, 'store']);
+    Route::get('products/{product}', [ProductController::class, 'show']);
+    Route::put('products/{product}', [ProductController::class, 'update']);
+    Route::delete('products/{product}', [ProductController::class, 'destroy']);
+
+    // Shops
+    Route::get('/shops', [ShopController::class, 'index']);
+    Route::post('/shops', [ShopController::class, 'store']);
+    Route::get('/shops/{id}', [ShopController::class, 'show']);
+    Route::put('/shops/{id}', [ShopController::class, 'update']);
+    Route::delete('/shops/{id}', [ShopController::class, 'destroy']);
+    Route::get('/public-shops', [ShopController::class, 'publicShops']);
+    Route::get('/shops/{shopId}/products', [ShopController::class, 'shopProducts']);
 });
