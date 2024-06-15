@@ -13,6 +13,7 @@ class YouthController extends Controller
 
     public function __construct(YouthService $youthSerive)
     {
+        //  get service here 
         $this->youthSerive = $youthSerive;
     }
 
